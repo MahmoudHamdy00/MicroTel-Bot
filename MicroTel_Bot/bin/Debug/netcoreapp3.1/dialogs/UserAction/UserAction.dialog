@@ -19,7 +19,7 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "zRX7v7"
+            "id": "l93EbV"
           },
           "activityProcessed": true,
           "dialog": "ExtarctUserInfo",
@@ -30,19 +30,7 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "DoumLz"
-          },
-          "activityProcessed": true,
-          "dialog": "AddressDialog",
-          "resultProperty": "user.address",
-          "options": {
-            "address": "=user.address"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "juCalC"
+            "id": "YWEQnZ"
           },
           "activityProcessed": true,
           "dialog": "ExtractTier",
@@ -53,19 +41,34 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "tn6L1m"
+            "id": "wJNCqA"
           },
           "activityProcessed": true,
-          "dialog": "VerifyName",
-          "options": {}
+          "dialog": "verifyAction"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "qqnXDL",
+            "comment": ""
+          },
+          "activity": "${SendActivity_qqnXDL()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "PcuOsY",
+            "comment": "if there is no missing information "
+          },
+          "activity": "${SendActivity_PcuOsY()}"
         },
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "V8p5gR"
+            "id": "tn6L1m"
           },
           "activityProcessed": true,
-          "dialog": "verifylname",
+          "dialog": "VerifyName",
           "options": {}
         },
         {
@@ -99,11 +102,22 @@
           }
         },
         {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "J7GfMF"
+          },
+          "activityProcessed": true,
+          "dialog": "AddressDialog",
+          "resultProperty": "user.address",
+          "options": {
+            "address": "=user.address"
+          }
+        },
+        {
           "$kind": "Microsoft.SwitchCondition",
           "$designer": {
             "id": "NUp7bS"
           },
-          "condition": "@action",
           "cases": [
             {
               "value": "singup",
@@ -140,7 +154,8 @@
               },
               "activity": "${SendActivity_qWqgxh()}"
             }
-          ]
+          ],
+          "condition": "=user.action"
         }
       ]
     }

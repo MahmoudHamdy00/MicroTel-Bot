@@ -15,3 +15,19 @@
 # SendActivity_Ed2YXt_text()
 - hello ${user.fname} , ${user.mname}- ${user.lname}
 
+
+# SendActivity_qqnXDL()
+[Activity
+    Text = ${SendActivity_qqnXDL_text()}
+]
+
+# SendActivity_qqnXDL_text()
+- ```Ok ${user.fname} i get it. you want to ${user.action}
+```
+# SendActivity_PcuOsY()
+[Activity
+    Text = ${SendActivity_PcuOsY_text()}
+]
+
+# SendActivity_PcuOsY_text()
+- To be able to help you i need some information, we won't take too much time. 😃

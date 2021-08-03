@@ -23,7 +23,7 @@
           "$designer": {
             "id": "sF0fYv"
           },
-          "condition": "exists(user.greeted)",
+          "condition": "exists(user.fname)",
           "actions": [
             {
               "$kind": "Microsoft.SendActivity",
@@ -35,11 +35,12 @@
           ],
           "elseActions": [
             {
-              "$kind": "Microsoft.SendActivity",
+              "$kind": "Microsoft.BeginDialog",
               "$designer": {
-                "id": "f3uG2y"
+                "id": "pY1fHf"
               },
-              "activity": "${SendActivity_WelcomeNewUser()}"
+              "activityProcessed": true,
+              "dialog": "GetName"
             },
             {
               "$kind": "Microsoft.SetProperty",
@@ -47,7 +48,15 @@
                 "id": "ucFnwQ"
               },
               "property": "user.greeted",
-              "value": "true"
+              "value": "true",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "8FJQCZ"
+              },
+              "activityProcessed": true
             }
           ]
         }

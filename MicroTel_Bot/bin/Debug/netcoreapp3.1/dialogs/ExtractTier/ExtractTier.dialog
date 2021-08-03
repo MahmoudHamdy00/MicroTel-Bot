@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "RLsUjE"
-          },
-          "activity": "${SendActivity_RLsUjE()}"
-        },
-        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
             "id": "6GvJr5"

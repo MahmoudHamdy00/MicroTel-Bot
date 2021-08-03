@@ -29,15 +29,7 @@
             "id": "EMo7g9"
           },
           "condition": "=exists(user.action)",
-          "actions": [
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "WqshAu"
-              },
-              "value": "${user.action}"
-            }
-          ],
+          "actions": [],
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
@@ -55,18 +47,14 @@
               "defaultValueResponse": "",
               "choiceOptions": {
                 "includeNumbers": true,
-                "inlineOrMore": ", or "
+                "inlineOrMore": ", or ",
+                "inlineOr": " or "
               },
               "choices": [
                 "sign up new number",
                 "forget my number"
-              ]
-            },
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "HOgtUy"
-              }
+              ],
+              "property": "user.action"
             }
           ]
         }

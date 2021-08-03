@@ -26,5 +26,13 @@
         "CountryDialog.en-us"
       ]
     }
+  },
+  "VerifyName.en-us": {
+    "rootDialog": false,
+    "triggers": {
+      "": [
+        "GetName.en-us"
+      ]
+    }
   }
 }

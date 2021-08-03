@@ -12,3 +12,10 @@ address is ${user.address}
 natid is ${user.nationalID}
 birth is ${user.birthdate[0].timex[0]}
 action is ${user.action}```
+# SendActivity_ahjL6H()
+[Activity
+    Text = ${SendActivity_ahjL6H_text()}
+]
+
+# SendActivity_ahjL6H_text()
+- user action isssss ${user.action}

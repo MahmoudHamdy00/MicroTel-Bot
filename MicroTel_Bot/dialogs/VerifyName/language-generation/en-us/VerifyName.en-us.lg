@@ -1,26 +1,55 @@
 [import](common.lg)
 
-# TextInput_Prompt_k1ywbs()
+# TextInput_Prompt_hX4FAw_text()
+- What is your last name?
+# TextInput_Prompt_hX4FAw()
 [Activity
-    Text = ${TextInput_Prompt_k1ywbs_text()}
+    Text = ${TextInput_Prompt_hX4FAw_text()}
 ]
 
-# TextInput_Prompt_k1ywbs_text()
-- What is your name?
-# SendActivity_Pz8RAV()
+# TextInput_InvalidPrompt_hX4FAw_text()
+- you didn't enter you name correctly ,please try again
+# TextInput_InvalidPrompt_hX4FAw()
 [Activity
-    Text = ${SendActivity_Pz8RAV_text()}
+    Text = ${TextInput_InvalidPrompt_hX4FAw_text()}
 ]
 
-# SendActivity_Pz8RAV_text()
+# SendActivity_34EcKK_text()
 - ```name extracted is ${@name}
 first name is ${@name.fname[0]}
 lst name is ${@name.lname[0]}
 ```
-# TextInput_InvalidPrompt_k1ywbs()
+# SendActivity_34EcKK()
 [Activity
-    Text = ${TextInput_InvalidPrompt_k1ywbs_text()}
+    Text = ${SendActivity_34EcKK_text()}
 ]
 
-# TextInput_InvalidPrompt_k1ywbs_text()
-- you didn't enter your name correctly ,please try again
+# SendActivity_ZcCUZ2_text()
+- 1.final name is ${user.fname} ::: ${@name.lname[0]}
+# SendActivity_ZcCUZ2()
+[Activity
+    Text = ${SendActivity_ZcCUZ2_text()}
+]
+
+# SendActivity_OhFy3T_text()
+- 2.final name is ${user.fname} ::: ${@name.fname[0]}::::: ${@name.lname[0]}
+
+
+> # Entity definitions
+
+
+
+
+
+> # PREBUILT Entity definitions
+# SendActivity_OhFy3T()
+[Activity
+    Text = ${SendActivity_OhFy3T_text()}
+]
+
+# SendActivity_pB4Mpj_text()
+- 3.final name is ${user.fname} ::: ${@name.fname[0]}
+# SendActivity_pB4Mpj()
+[Activity
+    Text = ${SendActivity_pB4Mpj_text()}
+]

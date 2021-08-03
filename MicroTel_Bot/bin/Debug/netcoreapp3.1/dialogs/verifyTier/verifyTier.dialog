@@ -17,27 +17,12 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "n4uhao"
-          },
-          "activity": "${SendActivity_n4uhao()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "WLnd9T"
           },
-          "condition": "=exists(dialog.tier)",
-          "actions": [
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "Ncrr1K"
-              },
-              "value": "${dialog.tier}"
-            }
-          ],
+          "condition": "=exists(user.tier)",
+          "actions": [],
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
@@ -68,13 +53,6 @@
                 "VIP"
               ],
               "property": "user.teir"
-            },
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "rXaOFI"
-              },
-              "value": "${user.teir}"
             }
           ]
         }

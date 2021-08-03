@@ -1,0 +1,26 @@
+[import](common.lg)
+
+# TextInput_Prompt_k1ywbs()
+[Activity
+    Text = ${TextInput_Prompt_k1ywbs_text()}
+]
+
+# TextInput_Prompt_k1ywbs_text()
+- What is your name?
+# SendActivity_Pz8RAV()
+[Activity
+    Text = ${SendActivity_Pz8RAV_text()}
+]
+
+# SendActivity_Pz8RAV_text()
+- ```name extracted is ${@name}
+first name is ${@name.fname[0]}
+lst name is ${@name.lname[0]}
+```
+# TextInput_InvalidPrompt_k1ywbs()
+[Activity
+    Text = ${TextInput_InvalidPrompt_k1ywbs_text()}
+]
+
+# TextInput_InvalidPrompt_k1ywbs_text()
+- you didn't enter your name correctly ,please try again

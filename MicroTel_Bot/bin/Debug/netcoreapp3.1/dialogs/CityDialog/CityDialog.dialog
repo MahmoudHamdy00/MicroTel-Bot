@@ -1,0 +1,66 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "9SiZVS",
+    "name": "CityDialog",
+    "comment": "Verfiy and extract city name from user utterance "
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "haCnB6"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "fwGMXR"
+          },
+          "condition": "=exists(dialog.city) ",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "JtzDpQ"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "validations": [
+                "=exists(@city)",
+                "=@city.type == \"city\""
+              ],
+              "prompt": "${TextInput_Prompt_JtzDpQ()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_JtzDpQ()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "I09kFk"
+              },
+              "property": "dialog.city",
+              "value": "=@city.location"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "L3HNNN"
+          },
+          "value": "=dialog.city"
+        }
+      ]
+    }
+  ],
+  "generator": "CityDialog.lg",
+  "recognizer": "CityDialog.lu.qna",
+  "id": "CityDialog"
+}

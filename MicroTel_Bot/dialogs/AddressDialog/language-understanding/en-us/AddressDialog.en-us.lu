@@ -1,0 +1,30 @@
+
+# TextInput_Response_e9JPtG
+- {@address={@streetNumber=1} {@streetName=eltahrir street} {@city=cairo} {@country=egypt}}
+- {@address={@streetNumber=20} {@streetName=manyal street}, {@city=new cairo}, {@country=egypt}}
+- currently i am at {@address={@streetNumber=302} {@streetName=main st}, {@city=manitoba}, {@country=canada}}
+- currently i live in {@address={@streetNumber=70} {@streetName=whatlington road} {@city=alberta}}
+- {@address={@streetName=el-gueish st., attaba} {@streetNumber=37}, {@city=cairo}, {@country=egypt}}
+- i am from {@address={@streetNumber=989} {@streetName=archwood avenue} {@city=new york} {@country=united states}}
+- i come from {@address={@streetNumber=3168} {@streetName=peaceful lane}, {@city=ohio}, {@country=united states}}
+- i live at {@address={@city=alexandria} {@country=egypt} on {@streetNumber=12} {@streetName=mustafa kamel street}}
+- i live at {@address={@city=luxor} {@country=egypt}}
+- i live in {@address={@streetNumber=27}, {@streetName=el gizera el wosta st}. {@city=cairo} {@country=egypt}}.
+- i live near the {@address={@streetNumber=main street} in {@city=alexandria}}
+- my address is {@address={@streetNumber=3119} {@streetName=2nd street}}
+- my address is {@address={@streetNumber=544} {@streetName=mcgill road} {@country=canada}}
+- my street number is {@address={@streetNumber=737} and called {@streetName=oak street}, my city is {@city=illinois} and my country is {@country=france}}
+- street {@address={@streetNumber=2563} {@streetName=shady pines drive}, city {@city=luxor}, country {@country=australia}}
+
+
+@ ml address
+    - @ number streetNumber
+    - @ ml streetName
+    - @ geographyV2 city
+    - @ geographyV2 country
+
+> # PREBUILT Entity definitions
+
+@ prebuilt geographyV2
+
+@ prebuilt number

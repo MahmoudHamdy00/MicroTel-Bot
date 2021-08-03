@@ -1,0 +1,14 @@
+
+# TextInput_Response_JtzDpQ
+- I live in {@city=paris}
+- {@city=cairo}
+- {@city=seattle} city
+- currently I live in {@city=seattle}
+- I am from {@city=alexandria}
+- my home city is {@city=tanta}
+- I'm from {@city=london}
+- I was born in {@city=Canberra}
+
+
+@ ml city usesFeature geographyV2*
+@ prebuilt geographyV2

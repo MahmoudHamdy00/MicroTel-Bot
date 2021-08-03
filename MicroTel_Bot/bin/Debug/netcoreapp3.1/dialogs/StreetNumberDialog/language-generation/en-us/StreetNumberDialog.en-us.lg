@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# TextInput_Prompt_Hz6F4l()
+[Activity
+    Text = ${TextInput_Prompt_Hz6F4l_text()}
+]
+
+# TextInput_Prompt_Hz6F4l_text()
+- What is your street number?
+# TextInput_InvalidPrompt_Hz6F4l()
+[Activity
+    Text = ${TextInput_InvalidPrompt_Hz6F4l_text()}
+]
+
+# TextInput_InvalidPrompt_Hz6F4l_text()
+- Invalid street number. Would you please insert your correct street number?

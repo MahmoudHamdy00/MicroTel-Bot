@@ -1,0 +1,66 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "aqwiA1",
+    "name": "StreetNumberDialog",
+    "comment": "Verify and extract street number."
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "Rmbobj"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "qXG8Mo"
+          },
+          "condition": "=exists(dialog.streetNumber) ",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "Hz6F4l"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "validations": [
+                "=exists(@number)"
+              ],
+              "prompt": "${TextInput_Prompt_Hz6F4l()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_Hz6F4l()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "3zzjQp"
+              },
+              "property": "dialog.streetNumber",
+              "value": "=@number"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "YjBWoj"
+          },
+          "value": "=dialog.streetNumber"
+        }
+      ]
+    }
+  ],
+  "generator": "StreetNumberDialog.lg",
+  "recognizer": "StreetNumberDialog.lu.qna",
+  "id": "StreetNumberDialog"
+}

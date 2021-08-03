@@ -1,0 +1,151 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "gndRJp",
+    "name": "UserAction",
+    "comment": "this dialog is for signup new user or to be used when the user forget his number"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "JM0Hpl"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "zRX7v7"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtarctUserInfo",
+          "options": {
+            "userInfo": "=@userInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "juCalC"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier",
+          "options": {
+            "tier": "=@tier"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "tn6L1m"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyName",
+          "options": {}
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "V8p5gR"
+          },
+          "activityProcessed": true,
+          "dialog": "verifylname",
+          "options": {}
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Ed2YXt"
+          },
+          "activity": "${SendActivity_Ed2YXt()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "9LIfKX"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyBirthdate",
+          "options": {},
+          "resultProperty": "user.birthdate"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ANvefA",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "verifyNationalId",
+          "resultProperty": "user.nationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "J7GfMF"
+          },
+          "activityProcessed": true,
+          "dialog": "AddressDialog",
+          "resultProperty": "user.address",
+          "options": {
+            "address": "=user.address"
+          }
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "NUp7bS"
+          },
+          "condition": "@action",
+          "cases": [
+            {
+              "value": "singup",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "wfy2kW"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "signUp"
+                }
+              ]
+            },
+            {
+              "value": "forget",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "kYuV7z"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "forgetNumber"
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "qWqgxh"
+              },
+              "activity": "${SendActivity_qWqgxh()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "UserAction.lg",
+  "recognizer": "UserAction.lu.qna",
+  "id": "UserAction"
+}

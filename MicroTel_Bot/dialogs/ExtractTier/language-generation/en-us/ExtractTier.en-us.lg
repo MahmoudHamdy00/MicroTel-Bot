@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_RLsUjE()
+[Activity
+    Text = ${SendActivity_RLsUjE_text()}
+]
+
+# SendActivity_RLsUjE_text()
+- iam in `tier` ${dialog.tier} 

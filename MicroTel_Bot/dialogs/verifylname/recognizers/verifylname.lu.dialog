@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_verifylname",
+  "recognizers": {
+    "en-us": "verifylname.en-us.lu",
+    "": "verifylname.en-us.lu"
+  }
+}

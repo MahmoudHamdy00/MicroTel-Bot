@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_FyoxOC_text()
+- What is your street name?
+# TextInput_Prompt_FyoxOC()
+[Activity
+    Text = ${TextInput_Prompt_FyoxOC_text()}
+]
+
+# TextInput_InvalidPrompt_FyoxOC_text()
+- Invalid street name. Would you please insert your correct street name?
+# TextInput_InvalidPrompt_FyoxOC()
+[Activity
+    Text = ${TextInput_InvalidPrompt_FyoxOC_text()}
+]

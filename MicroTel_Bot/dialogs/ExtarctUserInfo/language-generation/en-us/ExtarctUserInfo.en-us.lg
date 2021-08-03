@@ -1,0 +1,14 @@
+[import](common.lg)
+
+# SendActivity_dr6kW2()
+[Activity
+    Text = ${SendActivity_dr6kW2_text()}
+]
+
+# SendActivity_dr6kW2_text()
+- ```fname is ${user.fname}
+lname is ${user.lname}
+address is ${user.address}
+natid is ${user.nationalID}
+birth is ${user.birthdate[0].timex[0]}
+action is ${user.action}```

@@ -1,0 +1,34 @@
+
+# TextInput_Response_k1ywbs
+- {@name={@fname=ahmed}}
+- ahmed kareem
+- {@name={@fname=ahmed} {@lname=mohamed}}
+- {@name={@fname=el-hammamy}}
+- {@name={@fname=gary} {@lname=cooper}}
+- {@name={@fname=hazem}}
+- {@name=hazem {@lname=el-hammamy}}
+- {@name={@fname=hussein} {@lname=ibrahim}}
+- i am {@name={@fname=ahmed} {@lname=ezzat}}
+- i am {@name={@fname=yasser} {@lname=mohamed}}
+- {@name={@fname=kareem}}
+- kareem ahmed
+- {@name={@fname=mahmoud} {@lname=hamdy}}
+- my name is {@name={@fname=mahmoud} {@lname=hamdy}}
+- name is {@name={@fname=mahmoud} {@lname=abdel-kareem}}
+- {@name={@fname=nayer}}
+- {@name=nayer {@lname=wanas}}
+
+> # Entity definitions
+
+
+@ ml name usesFeature personName
+    - @ ml fname
+    - @ ml lname
+
+
+
+> # PREBUILT Entity definitions
+
+
+@ prebuilt personName
+

@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_CityDialog",
+  "recognizers": {
+    "en-us": "CityDialog.en-us.lu",
+    "": "CityDialog.en-us.lu"
+  }
+}

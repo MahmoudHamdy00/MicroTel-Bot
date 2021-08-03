@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_fcBCnU_text()
+- Which country are you from?
+# TextInput_Prompt_fcBCnU()
+[Activity
+    Text = ${TextInput_Prompt_fcBCnU_text()}
+]
+
+# TextInput_InvalidPrompt_fcBCnU_text()
+- Invalid country name. Would you please insert your valid country name? "ex: Egypt"
+# TextInput_InvalidPrompt_fcBCnU()
+[Activity
+    Text = ${TextInput_InvalidPrompt_fcBCnU_text()}
+]

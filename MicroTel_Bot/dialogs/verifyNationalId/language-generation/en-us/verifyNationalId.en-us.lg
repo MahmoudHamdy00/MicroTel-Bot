@@ -1,0 +1,25 @@
+[import](common.lg)
+
+# SendActivity_vW7FiS()
+[Activity
+    Text = ${SendActivity_vW7FiS_text()}
+]
+
+# SendActivity_vW7FiS_text()
+- Your ID is ${dialog.nationalID}
+# TextInput_Prompt_Xb39A8_text()
+- What is your national id?
+- May I get your national id?
+# TextInput_Prompt_Xb39A8()
+[Activity
+    Text = ${TextInput_Prompt_Xb39A8_text()}
+]
+
+
+# TextInput_InvalidPrompt_Xb39A8()
+[Activity
+    Text = ${TextInput_InvalidPrompt_Xb39A8_text()}
+]
+
+# TextInput_InvalidPrompt_Xb39A8_text()
+- Invalid national id. Would you please insert your correct national id?

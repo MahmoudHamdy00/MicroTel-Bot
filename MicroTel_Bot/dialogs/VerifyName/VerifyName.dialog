@@ -1,0 +1,89 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "FLs4us",
+    "name": "VerifyName",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "M8BbYO"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "h2nEsZ"
+          },
+          "condition": "=exists(user.fname)",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "k1ywbs"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_k1ywbs()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_k1ywbs()}",
+              "validations": [
+                "=exists(@name)"
+              ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Pz8RAV"
+              },
+              "activity": "${SendActivity_Pz8RAV()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "PubMoc"
+              },
+              "value": "${@name.fname[0]}",
+              "property": "user.fname"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "cC2v46"
+              },
+              "condition": "=exists(@name.lname[0])",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "UTlhcq"
+                  },
+                  "value": "${@name.lname[0]}",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "Sp7yjc"
+          }
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyName.lg",
+  "recognizer": "VerifyName.lu.qna",
+  "id": "VerifyName"
+}

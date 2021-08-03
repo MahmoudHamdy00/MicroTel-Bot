@@ -1,0 +1,140 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "n74DUL",
+    "name": "verifylname",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "mCZXgt"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "JMtRp7"
+          },
+          "condition": "=exists(user.lname)",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "bbe7yv"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_bbe7yv()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "${TextInput_InvalidPrompt_bbe7yv()}",
+              "validations": [
+                "=exists(@name)"
+              ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "3t5bEi"
+              },
+              "activity": "${SendActivity_3t5bEi()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "7ykmkY"
+              },
+              "condition": "=exists(@name.lname[0])",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "Vlf8zG"
+                  },
+                  "condition": "=equals(user.fname,@name.fname[0])",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "jfN4CP"
+                      },
+                      "activity": "${SendActivity_jfN4CP()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "abUwK7"
+                      },
+                      "property": "user.lname",
+                      "value": "${@name.lname[0]}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Lm5LvL"
+                      },
+                      "activity": "${SendActivity_Lm5LvL()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "Mjd46o"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.mname",
+                          "value": "${@name.fname[0]}"
+                        },
+                        {
+                          "property": "user.lname",
+                          "value": "${@name.lname[0]}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "pJ5Ew5"
+                  },
+                  "activity": "${SendActivity_pJ5Ew5()}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "DJ2SoE"
+                  },
+                  "value": "${@name.fname[0]}",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "HGUG8y"
+          }
+        }
+      ]
+    }
+  ],
+  "generator": "verifylname.lg",
+  "recognizer": "verifylname.lu.qna",
+  "id": "verifylname"
+}

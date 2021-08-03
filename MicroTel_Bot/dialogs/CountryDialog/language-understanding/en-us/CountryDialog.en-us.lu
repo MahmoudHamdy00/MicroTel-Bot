@@ -1,0 +1,14 @@
+
+# TextInput_Response_fcBCnU
+- I live in {@country=france}
+- {@country=Egypt}
+- {@country=USA} 
+- currently I live in {@country=norway}
+- I am from {@country=Rwanda}
+- my home country is {@country=England}
+- I'm from {@country=germany}
+- I was born in {@country=Australia}
+
+
+@ ml country usesFeature geographyV2*
+@ prebuilt geographyV2

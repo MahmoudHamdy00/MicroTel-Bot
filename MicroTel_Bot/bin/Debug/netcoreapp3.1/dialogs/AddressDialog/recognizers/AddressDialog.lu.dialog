@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_AddressDialog",
+  "recognizers": {
+    "en-us": "AddressDialog.en-us.lu",
+    "": "AddressDialog.en-us.lu"
+  }
+}

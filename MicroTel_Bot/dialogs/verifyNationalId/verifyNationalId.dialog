@@ -1,0 +1,72 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "YLwp6d",
+    "name": "verifyNationalId",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "I3atJU"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "vW7FiS"
+          },
+          "activity": "${SendActivity_vW7FiS()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "b7rzdy"
+          },
+          "condition": "=exists(dialog.nationalID)",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "Xb39A8"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_Xb39A8()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_Xb39A8()}",
+              "validations": [
+                "=exists(@nationalID)"
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "ZeZf3i"
+              },
+              "property": "dialog.nationalID",
+              "value": "=@nationalID"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "YnX43o"
+          },
+          "value": "=dialog.nationalID"
+        }
+      ]
+    }
+  ],
+  "generator": "verifyNationalId.lg",
+  "recognizer": "verifyNationalId.lu.qna",
+  "id": "verifyNationalId"
+}

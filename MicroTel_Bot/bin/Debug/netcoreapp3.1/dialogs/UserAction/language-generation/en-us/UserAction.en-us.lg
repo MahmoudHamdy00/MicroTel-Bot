@@ -1,0 +1,17 @@
+[import](common.lg)
+
+# SendActivity_qWqgxh_text()
+- Sorry I can't understand what you want.
+# SendActivity_qWqgxh()
+[Activity
+    Text = ${SendActivity_qWqgxh_text()}
+]
+
+# SendActivity_Ed2YXt()
+[Activity
+    Text = ${SendActivity_Ed2YXt_text()}
+]
+
+# SendActivity_Ed2YXt_text()
+- hello ${user.fname} , ${user.mname}- ${user.lname}
+

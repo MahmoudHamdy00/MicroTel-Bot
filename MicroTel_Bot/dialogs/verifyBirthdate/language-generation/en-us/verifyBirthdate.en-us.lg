@@ -1,0 +1,23 @@
+[import](common.lg)
+
+# SendActivity_muKuuI()
+[Activity
+    Text = ${SendActivity_muKuuI_text()}
+]
+
+# SendActivity_muKuuI_text()
+- you are in `verify birthdate`
+# TextInput_Prompt_TQQnRc_text()
+- What is you birthdate?
+# TextInput_Prompt_TQQnRc()
+[Activity
+    Text = ${TextInput_Prompt_TQQnRc_text()}
+]
+
+# TextInput_InvalidPrompt_TQQnRc()
+[Activity
+    Text = ${TextInput_InvalidPrompt_TQQnRc_text()}
+]
+
+# TextInput_InvalidPrompt_TQQnRc_text()
+- sorry you didn't enter any dates. please try again.

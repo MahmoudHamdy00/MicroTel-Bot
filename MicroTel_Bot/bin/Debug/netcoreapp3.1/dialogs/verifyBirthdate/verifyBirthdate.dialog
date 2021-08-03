@@ -1,0 +1,71 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "oXPs3R",
+    "name": "verifyBirthdate",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "7HhIAx"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "muKuuI"
+          },
+          "activity": "${SendActivity_muKuuI()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "DDU8Nr"
+          },
+          "condition": "=exists(user.birthdate)",
+          "actions": [
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "kgSj14"
+              }
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "TQQnRc"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_TQQnRc()}",
+              "validations": [
+                "=exists(@birthdate)"
+              ],
+              "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "6wQlUh"
+              },
+              "value": "${@birthdate}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "verifyBirthdate.lg",
+  "recognizer": "verifyBirthdate.lu.qna",
+  "id": "verifyBirthdate"
+}

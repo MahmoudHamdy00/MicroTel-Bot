@@ -1,0 +1,66 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "svfAkM",
+    "name": "StreetNameDialog",
+    "comment": "Verify and extract street name from user utterance"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "xestxD"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "JSRvRy"
+          },
+          "condition": "=exists(dialog.streetName) ",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "FyoxOC"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "validations": [
+                "=exists(@streetName)"
+              ],
+              "prompt": "${TextInput_Prompt_FyoxOC()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_FyoxOC()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Xl8sIm"
+              },
+              "property": "dialog.streetName",
+              "value": "=@streetName"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "nVYZJq"
+          },
+          "value": "=dialog.streetName"
+        }
+      ]
+    }
+  ],
+  "generator": "StreetNameDialog.lg",
+  "recognizer": "StreetNameDialog.lu.qna",
+  "id": "StreetNameDialog"
+}

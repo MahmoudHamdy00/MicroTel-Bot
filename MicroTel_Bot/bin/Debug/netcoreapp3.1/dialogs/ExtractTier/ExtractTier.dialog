@@ -1,0 +1,40 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "jD5EnC",
+    "name": "ExtractTier",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "pCEulZ"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "RLsUjE"
+          },
+          "activity": "${SendActivity_RLsUjE()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "6GvJr5"
+          },
+          "property": "user.tier",
+          "value": "@tier"
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractTier.lg",
+  "recognizer": "ExtractTier.lu.qna",
+  "id": "ExtractTier"
+}

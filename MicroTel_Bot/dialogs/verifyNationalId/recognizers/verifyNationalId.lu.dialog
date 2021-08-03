@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_verifyNationalId",
+  "recognizers": {
+    "en-us": "verifyNationalId.en-us.lu",
+    "": "verifyNationalId.en-us.lu"
+  }
+}

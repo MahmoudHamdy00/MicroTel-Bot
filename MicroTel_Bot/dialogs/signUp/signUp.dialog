@@ -1,0 +1,45 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "1YRqLi",
+    "name": "signUp",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "anqgLy"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "ZfPJVA"
+          },
+          "activity": "${SendActivity_ZfPJVA()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ol4vs9",
+            "comment": "connect to DB, verify there is no user with the same natId, and if so return new uniqe number"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyTier",
+          "options": {
+            "tier": "${user.tier}"
+          },
+          "resultProperty": "user.tier"
+        }
+      ]
+    }
+  ],
+  "generator": "signUp.lg",
+  "recognizer": "signUp.lu.qna",
+  "id": "signUp"
+}

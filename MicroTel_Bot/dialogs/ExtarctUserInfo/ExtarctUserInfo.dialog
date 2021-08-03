@@ -1,0 +1,81 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "1LdUms",
+    "name": "ExtarctUserInfo",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "OV9uFG"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "NGoaSY"
+          },
+          "property": "user.action",
+          "value": "=dialog.userInfo.action[0][0]"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "N0qFPk"
+          },
+          "property": "user.fname",
+          "value": "=dialog.userInfo.name[0].fname[0]"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "VLTj84"
+          },
+          "property": "user.lname",
+          "value": "=dialog.userInfo.name[0].lname[0]"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "U7oQj2"
+          },
+          "property": "user.birthdate",
+          "value": "=dialog.userInfo.birthdate"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "qIIbo1"
+          },
+          "property": "user.nationalID",
+          "value": "=dialog.userInfo.nationalID[0]"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "gRRjLM"
+          },
+          "property": "user.address",
+          "value": "=dialog.userInfo.address[0]"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "dr6kW2"
+          },
+          "activity": "${SendActivity_dr6kW2()}",
+          "disabled": true
+        }
+      ]
+    }
+  ],
+  "generator": "ExtarctUserInfo.lg",
+  "recognizer": "ExtarctUserInfo.lu.qna",
+  "id": "ExtarctUserInfo"
+}

@@ -1,0 +1,13 @@
+
+
+
+# TextInput_Response_Xb39A8
+- 19876
+- my national id is 27654
+- 49876 is my id
+- my id is 09876
+- I think my id is 09876
+- my id is 09876
+- here is my national id 09876. do it asap.
+
+@ regex nationalID = /[0-4]{1}[0-9]{4}/

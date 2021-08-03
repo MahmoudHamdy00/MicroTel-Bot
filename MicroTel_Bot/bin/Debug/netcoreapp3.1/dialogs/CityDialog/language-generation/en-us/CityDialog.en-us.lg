@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_JtzDpQ_text()
+- Which city do you live in?
+# TextInput_Prompt_JtzDpQ()
+[Activity
+    Text = ${TextInput_Prompt_JtzDpQ_text()}
+]
+
+# TextInput_InvalidPrompt_JtzDpQ_text()
+- Invalid city name. Would you please insert your correct city name? "ex: Cairo"
+# TextInput_InvalidPrompt_JtzDpQ()
+[Activity
+    Text = ${TextInput_InvalidPrompt_JtzDpQ_text()}
+]

@@ -1,0 +1,30 @@
+{
+  "MicroTel_Bot.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "": [
+        "WelcomeDialog.en-us"
+      ],
+      "Cancel": [
+        "CancelDialog.en-us"
+      ],
+      "Help": [
+        "HelpDialog.en-us"
+      ],
+      "UserAction": [
+        "UserAction.en-us"
+      ]
+    }
+  },
+  "AddressDialog.en-us": {
+    "rootDialog": false,
+    "triggers": {
+      "": [
+        "StreetNumberDialog.en-us",
+        "StreetNameDialog.en-us",
+        "CityDialog.en-us",
+        "CountryDialog.en-us"
+      ]
+    }
+  }
+}

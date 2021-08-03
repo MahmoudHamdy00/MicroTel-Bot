@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_sFRzNZ()
+[Activity
+    Text = ${SendActivity_sFRzNZ_text()}
+]
+
+# SendActivity_sFRzNZ_text()
+- you are in `forgetNumber`

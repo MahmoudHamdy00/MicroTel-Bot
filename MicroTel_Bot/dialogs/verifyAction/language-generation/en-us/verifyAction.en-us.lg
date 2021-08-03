@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# SendActivity_wJFe1F_text()
+- you are in `verifyAction`
+# SendActivity_wJFe1F()
+[Activity
+    Text = ${SendActivity_wJFe1F_text()}
+]
+
+# ChoiceInput_Prompt_wTXORJ()
+[Activity
+    Text = ${ChoiceInput_Prompt_wTXORJ_text()}
+]
+
+# ChoiceInput_Prompt_wTXORJ_text()
+- What do you want to do ?

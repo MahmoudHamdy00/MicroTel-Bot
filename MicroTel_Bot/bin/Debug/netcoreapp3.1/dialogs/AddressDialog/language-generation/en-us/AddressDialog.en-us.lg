@@ -1,0 +1,31 @@
+[import](common.lg)
+
+# SendActivity_1Y0RKn_text()
+- ${dialog.address}
+# SendActivity_1Y0RKn()
+[Activity
+    Text = ${SendActivity_1Y0RKn_text()}
+]
+
+# TextInput_Prompt_e9JPtG_text()
+- What is you address? "ex: 1 Elfreda street, Cairo, Egypt"
+# TextInput_Prompt_e9JPtG()
+[Activity
+    Text = ${TextInput_Prompt_e9JPtG_text()}
+]
+
+# SendActivity_Ln9jZf_text()
+- ${dialog.address}
+# SendActivity_Ln9jZf()
+[Activity
+    Text = ${SendActivity_Ln9jZf_text()}
+]
+
+# TextInput_InvalidPrompt_e9JPtG()
+[Activity
+    Text = ${TextInput_InvalidPrompt_e9JPtG_text()}
+]
+
+# TextInput_InvalidPrompt_e9JPtG_text()
+- ```Invalid address was provided. Please insert your address? "ex: 1 Elfreda street, Cairo, Egypt"
+```

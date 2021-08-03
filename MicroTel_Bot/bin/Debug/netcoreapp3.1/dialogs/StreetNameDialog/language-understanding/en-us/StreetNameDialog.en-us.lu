@@ -1,0 +1,15 @@
+
+# TextInput_Response_FyoxOC
+- my street name is {@streetName=feda street}
+- {@streetName=zamalek road}
+- {@streetName=elsayed elshaik street}
+- currently I live in {@streetName=zamalek road}
+- I live in {@streetName=elmoshir tantawy street}
+- I am at {@streetName=Al Moez Li Din Allah Al Fatimi Street}
+- My family lives at {@streetName=Al-Azhar Street}
+- {@streetName=goldsmiths}
+- I live in {@burgundy}
+- my street is called {@Janice}
+- {@Ghori} is my street  
+
+@ ml streetName

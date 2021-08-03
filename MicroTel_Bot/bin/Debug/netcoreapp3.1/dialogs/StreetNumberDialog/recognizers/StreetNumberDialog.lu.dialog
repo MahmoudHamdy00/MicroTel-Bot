@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_StreetNumberDialog",
+  "recognizers": {
+    "en-us": "StreetNumberDialog.en-us.lu",
+    "": "StreetNumberDialog.en-us.lu"
+  }
+}

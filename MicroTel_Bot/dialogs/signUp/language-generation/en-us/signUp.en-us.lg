@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_ZfPJVA()
+[Activity
+    Text = ${SendActivity_ZfPJVA_text()}
+]
+
+# SendActivity_ZfPJVA_text()
+- you are in `sign up`

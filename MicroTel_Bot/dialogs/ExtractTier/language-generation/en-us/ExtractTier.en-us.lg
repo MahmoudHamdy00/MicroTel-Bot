@@ -1,10 +1,2 @@
 [import](common.lg)
 
-# SendActivity_GRZ66y()
-[Activity
-    Text = ${SendActivity_GRZ66y_text()}
-]
-
-# SendActivity_GRZ66y_text()
-- Your tier ${dialog.tier}
-

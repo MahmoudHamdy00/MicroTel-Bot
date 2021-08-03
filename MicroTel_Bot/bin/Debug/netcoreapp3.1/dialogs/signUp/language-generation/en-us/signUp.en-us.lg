@@ -1,9 +1,9 @@
 [import](common.lg)
 
-# SendActivity_ZfPJVA()
+# SendActivity_IK5JEe()
 [Activity
-    Text = ${SendActivity_ZfPJVA_text()}
+    Text = ${SendActivity_IK5JEe_text()}
 ]
 
-# SendActivity_ZfPJVA_text()
-- you are in `sign up`
+# SendActivity_IK5JEe_text()
+- Start db connection 

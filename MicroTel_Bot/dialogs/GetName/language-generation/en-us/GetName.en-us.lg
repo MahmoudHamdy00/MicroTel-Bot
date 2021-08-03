@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_vKedPy_text()
-- Hello i'm Micro 🤖, Can i know your name 😃?
+- Hello, I'm Micro 🤖, may I get your name 😃?
 - Hi there 😎 My name is Micro 🤗. what is yours ?
 - Hi my name is Micro 😃, what's your name?
 # TextInput_Prompt_vKedPy()
@@ -10,18 +10,9 @@
 ]
 
 # TextInput_InvalidPrompt_vKedPy_text()
-- you didn't enter your name correctly ,please try again
+- Hmmm, I didn't get your name. Please try again!
 # TextInput_InvalidPrompt_vKedPy()
 [Activity
     Text = ${TextInput_InvalidPrompt_vKedPy_text()}
 ]
 
-# SendActivity_kyDHk7_text()
-- ```name extracted is ${@name}
-first name is ${@name.fname[0]}
-lst name is ${@name.lname[0]}
-```
-# SendActivity_kyDHk7()
-[Activity
-    Text = ${SendActivity_kyDHk7_text()}
-]

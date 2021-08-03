@@ -126,11 +126,16 @@
               "value": "signup",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
+                  "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "diIP9v"
+                    "id": "mH9tyx"
                   },
-                  "activity": "${SendActivity_diIP9v()}"
+                  "activityProcessed": true,
+                  "dialog": "verifyTier",
+                  "options": {
+                    "tier": "=user.line.tier"
+                  },
+                  "resultProperty": "user.line.tier"
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
@@ -146,13 +151,6 @@
               "value": "forget",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "J490BQ"
-                  },
-                  "activity": "${SendActivity_J490BQ()}"
-                },
-                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
                     "id": "kYuV7z"
@@ -164,13 +162,6 @@
             }
           ],
           "default": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "IwjzWp"
-              },
-              "activity": "${SendActivity_IwjzWp()}"
-            },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {

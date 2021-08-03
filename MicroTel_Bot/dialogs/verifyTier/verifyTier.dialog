@@ -35,7 +35,6 @@
               "allowInterruptions": false,
               "prompt": "${ChoiceInput_Prompt_YEcFHo()}",
               "unrecognizedPrompt": "",
-              "invalidPrompt": "",
               "choiceOptions": {
                 "includeNumbers": true,
                 "inlineOrMore": ", or ",
@@ -46,15 +45,37 @@
                 "recognizeOrdinals": true,
                 "recognizeNumbers": true
               },
-              "choices": [
-                "Standard Package ",
-                "Premium Package ",
-                "VIP Package "
-              ],
-              "property": "dialog.teir",
+              "property": "dialog.tier",
               "style": "heroCard",
-              "validations": [
-                "=exists(dialog.teir)"
+              "validations": [],
+              "choices": [
+                {
+                  "value": "Standard Package ",
+                  "synonyms": [
+                    "Standard-Package",
+                    "Standard-Pack",
+                    "Standard Pack",
+                    "Standard"
+                  ]
+                },
+                {
+                  "value": "Premium Package ",
+                  "synonyms": [
+                    "Premium-Package",
+                    "Premium-Pack",
+                    "Premium-Pack",
+                    "Premium "
+                  ]
+                },
+                {
+                  "value": "VIP Package ",
+                  "synonyms": [
+                    "VIP-Package",
+                    "VIP-Pack",
+                    "VIP-Pack",
+                    "VIP "
+                  ]
+                }
               ]
             }
           ]

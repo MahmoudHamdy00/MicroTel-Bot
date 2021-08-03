@@ -32,19 +32,11 @@
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "kyDHk7"
-          },
-          "activity": "${SendActivity_kyDHk7()}",
-          "disabled": true
-        },
-        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
             "id": "IG0fQX"
           },
-          "value": "${@name.fname[0]}",
+          "value": "=@name.fname[0]",
           "property": "user.fname"
         },
         {
@@ -59,7 +51,7 @@
               "$designer": {
                 "id": "Y58DEM"
               },
-              "value": "${@name.lname[0]}",
+              "value": "=@name.lname[0]",
               "property": "user.lname"
             }
           ]

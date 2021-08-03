@@ -19,22 +19,9 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "ZfPJVA"
+            "id": "IK5JEe"
           },
-          "activity": "${SendActivity_ZfPJVA()}"
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "ol4vs9",
-            "comment": "connect to DB, verify there is no user with the same natId, and if so return new uniqe number"
-          },
-          "activityProcessed": true,
-          "dialog": "verifyTier",
-          "options": {
-            "tier": "${user.tier}"
-          },
-          "resultProperty": "user.tier"
+          "activity": "${SendActivity_IK5JEe()}"
         }
       ]
     }

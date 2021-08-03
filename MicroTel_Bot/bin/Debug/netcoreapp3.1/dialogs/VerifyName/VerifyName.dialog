@@ -82,7 +82,7 @@
                             "id": "StdYcK"
                           },
                           "property": "user.lname",
-                          "value": "${@name.lname[0]}"
+                          "value": "=@name.lname[0]"
                         }
                       ],
                       "elseActions": [
@@ -101,11 +101,11 @@
                           "assignments": [
                             {
                               "property": "user.mname",
-                              "value": "${@name.fname[0]}"
+                              "value": "=@name.fname[0]"
                             },
                             {
                               "property": "user.lname",
-                              "value": "${@name.lname[0]}"
+                              "value": "=@name.lname[0]"
                             }
                           ]
                         }
@@ -125,7 +125,7 @@
                       "$designer": {
                         "id": "RDaBkW"
                       },
-                      "value": "${@name.fname[0]}",
+                      "value": "=@name.fname[0]",
                       "property": "user.lname"
                     }
                   ]

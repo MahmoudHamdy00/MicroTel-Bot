@@ -56,7 +56,6 @@
               "validations": [
                 "=exists(dialog.teir)"
               ]
-
             }
           ]
         },

@@ -1,9 +1,8 @@
 [import](common.lg)
 
 # TextInput_Prompt_vKedPy_text()
-- Hello i'm Micro 🤖, Can i know your name 😃?
-- Hi there 😎 My name is Micro 🤗. what is yours ?
-- Hi my name is Micro 😃, what's your name?
+- Can i know your name 😃?
+- What's your name?
 # TextInput_Prompt_vKedPy()
 [Activity
     Text = ${TextInput_Prompt_vKedPy_text()}
@@ -24,4 +23,13 @@ lst name is ${@name.lname[0]}
 # SendActivity_kyDHk7()
 [Activity
     Text = ${SendActivity_kyDHk7_text()}
+]
+
+# SendActivity_90DeFp_text()
+- Hi there 😎 My name is Micro 🤗
+- Hello i'm Micro 🤖,
+- Hi my name is Micro 😃,
+# SendActivity_90DeFp()
+[Activity
+    Text = ${SendActivity_90DeFp_text()}
 ]

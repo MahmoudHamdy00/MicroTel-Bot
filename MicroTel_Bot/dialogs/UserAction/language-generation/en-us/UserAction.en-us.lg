@@ -31,13 +31,6 @@
 
 # SendActivity_PcuOsY_text()
 - To be able to help you i need some information, we won't take too much time. 😃
-# SendActivity_IwjzWp()
-[Activity
-    Text = ${SendActivity_IwjzWp_text()}
-]
-
-# SendActivity_IwjzWp_text()
-- i am in default
 # SendActivity_diIP9v()
 [Activity
     Text = ${SendActivity_diIP9v_text()}

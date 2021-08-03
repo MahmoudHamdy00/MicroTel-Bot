@@ -31,3 +31,24 @@
 
 # SendActivity_PcuOsY_text()
 - To be able to help you i need some information, we won't take too much time. 😃
+# SendActivity_IwjzWp()
+[Activity
+    Text = ${SendActivity_IwjzWp_text()}
+]
+
+# SendActivity_IwjzWp_text()
+- i am in default
+# SendActivity_diIP9v()
+[Activity
+    Text = ${SendActivity_diIP9v_text()}
+]
+
+# SendActivity_diIP9v_text()
+- i am in sign uppppppp
+# SendActivity_J490BQ()
+[Activity
+    Text = ${SendActivity_J490BQ_text()}
+]
+
+# SendActivity_J490BQ_text()
+- i am in forgeeeeet

@@ -76,7 +76,8 @@
           "$designer": {
             "id": "Ed2YXt"
           },
-          "activity": "${SendActivity_Ed2YXt()}"
+          "activity": "${SendActivity_Ed2YXt()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -120,8 +121,15 @@
           },
           "cases": [
             {
-              "value": "singup",
+              "value": "signup",
               "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "diIP9v"
+                  },
+                  "activity": "${SendActivity_diIP9v()}"
+                },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
@@ -136,6 +144,13 @@
               "value": "forget",
               "actions": [
                 {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "J490BQ"
+                  },
+                  "activity": "${SendActivity_J490BQ()}"
+                },
+                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
                     "id": "kYuV7z"
@@ -147,6 +162,13 @@
             }
           ],
           "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "IwjzWp"
+              },
+              "activity": "${SendActivity_IwjzWp()}"
+            },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {

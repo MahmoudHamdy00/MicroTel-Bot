@@ -21,7 +21,8 @@
           "$designer": {
             "id": "wJFe1F"
           },
-          "activity": "${SendActivity_wJFe1F()}"
+          "activity": "${SendActivity_wJFe1F()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.IfCondition",

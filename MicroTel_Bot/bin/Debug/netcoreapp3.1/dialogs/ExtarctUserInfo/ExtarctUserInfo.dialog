@@ -25,13 +25,6 @@
           "value": "=dialog.userInfo.action[0][0]"
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "ahjL6H"
-          },
-          "activity": "${SendActivity_ahjL6H()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "rEaYRl"

@@ -24,10 +24,7 @@
           },
           "activityProcessed": true,
           "dialog": "verifyTier",
-          "options": {
-            "tier": "${user.line.tier}"
-          },
-          "resultProperty": "user.line.tier"
+          "options": {}
         },
         {
           "$kind": "Microsoft.SendActivity",

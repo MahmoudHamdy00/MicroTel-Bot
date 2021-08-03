@@ -21,7 +21,7 @@
           "$designer": {
             "id": "cGe1o9"
           },
-          "condition": "=exists(dialog.tier)",
+          "condition": "=exists(user.line.tier)",
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
@@ -50,7 +50,7 @@
                 "Premium Package ",
                 "VIP Package "
               ],
-              "property": "dialog.tier ",
+              "property": "user.line.tier",
               "style": "heroCard",
               "validations": []
             }
@@ -67,8 +67,7 @@
           "$kind": "Microsoft.EndDialog",
           "$designer": {
             "id": "2QV6QI"
-          },
-          "value": "=dialog.tier "
+          }
         }
       ]
     }

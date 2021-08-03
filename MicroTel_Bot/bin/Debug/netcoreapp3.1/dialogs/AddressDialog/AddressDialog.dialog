@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "1Y0RKn"
-          },
-          "activity": "${SendActivity_1Y0RKn()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "oLtTYU"
@@ -111,9 +104,9 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "Ln9jZf"
+            "id": "UcPtSS"
           },
-          "activity": "${SendActivity_Ln9jZf()}"
+          "activity": "${SendActivity_UcPtSS()}"
         },
         {
           "$kind": "Microsoft.EndDialog",

@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "muKuuI"
-          },
-          "activity": "${SendActivity_muKuuI()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "DDU8Nr"

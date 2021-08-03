@@ -19,22 +19,21 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "WLnd9T"
+            "id": "cGe1o9"
           },
-          "condition": "=exists(user.tier)",
-          "actions": [],
+          "condition": "=exists(dialog.tier)",
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
               "$designer": {
-                "id": "lHVy9n"
+                "id": "YEcFHo"
               },
               "defaultLocale": "en-us",
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
               "allowInterruptions": false,
-              "prompt": "${ChoiceInput_Prompt_lHVy9n()}",
+              "prompt": "${ChoiceInput_Prompt_YEcFHo()}",
               "unrecognizedPrompt": "",
               "invalidPrompt": "",
               "choiceOptions": {
@@ -48,13 +47,32 @@
                 "recognizeNumbers": true
               },
               "choices": [
-                "Standard",
-                "Premium",
-                "VIP"
+                "Standard Package ",
+                "Premium Package ",
+                "VIP Package "
               ],
-              "property": "user.teir"
+              "property": "dialog.teir",
+              "style": "heroCard",
+              "validations": [
+                "=exists(dialog.teir)"
+              ]
+
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "jlvQdI"
+          },
+          "activity": "${SendActivity_jlvQdI()}"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "2QV6QI"
+          },
+          "value": "=dialog.tier"
         }
       ]
     }

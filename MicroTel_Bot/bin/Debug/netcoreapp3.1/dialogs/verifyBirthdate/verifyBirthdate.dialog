@@ -17,27 +17,12 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "muKuuI"
-          },
-          "activity": "${SendActivity_muKuuI()}",
-          "disabled": true
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "DDU8Nr"
           },
-          "condition": "=exists(user.birthdate)",
-          "actions": [
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "kgSj14"
-              }
-            }
-          ],
+          "condition": "=exists(dialog.birthdate)",
+          "actions": [],
           "elseActions": [
             {
               "$kind": "Microsoft.TextInput",
@@ -50,18 +35,26 @@
               "allowInterruptions": false,
               "prompt": "${TextInput_Prompt_TQQnRc()}",
               "validations": [
-                "=exists(@birthdate)"
+                "=exists(@datetime)"
               ],
               "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
             },
             {
-              "$kind": "Microsoft.EndDialog",
+              "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "6wQlUh"
+                "id": "6tZsOV"
               },
-              "value": "${@birthdate}"
+              "property": "dialog.birthdate",
+              "value": "=@datetime.timex[0]"
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "etTpHD"
+          },
+          "value": "=dialog.birthdate"
         }
       ]
     }

@@ -1,9 +1,16 @@
 [import](common.lg)
 
-# ChoiceInput_Prompt_lHVy9n()
+# ChoiceInput_Prompt_YEcFHo_text()
+- What tier do you want to subscribe to?
+# ChoiceInput_Prompt_YEcFHo()
 [Activity
-    Text = ${ChoiceInput_Prompt_lHVy9n_text()}
+    Text = ${ChoiceInput_Prompt_YEcFHo_text()}
 ]
 
-# ChoiceInput_Prompt_lHVy9n_text()
-- What tier do you want to subscribe to?
+# SendActivity_jlvQdI_text()
+- iam in `tier` ${dialog.tier} 
+# SendActivity_jlvQdI()
+[Activity
+    Text = ${SendActivity_jlvQdI_text()}
+]
+

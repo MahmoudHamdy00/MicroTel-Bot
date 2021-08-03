@@ -74,7 +74,8 @@
                           "$designer": {
                             "id": "ZcCUZ2"
                           },
-                          "activity": "${SendActivity_ZcCUZ2()}"
+                          "activity": "${SendActivity_ZcCUZ2()}",
+                          "disabled": true
                         },
                         {
                           "$kind": "Microsoft.SetProperty",
@@ -91,7 +92,8 @@
                           "$designer": {
                             "id": "OhFy3T"
                           },
-                          "activity": "${SendActivity_OhFy3T()}"
+                          "activity": "${SendActivity_OhFy3T()}",
+                          "disabled": true
                         },
                         {
                           "$kind": "Microsoft.SetProperties",
@@ -118,7 +120,8 @@
                       "$designer": {
                         "id": "pB4Mpj"
                       },
-                      "activity": "${SendActivity_pB4Mpj()}"
+                      "activity": "${SendActivity_pB4Mpj()}",
+                      "disabled": true
                     },
                     {
                       "$kind": "Microsoft.SetProperty",

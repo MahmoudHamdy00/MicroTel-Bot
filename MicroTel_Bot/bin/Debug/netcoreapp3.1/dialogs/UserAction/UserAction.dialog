@@ -19,23 +19,23 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
+            "id": "ULDKdU"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier",
+          "options": {
+            "tier": "=@tier"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
             "id": "l93EbV"
           },
           "activityProcessed": true,
           "dialog": "ExtarctUserInfo",
           "options": {
             "userInfo": "=@userInfo"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "YWEQnZ"
-          },
-          "activityProcessed": true,
-          "dialog": "ExtractTier",
-          "options": {
-            "tier": "=@tier"
           }
         },
         {
@@ -126,13 +126,6 @@
               "value": "signup",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "diIP9v"
-                  },
-                  "activity": "${SendActivity_diIP9v()}"
-                },
-                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
                     "id": "wfy2kW"
@@ -146,13 +139,6 @@
               "value": "forget",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "J490BQ"
-                  },
-                  "activity": "${SendActivity_J490BQ()}"
-                },
-                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
                     "id": "kYuV7z"
@@ -164,13 +150,6 @@
             }
           ],
           "default": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "IwjzWp"
-              },
-              "activity": "${SendActivity_IwjzWp()}"
-            },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {

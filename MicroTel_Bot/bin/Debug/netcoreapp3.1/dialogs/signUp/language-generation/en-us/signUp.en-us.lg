@@ -1,9 +1,15 @@
 [import](common.lg)
 
-# SendActivity_ZfPJVA()
+# SendActivity_c87Pow()
 [Activity
-    Text = ${SendActivity_ZfPJVA_text()}
+    Text = ${SendActivity_c87Pow_text()}
 ]
 
-# SendActivity_ZfPJVA_text()
-- you are in `sign up`
+# SendActivity_c87Pow_text()
+- ``` sign up new line
+first name is ${user.fname}
+last name is ${user.lname}
+address is ${user.address}
+birth is ${user.birthdate}
+tier is ${user.line.tier}
+natId is ${user.nationalID}```

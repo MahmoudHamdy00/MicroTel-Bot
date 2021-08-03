@@ -8,7 +8,7 @@
 ]
 
 # SendActivity_jlvQdI_text()
-- iam in `tier` ${dialog.tier} 
+- iam in `tier` ${dialog.tier}
 # SendActivity_jlvQdI()
 [Activity
     Text = ${SendActivity_jlvQdI_text()}

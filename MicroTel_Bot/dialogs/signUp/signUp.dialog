@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "ZfPJVA"
-          },
-          "activity": "${SendActivity_ZfPJVA()}"
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "ol4vs9",
@@ -32,9 +25,16 @@
           "activityProcessed": true,
           "dialog": "verifyTier",
           "options": {
-            "tier": "${user.tier}"
+            "tier": "${user.line.tier}"
           },
-          "resultProperty": "user.tier"
+          "resultProperty": "user.line.tier"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "c87Pow"
+          },
+          "activity": "${SendActivity_c87Pow()}"
         }
       ]
     }

@@ -21,7 +21,8 @@
           "$designer": {
             "id": "GRZ66y"
           },
-          "activity": "${SendActivity_GRZ66y()}"
+          "activity": "${SendActivity_GRZ66y()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.SetProperty",
@@ -30,6 +31,13 @@
           },
           "property": "user.line.tier",
           "value": "=dialog.tier"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "symKr1"
+          },
+          "activity": "${SendActivity_symKr1()}"
         }
       ]
     }

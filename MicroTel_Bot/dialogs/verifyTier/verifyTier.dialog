@@ -35,7 +35,6 @@
               "allowInterruptions": false,
               "prompt": "${ChoiceInput_Prompt_YEcFHo()}",
               "unrecognizedPrompt": "",
-              "invalidPrompt": "",
               "choiceOptions": {
                 "includeNumbers": true,
                 "inlineOrMore": ", or ",
@@ -51,11 +50,9 @@
                 "Premium Package ",
                 "VIP Package "
               ],
-              "property": "dialog.teir",
+              "property": "dialog.tier ",
               "style": "heroCard",
-              "validations": [
-                "=exists(dialog.teir)"
-              ]
+              "validations": []
             }
           ]
         },
@@ -71,7 +68,7 @@
           "$designer": {
             "id": "2QV6QI"
           },
-          "value": "=dialog.tier"
+          "value": "=dialog.tier "
         }
       ]
     }

@@ -8,3 +8,13 @@
 # SendActivity_GRZ66y_text()
 - Your tier ${dialog.tier}
 
+
+# SendActivity_symKr1()
+[Activity
+    Text = ${SendActivity_symKr1_text()}
+]
+
+# SendActivity_symKr1_text()
+- ```tier is ${user.line.tier}
+
+in extracttier```

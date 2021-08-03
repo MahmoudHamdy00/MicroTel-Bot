@@ -25,20 +25,29 @@
           "value": "=dialog.userInfo.action[0][0]"
         },
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "N0qFPk"
+            "id": "rEaYRl"
           },
-          "property": "user.fname",
-          "value": "=dialog.userInfo.name[0].fname[0]"
-        },
-        {
-          "$kind": "Microsoft.SetProperty",
-          "$designer": {
-            "id": "VLTj84"
-          },
-          "property": "user.lname",
-          "value": "=dialog.userInfo.name[0].lname[0]"
+          "condition": "=exists(user.fname)",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "U3eShH"
+              },
+              "property": "user.fname",
+              "value": "=dialog.userInfo.name[0].fname[0]"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "nNhqSt"
+              },
+              "property": "user.lname",
+              "value": "=dialog.userInfo.name[0].lname[0]"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SetProperty",

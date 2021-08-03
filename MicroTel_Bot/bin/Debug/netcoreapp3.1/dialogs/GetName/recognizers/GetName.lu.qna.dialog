@@ -1,6 +1,6 @@
 {
   "$kind": "Microsoft.CrossTrainedRecognizerSet",
   "recognizers": [
-    "verifylname.lu"
+    "GetName.lu"
   ]
 }

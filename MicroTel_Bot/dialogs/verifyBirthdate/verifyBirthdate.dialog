@@ -21,7 +21,8 @@
           "$designer": {
             "id": "muKuuI"
           },
-          "activity": "${SendActivity_muKuuI()}"
+          "activity": "${SendActivity_muKuuI()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.IfCondition",

@@ -15,10 +15,3 @@
 # TextInput_InvalidPrompt_e9JPtG_text()
 - ```Invalid address was provided. Please insert your address? "ex: 1 Elfreda street, Cairo, Egypt"
 ```
-# SendActivity_UcPtSS()
-[Activity
-    Text = ${SendActivity_UcPtSS_text()}
-]
-
-# SendActivity_UcPtSS_text()
-- ${dialog.address}

@@ -102,13 +102,6 @@
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "UcPtSS"
-          },
-          "activity": "${SendActivity_UcPtSS()}"
-        },
-        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
             "id": "rXIhjn"

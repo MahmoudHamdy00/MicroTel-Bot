@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_TQQnRc_text()
-- What is you birthdate?
+- What is your birthdate? (format: dd/mm/year)  
 # TextInput_Prompt_TQQnRc()
 [Activity
     Text = ${TextInput_Prompt_TQQnRc_text()}
@@ -13,4 +13,11 @@
 ]
 
 # TextInput_InvalidPrompt_TQQnRc_text()
-- sorry you didn't enter any dates. please try again.
+- Hmmm doesn't seem like a date. Can you please insert your birthdate? (format: dd/mm/year)
+# SendActivity_62jTeJ()
+[Activity
+    Text = ${SendActivity_62jTeJ_text()}
+]
+
+# SendActivity_62jTeJ_text()
+- ${dialog.birthdate}

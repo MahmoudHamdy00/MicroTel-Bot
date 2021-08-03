@@ -70,7 +70,9 @@
           },
           "activityProcessed": true,
           "dialog": "verifyBirthdate",
-          "options": {},
+          "options": {
+            "birthdate": "=user.birthdate"
+          },
           "resultProperty": "user.birthdate"
         },
         {

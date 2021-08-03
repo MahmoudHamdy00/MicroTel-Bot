@@ -1,17 +1,10 @@
 
 # TextInput_Response_TQQnRc
-- {@birthdate=5 jan 1985}
-- {@birthdate=9/5/2000}
-- birthdate is {@birthdate=1st june 1989}
-- i was born on {@birthdate=4/7/1998}
-- my birthdate is {@birthdate=9th of january 2000}
-
-
-> # Entity definitions
-
-@ ml birthdate usesFeature datetimeV2
-
-
-> # PREBUILT Entity definitions
+- 5 jan 1985
+- 9/5/2000
+- birthdate is 1st june 1989
+- i was born on 4/7/1998
+- my birthdate is 9th of january 2000
+- It is on 11th of June 1970
 
 @ prebuilt datetimeV2

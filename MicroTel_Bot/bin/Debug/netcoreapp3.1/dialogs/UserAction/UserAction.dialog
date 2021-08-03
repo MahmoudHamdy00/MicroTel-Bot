@@ -30,18 +30,6 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "DoumLz"
-          },
-          "activityProcessed": true,
-          "dialog": "AddressDialog",
-          "resultProperty": "user.address",
-          "options": {
-            "address": "=user.address"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
             "id": "juCalC"
           },
           "activityProcessed": true,
@@ -82,7 +70,9 @@
           },
           "activityProcessed": true,
           "dialog": "verifyBirthdate",
-          "options": {},
+          "options": {
+            "birthdate": "=user.birthdate"
+          },
           "resultProperty": "user.birthdate"
         },
         {
@@ -96,6 +86,18 @@
           "resultProperty": "user.nationalID",
           "options": {
             "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "J7GfMF"
+          },
+          "activityProcessed": true,
+          "dialog": "AddressDialog",
+          "resultProperty": "user.address",
+          "options": {
+            "address": "=user.address"
           }
         },
         {

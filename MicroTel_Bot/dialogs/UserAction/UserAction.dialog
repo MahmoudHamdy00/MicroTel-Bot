@@ -30,6 +30,17 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
+            "id": "8ZS8iL"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier",
+          "options": {
+            "tier": "=@tier"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
             "id": "tn6L1m"
           },
           "activityProcessed": true,
@@ -99,17 +110,6 @@
             {
               "value": "singup",
               "actions": [
-                {
-                  "$kind": "Microsoft.BeginDialog",
-                  "$designer": {
-                    "id": "8ji2xJ"
-                  },
-                  "activityProcessed": true,
-                  "dialog": "ExtractTier",
-                  "options": {
-                    "tier": "=@tier"
-                  }
-                },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {

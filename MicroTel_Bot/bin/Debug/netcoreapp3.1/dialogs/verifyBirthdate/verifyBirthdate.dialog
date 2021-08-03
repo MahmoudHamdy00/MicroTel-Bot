@@ -50,13 +50,6 @@
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "62jTeJ"
-          },
-          "activity": "${SendActivity_62jTeJ()}"
-        },
-        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
             "id": "etTpHD"

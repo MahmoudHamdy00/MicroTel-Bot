@@ -19,17 +19,17 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "RLsUjE"
+            "id": "GRZ66y"
           },
-          "activity": "${SendActivity_RLsUjE()}"
+          "activity": "${SendActivity_GRZ66y()}"
         },
         {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "6GvJr5"
+            "id": "7VunnF"
           },
-          "property": "user.tier",
-          "value": "@tier"
+          "property": "user.line.tier",
+          "value": "=dialog.tier"
         }
       ]
     }

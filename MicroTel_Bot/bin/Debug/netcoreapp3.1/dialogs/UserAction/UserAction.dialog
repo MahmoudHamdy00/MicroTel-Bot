@@ -30,7 +30,7 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "juCalC"
+            "id": "8ZS8iL"
           },
           "activityProcessed": true,
           "dialog": "ExtractTier",

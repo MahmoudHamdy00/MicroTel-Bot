@@ -83,7 +83,6 @@
               "alwaysPrompt": false,
               "allowInterruptions": false,
               "prompt": "${TextInput_Prompt_e9JPtG()}",
-              "unrecognizedPrompt": "",
               "invalidPrompt": "${TextInput_InvalidPrompt_e9JPtG()}",
               "validations": [
                 "=exists(@address)"

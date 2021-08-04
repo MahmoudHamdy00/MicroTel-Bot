@@ -23,6 +23,13 @@
           },
           "property": "user.line.tier",
           "value": "=dialog.tier"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "symKr1"
+          },
+          "activity": "${SendActivity_symKr1()}"
         }
       ]
     }

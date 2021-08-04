@@ -17,11 +17,21 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ol4vs9",
+            "comment": "connect to DB, verify there is no user with the same natId, and if so return new uniqe number"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyTier",
+          "options": {}
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "IK5JEe"
+            "id": "c87Pow"
           },
-          "activity": "${SendActivity_IK5JEe()}"
+          "activity": "${SendActivity_c87Pow()}"
         }
       ]
     }

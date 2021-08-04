@@ -48,8 +48,7 @@
                 "id": "ucFnwQ"
               },
               "property": "user.greeted",
-              "value": "true",
-              "disabled": true
+              "value": "true"
             },
             {
               "$kind": "Microsoft.RepeatDialog",

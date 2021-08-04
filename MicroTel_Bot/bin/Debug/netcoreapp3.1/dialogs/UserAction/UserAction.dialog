@@ -19,23 +19,23 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
+            "id": "ULDKdU"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier",
+          "options": {
+            "tier": "=@tier"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
             "id": "l93EbV"
           },
           "activityProcessed": true,
           "dialog": "ExtarctUserInfo",
           "options": {
             "userInfo": "=@userInfo"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "YWEQnZ"
-          },
-          "activityProcessed": true,
-          "dialog": "ExtractTier",
-          "options": {
-            "tier": "=@tier"
           }
         },
         {
@@ -125,18 +125,6 @@
             {
               "value": "signup",
               "actions": [
-                {
-                  "$kind": "Microsoft.BeginDialog",
-                  "$designer": {
-                    "id": "mH9tyx"
-                  },
-                  "activityProcessed": true,
-                  "dialog": "verifyTier",
-                  "options": {
-                    "tier": "=user.line.tier"
-                  },
-                  "resultProperty": "user.line.tier"
-                },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {

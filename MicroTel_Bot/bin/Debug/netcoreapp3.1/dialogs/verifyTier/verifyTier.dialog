@@ -85,7 +85,8 @@
           "$designer": {
             "id": "jlvQdI"
           },
-          "activity": "${SendActivity_jlvQdI()}"
+          "activity": "${SendActivity_jlvQdI()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.EndDialog",

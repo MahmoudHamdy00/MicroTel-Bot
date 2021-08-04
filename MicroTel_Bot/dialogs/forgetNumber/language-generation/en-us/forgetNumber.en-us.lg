@@ -6,4 +6,4 @@
 ]
 
 # SendActivity_sFRzNZ_text()
-- you are in `forgetNumber`
+- start DB connection and and return the user's number if it's exists

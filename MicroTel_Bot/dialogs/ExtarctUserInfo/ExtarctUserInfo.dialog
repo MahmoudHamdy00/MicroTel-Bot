@@ -55,7 +55,7 @@
             "id": "U7oQj2"
           },
           "property": "user.birthdate",
-          "value": "=dialog.userInfo.birthdate"
+          "value": "=dialog.userInfo.birthdate[0].timex[0]"
         },
         {
           "$kind": "Microsoft.SetProperty",

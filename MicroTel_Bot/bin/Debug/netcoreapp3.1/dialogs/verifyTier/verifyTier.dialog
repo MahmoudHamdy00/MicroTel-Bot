@@ -21,7 +21,7 @@
           "$designer": {
             "id": "cGe1o9"
           },
-          "condition": "=exists(user.line.tier)",
+          "condition": "=exists(dialog.tier)",
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
@@ -45,7 +45,6 @@
                 "recognizeOrdinals": true,
                 "recognizeNumbers": true
               },
-
               "property": "dialog.tier",
               "style": "heroCard",
               "validations": [],
@@ -82,18 +81,11 @@
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "jlvQdI"
-          },
-          "activity": "${SendActivity_jlvQdI()}",
-          "disabled": true
-        },
-        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
             "id": "2QV6QI"
-          }
+          },
+          "value": "=dialog.tier"
         }
       ]
     }

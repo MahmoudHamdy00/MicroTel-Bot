@@ -31,3 +31,10 @@
 
 # SendActivity_PcuOsY_text()
 - To be able to help you i need some information, we won't take too much time. 😃
+# SendActivity_9Tos9t()
+[Activity
+    Text = ${SendActivity_9Tos9t_text()}
+]
+
+# SendActivity_9Tos9t_text()
+- Tier = ${user.line.tier}

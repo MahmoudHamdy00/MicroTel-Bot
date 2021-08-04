@@ -28,6 +28,13 @@
           }
         },
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "9Tos9t"
+          },
+          "activity": "${SendActivity_9Tos9t()}"
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "l93EbV"
@@ -125,6 +132,18 @@
             {
               "value": "signup",
               "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "fjcyWZ"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyTier",
+                  "resultProperty": "user.line.tier",
+                  "options": {
+                    "tier": "=user.line.tier"
+                  }
+                },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {

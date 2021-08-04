@@ -35,6 +35,22 @@
           ],
           "elseActions": [
             {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "RAYGBJ"
+              },
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "fzMCJy"
+                  },
+                  "activity": "${SendActivity_fzMCJy()}"
+                }
+              ],
+              "condition": "=exists(user.greeted)"
+            },
+            {
               "$kind": "Microsoft.BeginDialog",
               "$designer": {
                 "id": "pY1fHf"

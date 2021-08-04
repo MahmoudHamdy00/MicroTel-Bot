@@ -17,22 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "FZSet0"
-          },
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "90DeFp"
-              },
-              "activity": "${SendActivity_90DeFp()}"
-            }
-          ],
-          "condition": "=exists(user.greeted)"
-        },
-        {
           "$kind": "Microsoft.TextInput",
           "$designer": {
             "id": "vKedPy"

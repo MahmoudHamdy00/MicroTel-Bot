@@ -24,11 +24,3 @@ lst name is ${@name.lname[0]}
     Text = ${SendActivity_kyDHk7_text()}
 ]
 
-# SendActivity_90DeFp_text()
-- Hi there 😎 My name is Micro 🤗
-- Hello i'm Micro 🤖,
-- Hi my name is Micro 😃,
-# SendActivity_90DeFp()
-[Activity
-    Text = ${SendActivity_90DeFp_text()}
-]

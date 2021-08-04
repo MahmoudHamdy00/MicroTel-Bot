@@ -1,8 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_vKedPy_text()
-- Can i know your name 😃?
-- What's your name?
+- What's your name 😃?
 # TextInput_Prompt_vKedPy()
 [Activity
     Text = ${TextInput_Prompt_vKedPy_text()}

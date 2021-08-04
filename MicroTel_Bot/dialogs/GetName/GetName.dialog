@@ -56,21 +56,12 @@
           "property": "user.fname"
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "hG6fCk"
+            "id": "kdzboA"
           },
-          "condition": "=exists(@name.lname[0])",
-          "actions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "Y58DEM"
-              },
-              "value": "=@name.lname[0]",
-              "property": "user.lname"
-            }
-          ]
+          "value": "=@name.lname[0]",
+          "property": "user.lname"
         }
       ]
     }

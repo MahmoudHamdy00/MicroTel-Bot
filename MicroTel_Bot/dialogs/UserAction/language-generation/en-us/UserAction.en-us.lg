@@ -7,22 +7,13 @@
     Text = ${SendActivity_qWqgxh_text()}
 ]
 
-# SendActivity_Ed2YXt()
-[Activity
-    Text = ${SendActivity_Ed2YXt_text()}
-]
-
-# SendActivity_Ed2YXt_text()
-- hello ${user.fname} , ${user.mname}- ${user.lname}
-
-
 # SendActivity_qqnXDL()
 [Activity
     Text = ${SendActivity_qqnXDL_text()}
 ]
 
 # SendActivity_qqnXDL_text()
-- ```Ok ${user.fname} i get it. you want to ${user.action}
+- ```Ok ${user.fname} got you!
 ```
 # SendActivity_PcuOsY()
 [Activity
@@ -30,11 +21,4 @@
 ]
 
 # SendActivity_PcuOsY_text()
-- To be able to help you i need some information, we won't take too much time. 😃
-# SendActivity_9Tos9t()
-[Activity
-    Text = ${SendActivity_9Tos9t_text()}
-]
-
-# SendActivity_9Tos9t_text()
-- Tier = ${user.line.tier}
+- To be able to help you I need some information, we won't take too much time. 😃

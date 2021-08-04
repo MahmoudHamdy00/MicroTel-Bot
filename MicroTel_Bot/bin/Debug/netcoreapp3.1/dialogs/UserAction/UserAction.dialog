@@ -28,13 +28,6 @@
           }
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "9Tos9t"
-          },
-          "activity": "${SendActivity_9Tos9t()}"
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "l93EbV"
@@ -77,14 +70,6 @@
           "activityProcessed": true,
           "dialog": "VerifyName",
           "options": {}
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "Ed2YXt"
-          },
-          "activity": "${SendActivity_Ed2YXt()}",
-          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",

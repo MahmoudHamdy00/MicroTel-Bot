@@ -45,14 +45,38 @@
                 "recognizeOrdinals": true,
                 "recognizeNumbers": true
               },
-              "choices": [
-                "Standard Package ",
-                "Premium Package ",
-                "VIP Package "
-              ],
-              "property": "user.line.tier",
+              "property": "dialog.tier",
               "style": "heroCard",
-              "validations": []
+              "validations": [],
+              "choices": [
+                {
+                  "value": "Standard Package ",
+                  "synonyms": [
+                    "Standard-Package",
+                    "Standard-Pack",
+                    "Standard Pack",
+                    "Standard"
+                  ]
+                },
+                {
+                  "value": "Premium Package ",
+                  "synonyms": [
+                    "Premium-Package",
+                    "Premium-Pack",
+                    "Premium-Pack",
+                    "Premium "
+                  ]
+                },
+                {
+                  "value": "VIP Package ",
+                  "synonyms": [
+                    "VIP-Package",
+                    "VIP-Pack",
+                    "VIP-Pack",
+                    "VIP "
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -61,7 +85,8 @@
           "$designer": {
             "id": "jlvQdI"
           },
-          "activity": "${SendActivity_jlvQdI()}"
+          "activity": "${SendActivity_jlvQdI()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.EndDialog",

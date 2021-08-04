@@ -33,3 +33,4 @@ lst name is ${@name.lname[0]}
 [Activity
     Text = ${SendActivity_90DeFp_text()}
 ]
+

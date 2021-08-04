@@ -17,14 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "wJFe1F"
-          },
-          "activity": "${SendActivity_wJFe1F()}",
-          "disabled": true
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "EMo7g9"
@@ -45,17 +37,21 @@
               "prompt": "${ChoiceInput_Prompt_wTXORJ()}",
               "unrecognizedPrompt": "",
               "invalidPrompt": "",
-              "defaultValueResponse": "",
               "choiceOptions": {
                 "includeNumbers": true,
                 "inlineOrMore": ", or ",
-                "inlineOr": " or "
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
               },
               "choices": [
-                "sign up new number",
-                "forget my number"
+                "Signup for a new number",
+                "Restore your number"
               ],
-              "property": "user.action"
+              "property": "user.action",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              }
             }
           ]
         }

@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "YJrPoS"
-          },
-          "activity": "${SendActivity_YJrPoS()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "ZbfSL4"
@@ -54,18 +47,11 @@
                   ]
                 },
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "ZZZ8T3"
-                  },
-                  "activity": "${SendActivity_ZZZ8T3()}"
-                },
-                {
                   "$kind": "Microsoft.SetProperty",
                   "$designer": {
                     "id": "qDKhuv"
                   },
-                  "value": "=@name[0].lname",
+                  "value": "=@name.lname[0]",
                   "property": "user.lname"
                 }
               ]

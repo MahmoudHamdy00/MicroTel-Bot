@@ -2,28 +2,28 @@
 # TextInput_Response_eRvsfV
 - {@name={@lname=ahmed}}
 - {@name={@lname=hazem}}
-- {@name={@fname=ahmed} {@lname=kareem}} 
-- {@name={@fname=ahmed} {@lname=mohamed}}
-- {@name={@fname=gary} {@lname=cooper}}
-- {@name={@fname=hazem} {@lname=el-hammamy}}
-- I am called {@name={@fname=hussein} {@lname=ibrahim}}
-- i am {@name={@fname=ahmed} {@lname=ezzat}}
+- {@name={@lname=meshref}}
+- {@name=ahmed {@lname=kareem}} 
+- {@name=ahmed khaled {@lname=mohamed}}
+- {@name=hazem mohamed martine {@lname=mohamed}}
+- {@name=gary john {@lname=cooper}}
+- {@name=hazem {@lname=el-hammamy}}
+- I am called {@name=hussein Mohamed {@lname=ibrahim}}
+- i am {@name=ahmed {@lname=ezzat}}
 - i am {@name={@lname=yasser}}
 - it's {@name={@lname=meshref}}
 - it is called {@name={@lname=john}}
-- {@name={@fname=mahmoud} {@lname=hamdy}}
-- my name is {@name={@fname=mahmoud} {@lname=hamdy}}
-- name is {@name={@fname=mahmoud} {@lname=abdel-kareem}}
+- {@name=mahmoud {@lname=hamdy}}
+- my name is {@name=mahmoud {@lname=hamdy}}
+- name is {@name=mahmoud {@lname=abdel-kareem}}
 - {@name={@lname=nayer}}
 - my family name is {@name={@lname=michael}}
-- I am from {@name={@lname=michael}}'s family
-- I belong to {@name={@lname=meshref}}'s family
-- {@name={@fname=nayer} {@lname=wanas}}
+- my fam is called {@name={@lname=john}}
+- {@name=nayer {@lname=wanas}}
 
 > # Entity definitions
 
 @ ml name usesFeature personName
-    - @ ml fname
     - @ ml lname
 
 @ prebuilt personName

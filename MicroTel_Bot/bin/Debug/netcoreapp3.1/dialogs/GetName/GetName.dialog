@@ -42,7 +42,7 @@
         {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "kdzboA"
+            "id": "lSMVBJ"
           },
           "value": "=@name.lname[0]",
           "property": "user.lname"

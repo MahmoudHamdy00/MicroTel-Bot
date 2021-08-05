@@ -1,25 +1,26 @@
 
-# TextInput_Response_vKedPy
-- {@name={@fname=ahmed}}
+# TextInput_Response_eRvsfV
+- {@name={@lname=ahmed}}
+- {@name={@lname=hazem}}
 - {@name={@fname=ahmed} {@lname=kareem}} 
 - {@name={@fname=ahmed} {@lname=mohamed}}
 - {@name={@fname=gary} {@lname=cooper}}
-- {@name={@fname=hazem}}
 - {@name={@fname=hazem} {@lname=el-hammamy}}
 - I am called {@name={@fname=hussein} {@lname=ibrahim}}
 - i am {@name={@fname=ahmed} {@lname=ezzat}}
-- i am {@name={@fname=yasser}}
-- i'm {@name={@fname=meshref}}
-- you can call me {@name={@fname=john}}
-- {@name={@fname=kareem}}
+- i am {@name={@lname=yasser}}
+- it's {@name={@lname=meshref}}
+- it is called {@name={@lname=john}}
 - {@name={@fname=mahmoud} {@lname=hamdy}}
 - my name is {@name={@fname=mahmoud} {@lname=hamdy}}
 - name is {@name={@fname=mahmoud} {@lname=abdel-kareem}}
-- {@name={@fname=nayer}}
+- {@name={@lname=nayer}}
+- my family name is {@name={@lname=michael}}
+- I am from {@name={@lname=michael}}'s family
+- I belong to {@name={@lname=meshref}}'s family
 - {@name={@fname=nayer} {@lname=wanas}}
 
 > # Entity definitions
-
 
 @ ml name usesFeature personName
     - @ ml fname

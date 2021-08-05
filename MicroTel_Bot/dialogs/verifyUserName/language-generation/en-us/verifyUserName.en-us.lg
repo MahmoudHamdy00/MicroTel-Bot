@@ -1,0 +1,33 @@
+[import](common.lg)
+
+# SendActivity_YJrPoS_text()
+- I have started the dialog
+# SendActivity_YJrPoS()
+[Activity
+    Text = ${SendActivity_YJrPoS_text()}
+]
+
+# TextInput_Prompt_eRvsfV_text()
+- What is your last name?
+# TextInput_Prompt_eRvsfV()
+[Activity
+    Text = ${TextInput_Prompt_eRvsfV_text()}
+]
+
+# TextInput_InvalidPrompt_eRvsfV_text()
+- Hmmm, I didn't get your family name. Would you please try again? "ex: John"
+# TextInput_InvalidPrompt_eRvsfV()
+[Activity
+    Text = ${TextInput_InvalidPrompt_eRvsfV_text()}
+]
+
+# SendActivity_ZZZ8T3()
+[Activity
+    Text = ${SendActivity_ZZZ8T3_text()}
+]
+
+# SendActivity_ZZZ8T3_text()
+- ```1\- ${@name[0].lname}
+2\- ${@name[0].lname[0]}
+3\- ${@name.lname[0]}
+```

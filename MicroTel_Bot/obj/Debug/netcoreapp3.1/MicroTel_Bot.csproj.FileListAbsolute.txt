@@ -2047,10 +2047,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\rec
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\recognizers\verifyBirthdate.lu.dialog
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\recognizers\verifyBirthdate.lu.qna.dialog
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\verifyBirthdate.dialog
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\recognizers\VerifyName.en-us.lu.dialog
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\recognizers\VerifyName.lu.dialog
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\recognizers\VerifyName.lu.qna.dialog
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\VerifyName.dialog
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\recognizers\verifyNationalId.en-us.lu.dialog
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\recognizers\verifyNationalId.lu.dialog
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\recognizers\verifyNationalId.lu.qna.dialog
@@ -2078,7 +2074,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNumberDialog\
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\UserAction\language-generation\en-us\UserAction.en-us.lg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyAction\language-generation\en-us\verifyAction.en-us.lg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\language-generation\en-us\verifyBirthdate.en-us.lg
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\language-generation\en-us\VerifyName.en-us.lg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\language-generation\en-us\verifyNationalId.en-us.lg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyTier\language-generation\en-us\verifyTier.en-us.lg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\language-generation\en-us\common.en-us.lg
@@ -2099,7 +2094,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNumberDialog\
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\UserAction\language-understanding\en-us\UserAction.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyAction\language-understanding\en-us\verifyAction.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\language-understanding\en-us\verifyBirthdate.en-us.lu
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\language-understanding\en-us\VerifyName.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\language-understanding\en-us\verifyNationalId.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyTier\language-understanding\en-us\verifyTier.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\AddressDialog.en-us.lu
@@ -2118,7 +2112,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\Stre
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\UserAction.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyAction.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyBirthdate.en-us.lu
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\VerifyName.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyNationalId.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyTier.en-us.lu
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\WelcomeDialog.en-us.lu
@@ -2140,7 +2133,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\UserAction\knowledg
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyAction\knowledge-base\en-us\verifyAction.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyAddress\knowledge-base\en-us\verifyAddress.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyBirthdate\knowledge-base\en-us\verifyBirthdate.en-us.qna
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\VerifyName\knowledge-base\en-us\VerifyName.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyNationalId\knowledge-base\en-us\verifyNationalId.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyTier\knowledge-base\en-us\verifyTier.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\AddressDialog.en-us.qna
@@ -2159,7 +2151,6 @@ D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\Stre
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\UserAction.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyAction.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyBirthdate.en-us.qna
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\VerifyName.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyNationalId.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyTier.en-us.qna
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\WelcomeDialog.en-us.qna
@@ -2565,3 +2556,12 @@ C:\MicroTel\New folder\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTe
 C:\MicroTel\New folder\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.dll
 C:\MicroTel\New folder\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.pdb
 C:\MicroTel\New folder\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.genruntimeconfig.cache
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\recognizers\verifyUserName.en-us.lu.dialog
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\recognizers\verifyUserName.lu.dialog
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\recognizers\verifyUserName.lu.qna.dialog
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\verifyUserName.dialog
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\language-generation\en-us\verifyUserName.en-us.lg
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\language-understanding\en-us\verifyUserName.en-us.lu
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyUserName.en-us.lu
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\knowledge-base\en-us\verifyUserName.en-us.qna
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\verifyUserName.en-us.qna

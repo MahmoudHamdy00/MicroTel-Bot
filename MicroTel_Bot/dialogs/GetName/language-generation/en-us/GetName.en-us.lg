@@ -8,7 +8,7 @@
 ]
 
 # TextInput_InvalidPrompt_vKedPy_text()
-- you didn't enter your name correctly ,please try again
+- Hmmm, I didn't get your name. Would you please try again? "ex: Ahmed Meshref"
 # TextInput_InvalidPrompt_vKedPy()
 [Activity
     Text = ${TextInput_InvalidPrompt_vKedPy_text()}

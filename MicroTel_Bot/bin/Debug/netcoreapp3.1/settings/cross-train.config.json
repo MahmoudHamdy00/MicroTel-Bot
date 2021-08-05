@@ -27,7 +27,7 @@
       ]
     }
   },
-  "VerifyName.en-us": {
+  "verifyUserName.en-us": {
     "rootDialog": false,
     "triggers": {
       "": [

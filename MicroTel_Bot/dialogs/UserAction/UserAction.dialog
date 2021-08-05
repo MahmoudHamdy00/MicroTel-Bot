@@ -39,14 +39,6 @@
           }
         },
         {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "wJNCqA"
-          },
-          "activityProcessed": true,
-          "dialog": "verifyAction"
-        },
-        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "qqnXDL",
@@ -65,10 +57,10 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "tn6L1m"
+            "id": "dz0Zpj"
           },
           "activityProcessed": true,
-          "dialog": "VerifyName",
+          "dialog": "verifyUserName",
           "options": {}
         },
         {

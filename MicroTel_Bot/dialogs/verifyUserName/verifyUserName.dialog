@@ -1,0 +1,99 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "Jm0VRN",
+    "name": "verifyUserName",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "FhG2aV"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "YJrPoS"
+          },
+          "activity": "${SendActivity_YJrPoS()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "ZbfSL4"
+          },
+          "condition": "=exists(user.fname)",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "JvCnAp"
+              },
+              "condition": "=exists(user.lname)",
+              "actions": [],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "eRvsfV"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${TextInput_Prompt_eRvsfV()}",
+                  "invalidPrompt": "${TextInput_InvalidPrompt_eRvsfV()}",
+                  "validations": [
+                    "=exists(@name[0].lname)"
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ZZZ8T3"
+                  },
+                  "activity": "${SendActivity_ZZZ8T3()}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "qDKhuv"
+                  },
+                  "value": "=@name[0].lname",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "pXLbgo"
+              },
+              "activityProcessed": true,
+              "dialog": "GetName"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "lRpuUg"
+              },
+              "activityProcessed": true,
+              "options": {}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "verifyUserName.lg",
+  "recognizer": "verifyUserName.lu.qna",
+  "id": "verifyUserName"
+}

@@ -40,6 +40,13 @@
               "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
             },
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "BwZxwS"
+              },
+              "activity": "${SendActivity_BwZxwS()}"
+            },
+            {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
                 "id": "6tZsOV"

@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "zT0lf0",
-    "name": "CountryDialog",
+    "name": "VerifyCountry",
     "comment": "Verify and extract country name from user utterance\n"
   },
   "autoEndDialog": true,

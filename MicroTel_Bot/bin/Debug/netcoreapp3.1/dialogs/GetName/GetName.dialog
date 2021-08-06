@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "zQ5u5z",
-    "name": "GetName",
+    "name": "ExtractName",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -30,13 +30,6 @@
           "validations": [
             "=exists(@name)"
           ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "JX3mzy"
-          },
-          "activity": "${SendActivity_JX3mzy()}"
         },
         {
           "$kind": "Microsoft.SetProperty",

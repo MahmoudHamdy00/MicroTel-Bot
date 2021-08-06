@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "VZJyO3",
-    "name": "AddressDialog",
+    "name": "VerifyAddress",
     "comment": "Verify and extract user adderss basded on giving utterance "
   },
   "autoEndDialog": true,

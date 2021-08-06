@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "oXPs3R",
-    "name": "verifyBirthdate",
+    "name": "VerifyBirthdate",
     "comment": ""
   },
   "autoEndDialog": true,

@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "YLwp6d",
-    "name": "verifyNationalId",
+    "name": "VerifyNationalId",
     "comment": ""
   },
   "autoEndDialog": true,

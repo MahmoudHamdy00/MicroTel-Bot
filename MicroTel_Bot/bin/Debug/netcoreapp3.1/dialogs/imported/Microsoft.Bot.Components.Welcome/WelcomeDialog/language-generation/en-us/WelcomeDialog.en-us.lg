@@ -7,7 +7,7 @@
 
 # SendActivity_WelcomeReturningUser_text()
 - ```Hey ${user.fname} 😃, Nice to meet you.
-How can i help ?```
+How can I help ?```
 - Hello ${user.fname} 😃! What do you want to do today?
 # SendActivity_fzMCJy_text()
 - Hi there 😎 My name is Micro 🤗

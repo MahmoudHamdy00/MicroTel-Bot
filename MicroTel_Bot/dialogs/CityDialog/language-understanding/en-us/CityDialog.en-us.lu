@@ -1,5 +1,7 @@
 
 # TextInput_Response_JtzDpQ
+- usa {@city=los angeles}
+- {@city=port said} in egy
 - I live in {@city=paris}
 - {@city=cairo}
 - {@city=seattle} city
@@ -9,8 +11,10 @@
 - I'm from {@city=london}
 - I was born in {@city=canberra}
 - {@city=canberra} canada
-
-
+- egypt {@city=luxor}
+- I live in {@city=new cairo}
+- My city is called {@city=new york}
+- its called {@city=hurghada}
 
 @ ml city usesFeature geographyV2*
 @ prebuilt geographyV2

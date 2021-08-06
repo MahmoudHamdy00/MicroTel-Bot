@@ -5,11 +5,15 @@
 - {@streetName=elsayed elshaik street}
 - currently I live in {@streetName=zamalek road}
 - I live in {@streetName=elmoshir tantawy street}
-- I am at {@streetName=Al Moez Li Din Allah Al Fatimi Street}
-- My family lives at {@streetName=Al-Azhar Street}
+- i am at {@streetName=Al Moez Li Din Allah Al Fatimi Street}
+- my family lives at {@streetName=Al-Azhar Street}
 - {@streetName=goldsmiths}
-- I live in {@burgundy}
-- my street is called {@Janice}
-- {@Ghori} is my street  
+- I live in {@streetName=burgundy}
+- my street is called {@streetName=Janice}
+- {@streetName=Ghori} is my street  
+- {@streetName=Talaat Harb}
+- I live in {@streetName=El-Gaish Rd}
+- The street I live in is called {@streetName=Talaat Harb}
+- {@streetName=fatih} 
 
 @ ml streetName

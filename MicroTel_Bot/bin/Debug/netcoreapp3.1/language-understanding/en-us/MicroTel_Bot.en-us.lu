@@ -52,7 +52,7 @@
 - {@userInfo={@action=sign up} for a new line}
 - {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, {@country=egypt}}. my national id is {@nationalID=28745}}
 - {@userInfo={@nationalID=19873} is my id and I live in {@address={@streetNumber=20}, {@streetName=marghani} {@city=Riyadh} {@country=Saudi Arabia}}. I wanna {@action=sign up} for a new vip tier asap}.
-
+- I would live to {@userInfo={@action=get} a new line. I live in {@address={@streetNumber=10}, {@streetName=sayed elshaik st} {@country=egypt}}. 
 
 
 @ intent UserAction usesFeature userInfo

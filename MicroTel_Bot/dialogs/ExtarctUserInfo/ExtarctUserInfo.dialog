@@ -38,11 +38,20 @@
               },
               "property": "user.fname",
               "value": "=dialog.userInfo.name[0].fname[0]"
-            },
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "p3Vrsr"
+          },
+          "condition": "=exists(user.lname)",
+          "elseActions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "nNhqSt"
+                "id": "FWrcHp"
               },
               "property": "user.lname",
               "value": "=dialog.userInfo.name[0].lname[0]"

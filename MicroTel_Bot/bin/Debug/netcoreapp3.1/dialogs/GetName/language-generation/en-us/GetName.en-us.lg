@@ -24,3 +24,13 @@ lst name is ${@name.lname[0]}
     Text = ${SendActivity_kyDHk7_text()}
 ]
 
+
+# SendActivity_JX3mzy()
+[Activity
+    Text = ${SendActivity_JX3mzy_text()}
+]
+
+# SendActivity_JX3mzy_text()
+- ```${@personName}
+
+S: ${split(@personName, "\-")}```

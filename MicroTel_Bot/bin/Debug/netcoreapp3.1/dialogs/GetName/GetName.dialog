@@ -32,6 +32,13 @@
           ]
         },
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "JX3mzy"
+          },
+          "activity": "${SendActivity_JX3mzy()}"
+        },
+        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
             "id": "IG0fQX"

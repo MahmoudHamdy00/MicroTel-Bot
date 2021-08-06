@@ -50,20 +50,58 @@
           ]
         },
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "U7oQj2"
+            "id": "mFg3XD"
           },
-          "property": "user.birthdate",
-          "value": "=dialog.userInfo.birthdate[0].timex[0]"
+          "condition": "=exists(@datetime)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Ac5Spt"
+              },
+              "property": "user.birthdate",
+              "value": "=@datetime.timex[0]"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "OTtlxJ"
+              },
+              "property": "user.birthdate",
+              "value": "=dialog.userInfo.birthdate[0].timex[0]"
+            }
+          ]
         },
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "qIIbo1"
+            "id": "BkxsyX"
           },
-          "property": "user.nationalID",
-          "value": "=dialog.userInfo.nationalID[0]"
+          "condition": "=exists(@nationalID)",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "0DkTnm"
+              },
+              "property": "user.nationalID",
+              "value": "=dialog.userInfo.nationalID[0]"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "2WfngU"
+              },
+              "property": "user.nationalID",
+              "value": "=@nationalID"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SetProperty",

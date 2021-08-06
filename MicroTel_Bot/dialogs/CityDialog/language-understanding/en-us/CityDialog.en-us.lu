@@ -7,7 +7,9 @@
 - I am from {@city=alexandria}
 - my home city is {@city=tanta}
 - I'm from {@city=london}
-- I was born in {@city=Canberra}
+- I was born in {@city=canberra}
+- {@city=canberra} canada
+
 
 
 @ ml city usesFeature geographyV2*

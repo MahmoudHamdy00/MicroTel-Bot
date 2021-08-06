@@ -54,7 +54,7 @@
           "$designer": {
             "id": "mFg3XD"
           },
-          "condition": "=exists(@datetime)",
+          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]))",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",

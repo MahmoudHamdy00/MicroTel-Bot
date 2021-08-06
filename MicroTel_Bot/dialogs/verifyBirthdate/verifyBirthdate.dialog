@@ -35,7 +35,7 @@
               "allowInterruptions": false,
               "prompt": "${TextInput_Prompt_TQQnRc()}",
               "validations": [
-                "=exists(@datetime)"
+                "=and(exists(@datetime), isDate(@datetime.timex[0]))"
               ],
               "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
             },

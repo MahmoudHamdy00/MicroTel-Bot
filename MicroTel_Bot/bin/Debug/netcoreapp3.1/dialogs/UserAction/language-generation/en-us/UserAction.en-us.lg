@@ -13,5 +13,4 @@
 ]
 
 # SendActivity_qqnXDL_text()
-- ```Ok ${user.fname} got you! ${user.action}
-```
+- Ok ${user.fname} got you!

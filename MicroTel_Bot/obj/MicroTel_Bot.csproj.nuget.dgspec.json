@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {}
+    "D:\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {}
   },
   "projects": {
-    "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {
+    "D:\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+        "projectUniqueName": "D:\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
         "projectName": "MicroTel_Bot",
-        "projectPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+        "projectPath": "D:\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
         "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
-        "outputPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
+        "outputPath": "D:\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
+          "D:\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
           "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [

@@ -18,4 +18,4 @@ action is ${user.action}```
 ]
 
 # SendActivity_3KWIlG_text()
-- I am here ${@geographyV2} 
+- GEO LIST ${@geographyV2}

@@ -149,7 +149,6 @@
           "dialog": "UserAction"
         }
       ],
-      "condition": "=exists(@action)",
       "entities": []
     }
   ],

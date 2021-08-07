@@ -1,6 +1,8 @@
 
 # TextInput_Response_e9JPtG
 - {@address={@streetNumber=1} {@streetName=eltahrir street} {@city=cairo} {@country=egypt}}
+- {@address={@streetNumber=1} {@streetName=eltahrir street} {@country=egypt} {@city=cairo}}
+- i live in {@address={@country=usa} and my city is called {@city=San Francisco}}
 - {@address={@streetNumber=20} {@streetName=manyal street}, {@city=new cairo}, {@country=egypt}}
 - {@address={@streetNumber=30} {@streetName=fashion road}}
 - {@address={@streetNumber=2} {@streetName=moshir road}}
@@ -20,7 +22,6 @@
 - {@address={@streetNumber=6} {@streetName=elsayed elshaik} {@city=cairo} {@country=egypt}}
 - {@address={@streetNumber=20} {@streetName=talaat harb}}
 - I live in {@address={@streetName=talaat harb} {@city=tanta}}
-
 
 @ ml address
     - @ number streetNumber

@@ -61,5 +61,5 @@
   ],
   "generator": "verifyNationalId.lg",
   "recognizer": "verifyNationalId.lu.qna",
-  "id": "verifyNationalId"
+  "id": "VerifyNationalId"
 }

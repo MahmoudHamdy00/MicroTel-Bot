@@ -12,3 +12,10 @@ address is ${user.address}
 natid is ${user.nationalID}
 birth is ${user.birthdate[0].timex[0]}
 action is ${user.action}```
+# SendActivity_3KWIlG()
+[Activity
+    Text = ${SendActivity_3KWIlG_text()}
+]
+
+# SendActivity_3KWIlG_text()
+- I am here ${@geographyV2} 

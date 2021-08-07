@@ -113,12 +113,30 @@
           ]
         },
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "gRRjLM"
+            "id": "Ombl90"
           },
-          "property": "user.address",
-          "value": "=dialog.userInfo.address[0]"
+          "condition": "=exists(dialog.userInfo.address)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "wAeIyh"
+              },
+              "property": "user.address",
+              "value": "=dialog.userInfo.address[0]"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "3KWIlG"
+              },
+              "activity": "${SendActivity_3KWIlG()}"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SendActivity",

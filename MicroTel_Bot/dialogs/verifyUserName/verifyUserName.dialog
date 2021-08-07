@@ -81,5 +81,5 @@
   ],
   "generator": "verifyUserName.lg",
   "recognizer": "verifyUserName.lu.qna",
-  "id": "verifyUserName"
+  "id": "VerifyUserName"
 }

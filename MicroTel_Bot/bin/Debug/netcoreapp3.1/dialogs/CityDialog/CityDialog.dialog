@@ -62,5 +62,5 @@
   ],
   "generator": "CityDialog.lg",
   "recognizer": "CityDialog.lu.qna",
-  "id": "CityDialog"
+  "id": "VerifyCity"
 }

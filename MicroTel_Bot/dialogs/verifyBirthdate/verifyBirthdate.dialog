@@ -68,5 +68,5 @@
   ],
   "generator": "verifyBirthdate.lg",
   "recognizer": "verifyBirthdate.lu.qna",
-  "id": "verifyBirthdate"
+  "id": "VerifyBirthdate"
 }

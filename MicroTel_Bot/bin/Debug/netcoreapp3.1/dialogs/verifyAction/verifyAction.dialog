@@ -60,5 +60,5 @@
   ],
   "generator": "verifyAction.lg",
   "recognizer": "verifyAction.lu.qna",
-  "id": "verifyAction"
+  "id": "VerifyAction"
 }

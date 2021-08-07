@@ -92,5 +92,5 @@
   ],
   "generator": "verifyTier.lg",
   "recognizer": "verifyTier.lu.qna",
-  "id": "verifyTier"
+  "id": "VerifyTier"
 }

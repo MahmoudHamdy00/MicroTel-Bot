@@ -29,5 +29,5 @@
   ],
   "generator": "forgetNumber.lg",
   "recognizer": "forgetNumber.lu.qna",
-  "id": "forgetNumber"
+  "id": "ForgetNumber"
 }

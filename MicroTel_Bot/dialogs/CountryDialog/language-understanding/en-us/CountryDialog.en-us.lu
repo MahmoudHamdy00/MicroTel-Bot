@@ -10,9 +10,10 @@
 - I was born in {@country=Australia}
 - cairo {@country=egypt}
 - I live in riyadh {@country=Saudi Arabia}
-- riyadh {@country=Saudi Arabia}
+- riyadh {@country=saudi arabia}
 - I am from egypt, but now live in {@country=Saudi Arabia}
 - originally from usa, but now i live in {@country=mexico}
+- i mainly live in london {@country=UK}
 
 
 @ ml country usesFeature geographyV2*

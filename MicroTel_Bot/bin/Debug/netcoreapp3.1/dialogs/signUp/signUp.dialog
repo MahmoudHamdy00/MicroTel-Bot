@@ -28,5 +28,5 @@
   ],
   "generator": "signUp.lg",
   "recognizer": "signUp.lu.qna",
-  "id": "signUp"
+  "id": "SignUp"
 }

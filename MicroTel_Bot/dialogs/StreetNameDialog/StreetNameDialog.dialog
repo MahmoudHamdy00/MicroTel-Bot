@@ -62,5 +62,5 @@
   ],
   "generator": "StreetNameDialog.lg",
   "recognizer": "StreetNameDialog.lu.qna",
-  "id": "StreetNameDialog"
+  "id": "VerifyStreetName"
 }

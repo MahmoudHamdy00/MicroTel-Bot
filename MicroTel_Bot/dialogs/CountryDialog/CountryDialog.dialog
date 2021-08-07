@@ -63,5 +63,5 @@
   ],
   "generator": "CountryDialog.lg",
   "recognizer": "CountryDialog.lu.qna",
-  "id": "CountryDialog"
+  "id": "VerifyCountry"
 }

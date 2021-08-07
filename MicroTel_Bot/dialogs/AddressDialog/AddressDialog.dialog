@@ -112,5 +112,5 @@
   ],
   "generator": "AddressDialog.lg",
   "recognizer": "AddressDialog.lu.qna",
-  "id": "AddressDialog"
+  "id": "VerifyAddress"
 }

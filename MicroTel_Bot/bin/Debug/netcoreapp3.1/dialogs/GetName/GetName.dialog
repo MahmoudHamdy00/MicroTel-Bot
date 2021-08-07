@@ -52,5 +52,5 @@
   ],
   "generator": "GetName.lg",
   "recognizer": "GetName.lu.qna",
-  "id": "GetName"
+  "id": "ExtractName"
 }

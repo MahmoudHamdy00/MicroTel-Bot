@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "q83i3g",
-    "name": "verifyTier",
+    "name": "VerifyTier",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -92,5 +92,5 @@
   ],
   "generator": "verifyTier.lg",
   "recognizer": "verifyTier.lu.qna",
-  "id": "verifyTier"
+  "id": "VerifyTier"
 }

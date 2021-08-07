@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "svfAkM",
-    "name": "StreetNameDialog",
+    "name": "VerifyStreetName",
     "comment": "Verify and extract street name from user utterance"
   },
   "autoEndDialog": true,
@@ -62,5 +62,5 @@
   ],
   "generator": "StreetNameDialog.lg",
   "recognizer": "StreetNameDialog.lu.qna",
-  "id": "StreetNameDialog"
+  "id": "VerifyStreetName"
 }

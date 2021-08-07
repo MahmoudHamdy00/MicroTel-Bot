@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "9SiZVS",
-    "name": "CityDialog",
+    "name": "VerifyCity",
     "comment": "Verfiy and extract city name from user utterance "
   },
   "autoEndDialog": true,
@@ -62,5 +62,5 @@
   ],
   "generator": "CityDialog.lg",
   "recognizer": "CityDialog.lu.qna",
-  "id": "CityDialog"
+  "id": "VerifyCity"
 }

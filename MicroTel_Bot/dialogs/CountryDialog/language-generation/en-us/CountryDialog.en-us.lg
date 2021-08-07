@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_fcBCnU_text()
-- Which country are you from?
+- Which country do you live in?
 # TextInput_Prompt_fcBCnU()
 [Activity
     Text = ${TextInput_Prompt_fcBCnU_text()}

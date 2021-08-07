@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "Jm0VRN",
-    "name": "verifyUserName",
+    "name": "VerifyUserName",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -81,5 +81,5 @@
   ],
   "generator": "verifyUserName.lg",
   "recognizer": "verifyUserName.lu.qna",
-  "id": "verifyUserName"
+  "id": "VerifyUserName"
 }

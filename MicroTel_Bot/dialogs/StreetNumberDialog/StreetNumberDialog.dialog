@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "aqwiA1",
-    "name": "StreetNumberDialog",
+    "name": "VerifyStreetNumber",
     "comment": "Verify and extract street number."
   },
   "autoEndDialog": true,
@@ -62,5 +62,5 @@
   ],
   "generator": "StreetNumberDialog.lg",
   "recognizer": "StreetNumberDialog.lu.qna",
-  "id": "StreetNumberDialog"
+  "id": "VerifyStreetNumber"
 }

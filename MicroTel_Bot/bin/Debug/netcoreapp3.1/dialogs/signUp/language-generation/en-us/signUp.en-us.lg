@@ -9,7 +9,7 @@
 - ``` sign up new line
 first name is ${user.fname}
 last name is ${user.lname}
-address is ${user.address}
 birth is ${user.birthdate}
+birth is ${user.address}
 tier is ${user.line.tier}
 natId is ${user.nationalID}```

@@ -148,7 +148,8 @@
           "activityProcessed": true,
           "dialog": "UserAction"
         }
-      ]
+      ],
+      "entities": []
     }
   ],
   "generator": "MicroTel_Bot.lg",

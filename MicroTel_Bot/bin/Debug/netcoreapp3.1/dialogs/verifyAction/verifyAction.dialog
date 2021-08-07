@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "7z6ajQ",
-    "name": "verifyAction",
+    "name": "VerifyAction",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -60,5 +60,5 @@
   ],
   "generator": "verifyAction.lg",
   "recognizer": "verifyAction.lu.qna",
-  "id": "verifyAction"
+  "id": "VerifyAction"
 }

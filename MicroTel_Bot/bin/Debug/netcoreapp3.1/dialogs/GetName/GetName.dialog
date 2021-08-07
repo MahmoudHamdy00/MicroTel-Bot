@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "zQ5u5z",
-    "name": "GetName",
+    "name": "ExtractName",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -52,5 +52,5 @@
   ],
   "generator": "GetName.lg",
   "recognizer": "GetName.lu.qna",
-  "id": "GetName"
+  "id": "ExtractName"
 }

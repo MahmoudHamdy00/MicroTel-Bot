@@ -13,12 +13,5 @@
 ]
 
 # SendActivity_qqnXDL_text()
-- ```Ok ${user.fname} got you!
+- ```Ok ${user.fname} got you! ${user.action}
 ```
-# SendActivity_PcuOsY()
-[Activity
-    Text = ${SendActivity_PcuOsY_text()}
-]
-
-# SendActivity_PcuOsY_text()
-- To be able to help you I need some information, we won't take too much time. 😃

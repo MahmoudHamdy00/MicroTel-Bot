@@ -47,14 +47,6 @@
           "activity": "${SendActivity_qqnXDL()}"
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "PcuOsY",
-            "comment": "if there is no missing information "
-          },
-          "activity": "${SendActivity_PcuOsY()}"
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "dz0Zpj"

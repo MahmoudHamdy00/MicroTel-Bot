@@ -148,7 +148,9 @@
           "activityProcessed": true,
           "dialog": "UserAction"
         }
-      ]
+      ],
+      "condition": "=exists(@action)",
+      "entities": []
     }
   ],
   "generator": "MicroTel_Bot.lg",

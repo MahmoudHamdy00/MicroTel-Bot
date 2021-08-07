@@ -5,11 +5,22 @@
 - {@streetName=elsayed elshaik street}
 - currently I live in {@streetName=zamalek road}
 - I live in {@streetName=elmoshir tantawy street}
-- I am at {@streetName=Al Moez Li Din Allah Al Fatimi Street}
-- My family lives at {@streetName=Al-Azhar Street}
+- i am at {@streetName=al moez li din allah al fatimi street}
+- i am at {@streetName=al moez li din allah al fatimi}
+- my family lives at {@streetName=al-azhar street}
 - {@streetName=goldsmiths}
-- I live in {@burgundy}
-- my street is called {@Janice}
-- {@Ghori} is my street  
+- I live in {@streetName=burgundy}
+- my street is called {@streetName=janice}
+- {@streetName=ghori} is my street  
+- {@streetName=talaat harb}
+- I live in {@streetName=el-gaish rd}
+- The street I live in is called {@streetName=talaat harb}
+- {@streetName=fatih} 
+- {@streetName=abo elfeda}
+- {@streetName=adly mansour street}
+- {@streetName=main st}.
+- {@streetName=fashion road}
+- it live in the {@streetName=main road}
 
-@ ml streetName
+@ ml streetName usesFeature personName
+@ prebuilt personName

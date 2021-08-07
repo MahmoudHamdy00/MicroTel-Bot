@@ -2,7 +2,7 @@
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
     "id": "1YRqLi",
-    "name": "signUp",
+    "name": "SignUp",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -28,5 +28,5 @@
   ],
   "generator": "signUp.lg",
   "recognizer": "signUp.lu.qna",
-  "id": "signUp"
+  "id": "SignUp"
 }

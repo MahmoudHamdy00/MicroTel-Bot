@@ -56,13 +56,6 @@
           "options": {}
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "Zwtc3r"
-          },
-          "activity": "${SendActivity_Zwtc3r()}"
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "9LIfKX"

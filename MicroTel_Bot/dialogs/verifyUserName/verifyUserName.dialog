@@ -50,14 +50,14 @@
                   "$designer": {
                     "id": "ECLGKf"
                   },
-                  "condition": "=exists(@name.lname)",
+                  "condition": "=exists(@personName)",
                   "actions": [
                     {
                       "$kind": "Microsoft.SetProperty",
                       "$designer": {
-                        "id": "hBNU8c"
+                        "id": "bEmWyu"
                       },
-                      "value": "=@name.lname[0]",
+                      "value": "=last(split(@personName, \" \"))",
                       "property": "user.lname"
                     }
                   ],
@@ -65,9 +65,9 @@
                     {
                       "$kind": "Microsoft.SetProperty",
                       "$designer": {
-                        "id": "kbroot"
+                        "id": "vN0fML"
                       },
-                      "value": "=last(split(@personName, \" \"))",
+                      "value": "=@name.lname[0]",
                       "property": "user.lname"
                     }
                   ]

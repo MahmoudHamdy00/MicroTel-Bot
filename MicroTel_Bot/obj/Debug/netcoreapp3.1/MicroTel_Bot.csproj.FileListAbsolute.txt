@@ -2854,7 +2854,6 @@ C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\imported\M
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\imported\Microsoft.Bot.Components.HelpAndCancel\Cancel\knowledge-base\en-us\Cancel.en-us.qna
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\imported\Microsoft.Bot.Components.HelpAndCancel\Help\knowledge-base\en-us\Help.en-us.qna
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\imported\Microsoft.Bot.Components.Welcome\Welcome\knowledge-base\en-us\Welcome.en-us.qna
-C:\MicroTel\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.GeneratedMSBuildEditorConfig.editorconfig
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.HelpAndCancel\CancelDialog\CancelDialog.dialog
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.HelpAndCancel\CancelDialog\recognizers\CancelDialog.en-us.lu.dialog
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.HelpAndCancel\CancelDialog\recognizers\CancelDialog.lu.dialog
@@ -2882,3 +2881,6 @@ C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interrup
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.HelpAndCancel\CancelDialog\knowledge-base\en-us\CancelDialog.en-us.qna
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.HelpAndCancel\HelpDialog\knowledge-base\en-us\HelpDialog.en-us.qna
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.Welcome\WelcomeDialog\knowledge-base\en-us\WelcomeDialog.en-us.qna
+C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomActions.dll
+C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+C:\MicroTel\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.GeneratedMSBuildEditorConfig.editorconfig

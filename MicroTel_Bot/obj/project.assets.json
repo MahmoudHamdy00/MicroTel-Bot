@@ -3606,6 +3606,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "DatabaseCustomActions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.Bot.Builder.Dialogs.Adaptive.Runtime": "4.14.1"
+        },
+        "compile": {
+          "bin/placeholder/DatabaseCustomActions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DatabaseCustomActions.dll": {}
+        }
       }
     }
   },
@@ -10941,10 +10954,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "DatabaseCustomActions/1.0.0": {
+      "type": "project",
+      "path": "../DatabaseCustomActions/DatabaseCustomActions.csproj",
+      "msbuildProject": "../DatabaseCustomActions/DatabaseCustomActions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DatabaseCustomActions >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.8",
       "Microsoft.Bot.Builder.AI.Luis >= 4.14.1",
       "Microsoft.Bot.Builder.AI.QnA >= 4.14.1",
@@ -10982,7 +11001,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+              "projectPath": "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

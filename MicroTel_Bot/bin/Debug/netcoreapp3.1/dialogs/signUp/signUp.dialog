@@ -22,6 +22,26 @@
             "id": "c87Pow"
           },
           "activity": "${SendActivity_c87Pow()}"
+        },
+        {
+          "$kind": "AddUser",
+          "$designer": {
+            "id": "SBnBjw"
+          },
+          "fname": "=user.fname",
+          "natid": "=user.nationalID",
+          "lname": "=user.lname",
+          "birthdate": "=user.birthdate",
+          "resultProperty": "user.result",
+          "address": "=user.fname",
+          "tier": "=user.line.tier"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "q4UMDW"
+          },
+          "activity": "${SendActivity_q4UMDW()}"
         }
       ]
     }

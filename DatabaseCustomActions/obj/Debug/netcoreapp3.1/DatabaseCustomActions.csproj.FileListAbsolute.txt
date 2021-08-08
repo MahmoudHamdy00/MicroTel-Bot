@@ -1,0 +1,10 @@
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.deps.json
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.dll
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.AssemblyReference.cache
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.AssemblyInfoInputs.cache
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.AssemblyInfo.cs
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.CoreCompileInputs.cache
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.dll
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+C:\MicroTel\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.GeneratedMSBuildEditorConfig.editorconfig

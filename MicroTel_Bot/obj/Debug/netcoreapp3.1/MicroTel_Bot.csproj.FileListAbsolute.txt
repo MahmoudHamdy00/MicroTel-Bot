@@ -2563,10 +2563,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\recognizers\forgetNumber.en-us.lu.dialog
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\recognizers\forgetNumber.lu.dialog
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\recognizers\forgetNumber.lu.qna.dialog
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\GetName.dialog
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\recognizers\GetName.en-us.lu.dialog
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\recognizers\GetName.lu.dialog
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\recognizers\GetName.lu.qna.dialog
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\recognizers\signUp.en-us.lu.dialog
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\recognizers\signUp.lu.dialog
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\recognizers\signUp.lu.qna.dialog
@@ -2612,7 +2608,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\CountryD
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtarctUserInfo\language-generation\en-us\ExtarctUserInfo.en-us.lg
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractTier\language-generation\en-us\ExtractTier.en-us.lg
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\language-generation\en-us\forgetNumber.en-us.lg
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\language-generation\en-us\GetName.en-us.lg
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\language-generation\en-us\signUp.en-us.lg
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNameDialog\language-generation\en-us\StreetNameDialog.en-us.lg
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNumberDialog\language-generation\en-us\StreetNumberDialog.en-us.lg
@@ -2630,7 +2625,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\CountryD
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtarctUserInfo\language-understanding\en-us\ExtarctUserInfo.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractTier\language-understanding\en-us\ExtractTier.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\language-understanding\en-us\forgetNumber.en-us.lu
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\language-understanding\en-us\GetName.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\language-understanding\en-us\signUp.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNameDialog\language-understanding\en-us\StreetNameDialog.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNumberDialog\language-understanding\en-us\StreetNumberDialog.en-us.lu
@@ -2646,7 +2640,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interr
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtarctUserInfo.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtractTier.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\forgetNumber.en-us.lu
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\GetName.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\MicroTel_Bot.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\signUp.en-us.lu
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\StreetNameDialog.en-us.lu
@@ -2664,7 +2657,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\CountryD
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtarctUserInfo\knowledge-base\en-us\ExtarctUserInfo.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractTier\knowledge-base\en-us\ExtractTier.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\forgetNumber\knowledge-base\en-us\forgetNumber.en-us.qna
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\GetName\knowledge-base\en-us\GetName.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\signUp\knowledge-base\en-us\signUp.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNameDialog\knowledge-base\en-us\StreetNameDialog.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\StreetNumberDialog\knowledge-base\en-us\StreetNumberDialog.en-us.qna
@@ -2681,7 +2673,6 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interr
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtarctUserInfo.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtractTier.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\forgetNumber.en-us.qna
-D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\GetName.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\MicroTel_Bot.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\signUp.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\StreetNameDialog.en-us.qna
@@ -2903,3 +2894,12 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\schemas\imported\Microsoft.Bot.Components.Welcome\WelcomeDialog\knowledge-base\en-us\WelcomeDialog.en-us.qna
 D:\internship\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.csproj.AssemblyReference.cache
 D:\internship\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\scopedcss\bundle\MicroTel_Bot.styles.css
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\ExtractName.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\recognizers\ExtractName.en-us.lu.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\recognizers\ExtractName.lu.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\recognizers\ExtractName.lu.qna.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\language-generation\en-us\ExtractName.en-us.lg
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\language-understanding\en-us\ExtractName.en-us.lu
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtractName.en-us.lu
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\ExtractName\knowledge-base\en-us\ExtractName.en-us.qna
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\ExtractName.en-us.qna

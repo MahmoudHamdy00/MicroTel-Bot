@@ -3,13 +3,13 @@
     "rootDialog": true,
     "triggers": {
       "": [
-        "WelcomeDialog.en-us"
+        "Welcome.en-us"
       ],
       "Cancel": [
-        "CancelDialog.en-us"
+        "Cancel.en-us"
       ],
       "Help": [
-        "HelpDialog.en-us"
+        "Help.en-us"
       ],
       "UserAction": [
         "UserAction.en-us"

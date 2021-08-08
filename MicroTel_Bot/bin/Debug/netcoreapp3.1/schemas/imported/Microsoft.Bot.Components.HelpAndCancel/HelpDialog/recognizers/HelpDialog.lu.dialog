@@ -1,0 +1,6 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_HelpDialog",
+  "recognizers": {},
+  "$Imported": "8f7089d4845b0d57d07e3d82c6b78e25"
+}

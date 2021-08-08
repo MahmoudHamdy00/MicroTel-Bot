@@ -25,3 +25,4 @@ else
   if (Test-Path $BACKUP_SCHEMA_FILE -PathType leaf) { Move-Item -Force -Path $BACKUP_SCHEMA_FILE -Destination $SCHEMA_FILE }
   if (Test-Path $BACKUP_UISCHEMA_FILE -PathType leaf) { Move-Item -Force -Path $BACKUP_UISCHEMA_FILE -Destination $UISCHEMA_FILE }
 }
+pause

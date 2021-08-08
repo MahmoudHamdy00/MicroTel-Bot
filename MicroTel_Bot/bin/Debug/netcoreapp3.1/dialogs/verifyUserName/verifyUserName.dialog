@@ -94,13 +94,6 @@
               "options": {}
             }
           ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "No1uC3"
-          },
-          "activity": "${SendActivity_No1uC3()}"
         }
       ]
     }

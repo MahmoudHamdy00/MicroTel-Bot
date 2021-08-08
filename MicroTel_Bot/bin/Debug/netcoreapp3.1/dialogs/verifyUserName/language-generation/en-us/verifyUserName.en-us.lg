@@ -13,11 +13,3 @@
 [Activity
     Text = ${TextInput_InvalidPrompt_eRvsfV_text()}
 ]
-
-# SendActivity_No1uC3()
-[Activity
-    Text = ${SendActivity_No1uC3_text()}
-]
-
-# SendActivity_No1uC3_text()
-- ${user.lname}

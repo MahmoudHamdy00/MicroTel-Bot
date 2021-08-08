@@ -28,31 +28,68 @@
           "prompt": "${TextInput_Prompt_vKedPy()}",
           "invalidPrompt": "${TextInput_InvalidPrompt_vKedPy()}",
           "validations": [
-            "=exists(@name)"
+            "=or(exists(@name), exists(@personName))"
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "zddh00"
-          },
-          "activity": "${SendActivity_zddh00()}"
-        },
-        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "IG0fQX"
+            "id": "Vhocp4"
           },
-          "value": "=@name.fname[0]",
-          "property": "user.fname"
+          "property": "dialog.name",
+          "value": "=split(@personName, \" \")"
         },
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "lSMVBJ"
+            "id": "lWxZiD"
           },
-          "value": "=@name.lname[0]",
-          "property": "user.lname"
+          "condition": "=exists(dialog.name)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "l7Bwff"
+              },
+              "value": "=first(dialog.name)",
+              "property": "user.fname"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "HCXYba"
+              },
+              "condition": "=count(dialog.name) > 1",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "cqkHbm"
+                  },
+                  "value": "=last(dialog.name)",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Agy3SM"
+              },
+              "value": "=@name.fname[0]",
+              "property": "user.fname"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "ajzhhT"
+              },
+              "value": "=@name.lname[0]",
+              "property": "user.lname"
+            }
+          ]
         }
       ]
     }

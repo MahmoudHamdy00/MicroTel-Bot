@@ -34,7 +34,12 @@
           "birthdate": "=user.birthdate",
           "resultProperty": "user.result",
           "address": "=user.fname",
-          "tier": "=user.line.tier"
+          "tier": "=user.line.tier",
+          "streetNo": "=user.address.streetNumber",
+          "city": "=user.address.city",
+          "country": "=user.address.country",
+          "phoneNumber": "=user.action",
+          "streetName": "=user.address.streetName "
         },
         {
           "$kind": "Microsoft.SendActivity",

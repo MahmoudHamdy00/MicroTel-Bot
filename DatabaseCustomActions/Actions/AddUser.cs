@@ -20,40 +20,54 @@ public class AddUser : Dialog
     [JsonProperty("$kind")]
     public const string Kind = "AddUser";
 
+    [JsonProperty("natid")]
+    public ValueExpression nationalID { get; set; }
+
     [JsonProperty("fname")]
-    public StringExpression firstName { get; set; }
+    public ValueExpression firstName { get; set; }
 
     [JsonProperty("lname")]
-    public StringExpression lastName { get; set; }
+    public ValueExpression lastName { get; set; }
 
     [JsonProperty("birthdate")]
-    public StringExpression birthdate { get; set; }
-
-    [JsonProperty("natid")]
-    public StringExpression nationalID { get; set; }
-
-    [JsonProperty("address")]
-    public ValueExpression address { get; set; }
+    public ValueExpression birthdate { get; set; }
 
 
-    [JsonProperty("tier")]
-    public StringExpression tier { get; set; }
+    [JsonProperty("streetNo")]
+    public ValueExpression streetNo { get; set; }
+
+    [JsonProperty("streetName")]
+    public ValueExpression streetName { get; set; }
+
+    [JsonProperty("city")]
+    public ValueExpression city { get; set; }
+
+    [JsonProperty("country")]
+    public ValueExpression country { get; set; }
+
+
+
 
     [JsonProperty("resultProperty")]
     public StringExpression ResultProperty { get; set; }
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
+        var _nationalID = nationalID.GetValue(dc.State);
         var _firstName = firstName.GetValue(dc.State);
         var _lastName = lastName.GetValue(dc.State);
         var _birthdate = birthdate.GetValue(dc.State);
-        var _nationalID = nationalID.GetValue(dc.State);
-        var _address = address.GetValue(dc.State);
-        var _tier = tier.GetValue(dc.State);
-        SqlConnection conn = new SqlConnection("Data Source=MININT-5B89IPO\\SQLEXPRESs;Initial Catalog=microDBB;Integrated Security=True");
+        var _streetNo = streetNo.GetValue(dc.State);
+        var _streetName = streetName.GetValue(dc.State);
+        var _city = city.GetValue(dc.State);
+        var _country = country.GetValue(dc.State);
+        var _phoneNumber = 01012;//getPhoneNumber();
+
+        //SqlConnection conn = new SqlConnection("Data Source=MININT-5B89IPO\\SQLEXPRESs;Initial Catalog=microDBB;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         conn.Open();
-        SqlCommand cmd = new SqlCommand($"insert into users values('{_firstName}','{_lastName}','{_birthdate}','{_nationalID}','{_address}','{_tier}');", conn);
-        var affectedRows = cmd.ExecuteNonQuery();
+    //    SqlCommand cmd = new SqlCommand($"insert into users values('{_nationalID},{_firstName}','{_lastName}','{_birthdate}','{_streetNo}','{_streetName}','{_city}','{_country},'{_phoneNumber}'');", conn);
+        var affectedRows = 1;// cmd.ExecuteNonQuery();
         conn.Close();
         var result = "successfully added user :)";
         if (affectedRows == 0)

@@ -361,34 +361,44 @@
         }
       },
       "properties": {
+        "natid": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "National ID",
+          "description": "Value from callers memory to store the result"
+        },
         "fname": {
-          "$ref": "#/definitions/stringExpression",
+          "$ref": "#/definitions/valueExpression",
           "title": "First Name",
           "description": "Value from callers memory to store the result"
         },
         "lname": {
-          "$ref": "#/definitions/stringExpression",
+          "$ref": "#/definitions/valueExpression",
           "title": "Last Name",
           "description": "Value from callers memory to store the result"
         },
         "birthdate": {
-          "$ref": "#/definitions/stringExpression",
+          "$ref": "#/definitions/valueExpression",
           "title": "Birthdate",
           "description": "Value from callers memory to store the result"
         },
-        "natid": {
-          "$ref": "#/definitions/stringExpression",
-          "title": "National ID",
-          "description": "Value from callers memory to store the result"
-        },
-        "address": {
+        "streetNo": {
           "$ref": "#/definitions/valueExpression",
-          "title": "Address",
+          "title": "Street Number",
           "description": "Value from callers memory to store the result"
         },
-        "tier": {
-          "$ref": "#/definitions/stringExpression",
-          "title": "Tier",
+        "streetName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Street Name",
+          "description": "Value from callers memory to store the result"
+        },
+        "city": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "City",
+          "description": "Value from callers memory to store the result"
+        },
+        "country": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Country",
           "description": "Value from callers memory to store the result"
         },
         "resultProperty": {

@@ -155,38 +155,12 @@
           ]
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "Ombl90"
+            "id": "fySYOd"
           },
-          "condition": "=exists(dialog.userInfo.address)",
-          "actions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "wAeIyh"
-              },
-              "property": "user.address",
-              "value": "=dialog.userInfo.address[0]"
-            }
-          ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "3KWIlG"
-              },
-              "activity": "${SendActivity_3KWIlG()}"
-            }
-          ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "dr6kW2"
-          },
-          "activity": "${SendActivity_dr6kW2()}",
-          "disabled": true
+          "property": "user.address",
+          "value": "=dialog.userInfo.address[0]"
         }
       ]
     }

@@ -44,7 +44,7 @@
           "$designer": {
             "id": "ortW36"
           },
-          "condition": "=exists(dialog.name)",
+          "condition": "=exists(dialog.personName)",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {}
+    "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {}
   },
   "projects": {
-    "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+    "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
         "projectName": "DatabaseCustomActions",
-        "projectPath": "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
         "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-        "outputPath": "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
+        "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

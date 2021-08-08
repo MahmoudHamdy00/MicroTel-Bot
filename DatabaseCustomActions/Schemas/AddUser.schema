@@ -4,40 +4,52 @@
   "additionalProperties": false,
   "description": "This will return the result of arg1*arg2",
   "properties": {
+    "natid": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "National ID",
+      "description": "The National ID for the user"
+    },
     "fname": {
-      "$ref": "schema:#/definitions/stringExpression",
+      "$ref": "schema:#/definitions/valueExpression",
       "title": "First Name",
-      "description": "Value from callers memory to store the result"
+      "description": "The National ID for the user"
     },
     "lname": {
-      "$ref": "schema:#/definitions/stringExpression",
+      "$ref": "schema:#/definitions/valueExpression",
       "title": "Last Name",
-      "description": "Value from callers memory to store the result"
+      "description": "The National ID for the user"
     },
     "birthdate": {
-      "$ref": "schema:#/definitions/stringExpression",
-      "title": "Birthdate",
-      "description": "Value from callers memory to store the result"
-    },
-    "natid": {
-      "$ref": "schema:#/definitions/stringExpression",
-      "title": "National ID",
-      "description": "Value from callers memory to store the result"
-    },
-    "address": {
       "$ref": "schema:#/definitions/valueExpression",
-      "title": "Address",
-      "description": "Value from callers memory to store the result"
+      "title": "Birthdate",
+      "description": "The National ID for the user"
     },
-    "tier": {
-      "$ref": "schema:#/definitions/stringExpression",
-      "title": "Tier",
-      "description": "Value from callers memory to store the result"
+    "streetNo": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Street Number",
+      "description": "The National ID for the user"
     },
+    "streetName": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Street Name",
+      "description": "The National ID for the user"
+    },
+    "city": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "City",
+      "description": "The National ID for the user"
+    },
+    "country": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Country",
+      "description": "The National ID for the user"
+    },
+
+
     "resultProperty": {
       "$ref": "schema:#/definitions/stringExpression",
       "title": "Result",
-      "description": "Value from callers memory to store the result"
+      "description": "The returned  "
     }
   },
   "title": "Add User",

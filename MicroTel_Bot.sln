@@ -1,9 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroTel_Bot", "MicroTel_Bot\MicroTel_Bot.csproj", "{DD188C53-68F3-4E79-8FFF-3527FCE3FD8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseCustomActions", "DatabaseCustomActions\DatabaseCustomActions.csproj", "{1C286DAD-7153-428F-8599-70D35AB7797A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +16,10 @@ Global
 		{DD188C53-68F3-4E79-8FFF-3527FCE3FD8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD188C53-68F3-4E79-8FFF-3527FCE3FD8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD188C53-68F3-4E79-8FFF-3527FCE3FD8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C286DAD-7153-428F-8599-70D35AB7797A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C286DAD-7153-428F-8599-70D35AB7797A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C286DAD-7153-428F-8599-70D35AB7797A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C286DAD-7153-428F-8599-70D35AB7797A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

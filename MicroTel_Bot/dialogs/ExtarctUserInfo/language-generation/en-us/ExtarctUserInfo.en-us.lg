@@ -18,4 +18,8 @@ action is ${user.action}```
 ]
 
 # SendActivity_3KWIlG_text()
-- GEO LIST ${@geographyV2}
+- ```GEO LIST 
+
+\- ${first(@geographyV2)}
+
+\- ${last(@geographyV2)}```

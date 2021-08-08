@@ -36,7 +36,7 @@
           "$designer": {
             "id": "Vhocp4"
           },
-          "property": "dialog.name",
+          "property": "dialog.personName",
           "value": "=split(@personName, \" \")"
         },
         {
@@ -51,7 +51,7 @@
               "$designer": {
                 "id": "l7Bwff"
               },
-              "value": "=first(dialog.name)",
+              "value": "=first(dialog.personName)",
               "property": "user.fname"
             },
             {
@@ -59,14 +59,14 @@
               "$designer": {
                 "id": "HCXYba"
               },
-              "condition": "=count(dialog.name) > 1",
+              "condition": "=count(dialog.personName) > 1",
               "actions": [
                 {
                   "$kind": "Microsoft.SetProperty",
                   "$designer": {
                     "id": "cqkHbm"
                   },
-                  "value": "=last(dialog.name)",
+                  "value": "=last(dialog.personName)",
                   "property": "user.lname"
                 }
               ]

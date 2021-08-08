@@ -25,6 +25,14 @@
           "value": "=dialog.userInfo.action[0][0]"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "eAMr24"
+          },
+          "property": "dialog.personName",
+          "value": "=split(@personName, \" \")"
+        },
+        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "rEaYRl"
@@ -34,10 +42,27 @@
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "U3eShH"
+                "id": "wL6RUs"
               },
-              "property": "user.fname",
-              "value": "=dialog.userInfo.name[0].fname[0]"
+              "value": "=first(dialog.personName)",
+              "property": "user.fname"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "cRsCBy"
+              },
+              "condition": "=exists(user.fname)",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "C0VnuV"
+                  },
+                  "property": "user.fname",
+                  "value": "=dialog.userInfo.name[0].fname[0]"
+                }
+              ]
             }
           ]
         },
@@ -51,10 +76,27 @@
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "FWrcHp"
+                "id": "53XvRQ"
               },
-              "property": "user.lname",
-              "value": "=dialog.userInfo.name[0].lname[0]"
+              "value": "=last(dialog.personName)",
+              "property": "user.lname"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "mlL6p6"
+              },
+              "condition": "=exists(user.lname)",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "6YTA9V"
+                  },
+                  "property": "user.lname",
+                  "value": "=dialog.userInfo.name[0].lname[0]"
+                }
+              ]
             }
           ]
         },

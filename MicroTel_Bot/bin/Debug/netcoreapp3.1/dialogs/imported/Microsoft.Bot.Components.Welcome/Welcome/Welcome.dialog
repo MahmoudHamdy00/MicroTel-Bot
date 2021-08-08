@@ -53,10 +53,10 @@
             {
               "$kind": "Microsoft.BeginDialog",
               "$designer": {
-                "id": "pY1fHf"
+                "id": "XUjmAq"
               },
               "activityProcessed": true,
-              "dialog": "GetName"
+              "dialog": "ExtractName"
             },
             {
               "$kind": "Microsoft.SetProperty",

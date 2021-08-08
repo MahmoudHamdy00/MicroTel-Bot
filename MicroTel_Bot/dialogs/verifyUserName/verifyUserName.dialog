@@ -21,14 +21,13 @@
           "$designer": {
             "id": "ZbfSL4"
           },
-          "condition": "=exists(user.fname)",
+          "condition": "=and(exists(user.fname), user.fname != \"\")",
           "actions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "JvCnAp"
               },
-              "condition": "=exists(user.lname)",
               "actions": [],
               "elseActions": [
                 {
@@ -73,7 +72,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "condition": "=and(exists(user.lname), user.lname != \"\")"
             }
           ],
           "elseActions": [

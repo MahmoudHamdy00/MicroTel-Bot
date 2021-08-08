@@ -37,22 +37,14 @@
           "$designer": {
             "id": "rEaYRl"
           },
-          "condition": "=exists(user.fname)",
+          "condition": "=and(exists(user.fname), user.fname!=\"\")",
           "elseActions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "wL6RUs"
-              },
-              "value": "=first(dialog.personName)",
-              "property": "user.fname"
-            },
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "cRsCBy"
               },
-              "condition": "=exists(user.fname)",
+              "condition": "=exists(dialog.personName)",
               "elseActions": [
                 {
                   "$kind": "Microsoft.SetProperty",
@@ -61,6 +53,16 @@
                   },
                   "property": "user.fname",
                   "value": "=dialog.userInfo.name[0].fname[0]"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "MsZdtL"
+                  },
+                  "value": "=first(dialog.personName)",
+                  "property": "user.fname"
                 }
               ]
             }
@@ -71,22 +73,14 @@
           "$designer": {
             "id": "p3Vrsr"
           },
-          "condition": "=exists(user.lname)",
+          "condition": "=and(exists(user.lname), user.lname!=\"\")",
           "elseActions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "53XvRQ"
-              },
-              "value": "=last(dialog.personName)",
-              "property": "user.lname"
-            },
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "mlL6p6"
               },
-              "condition": "=exists(user.lname)",
+              "condition": "=and(exists(dialog.personName), count(dialog.personName) > 1)",
               "elseActions": [
                 {
                   "$kind": "Microsoft.SetProperty",
@@ -96,9 +90,20 @@
                   "property": "user.lname",
                   "value": "=dialog.userInfo.name[0].lname[0]"
                 }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "l3e6tX"
+                  },
+                  "value": "=last(dialog.personName)",
+                  "property": "user.lname"
+                }
               ]
             }
-          ]
+          ],
+          "actions": []
         },
         {
           "$kind": "Microsoft.IfCondition",

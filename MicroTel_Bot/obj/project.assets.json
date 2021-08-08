@@ -10999,8 +10999,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
-              "projectPath": "C:\\MicroTel\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
+            "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+              "projectPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
             }
           }
         }

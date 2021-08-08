@@ -14,3 +14,9 @@
 
 # SendActivity_qqnXDL_text()
 - Ok ${user.fname} got you!
+# SendActivity_Zwtc3r_text()
+- FName ${user.fname}, Lname ${user.lname}
+# SendActivity_Zwtc3r()
+[Activity
+    Text = ${SendActivity_Zwtc3r_text()}
+]

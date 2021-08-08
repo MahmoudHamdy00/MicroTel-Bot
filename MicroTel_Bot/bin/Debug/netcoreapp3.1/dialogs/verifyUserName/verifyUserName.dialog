@@ -43,16 +43,35 @@
                   "prompt": "${TextInput_Prompt_eRvsfV()}",
                   "invalidPrompt": "${TextInput_InvalidPrompt_eRvsfV()}",
                   "validations": [
-                    "=exists(@name.lname)"
+                    "=or(exists(@name.lname), exists(@personName))"
                   ]
                 },
                 {
-                  "$kind": "Microsoft.SetProperty",
+                  "$kind": "Microsoft.IfCondition",
                   "$designer": {
-                    "id": "qDKhuv"
+                    "id": "ECLGKf"
                   },
-                  "value": "=@name.lname[0]",
-                  "property": "user.lname"
+                  "condition": "=exists(@name.lname)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "hBNU8c"
+                      },
+                      "value": "=@name.lname[0]",
+                      "property": "user.lname"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "kbroot"
+                      },
+                      "value": "=last(split(@personName, \" \"))",
+                      "property": "user.lname"
+                    }
+                  ]
                 }
               ]
             }
@@ -75,6 +94,13 @@
               "options": {}
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "No1uC3"
+          },
+          "activity": "${SendActivity_No1uC3()}"
         }
       ]
     }

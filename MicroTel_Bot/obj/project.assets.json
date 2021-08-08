@@ -10954,28 +10954,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\v-mhamdy\\.nuget\\packages\\": {}
+    "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicroTel\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+      "projectUniqueName": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
       "projectName": "MicroTel_Bot",
-      "projectPath": "C:\\MicroTel\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
-      "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-      "outputPath": "C:\\MicroTel\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
+      "projectPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+      "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
+      "outputPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\MicroTel\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
-        "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
+        "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\v-mhamdy\\Downloads": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://botbuilder.myget.org/F/botbuilder-v4-dotnet-daily/api/v3/index.json": {}
       },
@@ -11038,7 +11035,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -154,7 +154,8 @@
                     "id": "nuDWzx"
                   },
                   "activityProcessed": true,
-                  "dialog": "verifyBirthdate"
+                  "dialog": "verifyBirthdate",
+                  "resultProperty": "user.birthdate"
                 }
               ]
             },
@@ -186,7 +187,8 @@
                     "id": "Pm5YHo"
                   },
                   "activityProcessed": true,
-                  "dialog": "AddressDialog"
+                  "dialog": "AddressDialog",
+                  "resultProperty": "user.address"
                 }
               ]
             },
@@ -218,7 +220,8 @@
                     "id": "2clIaG"
                   },
                   "activityProcessed": true,
-                  "dialog": "verifyNationalId"
+                  "dialog": "verifyNationalId",
+                  "resultProperty": "user.nationalID"
                 }
               ]
             },

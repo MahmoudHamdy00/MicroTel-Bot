@@ -1,0 +1,72 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "PhgEro",
+    "name": "SignUpConfirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "ea72cj"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "rzEWsJ"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {
+            "message": "Confirm signing up for a ${user.line.tier} tier?",
+            "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
+          },
+          "resultProperty": "user.confirm"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "T2TbKQ"
+          },
+          "condition": "=user.confirm == True ",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "fwtVLc"
+              },
+              "activityProcessed": true,
+              "dialog": "signUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "aLtfA0"
+              },
+              "activityProcessed": true,
+              "dialog": "ChangeData"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "QxCQyq"
+              },
+              "activityProcessed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "SignUpConfirmation.lg",
+  "recognizer": "SignUpConfirmation.lu.qna",
+  "id": "SignUpConfirmation"
+}

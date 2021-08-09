@@ -83,7 +83,7 @@
                 "id": "pXLbgo"
               },
               "activityProcessed": true,
-              "dialog": "GetName"
+              "dialog": "ExtractName"
             },
             {
               "$kind": "Microsoft.RepeatDialog",

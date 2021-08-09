@@ -116,72 +116,10 @@
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "e16f0N"
+                    "id": "OcQa9J"
                   },
                   "activityProcessed": true,
-                  "dialog": "Confirm",
-                  "options": {
-                    "message": "Confirm signing up for a ${user.line.tier} tier?",
-                    "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
-                  },
-                  "resultProperty": "user.confirm"
-                },
-                {
-                  "$kind": "Microsoft.IfCondition",
-                  "$designer": {
-                    "id": "g6Zgv6"
-                  },
-                  "condition": "=user.confirm == True ",
-                  "actions": [
-                    {
-                      "$kind": "Microsoft.BeginDialog",
-                      "$designer": {
-                        "id": "YdiAQa"
-                      },
-                      "activityProcessed": true,
-                      "dialog": "signUp"
-                    }
-                  ],
-                  "elseActions": [
-                    {
-                      "$kind": "Microsoft.ChoiceInput",
-                      "$designer": {
-                        "id": "PBtTYS"
-                      },
-                      "defaultLocale": "en-us",
-                      "disabled": false,
-                      "maxTurnCount": 3,
-                      "alwaysPrompt": false,
-                      "allowInterruptions": false,
-                      "unrecognizedPrompt": "",
-                      "style": "heroCard",
-                      "prompt": "${ChoiceInput_Prompt_PBtTYS()}",
-                      "recognizerOptions": {
-                        "recognizeOrdinals": true,
-                        "recognizeNumbers": true
-                      },
-                      "property": "dialog.nn",
-                      "choiceOptions": {
-                        "includeNumbers": true,
-                        "inlineOrMore": ", or ",
-                        "inlineOr": " or ",
-                        "inlineSeparator": ", "
-                      },
-                      "choices": [
-                        {
-                          "value": "Name ",
-                          "action": {}
-                        }
-                      ]
-                    },
-                    {
-                      "$kind": "Microsoft.SendActivity",
-                      "$designer": {
-                        "id": "1tSWrE"
-                      },
-                      "activity": "${SendActivity_1tSWrE()}"
-                    }
-                  ]
+                  "dialog": "SignUpConfirmation"
                 }
               ]
             },

@@ -1,0 +1,259 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "xjP24C",
+    "name": "ChangeData",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "7XI7SS"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "pq9Ifi"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "prompt": "${ChoiceInput_Prompt_pq9Ifi()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": [
+            {
+              "value": "Name",
+              "synonyms": [
+                "name"
+              ]
+            },
+            {
+              "value": "Birthdate",
+              "synonyms": [
+                "birthday"
+              ]
+            },
+            {
+              "value": "National ID",
+              "synonyms": [
+                "id"
+              ]
+            },
+            {
+              "value": "Address",
+              "synonyms": [
+                "address"
+              ]
+            },
+            {
+              "value": "Cancel"
+            }
+          ],
+          "property": "dialog.toChange",
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "defaultValue": "Cancel",
+          "style": "heroCard"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "VwdXXO"
+          },
+          "condition": "dialog.toChange",
+          "cases": [
+            {
+              "value": "Name",
+              "actions": [
+                {
+                  "$kind": "Microsoft.DeleteProperties",
+                  "$designer": {
+                    "id": "7GEGo0"
+                  },
+                  "properties": [
+                    "=user.fname",
+                    "=user.lname"
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "CEvFLI"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.fname",
+                      "value": "=''"
+                    },
+                    {
+                      "property": "user.lname",
+                      "value": "=''"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "1qhs0C"
+                  },
+                  "activity": "${SendActivity_1qhs0C()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "G2R5oD"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyUserName"
+                }
+              ]
+            },
+            {
+              "value": "Birthdate",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "lmPiNL"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.birthdate",
+                      "value": "=''"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "X9AIVR"
+                  },
+                  "activity": "${SendActivity_X9AIVR()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "nuDWzx"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyBirthdate"
+                }
+              ]
+            },
+            {
+              "value": "Address",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "14wtht"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.address",
+                      "value": "=''"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "W8hf4U"
+                  },
+                  "activity": "${SendActivity_W8hf4U()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "Pm5YHo"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "AddressDialog"
+                }
+              ]
+            },
+            {
+              "value": "National ID",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "Mn76MN"
+                  },
+                  "assignments": [
+                    {
+                      "value": "=''",
+                      "property": "user.nationalID"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "3kD5tU"
+                  },
+                  "activity": "${SendActivity_3kD5tU()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "2clIaG"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyNationalId"
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "7sLwvY"
+                  }
+                }
+              ]
+            }
+          ],
+          "default": []
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "uO5BaC"
+          },
+          "activity": "${SendActivity_uO5BaC()}"
+        },
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "PfKhXK"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "ChangeData.lg",
+  "recognizer": "ChangeData.lu.qna",
+  "id": "ChangeData"
+}

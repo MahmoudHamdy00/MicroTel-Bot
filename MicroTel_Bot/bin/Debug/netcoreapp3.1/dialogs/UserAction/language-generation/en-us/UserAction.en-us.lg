@@ -14,17 +14,3 @@
 
 # SendActivity_qqnXDL_text()
 - Ok ${user.fname} got you!
-# ChoiceInput_Prompt_PBtTYS()
-[Activity
-    Text = ${ChoiceInput_Prompt_PBtTYS_text()}
-]
-
-# ChoiceInput_Prompt_PBtTYS_text()
-- Which piece of information do you want to change?
-# SendActivity_1tSWrE()
-[Activity
-    Text = ${SendActivity_1tSWrE_text()}
-]
-
-# SendActivity_1tSWrE_text()
-- ${dialog.nn}

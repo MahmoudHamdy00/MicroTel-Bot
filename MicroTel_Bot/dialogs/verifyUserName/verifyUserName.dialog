@@ -21,14 +21,13 @@
           "$designer": {
             "id": "ZbfSL4"
           },
-          "condition": "=exists(user.fname)",
+          "condition": "=and(exists(user.fname), user.fname != \"\")",
           "actions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "JvCnAp"
               },
-              "condition": "=exists(user.lname)",
               "actions": [],
               "elseActions": [
                 {
@@ -51,14 +50,14 @@
                   "$designer": {
                     "id": "ECLGKf"
                   },
-                  "condition": "=exists(@name.lname)",
+                  "condition": "=exists(@personName)",
                   "actions": [
                     {
                       "$kind": "Microsoft.SetProperty",
                       "$designer": {
-                        "id": "hBNU8c"
+                        "id": "bEmWyu"
                       },
-                      "value": "=@name.lname[0]",
+                      "value": "=last(split(@personName, \" \"))",
                       "property": "user.lname"
                     }
                   ],
@@ -66,14 +65,15 @@
                     {
                       "$kind": "Microsoft.SetProperty",
                       "$designer": {
-                        "id": "kbroot"
+                        "id": "vN0fML"
                       },
-                      "value": "=last(split(@personName, \" \"))",
+                      "value": "=@name.lname[0]",
                       "property": "user.lname"
                     }
                   ]
                 }
-              ]
+              ],
+              "condition": "=and(exists(user.lname), user.lname != \"\")"
             }
           ],
           "elseActions": [

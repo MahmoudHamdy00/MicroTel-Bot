@@ -1,8 +1,8 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "cMujwr",
-    "name": "UpdateData",
+    "id": "pRGRhM",
+    "name": "UpdateSignupData",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -13,13 +13,13 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "bxPwCS"
+        "id": "on7iY2"
       },
       "actions": [
         {
           "$kind": "Microsoft.ChoiceInput",
           "$designer": {
-            "id": "lQhaa5"
+            "id": "pfOHHJ"
           },
           "defaultLocale": "en-us",
           "disabled": false,
@@ -28,7 +28,7 @@
           "allowInterruptions": false,
           "unrecognizedPrompt": "",
           "invalidPrompt": "",
-          "prompt": "${ChoiceInput_Prompt_lQhaa5()}",
+          "prompt": "${ChoiceInput_Prompt_pfOHHJ()}",
           "choiceOptions": {
             "includeNumbers": true,
             "inlineOrMore": ", or ",
@@ -75,7 +75,7 @@
         {
           "$kind": "Microsoft.SwitchCondition",
           "$designer": {
-            "id": "QVygYS"
+            "id": "TEwZVq"
           },
           "condition": "dialog.toChange",
           "cases": [
@@ -85,7 +85,7 @@
                 {
                   "$kind": "Microsoft.SetProperties",
                   "$designer": {
-                    "id": "bwTLEd"
+                    "id": "TOPlWI"
                   },
                   "assignments": [
                     {
@@ -101,14 +101,14 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "ymAyN0"
+                    "id": "0x8xWe"
                   },
-                  "activity": "${SendActivity_ymAyN0()}"
+                  "activity": "${SendActivity_0x8xWe()}"
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "8agXo7"
+                    "id": "o2M8tE"
                   },
                   "activityProcessed": true,
                   "dialog": "verifyUserName",
@@ -122,7 +122,7 @@
                 {
                   "$kind": "Microsoft.SetProperties",
                   "$designer": {
-                    "id": "wVR3gF"
+                    "id": "zDy1zh"
                   },
                   "assignments": [
                     {
@@ -134,14 +134,14 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "XBjFXi"
+                    "id": "53pmSF"
                   },
-                  "activity": "${SendActivity_XBjFXi()}"
+                  "activity": "${SendActivity_53pmSF()}"
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "7VVzu2"
+                    "id": "t7xWNF"
                   },
                   "activityProcessed": true,
                   "dialog": "verifyBirthdate",
@@ -155,7 +155,7 @@
                 {
                   "$kind": "Microsoft.SetProperties",
                   "$designer": {
-                    "id": "CdliX1"
+                    "id": "6PuLCw"
                   },
                   "assignments": [
                     {
@@ -167,14 +167,14 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "TXID4O"
+                    "id": "1PmApo"
                   },
-                  "activity": "${SendActivity_TXID4O()}"
+                  "activity": "${SendActivity_1PmApo()}"
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "ozt5AH"
+                    "id": "Q7Nwwb"
                   },
                   "activityProcessed": true,
                   "dialog": "AddressDialog",
@@ -188,7 +188,7 @@
                 {
                   "$kind": "Microsoft.SetProperties",
                   "$designer": {
-                    "id": "O9KBy9"
+                    "id": "UGqlWo"
                   },
                   "assignments": [
                     {
@@ -200,14 +200,14 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "QNYyg1"
+                    "id": "fpBfS7"
                   },
-                  "activity": "${SendActivity_QNYyg1()}"
+                  "activity": "${SendActivity_fpBfS7()}"
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "UF8FD7"
+                    "id": "KsOB9A"
                   },
                   "activityProcessed": true,
                   "dialog": "verifyNationalId",
@@ -221,7 +221,7 @@
                 {
                   "$kind": "Microsoft.EndDialog",
                   "$designer": {
-                    "id": "wGt3s7"
+                    "id": "dsTcLF"
                   }
                 }
               ]
@@ -232,14 +232,14 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "nq75To"
+            "id": "MG2emL"
           },
-          "activity": "${SendActivity_nq75To()}"
+          "activity": "${SendActivity_MG2emL()}"
         }
       ]
     }
   ],
-  "generator": "UpdateData.lg",
-  "recognizer": "UpdateData.lu.qna",
-  "id": "UpdateData"
+  "generator": "UpdateSignupData.lg",
+  "recognizer": "UpdateSignupData.lu.qna",
+  "id": "UpdateSignupData"
 }

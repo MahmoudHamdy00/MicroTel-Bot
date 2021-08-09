@@ -1,0 +1,10 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_h7fdy2()
+[Activity
+    Text = ${ConfirmInput_Prompt_h7fdy2_text()}
+]
+
+# ConfirmInput_Prompt_h7fdy2_text()
+- ```${dialog.message}
+${dialog.data}```

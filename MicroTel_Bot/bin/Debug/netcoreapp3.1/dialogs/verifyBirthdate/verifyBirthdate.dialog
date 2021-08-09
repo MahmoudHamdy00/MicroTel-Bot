@@ -30,21 +30,14 @@
                 "id": "TQQnRc"
               },
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "prompt": "${TextInput_Prompt_TQQnRc()}",
               "validations": [
-                "=and(exists(@datetime), isDate(@datetime.timex[0]))"
+                "=and(exists(@datetime), isDate(@datetime.timex[0]), not(contains(@datetime.timex[0], \"XX\")))"
               ],
               "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
-            },
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "BwZxwS"
-              },
-              "activity": "${SendActivity_BwZxwS()}"
             },
             {
               "$kind": "Microsoft.SetProperty",

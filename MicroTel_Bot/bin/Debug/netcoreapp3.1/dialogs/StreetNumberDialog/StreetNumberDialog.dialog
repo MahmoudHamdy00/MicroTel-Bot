@@ -30,9 +30,9 @@
                 "id": "Hz6F4l"
               },
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "unrecognizedPrompt": "",
               "validations": [
                 "=exists(@number)"

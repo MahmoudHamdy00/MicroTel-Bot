@@ -108,14 +108,15 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "mFg3XD"
+            "id": "mFg3XD",
+            "comment": "Check for valid date provided"
           },
-          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]))",
+          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]), not(contains(@datetime.timex[0], \"XX\")))",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "Ac5Spt"
+                "id": "PExR47"
               },
               "property": "user.birthdate",
               "value": "=@datetime.timex[0]"
@@ -123,12 +124,21 @@
           ],
           "elseActions": [
             {
-              "$kind": "Microsoft.SetProperty",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "OTtlxJ"
+                "id": "Et7Vkz"
               },
-              "property": "user.birthdate",
-              "value": "=dialog.userInfo.birthdate[0].timex[0]"
+              "condition": "=and(exists(dialog.userInfo.birthdate), isDate(dialog.userInfo.birthdate[0].timex[0]), not(contains(dialog.userInfo.birthdate[0].timex[0], \"XX\")))",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "NEVo4N"
+                  },
+                  "property": "user.birthdate",
+                  "value": "=dialog.userInfo.birthdate[0].timex[0]"
+                }
+              ]
             }
           ]
         },

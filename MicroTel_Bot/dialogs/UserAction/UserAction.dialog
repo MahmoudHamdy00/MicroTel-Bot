@@ -116,10 +116,10 @@
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "wfy2kW"
+                    "id": "OcQa9J"
                   },
                   "activityProcessed": true,
-                  "dialog": "signUp"
+                  "dialog": "SignUpConfirmation"
                 }
               ]
             },

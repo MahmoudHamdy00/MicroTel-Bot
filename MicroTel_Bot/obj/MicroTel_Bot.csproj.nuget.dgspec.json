@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {}
+    "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {}
   },
   "projects": {
-    "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+    "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "projectUniqueName": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
         "projectName": "DatabaseCustomActions",
-        "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
-        "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-        "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
+        "projectPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
+        "outputPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\v-mhamdy\\Downloads": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,17 +64,18 @@
         }
       }
     },
-    "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {
+    "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+        "projectUniqueName": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
         "projectName": "MicroTel_Bot",
-        "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
-        "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-        "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
+        "projectPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+        "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
+        "outputPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
+          "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,15 +83,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\v-mhamdy\\Downloads": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://botbuilder.myget.org/F/botbuilder-v4-dotnet-daily/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
-                "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
+              "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+                "projectPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
               }
             }
           }

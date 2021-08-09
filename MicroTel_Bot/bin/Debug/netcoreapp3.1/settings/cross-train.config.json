@@ -29,6 +29,10 @@
   },
   "verifyUserName.en-us": {
     "rootDialog": false,
-    "triggers": {}
+    "triggers": {
+      "": [
+        "ExtractName.en-us"
+      ]
+    }
   }
 }

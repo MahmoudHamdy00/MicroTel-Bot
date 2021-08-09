@@ -364,47 +364,57 @@
         "natid": {
           "$ref": "#/definitions/valueExpression",
           "title": "National ID",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "fname": {
           "$ref": "#/definitions/valueExpression",
           "title": "First Name",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "lname": {
           "$ref": "#/definitions/valueExpression",
           "title": "Last Name",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "birthdate": {
           "$ref": "#/definitions/valueExpression",
           "title": "Birthdate",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "streetNo": {
           "$ref": "#/definitions/valueExpression",
           "title": "Street Number",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "streetName": {
           "$ref": "#/definitions/valueExpression",
           "title": "Street Name",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "city": {
           "$ref": "#/definitions/valueExpression",
           "title": "City",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
         },
         "country": {
           "$ref": "#/definitions/valueExpression",
           "title": "Country",
-          "description": "Value from callers memory to store the result"
+          "description": "The National ID for the user"
+        },
+        "tier": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Tier",
+          "description": "The National ID for the user"
+        },
+        "number": {
+          "$ref": "#/definitions/stringExpression",
+          "title": "number",
+          "description": "The returned  "
         },
         "resultProperty": {
           "$ref": "#/definitions/stringExpression",
           "title": "Result",
-          "description": "Value from callers memory to store the result"
+          "description": "The returned  "
         },
         "$kind": {
           "title": "Kind of dialog object",

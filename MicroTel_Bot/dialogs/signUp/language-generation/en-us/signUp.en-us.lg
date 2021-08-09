@@ -20,4 +20,5 @@ natId is ${user.nationalID}```
 ]
 
 # SendActivity_q4UMDW_text()
-- result is ${user.result}
+- ```number is ${user.phoneNumber}
+result is ${user.result}```

@@ -76,7 +76,8 @@
                     "VIP "
                   ]
                 }
-              ]
+              ],
+              "defaultValue": "Standard Package"
             }
           ]
         },

@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {}
+    "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {}
   },
   "projects": {
-    "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+    "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "projectUniqueName": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
         "projectName": "DatabaseCustomActions",
-        "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
-        "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-        "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
+        "projectPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+        "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
+        "outputPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\v-mhamdy\\Downloads": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

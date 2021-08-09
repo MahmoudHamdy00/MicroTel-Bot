@@ -108,9 +108,10 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "mFg3XD"
+            "id": "mFg3XD",
+            "comment": "Check for valid date provided"
           },
-          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]))",
+          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]), not(contains(@datetime.timex[0], \"XX\")))",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
@@ -128,7 +129,8 @@
                 "id": "OTtlxJ"
               },
               "property": "user.birthdate",
-              "value": "=dialog.userInfo.birthdate[0].timex[0]"
+              "value": "=dialog.userInfo.birthdate[0].timex[0]",
+              "disabled": true
             }
           ]
         },

@@ -33,7 +33,7 @@
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": false,
               "validations": [
                 "=exists(@country)",
                 "=@country.type==\"countryRegion\""

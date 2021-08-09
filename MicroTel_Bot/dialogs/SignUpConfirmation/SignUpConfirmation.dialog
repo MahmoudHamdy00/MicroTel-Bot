@@ -52,7 +52,7 @@
                 "id": "aLtfA0"
               },
               "activityProcessed": true,
-              "dialog": "ChangeData"
+              "dialog": "UpdateData"
             },
             {
               "$kind": "Microsoft.RepeatDialog",

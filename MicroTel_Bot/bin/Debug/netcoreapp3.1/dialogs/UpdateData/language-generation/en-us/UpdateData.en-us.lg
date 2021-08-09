@@ -1,0 +1,43 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_lQhaa5_text()
+- Which piece of data would you like to alter?
+# ChoiceInput_Prompt_lQhaa5()
+[Activity
+    Text = ${ChoiceInput_Prompt_lQhaa5_text()}
+]
+
+# SendActivity_ymAyN0_text()
+- Ok! lets change your name.
+# SendActivity_ymAyN0()
+[Activity
+    Text = ${SendActivity_ymAyN0_text()}
+]
+
+# SendActivity_XBjFXi_text()
+- Ok! lets change your birthdate.
+# SendActivity_XBjFXi()
+[Activity
+    Text = ${SendActivity_XBjFXi_text()}
+]
+
+# SendActivity_TXID4O_text()
+- Ok! lets change your address.
+# SendActivity_TXID4O()
+[Activity
+    Text = ${SendActivity_TXID4O_text()}
+]
+
+# SendActivity_QNYyg1_text()
+- Ok! lets change your national id.
+# SendActivity_QNYyg1()
+[Activity
+    Text = ${SendActivity_QNYyg1_text()}
+]
+
+# SendActivity_nq75To_text()
+- You data changed successfully.
+# SendActivity_nq75To()
+[Activity
+    Text = ${SendActivity_nq75To_text()}
+]

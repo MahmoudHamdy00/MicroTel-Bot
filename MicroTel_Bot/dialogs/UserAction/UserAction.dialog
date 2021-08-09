@@ -154,9 +154,32 @@
                       "alwaysPrompt": false,
                       "allowInterruptions": false,
                       "unrecognizedPrompt": "",
-                      "invalidPrompt": "",
-                      "defaultValueResponse": "",
-                      "style": "heroCard"
+                      "style": "heroCard",
+                      "prompt": "${ChoiceInput_Prompt_PBtTYS()}",
+                      "recognizerOptions": {
+                        "recognizeOrdinals": true,
+                        "recognizeNumbers": true
+                      },
+                      "property": "dialog.nn",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "choices": [
+                        {
+                          "value": "Name ",
+                          "action": {}
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "1tSWrE"
+                      },
+                      "activity": "${SendActivity_1tSWrE()}"
                     }
                   ]
                 }

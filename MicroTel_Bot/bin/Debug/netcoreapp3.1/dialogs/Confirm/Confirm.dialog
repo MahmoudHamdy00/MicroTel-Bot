@@ -32,7 +32,8 @@
           "defaultValueResponse": "",
           "choiceOptions": {
             "includeNumbers": true,
-            "inlineOrMore": ", or "
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
           },
           "property": "dialog.confirm",
           "style": "heroCard",
@@ -49,7 +50,7 @@
               "value": "Confirm "
             },
             {
-              "value": "Update My Data",
+              "value": "Change My Data",
               "synonyms": [
                 "update",
                 "change",
@@ -57,6 +58,13 @@
               ]
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "4jBpSS"
+          },
+          "value": "=dialog.confirm"
         }
       ]
     }

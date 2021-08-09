@@ -127,12 +127,70 @@
                   "resultProperty": "user.confirm"
                 },
                 {
-                  "$kind": "Microsoft.BeginDialog",
+                  "$kind": "Microsoft.IfCondition",
                   "$designer": {
-                    "id": "wfy2kW"
+                    "id": "g6Zgv6"
                   },
-                  "activityProcessed": true,
-                  "dialog": "signUp"
+                  "condition": "=user.confirm == True ",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "YdiAQa"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "signUp"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.ChoiceInput",
+                      "$designer": {
+                        "id": "PBtTYS"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "style": "heroCard",
+                      "prompt": "${ChoiceInput_Prompt_PBtTYS()}",
+                      "recognizerOptions": {
+                        "recognizeOrdinals": true,
+                        "recognizeNumbers": true
+                      },
+                      "property": "dialog.nn",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "choices": [
+                        {
+                          "value": "Name ",
+                          "action": {
+                            "$kind": "Microsoft.DeleteProperties",
+                            "$designer": {
+                              "id": "hXqX4r"
+                            },
+                            "properties": [
+                              "user.lname",
+                              "user.lname"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "1tSWrE"
+                      },
+                      "activity": "${SendActivity_1tSWrE()}"
+                    }
+                  ]
                 }
               ]
             },

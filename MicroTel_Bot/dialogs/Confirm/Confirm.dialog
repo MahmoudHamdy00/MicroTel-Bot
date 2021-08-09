@@ -58,6 +58,13 @@
               ]
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "4jBpSS"
+          },
+          "value": "=dialog.confirm"
         }
       ]
     }

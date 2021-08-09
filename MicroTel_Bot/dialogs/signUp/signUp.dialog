@@ -39,7 +39,8 @@
           "city": "=user.address.city",
           "country": "=user.address.country",
           "phoneNumber": "=user.action",
-          "streetName": "=user.address.streetName "
+          "streetName": "=user.address.streetName ",
+          "number": "user.phoneNumber"
         },
         {
           "$kind": "Microsoft.SendActivity",

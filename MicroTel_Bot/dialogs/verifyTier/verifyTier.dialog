@@ -50,7 +50,7 @@
               "validations": [],
               "choices": [
                 {
-                  "value": "Standard Package ",
+                  "value": "Standard Package",
                   "synonyms": [
                     "Standard-Package",
                     "Standard-Pack",
@@ -59,7 +59,7 @@
                   ]
                 },
                 {
-                  "value": "Premium Package ",
+                  "value": "Premium Package",
                   "synonyms": [
                     "Premium-Package",
                     "Premium-Pack",
@@ -68,7 +68,7 @@
                   ]
                 },
                 {
-                  "value": "VIP Package ",
+                  "value": "VIP Package",
                   "synonyms": [
                     "VIP-Package",
                     "VIP-Pack",

@@ -2588,7 +2588,6 @@ C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomActi
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
 C:\MicroTel\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.GeneratedMSBuildEditorConfig.editorconfig
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\Nuget.config
-C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\MicroTel_Bot.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\function-template-with-preexisting-rg.json
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\new-rg-parameters.json
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\preexisting-rg-parameters.json
@@ -2674,6 +2673,7 @@ C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\veri
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\recognizers\verifyUserName.lu.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\recognizers\verifyUserName.lu.qna.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\verifyUserName\verifyUserName.dialog
+C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\MicroTel_Bot.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\recognizers\MicroTel_Bot.en-us.lu.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\recognizers\MicroTel_Bot.lu.dialog
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\recognizers\MicroTel_Bot.lu.qna.dialog

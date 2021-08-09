@@ -13,4 +13,4 @@
 ]
 
 # TextInput_InvalidPrompt_TQQnRc_text()
-- Hmmm doesn't seem like a date. Can you please insert your birthdate? (format: dd/mm/year)
+- Hmmm doesn't seem like a valid/complete date. Can you please insert your birthdate? (format: dd/mm/year)

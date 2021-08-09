@@ -30,9 +30,9 @@
                 "id": "Xb39A8"
               },
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "prompt": "${TextInput_Prompt_Xb39A8()}",
               "invalidPrompt": "${TextInput_InvalidPrompt_Xb39A8()}",
               "validations": [

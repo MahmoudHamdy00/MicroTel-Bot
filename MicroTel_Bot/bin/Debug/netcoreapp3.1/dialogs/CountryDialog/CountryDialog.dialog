@@ -31,9 +31,9 @@
                 "name": "Ask for Country"
               },
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "validations": [
                 "=exists(@country)",
                 "=@country.type==\"countryRegion\""

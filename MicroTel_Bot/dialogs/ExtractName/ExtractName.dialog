@@ -22,9 +22,9 @@
             "id": "GuAbkA"
           },
           "disabled": false,
-          "maxTurnCount": 3,
+          "maxTurnCount": 50,
           "alwaysPrompt": false,
-          "allowInterruptions": false,
+          "allowInterruptions": true,
           "prompt": "${TextInput_Prompt_GuAbkA()}",
           "invalidPrompt": "${TextInput_InvalidPrompt_GuAbkA()}",
           "validations": [

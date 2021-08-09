@@ -36,9 +36,9 @@
                     "id": "eRvsfV"
                   },
                   "disabled": false,
-                  "maxTurnCount": 3,
+                  "maxTurnCount": 50,
                   "alwaysPrompt": false,
-                  "allowInterruptions": false,
+                  "allowInterruptions": true,
                   "prompt": "${TextInput_Prompt_eRvsfV()}",
                   "invalidPrompt": "${TextInput_InvalidPrompt_eRvsfV()}",
                   "validations": [

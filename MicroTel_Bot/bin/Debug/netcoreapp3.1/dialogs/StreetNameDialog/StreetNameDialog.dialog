@@ -30,10 +30,9 @@
                 "id": "FyoxOC"
               },
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 50,
               "alwaysPrompt": false,
               "allowInterruptions": false,
-              "unrecognizedPrompt": "",
               "validations": [
                 "=exists(@streetName)"
               ],

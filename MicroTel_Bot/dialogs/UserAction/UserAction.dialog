@@ -116,10 +116,49 @@
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "wfy2kW"
+                    "id": "e16f0N"
                   },
                   "activityProcessed": true,
-                  "dialog": "signUp"
+                  "dialog": "Confirm",
+                  "options": {
+                    "message": "Confirm signing up for a ${user.line.tier} tier?",
+                    "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
+                  },
+                  "resultProperty": "user.confirm"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "g6Zgv6"
+                  },
+                  "condition": "=user.confirm == True ",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "YdiAQa"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "signUp"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.ChoiceInput",
+                      "$designer": {
+                        "id": "PBtTYS"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "style": "heroCard"
+                    }
+                  ]
                 }
               ]
             },

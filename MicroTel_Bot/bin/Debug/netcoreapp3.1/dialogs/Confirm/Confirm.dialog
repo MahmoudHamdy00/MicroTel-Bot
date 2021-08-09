@@ -1,0 +1,67 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "FSrvb3",
+    "name": "Confirm",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "DVefRy"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "h7fdy2"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_h7fdy2()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "dialog.confirm",
+          "style": "heroCard",
+          "confirmChoices": [
+            {
+              "synonyms": [
+                "yes",
+                "Yes",
+                "confirmed",
+                "agree",
+                "y",
+                "YES"
+              ],
+              "value": "Confirm "
+            },
+            {
+              "value": "Update My Data",
+              "synonyms": [
+                "update",
+                "change",
+                "modify"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Confirm.lg",
+  "recognizer": "Confirm.lu.qna",
+  "id": "Confirm"
+}

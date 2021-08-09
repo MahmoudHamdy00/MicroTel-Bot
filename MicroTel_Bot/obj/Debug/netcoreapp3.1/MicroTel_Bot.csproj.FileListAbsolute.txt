@@ -3227,3 +3227,12 @@ D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomAc
 D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
 D:\internship\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.csproj.AssemblyReference.cache
 D:\internship\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\scopedcss\bundle\MicroTel_Bot.styles.css
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\Confirm.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\recognizers\Confirm.en-us.lu.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\recognizers\Confirm.lu.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\recognizers\Confirm.lu.qna.dialog
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\language-generation\en-us\Confirm.en-us.lg
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\language-understanding\en-us\Confirm.en-us.lu
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\Confirm.en-us.lu
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\dialogs\Confirm\knowledge-base\en-us\Confirm.en-us.qna
+D:\internship\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\interruption\Confirm.en-us.qna

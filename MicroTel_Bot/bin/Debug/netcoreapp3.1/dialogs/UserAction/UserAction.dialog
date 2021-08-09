@@ -116,6 +116,19 @@
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
+                    "id": "e16f0N"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Confirm",
+                  "options": {
+                    "message": "Confirm signing up for a ${user.line.tier} tier?",
+                    "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
+                  },
+                  "resultProperty": "user.confirm"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
                     "id": "wfy2kW"
                   },
                   "activityProcessed": true,

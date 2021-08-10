@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_VerifyLastName",
+  "recognizers": {
+    "en-us": "VerifyLastName.en-us.lu",
+    "": "VerifyLastName.en-us.lu"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_verifyUserName",
-  "recognizers": {
-    "en-us": "verifyUserName.en-us.lu",
-    "": "verifyUserName.en-us.lu"
-  }
-}

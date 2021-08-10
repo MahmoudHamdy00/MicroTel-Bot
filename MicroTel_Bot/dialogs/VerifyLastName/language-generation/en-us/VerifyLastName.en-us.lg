@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_ZZ5SBZ_text()
+- What is your last name?
+# TextInput_Prompt_ZZ5SBZ()
+[Activity
+    Text = ${TextInput_Prompt_ZZ5SBZ_text()}
+]
+
+# TextInput_InvalidPrompt_ZZ5SBZ_text()
+- Hmmm, I didn't get your family name. Would you please try again? "ex: John"
+# TextInput_InvalidPrompt_ZZ5SBZ()
+[Activity
+    Text = ${TextInput_InvalidPrompt_ZZ5SBZ_text()}
+]

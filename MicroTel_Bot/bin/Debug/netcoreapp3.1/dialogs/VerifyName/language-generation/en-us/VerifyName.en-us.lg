@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_9TD5n7_text()
+- What's your name 😃?
+# TextInput_Prompt_9TD5n7()
+[Activity
+    Text = ${TextInput_Prompt_9TD5n7_text()}
+]
+
+# TextInput_InvalidPrompt_9TD5n7_text()
+- Hmmm, I didn't get your name. Would you please try again? "ex: Ahmed Meshref"
+# TextInput_InvalidPrompt_9TD5n7()
+[Activity
+    Text = ${TextInput_InvalidPrompt_9TD5n7_text()}
+]

@@ -1,0 +1,62 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "fADzbT",
+    "name": "ExtractBirthdate",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "1tDvav"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "kGPRE7",
+            "comment": "Check for valid date provided"
+          },
+          "condition": "=and(exists(@datetime), isDate(@datetime.timex[0]), not(contains(@datetime.timex[0], \"XX\")))",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "A9HrzK"
+              },
+              "property": "user.birthdate",
+              "value": "=@datetime.timex[0]"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "6goPt7"
+              },
+              "condition": "=and(exists(dialog.data.birthdate), isDate(dialog.data.birthdate[0].timex[0]), not(contains(dialog.data.birthdate[0].timex[0], \"XX\")))",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "hOi0yo"
+                  },
+                  "property": "user.birthdate",
+                  "value": "=dialog.data.birthdate[0].timex[0]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractBirthdate.lg",
+  "recognizer": "ExtractBirthdate.lu.qna",
+  "id": "ExtractBirthdate"
+}

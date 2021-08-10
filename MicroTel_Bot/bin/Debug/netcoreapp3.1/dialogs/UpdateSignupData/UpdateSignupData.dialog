@@ -111,8 +111,8 @@
                     "id": "o2M8tE"
                   },
                   "activityProcessed": true,
-                  "dialog": "verifyUserName",
-                  "options": {}
+                  "options": {},
+                  "dialog": "VerifyName"
                 }
               ]
             },

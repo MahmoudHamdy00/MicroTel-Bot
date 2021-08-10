@@ -1,7 +1,7 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "lGJ4Yp",
+    "id": "kwRbUu",
     "name": "ExtractName",
     "comment": ""
   },
@@ -13,28 +13,13 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "sOruKX"
+        "id": "jCG7cj"
       },
       "actions": [
         {
-          "$kind": "Microsoft.TextInput",
-          "$designer": {
-            "id": "GuAbkA"
-          },
-          "disabled": false,
-          "maxTurnCount": 50,
-          "alwaysPrompt": false,
-          "allowInterruptions": true,
-          "prompt": "${TextInput_Prompt_GuAbkA()}",
-          "invalidPrompt": "${TextInput_InvalidPrompt_GuAbkA()}",
-          "validations": [
-            "=or(exists(@name), exists(@personName))"
-          ]
-        },
-        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
-            "id": "sMacuM"
+            "id": "TwAp2X"
           },
           "property": "dialog.personName",
           "value": "=split(@personName, \" \")"
@@ -42,29 +27,67 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "ortW36"
+            "id": "CDHHxF"
           },
-          "condition": "=exists(dialog.personName)",
-          "actions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "6FJkuv"
-              },
-              "value": "=first(dialog.personName)",
-              "property": "user.fname"
-            },
+          "condition": "=and(exists(user.fname), user.fname!=\"\")",
+          "elseActions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "o8hh1L"
+                "id": "HhJqit"
               },
-              "condition": "=count(dialog.personName) > 1",
+              "condition": "=exists(dialog.personName)",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "fu2lHM"
+                  },
+                  "property": "user.fname",
+                  "value": "=dialog.data.name[0].fname[0]"
+                }
+              ],
               "actions": [
                 {
                   "$kind": "Microsoft.SetProperty",
                   "$designer": {
-                    "id": "SHdBI7"
+                    "id": "mvLVsJ"
+                  },
+                  "value": "=first(dialog.personName)",
+                  "property": "user.fname"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "LC50Pu"
+          },
+          "condition": "=and(exists(user.lname), user.lname!=\"\")",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "U6z2Ij"
+              },
+              "condition": "=and(exists(dialog.personName), count(dialog.personName) > 1)",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "zsCZRW"
+                  },
+                  "property": "user.lname",
+                  "value": "=dialog.data.name[0].lname[0]"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "PaeahF"
                   },
                   "value": "=last(dialog.personName)",
                   "property": "user.lname"
@@ -72,24 +95,7 @@
               ]
             }
           ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "SoLj3e"
-              },
-              "value": "=@name.fname[0]",
-              "property": "user.fname"
-            },
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "2cgtkU"
-              },
-              "value": "=@name.lname[0]",
-              "property": "user.lname"
-            }
-          ]
+          "actions": []
         }
       ]
     }

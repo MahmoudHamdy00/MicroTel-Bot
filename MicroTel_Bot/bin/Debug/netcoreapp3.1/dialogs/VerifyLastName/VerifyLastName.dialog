@@ -1,0 +1,77 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qDNalb",
+    "name": "VerifyLastName",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "rjLUXc"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "pRCdjL"
+          },
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "ZZ5SBZ"
+              },
+              "disabled": false,
+              "maxTurnCount": 50,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_ZZ5SBZ()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_ZZ5SBZ()}",
+              "validations": [
+                "=or(exists(@name.lname), exists(@personName))"
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "ao09f7"
+              },
+              "condition": "=exists(@personName)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "jstAF2"
+                  },
+                  "value": "=last(split(@personName, \" \"))",
+                  "property": "user.lname"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "4tlm2i"
+                  },
+                  "value": "=@name.lname[0]",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ],
+          "condition": "=and(exists(user.lname), user.lname != \"\")"
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyLastName.lg",
+  "recognizer": "VerifyLastName.lu.qna",
+  "id": "VerifyLastName"
+}

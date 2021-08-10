@@ -56,10 +56,7 @@
 - {@userInfo={@action=sign up} for a new tier. I come from {@address={@country=usa} {@city=los angeles}}}
 - Can you please {@userInfo={@action=sign me up} for a vip tier? I am {@name={@fName=ahmed} khaled {@lName=mohamed}} was born on {@birthDate=11/20/2020}. my id {@nationalID=16764}}
 - I want to get {@userInfo={@action=signed up} for a new tier. I am {@name={@fName=ahmed} {@lName=reda}} from {@address={@city=paris}, {@country=france}}. I was born on {@birthDate=11/02/2000}. My id is {@nationalID=16764}}.
-
-
-
-
+- I would like to {@userInfo={@action=register} for a new tier. I am {@name={@fName=ahmed} {@lName=shaban}} from {@address={@country=germany}}.
 
 @ intent UserAction usesFeature userInfo
 

@@ -183,3 +183,38 @@
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
 
 @ patternany songName
+
+# UpdateTier
+- alter my existing package from standard to vip tier. my phone number is 010987654 .
+- can i change the tier of my phone number 01098765432? my national id is 19873
+- can i upgrade to a new tier?
+- can you alter my line’s tier please?
+- can you downgrade my package for me?
+- can you update my tier from premium to vip? my identity card number is 19873 linked to line number 010987654.
+- change the package of my phone number 010987654 to vip.
+- downgrade my line to vip instead of premium
+- downgrade my line.
+- i want to change the tier of my line number 010987654.
+- i want to change the tier of my phone number 010987654 from vip to premium and my national id is 19873.
+- i want to downgrade from premium to vip.
+- i want to downgrade my tier.
+- i wish to alter the tier of my phone from vip to standar. here is my phone number 010987654 and my id 19873.
+- i would like to upgrade to a new tier.
+- i would love to change the tier i am subscribed to.
+- i’d like to upgrade to premium
+- my current tier is vip, i would like to downgrade it to standard
+- my id is 19873. downgrade my phone number 010987654 from vip tier to premium tier.
+- my id is 19999, can i upgrade my line from standard to premium?
+- my line is currently premium, change it to vip. my national id is 29876.
+- my national id is 19873. i would like to upgrade my phone line number 010987654 to vip.
+- my phone number 010987654 is subscribed to vip tier. can you change that to premium? my identity card number is 19873.
+- my standard tier is not enough for my usage, i want to upgrade.
+- update my existing tier for premium instead of standard.
+- update my tier to a new one.
+- upgrade my line number 010987654 to vip. my id is 19998.
+- upgrade my line to vip, my id is 19873.
+- upgrade my package.
+- would you please change the tier of my line number 010987654 to vip. my id is 19873.
+- would you upgrade my line to vip?
+
+@ regex phoneNumber = /010[0-9]{6}/

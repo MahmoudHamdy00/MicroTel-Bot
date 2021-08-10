@@ -1,5 +1,5 @@
 {
   "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_UpdateData",
+  "id": "LUIS_UpdateTier",
   "recognizers": {}
 }

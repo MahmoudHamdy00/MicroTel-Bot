@@ -56,7 +56,7 @@
                 "id": "XUjmAq"
               },
               "activityProcessed": true,
-              "dialog": "ExtractName"
+              "dialog": "VerifyName"
             },
             {
               "$kind": "Microsoft.SetProperty",

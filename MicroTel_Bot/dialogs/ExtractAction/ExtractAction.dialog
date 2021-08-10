@@ -1,0 +1,33 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "wkLX4u",
+    "name": "ExtractAction",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "QKcXkC"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "8bOmL8"
+          },
+          "property": "user.action",
+          "value": "=dialog.data.action[0][0]"
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractAction.lg",
+  "recognizer": "ExtractAction.lu.qna",
+  "id": "ExtractAction"
+}

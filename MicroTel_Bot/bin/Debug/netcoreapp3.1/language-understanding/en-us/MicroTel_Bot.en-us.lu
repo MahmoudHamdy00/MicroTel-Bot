@@ -55,8 +55,8 @@
 - I would live to {@userInfo={@action=get} a new line. I live in {@address={@streetNumber=10}, {@streetName=sayed elshaik st} {@country=egypt}}. 
 - {@userInfo={@action=sign up} for a new tier. I come from {@address={@country=usa} {@city=los angeles}}}
 - Can you please {@userInfo={@action=sign me up} for a vip tier? I am {@name={@fName=ahmed} khaled {@lName=mohamed}} was born on {@birthDate=11/20/2020}. my id {@nationalID=16764}}
-
-
+- I want to get {@userInfo={@action=signed up} for a new tier. I am {@name={@fName=ahmed} {@lName=reda}} from {@address={@city=paris}, {@country=france}}. I was born on {@birthDate=11/02/2000}. My id is {@nationalID=16764}}.
+- I would like to {@userInfo={@action=register} for a new tier. I am {@name={@fName=ahmed} {@lName=shaban}} from {@address={@country=germany}}.
 
 @ intent UserAction usesFeature userInfo
 
@@ -84,7 +84,6 @@
     - @ ml name usesFeature personName
         - @ ml lName
         - @ ml fName
-
 
 
 > # PREBUILT Entity definitions
@@ -117,6 +116,7 @@
 		- sign me up
 		- sign-up
 		- need
+		- signed up
 	- forget :
 		- can’t remember
 		- lost
@@ -131,6 +131,7 @@
 		- not working
 
 
+
 @ list extraFullPackage = 
 	- Plus Package :
 		- Plus pack
@@ -143,19 +144,16 @@
 
 
 @ list tier = 
-	- standard package :
-		- Standard
-		- standard pack
-		- standard-package
-	- Premium Package :
-		- Premium
-		- Premium-Package
-		- Premium pack
-	- VIP Package :
-		- VIP
+	- Standard :
+		- standard tier
+		- standard-tier
+	- Premium :
+		- Premium tier
+		- Premium-tier
+	- VIP :
 		- vip
-		- vip-package
-		- vip pack
+		- vip tier
+		- vip-tier
 
 
 @ list units = 
@@ -172,14 +170,59 @@
 	- minutes :
 		- min
 		- mins
-	- text messages :
-		- messages
+	- messages :
 		- sms
+		- text messages
 
 
 > # RegEx entities
 
 @ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
+@ regex phoneNumber = /010[0-9]{6}/
+
+> # Pattern.Any entities
 
 @ patternany songName
+
+
+# UpdateTier
+- {@updateTierInfo=alter my existing package from {@originalTier=standard} to {@newTier=vip} tier. my phone number is {@phoneNumber=010987654}} .
+- can i {@updateTierInfo=change the tier of my phone number {@phoneNumber=01098765432}? my national id is {@nationalID=19873}}
+- can i {@updateTierInfo=upgrade to a new tier}?
+- can you {@updateTierInfo=alter my line’s tier} please?
+- can you {@updateTierInfo=downgrade my package for me}?
+- can you {@updateTierInfo=update my tier from {@originalTier=premium} to {@newTier=vip}? my identity card number is {@nationalID=19873 linked} to line number {@phoneNumber=010987654}}.
+- {@updateTierInfo=change the package of my phone number {@phoneNumber=010987654} to {@newTier=vip}}.
+- {@updateTierInfo=downgrade my line to {@newTier=vip} instead of {@originalTier=premium}}
+- {@updateTierInfo=downgrade my line}.
+- i want to {@updateTierInfo=change the tier of my line number {@phoneNumber=010987654}}.
+- i want to {@updateTierInfo=change the tier of my phone number {@phoneNumber=010987654} from {@originalTier=vip} to {@newTier=premium} and my national id is {@nationalID=19873}}.
+- i want to {@updateTierInfo=downgrade from {@originalTier=premium} to {@newTier=vip}}.
+- i want to {@updateTierInfo=downgrade my tier}.
+- i wish to {@updateTierInfo=alter the tier of my phone from {@originalTier=vip} to {@newTier=standar}. here is my phone number {@phoneNumber=010987654} and my id {@nationalID=19873}}.
+- i would like to {@updateTierInfo=upgrade to a new tier}.
+- i would love to {@updateTierInfo=change the tier i am subscribed to}.
+- i’d like to {@updateTierInfo=upgrade to {@newTier=premium}}
+- {@updateTierInfo=my current tier is {@originalTier=vip}, i would like to downgrade it to {@newTier=standard}}
+- {@updateTierInfo=my id is {@phoneNumber=19873}. downgrade my phone number {@phoneNumber=010987654} from {@originalTier=vip} tier to {@newTier=premium} tier}.
+- my {@updateTierInfo=id is {@nationalID=19999}, can i upgrade my line from {@originalTier=standard} to {@newTier=premium}}?
+- my line is {@updateTierInfo=currently {@newTier=premium}, change it to {@newTier=vip}. my national id is {@nationalID=29876}}.
+- my {@updateTierInfo=national id is {@nationalID=19873}. i would like to upgrade my phone line number {@phoneNumber=010987654} to {@newTier=vip}}.
+- {@updateTierInfo=my phone number {@phoneNumber=010987654} is subscribed to {@originalTier=vip} tier. can you change that to {@newTier=premium}? my identity card number is {@nationalID=19873}}.
+- {@updateTierInfo=my {@originalTier=standard} tier is not enough for my usage, i want to upgrade}.
+- {@updateTierInfo=update my existing tier for {@newTier=premium} instead of {@originalTier=standard}}.
+- {@updateTierInfo=update my tier to a new one}.
+- {@updateTierInfo=upgrade my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@phoneNumber=19998}}.
+- {@updateTierInfo=upgrade my line to {@newTier=vip}, my id is {@nationalID=19873}}.
+- {@updateTierInfo=upgrade my package}.
+- would you please {@updateTierInfo=change the tier of my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@nationalID=19873}}.
+- would you {@updateTierInfo=upgrade my line to {@newTier=vip}}?
+
+@ intent UpdateTier usesFeature updateTierInfo
+
+@ ml updateTierInfo
+    - @ ml originalTier usesFeature tier
+    - @ ml newTier usesFeature tier
+    - @ ml phoneNumber usesFeature phoneNumber
+    - @ ml nationalID usesFeature nationalID

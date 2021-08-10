@@ -13,6 +13,9 @@
       ],
       "UserAction": [
         "UserAction.en-us"
+      ],
+      "UpdateTier": [
+        "UpdateTier.en-us"
       ]
     }
   },
@@ -27,11 +30,11 @@
       ]
     }
   },
-  "verifyUserName.en-us": {
+  "VerifyName.en-us": {
     "rootDialog": false,
     "triggers": {
       "": [
-        "ExtractName.en-us"
+        "VerifyLastName.en-us"
       ]
     }
   }

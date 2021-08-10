@@ -30,12 +30,56 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "l93EbV"
+            "id": "xrtP8d"
           },
           "activityProcessed": true,
-          "dialog": "ExtarctUserInfo",
+          "dialog": "ExtractAction",
           "options": {
-            "userInfo": "=@userInfo"
+            "data": "=@userInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "JxMgiU"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractName",
+          "options": {
+            "data": "=@userInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "DZybig"
+          },
+          "activityProcessed": true,
+          "options": {
+            "data": "=@userInfo"
+          },
+          "dialog": "ExtractBirthdate"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "PX6oz9"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractNationalID",
+          "options": {
+            "data": "=@userInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "xEA7q3"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractAddress",
+          "options": {
+            "data": "=@userInfo"
           }
         },
         {
@@ -52,8 +96,8 @@
             "id": "dz0Zpj"
           },
           "activityProcessed": true,
-          "dialog": "verifyUserName",
-          "options": {}
+          "options": {},
+          "dialog": "VerifyName"
         },
         {
           "$kind": "Microsoft.BeginDialog",

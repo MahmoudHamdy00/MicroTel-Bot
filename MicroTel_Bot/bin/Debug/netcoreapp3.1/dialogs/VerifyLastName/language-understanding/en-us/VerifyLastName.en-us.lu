@@ -1,0 +1,32 @@
+
+# TextInput_Response_ZZ5SBZ
+- {@name={@lname=ahmed}}
+- {@name={@lname=hazem}}
+- {@name={@lname=meshref}}
+- {@name=ahmed {@lname=kareem}} 
+- {@name=ahmed khaled {@lname=mohamed}}
+- {@name=hazem mohamed martine {@lname=mohamed}}
+- {@name=gary john {@lname=cooper}}
+- {@name=hazem {@lname=el-hammamy}}
+- I am called {@name=hussein Mohamed {@lname=ibrahim}}
+- i am {@name=ahmed {@lname=ezzat}}
+- i am {@name={@lname=yasser}}
+- it's {@name={@lname=meshref}}
+- it is called {@name={@lname=john}}
+- {@name=mahmoud {@lname=hamdy}}
+- my name is {@name=mahmoud {@lname=hamdy}}
+- name is {@name=mahmoud {@lname=abdel-kareem}}
+- {@name={@lname=nayer}}
+- my family name is {@name={@lname=michael}}
+- my fam is called {@name={@lname=john}}
+- {@name=nayer {@lname=wanas}}
+
+> # Entity definitions
+
+@ ml name usesFeature personName
+    - @ ml lname
+
+@ prebuilt personName
+
+
+

@@ -150,6 +150,24 @@
         }
       ],
       "entities": []
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "TV1pnm",
+        "name": "UpdateTier"
+      },
+      "intent": "UpdateTier",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ZMwmhJ"
+          },
+          "activityProcessed": true,
+          "dialog": "UpdateTier"
+        }
+      ]
     }
   ],
   "generator": "MicroTel_Bot.lg",

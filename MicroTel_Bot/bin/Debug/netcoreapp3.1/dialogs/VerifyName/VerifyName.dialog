@@ -1,0 +1,119 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "cdz6Mb",
+    "name": "VerifyName",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "ILh78o"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "a1SLW3"
+          },
+          "condition": "=and(exists(user.fname), user.fname != \"\")",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "9TD5n7"
+              },
+              "disabled": false,
+              "maxTurnCount": 50,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_9TD5n7()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_9TD5n7()}",
+              "validations": [
+                "=or(exists(@name), exists(@personName))"
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "WdjWuo"
+              },
+              "property": "dialog.personName",
+              "value": "=split(@personName, \" \")"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "btmWHG"
+              },
+              "condition": "=exists(dialog.personName)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "ZwD6av"
+                  },
+                  "value": "=first(dialog.personName)",
+                  "property": "user.fname"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "R5QfOw"
+                  },
+                  "condition": "=count(dialog.personName) > 1",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "0xvDaw"
+                      },
+                      "value": "=last(dialog.personName)",
+                      "property": "user.lname"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "eB7DYD"
+                  },
+                  "value": "=@name.fname[0]",
+                  "property": "user.fname"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "5Vnhhy"
+                  },
+                  "value": "=@name.lname[0]",
+                  "property": "user.lname"
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "Mta5C4"
+              },
+              "activityProcessed": true,
+              "dialog": "VerifyLastName"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyName.lg",
+  "recognizer": "VerifyName.lu.qna",
+  "id": "VerifyName"
+}

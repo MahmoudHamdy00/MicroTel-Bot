@@ -50,30 +50,25 @@
               "validations": [],
               "choices": [
                 {
-                  "value": "Standard Package",
+                  "value": "Standard",
                   "synonyms": [
-                    "Standard-Package",
-                    "Standard-Pack",
-                    "Standard Pack",
-                    "Standard"
+                    "standard tier",
+                    "standard-tier"
                   ]
                 },
                 {
-                  "value": "Premium Package",
+                  "value": "Premium",
                   "synonyms": [
-                    "Premium-Package",
-                    "Premium-Pack",
-                    "Premium-Pack",
-                    "Premium "
+                    "Premium tier",
+                    "Premium-tier"
                   ]
                 },
                 {
-                  "value": "VIP Package",
+                  "value": "VIP",
                   "synonyms": [
-                    "VIP-Package",
-                    "VIP-Pack",
-                    "VIP-Pack",
-                    "VIP "
+                    "vip",
+                    "vip tier",
+                    "vip-tier"
                   ]
                 }
               ],

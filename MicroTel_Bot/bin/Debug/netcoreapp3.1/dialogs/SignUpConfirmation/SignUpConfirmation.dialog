@@ -52,7 +52,7 @@
                 "id": "aLtfA0"
               },
               "activityProcessed": true,
-              "dialog": "UpdateData"
+              "dialog": "UpdateSignupData"
             },
             {
               "$kind": "Microsoft.RepeatDialog",

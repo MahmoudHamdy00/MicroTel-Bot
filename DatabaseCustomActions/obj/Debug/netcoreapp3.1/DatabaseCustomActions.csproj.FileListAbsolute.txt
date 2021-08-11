@@ -26,3 +26,4 @@ D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\Databas
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.dll
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.AssemblyReference.cache
+C:\MicroTel\final\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.GeneratedMSBuildEditorConfig.editorconfig

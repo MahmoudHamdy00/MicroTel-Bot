@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -75,6 +75,7 @@
         "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
           "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -84,7 +85,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Users\\v-mhamdy\\Downloads": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://botbuilder.myget.org/F/botbuilder-v4-dotnet-daily/api/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -149,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
         }
       }
     }

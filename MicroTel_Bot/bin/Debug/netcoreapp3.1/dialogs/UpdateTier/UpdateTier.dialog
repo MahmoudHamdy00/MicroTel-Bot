@@ -15,7 +15,38 @@
         "description": "",
         "id": "60d9Z2"
       },
-      "actions": []
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "EgD8qT"
+          },
+          "activity": "${SendActivity_EgD8qT()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "RbipyK"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "csMwwD"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractNationalID"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "BcUuji"
+          },
+          "activity": "${SendActivity_BcUuji()}"
+        }
+      ]
     }
   ],
   "generator": "UpdateTier.lg",

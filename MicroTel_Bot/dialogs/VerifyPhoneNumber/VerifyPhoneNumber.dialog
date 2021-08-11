@@ -36,7 +36,7 @@
               "prompt": "${TextInput_Prompt_f0Bvpn()}",
               "invalidPrompt": "${TextInput_InvalidPrompt_f0Bvpn()}",
               "validations": [
-                "=exists(@nationalID)"
+                "=exists(@phoneNumber)"
               ]
             },
             {

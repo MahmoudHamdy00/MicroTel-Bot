@@ -9,8 +9,10 @@
 ]
 
 # TextInput_InvalidPrompt_f0Bvpn_text()
-- Invalid national id. Would you please insert your correct national id?
+- Invalid phoneNumber . Would you please insert your correct phoneNumber?
+- Your phone number is incorect (010xxxxxx)
 # TextInput_InvalidPrompt_f0Bvpn()
 [Activity
     Text = ${TextInput_InvalidPrompt_f0Bvpn_text()}
 ]
+

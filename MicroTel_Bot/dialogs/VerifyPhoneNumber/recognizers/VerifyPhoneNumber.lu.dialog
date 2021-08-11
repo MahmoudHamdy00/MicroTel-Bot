@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_VerifyPhoneNumber",
+  "recognizers": {
+    "en-us": "VerifyPhoneNumber.en-us.lu",
+    "": "VerifyPhoneNumber.en-us.lu"
+  }
+}

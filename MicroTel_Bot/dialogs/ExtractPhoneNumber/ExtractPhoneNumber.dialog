@@ -21,7 +21,7 @@
           "$designer": {
             "id": "tyUoTN"
           },
-          "condition": "=exists(@nationalID)",
+          "condition": "=exists(@phoneNumber)",
           "elseActions": [],
           "actions": [
             {

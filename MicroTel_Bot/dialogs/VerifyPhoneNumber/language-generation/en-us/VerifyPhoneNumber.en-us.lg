@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# TextInput_Prompt_f0Bvpn_text()
+- What is your phoneNumber ?
+- May I get your phoneNumber?
+# TextInput_Prompt_f0Bvpn()
+[Activity
+    Text = ${TextInput_Prompt_f0Bvpn_text()}
+]
+
+# TextInput_InvalidPrompt_f0Bvpn_text()
+- Invalid national id. Would you please insert your correct national id?
+# TextInput_InvalidPrompt_f0Bvpn()
+[Activity
+    Text = ${TextInput_InvalidPrompt_f0Bvpn_text()}
+]

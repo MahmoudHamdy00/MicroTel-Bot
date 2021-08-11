@@ -17,11 +17,15 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "EgD8qT"
+            "id": "RMAcLO"
           },
-          "activity": "${SendActivity_EgD8qT()}"
+          "activityProcessed": true,
+          "dialog": "ExtractPhoneNumber",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -29,7 +33,10 @@
             "id": "RbipyK"
           },
           "activityProcessed": true,
-          "dialog": "ExtractTier"
+          "dialog": "ExtractTier",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -37,14 +44,56 @@
             "id": "csMwwD"
           },
           "activityProcessed": true,
-          "dialog": "ExtractNationalID"
+          "dialog": "ExtractNationalID",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "BcUuji"
+            "id": "GGPbQ0",
+            "comment": ""
           },
-          "activity": "${SendActivity_BcUuji()}"
+          "activityProcessed": true,
+          "dialog": "VerifyPhoneNumber",
+          "resultProperty": "user.line.number",
+          "options": {
+            "phoneNumber": "=user.line.number"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "CvGSDM",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "verifyNationalId",
+          "resultProperty": "user.nationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "3BiC7c"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyTier",
+          "resultProperty": "user.line.tier",
+          "options": {
+            "tier": "=user.line.tier"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Zvf4pU"
+          },
+          "activityProcessed": true,
+          "dialog": "UpdateTierConfirmation"
         }
       ]
     }

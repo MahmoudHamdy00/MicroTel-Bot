@@ -1,17 +1,1 @@
 [import](common.lg)
-
-# SendActivity_EgD8qT()
-[Activity
-    Text = ${SendActivity_EgD8qT_text()}
-]
-
-# SendActivity_EgD8qT_text()
-- ${@updateTierInfo}
-# SendActivity_iMrEec_text()
-- ```\- ID ${user.nationalID}
-\- Number ${user.line.number}
-\- ID ${user.line.tier}```
-# SendActivity_iMrEec()
-[Activity
-    Text = ${SendActivity_iMrEec_text()}
-]

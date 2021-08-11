@@ -83,22 +83,6 @@
               "value": "Name",
               "actions": [
                 {
-                  "$kind": "Microsoft.SetProperties",
-                  "$designer": {
-                    "id": "TOPlWI"
-                  },
-                  "assignments": [
-                    {
-                      "property": "user.fname",
-                      "value": "=''"
-                    },
-                    {
-                      "property": "user.lname",
-                      "value": "=''"
-                    }
-                  ]
-                },
-                {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
                     "id": "0x8xWe"
@@ -119,18 +103,6 @@
             {
               "value": "Birthdate",
               "actions": [
-                {
-                  "$kind": "Microsoft.SetProperties",
-                  "$designer": {
-                    "id": "zDy1zh"
-                  },
-                  "assignments": [
-                    {
-                      "property": "user.birthdate",
-                      "value": "=''"
-                    }
-                  ]
-                },
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
@@ -153,18 +125,6 @@
               "value": "Address",
               "actions": [
                 {
-                  "$kind": "Microsoft.SetProperties",
-                  "$designer": {
-                    "id": "6PuLCw"
-                  },
-                  "assignments": [
-                    {
-                      "property": "user.address",
-                      "value": "=''"
-                    }
-                  ]
-                },
-                {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
                     "id": "1PmApo"
@@ -185,18 +145,6 @@
             {
               "value": "National ID",
               "actions": [
-                {
-                  "$kind": "Microsoft.SetProperties",
-                  "$designer": {
-                    "id": "UGqlWo"
-                  },
-                  "assignments": [
-                    {
-                      "value": "=''",
-                      "property": "user.nationalID"
-                    }
-                  ]
-                },
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {

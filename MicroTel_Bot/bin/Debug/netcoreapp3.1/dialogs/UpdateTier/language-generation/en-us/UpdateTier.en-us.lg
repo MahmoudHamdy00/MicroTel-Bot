@@ -1,16 +1,1 @@
 [import](common.lg)
-
-# SendActivity_EgD8qT()
-[Activity
-    Text = ${SendActivity_EgD8qT_text()}
-]
-
-# SendActivity_EgD8qT_text()
-- ${@updateTierInfo}
-# SendActivity_BcUuji()
-[Activity
-    Text = ${SendActivity_BcUuji_text()}
-]
-
-# SendActivity_BcUuji_text()
-- I still work

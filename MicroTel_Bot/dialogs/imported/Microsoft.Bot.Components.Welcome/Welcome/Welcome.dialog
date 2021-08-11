@@ -23,7 +23,7 @@
           "$designer": {
             "id": "sF0fYv"
           },
-          "condition": "exists(user.fname)",
+          "condition": "=exists(user.fname)",
           "actions": [
             {
               "$kind": "Microsoft.SendActivity",
@@ -56,7 +56,11 @@
                 "id": "XUjmAq"
               },
               "activityProcessed": true,
-              "dialog": "VerifyName"
+              "dialog": "VerifyName",
+              "options": {
+                "lname": "=user.lname",
+                "fname": "=user.fname"
+              }
             },
             {
               "$kind": "Microsoft.SetProperty",

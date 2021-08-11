@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# SendActivity_MJU8o4_text()
+- SAVE UPDATES TO DB. ID -> ${user.nationalID}; Number -> ${user.line.number}; New tier -> ${user.line.tier}
+# SendActivity_MJU8o4()
+[Activity
+    Text = ${SendActivity_MJU8o4_text()}
+]
+
+# SendActivity_OMELe9()
+[Activity
+    Text = ${SendActivity_OMELe9_text()}
+]
+
+# SendActivity_OMELe9_text()
+- Alright, choose a different tier!

@@ -17,12 +17,31 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "7VunnF"
+            "id": "8hXJAn"
           },
-          "property": "user.line.tier",
-          "value": "=dialog.tier"
+          "condition": "=exists(dialog.data)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Me7Oav"
+              },
+              "property": "user.line.tier",
+              "value": "=dialog.data.newTier[0]"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "xFHDoL"
+              },
+              "property": "user.line.tier",
+              "value": "=@tier"
+            }
+          ]
         }
       ]
     }

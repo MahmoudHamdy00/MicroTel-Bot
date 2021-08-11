@@ -21,7 +21,7 @@
           "$designer": {
             "id": "a1SLW3"
           },
-          "condition": "=and(exists(user.fname), user.fname != \"\")",
+          "condition": "=and(exists(dialog.fname), dialog.fname != \"\")",
           "elseActions": [
             {
               "$kind": "Microsoft.TextInput",

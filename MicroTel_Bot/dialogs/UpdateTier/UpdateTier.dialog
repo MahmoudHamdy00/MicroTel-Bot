@@ -17,13 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "EgD8qT"
-          },
-          "activity": "${SendActivity_EgD8qT()}"
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "RMAcLO"
@@ -95,11 +88,12 @@
           }
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "iMrEec"
+            "id": "Zvf4pU"
           },
-          "activity": "${SendActivity_iMrEec()}"
+          "activityProcessed": true,
+          "dialog": "UpdateTierConfirmation"
         }
       ]
     }

@@ -1,0 +1,101 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "BC4v3Z",
+    "name": "UpdateTierConfirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "0wWmOH"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "pcXYu2"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {
+            "message": "Confirm changing the tier for your line number ${user.line.number} to ${user.line.tier}?"
+          },
+          "resultProperty": "user.confirm"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "EFleob"
+          },
+          "condition": "user.confirm",
+          "default": [],
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "MJU8o4"
+                  },
+                  "activity": "${SendActivity_MJU8o4()}"
+                }
+              ]
+            },
+            {
+              "value": "Modify My Data",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "OMELe9"
+                  },
+                  "activity": "${SendActivity_OMELe9()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "eMOhpg"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyTier",
+                  "resultProperty": "user.line.tier",
+                  "options": {}
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "mhTJLt"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "XPbpRj"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "UpdateTierConfirmation.lg",
+  "recognizer": "UpdateTierConfirmation.lu.qna",
+  "id": "UpdateTierConfirmation"
+}

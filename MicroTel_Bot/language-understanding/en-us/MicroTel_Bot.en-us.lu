@@ -218,6 +218,8 @@
 - upgrade my current package.
 - would you please {@updateTierInfo=change the tier of my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@nationalID=19873}}.
 - would you {@updateTierInfo=upgrade my line to {@newTier=vip}}?
+- I need to {@updateTierInfo=upgrade my tier to {@newTier=vip}}.
+- I am in need for more megabytes. please {@updateTierInfo=upgrade my line to {@newTier=premium} tier instead of {@originalTier=standard}}.
 
 @ intent UpdateTier usesFeature updateTierInfo
 

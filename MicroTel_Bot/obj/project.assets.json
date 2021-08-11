@@ -10973,20 +10973,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\": {}
+    "C:\\Users\\v-mhamdy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+      "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
       "projectName": "MicroTel_Bot",
-      "projectPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
-      "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
-      "outputPath": "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
+      "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\MicroTel_Bot.csproj",
+      "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
+      "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\internship\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
-        "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\MicroTel\\final\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
+        "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10994,6 +10994,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\v-mhamdy\\Downloads": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://botbuilder.myget.org/F/botbuilder-v4-dotnet-daily/api/v3/index.json": {}
       },
@@ -11001,8 +11002,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
-              "projectPath": "D:\\internship\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
+            "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj": {
+              "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj"
             }
           }
         }
@@ -11060,7 +11061,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
       }
     }
   },

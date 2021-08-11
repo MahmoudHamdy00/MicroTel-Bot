@@ -1,0 +1,10 @@
+
+# TextInput_Response_f0Bvpn
+- 010123456
+- 010545262 is my number
+- here is my phone 010125411.
+- my number is 010252321
+- phone is 010245211
+- my phone number id is 27654
+
+@ regex phoneNumber = /010[0-9]{6}/

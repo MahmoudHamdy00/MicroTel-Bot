@@ -3,7 +3,7 @@ using Microsoft.Bot.Builder.Dialogs.Declarative;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-public class MultiplyDialogBotComponent : BotComponent
+public class AddUserDialogBotComponent : BotComponent
 {
     public override void ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {

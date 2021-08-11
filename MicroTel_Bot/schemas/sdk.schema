@@ -342,6 +342,9 @@
     },
     {
       "$ref": "#/definitions/Microsoft.UrlEntityRecognizer"
+    },
+    {
+      "$ref": "#/definitions/VerifyNationalID"
     }
   ],
   "definitions": {
@@ -4160,6 +4163,9 @@
         },
         {
           "$ref": "#/definitions/Microsoft.UpdateActivity"
+        },
+        {
+          "$ref": "#/definitions/VerifyNationalID"
         },
         {
           "type": "string",
@@ -9623,6 +9629,46 @@
           ]
         }
       ]
+    },
+    "VerifyNationalID": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return the result of arg1*arg2",
+      "title": "Verify National ID",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "natid": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "National ID",
+          "description": "The National ID for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "The returned  "
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "VerifyNationalID"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",

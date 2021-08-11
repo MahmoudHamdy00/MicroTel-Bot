@@ -16,6 +16,9 @@
       ],
       "UpdateTier": [
         "UpdateTier.en-us"
+      ],
+      "ExtendPackage": [
+        "ExtendPackage.en-us"
       ]
     }
   },

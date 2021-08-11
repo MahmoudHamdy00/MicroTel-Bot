@@ -57,11 +57,49 @@
           }
         },
         {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "GGPbQ0",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyPhoneNumber",
+          "resultProperty": "user.line.number",
+          "options": {
+            "phoneNumber": "=user.line.number"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "CvGSDM",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "verifyNationalId",
+          "resultProperty": "user.nationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "3BiC7c"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyTier",
+          "resultProperty": "user.line.tier",
+          "options": {
+            "tier": "=user.line.tier"
+          }
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "BcUuji"
+            "id": "iMrEec"
           },
-          "activity": "${SendActivity_BcUuji()}"
+          "activity": "${SendActivity_iMrEec()}"
         }
       ]
     }

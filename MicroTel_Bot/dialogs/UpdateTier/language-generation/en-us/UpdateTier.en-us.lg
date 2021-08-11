@@ -7,12 +7,11 @@
 
 # SendActivity_EgD8qT_text()
 - ${@updateTierInfo}
-# SendActivity_BcUuji()
-[Activity
-    Text = ${SendActivity_BcUuji_text()}
-]
-
-# SendActivity_BcUuji_text()
+# SendActivity_iMrEec_text()
 - ```\- ID ${user.nationalID}
 \- Number ${user.line.number}
 \- ID ${user.line.tier}```
+# SendActivity_iMrEec()
+[Activity
+    Text = ${SendActivity_iMrEec_text()}
+]

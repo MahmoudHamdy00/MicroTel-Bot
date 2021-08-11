@@ -1,0 +1,24 @@
+[import](common.lg)
+
+# TextInput_Prompt_wJwDpv_text()
+- What is your phone number?
+- May I get your phone number?
+# TextInput_Prompt_wJwDpv()
+[Activity
+    Text = ${TextInput_Prompt_wJwDpv_text()}
+]
+
+# TextInput_InvalidPrompt_wJwDpv_text()
+- Invalid national id. Would you please insert your correct national id?
+# TextInput_InvalidPrompt_wJwDpv()
+[Activity
+    Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
+]
+
+# SendActivity_J78uzC()
+[Activity
+    Text = ${SendActivity_J78uzC_text()}
+]
+
+# SendActivity_J78uzC_text()
+- PHONE NUMBER ${dialog.phoneNumber} EXISITS IN DB  

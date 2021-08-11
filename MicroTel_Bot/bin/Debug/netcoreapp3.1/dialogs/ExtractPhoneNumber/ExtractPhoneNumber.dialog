@@ -1,0 +1,43 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "uepQgD",
+    "name": "ExtractPhoneNumber",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "1w3j0o"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "tyUoTN"
+          },
+          "condition": "=exists(@phoneNumber)",
+          "elseActions": [],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "Ym2PcU"
+              },
+              "property": "user.phoneNumber",
+              "value": "=@phoneNumber"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractPhoneNumber.lg",
+  "recognizer": "ExtractPhoneNumber.lu.qna",
+  "id": "ExtractPhoneNumber"
+}

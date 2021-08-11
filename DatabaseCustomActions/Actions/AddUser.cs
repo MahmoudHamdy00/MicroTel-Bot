@@ -80,22 +80,16 @@ public class AddUser : Dialog
         try
         {
             conn.Open();
-            var nationalId_result = nationalId_checker(user_Details.nationalID, conn);
+            bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
             //if it's not vaild then it will contain the user's number
-            if (nationalId_result != "valid")
+            if (nationalId_exist)
             {
-                //set number in the number variable
-                if (this.number != null)
-                {
-                    dc.State.SetValue(this.number.GetValue(dc.State), nationalId_result);
-
-                }
-                //set result to 
-                result = "User Already exists";
-                Console.WriteLine(result + " " + nationalId_result);
+               //set result to 
+                result = "User exists";
+                Console.WriteLine(result + " " + nationalId_exist);
                 throw new Exception(result);
             }
-            Console.WriteLine(nationalId_result);
+            Console.WriteLine(nationalId_exist);
             
             //get tier detailes;
             tier_details tierDetails = get_tier_details(_tier, conn);

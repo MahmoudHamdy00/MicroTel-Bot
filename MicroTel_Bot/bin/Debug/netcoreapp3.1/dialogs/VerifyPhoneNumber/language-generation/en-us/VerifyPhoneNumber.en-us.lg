@@ -1,0 +1,18 @@
+[import](common.lg)
+
+# TextInput_Prompt_f0Bvpn_text()
+- What is your phoneNumber ?
+- May I get your phoneNumber?
+# TextInput_Prompt_f0Bvpn()
+[Activity
+    Text = ${TextInput_Prompt_f0Bvpn_text()}
+]
+
+# TextInput_InvalidPrompt_f0Bvpn_text()
+- Invalid phoneNumber . Would you please insert your correct phoneNumber?
+- Your phone number is incorect (010xxxxxx)
+# TextInput_InvalidPrompt_f0Bvpn()
+[Activity
+    Text = ${TextInput_InvalidPrompt_f0Bvpn_text()}
+]
+

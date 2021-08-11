@@ -1,0 +1,65 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "aO8Unc",
+    "name": "VerifyPhoneNumber",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "mKEhy7"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "dJ0v18"
+          },
+          "condition": "=exists(dialog.phoneNumber)",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "f0Bvpn"
+              },
+              "disabled": false,
+              "maxTurnCount": 50,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_f0Bvpn()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_f0Bvpn()}",
+              "validations": [
+                "=exists(@phoneNumber)"
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "SMBI9w"
+              },
+              "property": "dialog.phoneNumber ",
+              "value": "=@phoneNumber "
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "Z8J2Hl"
+          },
+          "value": "=dialog.phoneNumber "
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyPhoneNumber.lg",
+  "recognizer": "VerifyPhoneNumber.lu.qna",
+  "id": "VerifyPhoneNumber"
+}

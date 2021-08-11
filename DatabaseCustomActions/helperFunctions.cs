@@ -59,16 +59,14 @@ namespace DatabaseCustomActions
         /// if there is a user with the same national id return his number 
         /// else return 1;
         /// </returns>
-        public static string nationalId_checker(string natID, SqlConnection conn)
+        public static bool nationalId_checker(string natID, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT  * FROM [user] WHERE [nationalID]='{natID}'", conn);
             var reader = cmd.ExecuteReader();
-            string result = "valid";
-            if (reader.Read()) result = reader["phoneNumber"].ToString();
+            bool result = false;
+            if (reader.Read()) result = true;
           //  reader.Close();
             reader.Dispose();
-            if (reader.IsClosed) Console.WriteLine("#333");
-
             return result;
         }
         public static tier_details get_tier_details(string tier, SqlConnection conn)

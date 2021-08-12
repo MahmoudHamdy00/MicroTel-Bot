@@ -167,10 +167,12 @@
               "value": "Cancel",
               "actions": [
                 {
-                  "$kind": "Microsoft.EndDialog",
+                  "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "dsTcLF"
-                  }
+                    "id": "Zr01WV"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
                 }
               ]
             }

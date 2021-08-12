@@ -106,7 +106,10 @@
                 "id": "Mta5C4"
               },
               "activityProcessed": true,
-              "dialog": "VerifyLastName"
+              "dialog": "VerifyLastName",
+              "options": {
+                "lname": "=dialog.lname"
+              }
             }
           ]
         }

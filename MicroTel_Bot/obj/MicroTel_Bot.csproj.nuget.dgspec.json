@@ -74,7 +74,6 @@
         "outputPath": "D:\\MicroTel-Bot\\MicroTel_Bot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\MicroTel-Bot\\MicroTel_Bot\\NuGet.Config",
           "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -83,8 +82,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://botbuilder.myget.org/F/botbuilder-v4-dotnet-daily/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

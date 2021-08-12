@@ -21,7 +21,7 @@
           "$designer": {
             "id": "a1SLW3"
           },
-          "condition": "=and(exists(user.fname), user.fname != \"\")",
+          "condition": "=and(exists(dialog.fname), dialog.fname != \"\")",
           "elseActions": [
             {
               "$kind": "Microsoft.TextInput",
@@ -106,7 +106,10 @@
                 "id": "Mta5C4"
               },
               "activityProcessed": true,
-              "dialog": "VerifyLastName"
+              "dialog": "VerifyLastName",
+              "options": {
+                "lname": "=dialog.lname"
+              }
             }
           ]
         }

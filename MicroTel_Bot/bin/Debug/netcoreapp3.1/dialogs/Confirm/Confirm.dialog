@@ -17,29 +17,28 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.ConfirmInput",
+          "$kind": "Microsoft.ChoiceInput",
           "$designer": {
-            "id": "h7fdy2"
+            "id": "eGI2OF"
           },
           "defaultLocale": "en-us",
           "disabled": false,
           "maxTurnCount": 3,
           "alwaysPrompt": false,
           "allowInterruptions": false,
-          "prompt": "${ConfirmInput_Prompt_h7fdy2()}",
           "unrecognizedPrompt": "",
           "invalidPrompt": "",
-          "defaultValueResponse": "",
+          "prompt": "${ChoiceInput_Prompt_eGI2OF()}",
           "choiceOptions": {
             "includeNumbers": true,
             "inlineOrMore": ", or ",
             "inlineOr": " or ",
             "inlineSeparator": ", "
           },
-          "property": "dialog.confirm",
           "style": "heroCard",
-          "confirmChoices": [
+          "choices": [
             {
+              "value": "Confirm",
               "synonyms": [
                 "yes",
                 "Yes",
@@ -47,18 +46,29 @@
                 "agree",
                 "y",
                 "YES"
-              ],
-              "value": "Confirm "
+              ]
             },
             {
-              "value": "Change My Data",
+              "value": "Modify My Data",
               "synonyms": [
                 "update",
                 "change",
                 "modify"
               ]
+            },
+            {
+              "value": "Cancel",
+              "synonyms": [
+                "cancel",
+                "exit"
+              ]
             }
-          ]
+          ],
+          "property": "dialog.confirm",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          },
+          "defaultValue": "Cancel"
         },
         {
           "$kind": "Microsoft.EndDialog",

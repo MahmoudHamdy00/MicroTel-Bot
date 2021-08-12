@@ -19,7 +19,7 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "rzEWsJ"
+            "id": "tmWDLT"
           },
           "activityProcessed": true,
           "dialog": "Confirm",
@@ -30,36 +30,58 @@
           "resultProperty": "user.confirm"
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.SwitchCondition",
           "$designer": {
-            "id": "T2TbKQ"
+            "id": "oKsE3L"
           },
-          "condition": "=user.confirm == True ",
-          "actions": [
+          "condition": "user.confirm",
+          "default": [],
+          "cases": [
             {
-              "$kind": "Microsoft.BeginDialog",
-              "$designer": {
-                "id": "fwtVLc"
-              },
-              "activityProcessed": true,
-              "dialog": "signUp"
-            }
-          ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.BeginDialog",
-              "$designer": {
-                "id": "aLtfA0"
-              },
-              "activityProcessed": true,
-              "dialog": "UpdateSignupData"
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "355OGk"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "signUp"
+                }
+              ]
             },
             {
-              "$kind": "Microsoft.RepeatDialog",
-              "$designer": {
-                "id": "QxCQyq"
-              },
-              "activityProcessed": true
+              "value": "Modify My Data",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "zIJQXG"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "UpdateSignupData"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "hRSq3h"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "9TPtrE"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
             }
           ]
         }

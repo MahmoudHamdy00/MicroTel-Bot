@@ -1,9 +1,9 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "aO8Unc",
+    "id": "OaXUVm",
     "name": "VerifyPhoneNumber",
-    "comment": ""
+    "comment": "Verify phone number was giving and exists in db"
   },
   "autoEndDialog": true,
   "defaultResultProperty": "dialog.result",
@@ -13,13 +13,13 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "mKEhy7"
+        "id": "Bqq9ce"
       },
       "actions": [
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "dJ0v18"
+            "id": "keCwsY"
           },
           "condition": "=exists(dialog.phoneNumber)",
           "actions": [],
@@ -27,14 +27,14 @@
             {
               "$kind": "Microsoft.TextInput",
               "$designer": {
-                "id": "f0Bvpn"
+                "id": "wJwDpv"
               },
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
               "allowInterruptions": true,
-              "prompt": "${TextInput_Prompt_f0Bvpn()}",
-              "invalidPrompt": "${TextInput_InvalidPrompt_f0Bvpn()}",
+              "prompt": "${TextInput_Prompt_wJwDpv()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_wJwDpv()}",
               "validations": [
                 "=exists(@phoneNumber)"
               ]
@@ -42,19 +42,26 @@
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "SMBI9w"
+                "id": "EpuB0x"
               },
-              "property": "dialog.phoneNumber ",
-              "value": "=@phoneNumber "
+              "property": "dialog.phoneNumber",
+              "value": "=@phoneNumber"
             }
           ]
         },
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "J78uzC"
+          },
+          "activity": "${SendActivity_J78uzC()}"
+        },
+        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
-            "id": "Z8J2Hl"
+            "id": "Z2qXp8"
           },
-          "value": "=dialog.phoneNumber "
+          "value": "=dialog.phoneNumber"
         }
       ]
     }

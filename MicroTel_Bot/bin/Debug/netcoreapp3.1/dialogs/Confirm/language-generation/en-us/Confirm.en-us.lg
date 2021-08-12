@@ -1,10 +1,10 @@
 [import](common.lg)
 
-# ConfirmInput_Prompt_h7fdy2()
+# ChoiceInput_Prompt_eGI2OF()
 [Activity
-    Text = ${ConfirmInput_Prompt_h7fdy2_text()}
+    Text = ${ChoiceInput_Prompt_eGI2OF_text()}
 ]
 
-# ConfirmInput_Prompt_h7fdy2_text()
+# ChoiceInput_Prompt_eGI2OF_text()
 - ```${dialog.message}
 ${dialog.data}```

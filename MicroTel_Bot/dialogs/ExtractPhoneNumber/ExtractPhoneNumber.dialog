@@ -1,7 +1,7 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "uepQgD",
+    "id": "6cGLyF",
     "name": "ExtractPhoneNumber",
     "comment": ""
   },
@@ -13,23 +13,32 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "1w3j0o"
+        "id": "RSAe67"
       },
       "actions": [
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "tyUoTN"
+            "id": "pam26K"
           },
           "condition": "=exists(@phoneNumber)",
-          "elseActions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "XAucP2"
+              },
+              "property": "user.line.number",
+              "value": "=dialog.data.phoneNumber[0]"
+            }
+          ],
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "Ym2PcU"
+                "id": "U9pN09"
               },
-              "property": "user.phoneNumber",
+              "property": "user.line.number",
               "value": "=@phoneNumber"
             }
           ]

@@ -23,9 +23,7 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractTier",
-          "options": {
-            "tier": "=@tier"
-          }
+          "options": {}
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -96,7 +94,10 @@
             "id": "dz0Zpj"
           },
           "activityProcessed": true,
-          "options": {},
+          "options": {
+            "lname": "=user.lname",
+            "fname": "=user.fname"
+          },
           "dialog": "VerifyName"
         },
         {
@@ -164,7 +165,8 @@
                     "id": "OcQa9J"
                   },
                   "activityProcessed": true,
-                  "dialog": "SignUpConfirmation"
+                  "dialog": "SignUpConfirmation",
+                  "options": {}
                 }
               ]
             },

@@ -189,20 +189,20 @@
 # UpdateTier
 - {@updateTierInfo=alter my existing package from {@originalTier=standard} to {@newTier=vip} tier. my phone number is {@phoneNumber=010987654}} .
 - can i {@updateTierInfo=change the tier of my phone number {@phoneNumber=01098765432}? my national id is {@nationalID=19873}}
-- can i {@updateTierInfo=upgrade to a new tier}?
-- can you {@updateTierInfo=alter my line’s tier} please?
-- can you {@updateTierInfo=downgrade my package for me}?
+- can i upgrade to a new tier?
+- can you alter my line’s tier please?
+- can you downgrade my package for me?
 - can you {@updateTierInfo=update my tier from {@originalTier=premium} to {@newTier=vip}? my identity card number is {@nationalID=19873 linked} to line number {@phoneNumber=010987654}}.
 - {@updateTierInfo=change the package of my phone number {@phoneNumber=010987654} to {@newTier=vip}}.
 - {@updateTierInfo=downgrade my line to {@newTier=vip} instead of {@originalTier=premium}}
-- {@updateTierInfo=downgrade my line}.
+- downgrade my line.
 - i want to {@updateTierInfo=change the tier of my line number {@phoneNumber=010987654}}.
 - i want to {@updateTierInfo=change the tier of my phone number {@phoneNumber=010987654} from {@originalTier=vip} to {@newTier=premium} and my national id is {@nationalID=19873}}.
 - i want to {@updateTierInfo=downgrade from {@originalTier=premium} to {@newTier=vip}}.
-- i want to {@updateTierInfo=downgrade my tier}.
+- i want to downgrade my tier.
 - i wish to {@updateTierInfo=alter the tier of my phone from {@originalTier=vip} to {@newTier=standar}. here is my phone number {@phoneNumber=010987654} and my id {@nationalID=19873}}.
-- i would like to {@updateTierInfo=upgrade to a new tier}.
-- i would love to {@updateTierInfo=change the tier i am subscribed to}.
+- i would like to upgrade to a new tier.
+- i would love to change the tier i am subscribed to.
 - i’d like to {@updateTierInfo=upgrade to {@newTier=premium}}
 - {@updateTierInfo=my current tier is {@originalTier=vip}, i would like to downgrade it to {@newTier=standard}}
 - {@updateTierInfo=my id is {@phoneNumber=19873}. downgrade my phone number {@phoneNumber=010987654} from {@originalTier=vip} tier to {@newTier=premium} tier}.
@@ -212,12 +212,14 @@
 - {@updateTierInfo=my phone number {@phoneNumber=010987654} is subscribed to {@originalTier=vip} tier. can you change that to {@newTier=premium}? my identity card number is {@nationalID=19873}}.
 - {@updateTierInfo=my {@originalTier=standard} tier is not enough for my usage, i want to upgrade}.
 - {@updateTierInfo=update my existing tier for {@newTier=premium} instead of {@originalTier=standard}}.
-- {@updateTierInfo=update my tier to a new one}.
+- update my tier to a new one.
 - {@updateTierInfo=upgrade my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@phoneNumber=19998}}.
 - {@updateTierInfo=upgrade my line to {@newTier=vip}, my id is {@nationalID=19873}}.
-- {@updateTierInfo=upgrade my package}.
+- upgrade my current package.
 - would you please {@updateTierInfo=change the tier of my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@nationalID=19873}}.
 - would you {@updateTierInfo=upgrade my line to {@newTier=vip}}?
+- I need to {@updateTierInfo=upgrade my tier to {@newTier=vip}}.
+- I am in need for more megabytes. please {@updateTierInfo=upgrade my line to {@newTier=premium} tier instead of {@originalTier=standard}}.
 
 @ intent UpdateTier usesFeature updateTierInfo
 

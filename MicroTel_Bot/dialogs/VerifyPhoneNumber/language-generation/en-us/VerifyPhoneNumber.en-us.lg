@@ -1,18 +1,24 @@
 [import](common.lg)
 
-# TextInput_Prompt_f0Bvpn_text()
-- What is your phoneNumber ?
-- May I get your phoneNumber?
-# TextInput_Prompt_f0Bvpn()
+# TextInput_Prompt_wJwDpv_text()
+- What is your phone number?
+- May I get your phone number?
+# TextInput_Prompt_wJwDpv()
 [Activity
-    Text = ${TextInput_Prompt_f0Bvpn_text()}
+    Text = ${TextInput_Prompt_wJwDpv_text()}
 ]
 
-# TextInput_InvalidPrompt_f0Bvpn_text()
-- Invalid phoneNumber . Would you please insert your correct phoneNumber?
-- Your phone number is incorect (010xxxxxx)
-# TextInput_InvalidPrompt_f0Bvpn()
+# TextInput_InvalidPrompt_wJwDpv_text()
+- Invalid phone number. Would you please insert your correct phone number?
+# TextInput_InvalidPrompt_wJwDpv()
 [Activity
-    Text = ${TextInput_InvalidPrompt_f0Bvpn_text()}
+    Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
 ]
 
+# SendActivity_J78uzC()
+[Activity
+    Text = ${SendActivity_J78uzC_text()}
+]
+
+# SendActivity_J78uzC_text()
+- PHONE NUMBER ${dialog.phoneNumber} EXISITS IN DB  

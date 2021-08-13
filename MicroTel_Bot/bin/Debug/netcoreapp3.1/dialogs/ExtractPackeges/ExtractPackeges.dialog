@@ -29,7 +29,7 @@
                 "id": "xxSsoA"
               },
               "property": "user.singlePackageInfo",
-              "value": "=@singlePackageInfo"
+              "value": "=@@singlePackageInfo"
             }
           ]
         },

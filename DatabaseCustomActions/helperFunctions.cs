@@ -54,16 +54,16 @@ namespace DatabaseCustomActions
         }
         public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [line] WHERE [phoneNumber]='{phoneNumber}'", conn);
-            var reader = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand($"SELECT  [nationalID] FROM [user] WHERE [phoneNumber]='{phoneNumber}'", conn);
+            var reader = cmd.ExecuteScalar();
             bool result = false;
-            if (reader.Read())
+            if (reader != null)
             {
                 result = true;
-                nationalID = reader["nationalID"].ToString();
+                nationalID = reader.ToString();
             }
             //  reader.Close();
-            reader.Dispose();
+            //reader.Dispose();
             return result;
         }
         /// <summary>

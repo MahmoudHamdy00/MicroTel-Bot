@@ -52,6 +52,16 @@ namespace DatabaseCustomActions
             int ret = rnd.Next(100000, 999999);
             return ret;
         }
+        public static bool phoneNumber_checker(string phoneNumber, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [line] WHERE [phoneNumber]='{phoneNumber}'", conn);
+            var reader = cmd.ExecuteReader();
+            bool result = false;
+            if (reader.Read()) result = true;
+            //  reader.Close();
+            reader.Dispose();
+            return result;
+        }
         /// <summary>
         /// check if there is a user with the same national id or not
         /// </summary>

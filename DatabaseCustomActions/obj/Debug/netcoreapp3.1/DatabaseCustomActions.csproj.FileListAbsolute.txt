@@ -27,3 +27,12 @@ D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\Databas
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.CoreCompileInputs.cache
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.dll
 D:\internship\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+D:\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.deps.json
+D:\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.dll
+D:\MicroTel-Bot\DatabaseCustomActions\bin\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.AssemblyReference.cache
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.AssemblyInfoInputs.cache
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.AssemblyInfo.cs
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.CoreCompileInputs.cache
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.dll
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.pdb

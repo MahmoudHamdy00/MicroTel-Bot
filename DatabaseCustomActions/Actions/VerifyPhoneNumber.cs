@@ -27,6 +27,10 @@ public class VerifyPhoneNumber : Dialog
     [JsonProperty("phoneNumber")]
     public ValueExpression phoneNumber { get; set; }
 
+    [JsonProperty("natid")]
+    public ValueExpression nationalID { get; set; }
+
+
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
 
@@ -41,14 +45,14 @@ public class VerifyPhoneNumber : Dialog
         try
         {
             conn.Open();
-            bool phoneNumber_exist = phoneNumber_checker(user_info.phoneNumber, conn);
+            string nationalID = "";
+            isValidPhoneNumber = phoneNumber_checker(user_info.phoneNumber, ref nationalID, conn);
             //if it's not vaild then it will contain the user's number
-            if (phoneNumber_exist) {
-                // Change result to indicate phone number exists 
-                isValidPhoneNumber = true;
-                // Get nationalID and tier assosiated to given phone number
-            }
 
+            if (this.nationalID != null)
+            {
+                dc.State.SetValue(this.nationalID.GetValue(dc.State).ToString(), nationalID);
+            }
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), isValidPhoneNumber);

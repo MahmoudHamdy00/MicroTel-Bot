@@ -9,6 +9,11 @@
       "title": "Phone Number",
       "description": "Phone Number for the user"
     },
+    "natid": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "National ID",
+      "description": "The National ID for the user"
+    },
     "resultProperty": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Result",

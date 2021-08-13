@@ -52,12 +52,16 @@ namespace DatabaseCustomActions
             int ret = rnd.Next(100000, 999999);
             return ret;
         }
-        public static bool phoneNumber_checker(string phoneNumber, SqlConnection conn)
+        public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT  * FROM [line] WHERE [phoneNumber]='{phoneNumber}'", conn);
             var reader = cmd.ExecuteReader();
             bool result = false;
-            if (reader.Read()) result = true;
+            if (reader.Read())
+            {
+                result = true;
+                nationalID = reader["nationalID"].ToString();
+            }
             //  reader.Close();
             reader.Dispose();
             return result;
@@ -75,7 +79,7 @@ namespace DatabaseCustomActions
             var reader = cmd.ExecuteReader();
             bool result = false;
             if (reader.Read()) result = true;
-          //  reader.Close();
+            //  reader.Close();
             reader.Dispose();
             return result;
         }
@@ -95,7 +99,7 @@ namespace DatabaseCustomActions
             }
             else
                 _Details = new tier_details(false);
-          //  reader.Close();
+            //  reader.Close();
             reader.Dispose();
 
             return _Details;

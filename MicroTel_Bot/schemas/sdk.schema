@@ -9697,6 +9697,11 @@
           "title": "Phone Number",
           "description": "Phone Number for the user"
         },
+        "natid": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "National ID",
+          "description": "The National ID for the user"
+        },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",
           "title": "Result",

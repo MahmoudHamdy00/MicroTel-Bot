@@ -57,6 +57,39 @@
           "activity": "${SendActivity_J78uzC()}"
         },
         {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "RuyUlg"
+          },
+          "condition": "=equals(dialog.state,'SignUp')",
+          "elseActions": [],
+          "actions": [
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "GM6ESn"
+              },
+              "value": "=dialog.phoneNumber"
+            }
+          ]
+        },
+        {
+          "$kind": "VerifyPhoneNumber",
+          "$designer": {
+            "id": "dMod2H"
+          },
+          "phoneNumber": "=dialog.phoneNumber",
+          "natid": "dialog.linked.nationalId",
+          "resultProperty": "dialog.result"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "g7A7OJ"
+          },
+          "activity": "${SendActivity_g7A7OJ()}"
+        },
+        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
             "id": "Z2qXp8"

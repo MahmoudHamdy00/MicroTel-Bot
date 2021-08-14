@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# ChoiceInput_Prompt_wTXORJ()
-[Activity
-    Text = ${ChoiceInput_Prompt_wTXORJ_text()}
-]
-
-# ChoiceInput_Prompt_wTXORJ_text()
-- What do you want to do ?

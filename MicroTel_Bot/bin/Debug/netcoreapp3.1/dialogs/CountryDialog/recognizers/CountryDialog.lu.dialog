@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_CountryDialog",
-  "recognizers": {
-    "en-us": "CountryDialog.en-us.lu",
-    "": "CountryDialog.en-us.lu"
-  }
-}

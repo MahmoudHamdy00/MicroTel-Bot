@@ -73,15 +73,17 @@
                       "unrecognizedPrompt": "",
                       "invalidPrompt": "",
                       "choices": [
-                        "10 GB - $10",
-                        "1000 minutes - $5",
-                        "500 text messages - $5"
+                        "Megabytes",
+                        "Minutes",
+                        "Text Messages"
                       ],
                       "property": "user.singlePackageInfo",
                       "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
                       "choiceOptions": {
                         "includeNumbers": true,
-                        "inlineOrMore": ", or "
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
                       },
                       "recognizerOptions": {
                         "recognizeOrdinals": true
@@ -95,6 +97,14 @@
                       },
                       "property": "user.extendPackage",
                       "value": "=user.singlePackageInfo"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "GAvpXf"
+                      },
+                      "property": "user.changeAllPackages",
+                      "value": false
                     }
                   ]
                 },
@@ -118,7 +128,8 @@
                       "choiceOptions": {
                         "includeNumbers": true,
                         "inlineOrMore": ", or ",
-                        "inlineOr": " or "
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
                       },
                       "property": "user.extraFullPackage ",
                       "choices": [
@@ -134,8 +145,45 @@
                       },
                       "property": "user.extendPackage",
                       "value": "=user.extraFullPackage"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "l9Os2w"
+                      },
+                      "property": "user.changeAllPackages",
+                      "value": true
                     }
                   ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "N2T54T"
+              },
+              "condition": "=exists(user.extraFullPackage)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "US15ot"
+                  },
+                  "property": "user.changeAllPackages",
+                  "value": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "pWBRzg"
+                  },
+                  "property": "user.changeAllPackages",
+                  "value": false
                 }
               ]
             }

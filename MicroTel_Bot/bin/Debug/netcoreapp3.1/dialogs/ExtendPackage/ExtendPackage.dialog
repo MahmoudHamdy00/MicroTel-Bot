@@ -92,6 +92,19 @@
             "id": "VTJJ7u"
           },
           "activity": "${SendActivity_VTJJ7u()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "PVISoZ"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {
+            "message": "Confirm extend package with ${user.extendPackage} ?",
+            "data": "Phone Number: ${user.phoneNumber},  National ID: ${user.nationalID}."
+          },
+          "resultProperty": "user.confirm"
         }
       ]
     }

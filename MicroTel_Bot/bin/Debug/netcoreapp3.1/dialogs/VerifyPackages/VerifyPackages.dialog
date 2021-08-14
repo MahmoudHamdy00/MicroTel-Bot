@@ -47,7 +47,8 @@
                 "All packages (Minutes ,SMS ans Megabytes)",
                 "Single package"
               ],
-              "property": "user.extendPackageInfo"
+              "property": "user.extendPackageInfo",
+              "style": "heroCard"
             },
             {
               "$kind": "Microsoft.SwitchCondition",
@@ -71,14 +72,29 @@
                       "allowInterruptions": false,
                       "unrecognizedPrompt": "",
                       "invalidPrompt": "",
-                      "defaultValueResponse": "",
                       "choices": [
                         "10 GB - $10",
                         "1000 minutes - $5",
                         "500 text messages - $5"
                       ],
                       "property": "user.singlePackageInfo",
-                      "prompt": "${ChoiceInput_Prompt_x5RNqi()}"
+                      "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or "
+                      },
+                      "recognizerOptions": {
+                        "recognizeOrdinals": true
+                      },
+                      "style": "heroCard"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "t05SLs"
+                      },
+                      "property": "user.extendPackage",
+                      "value": "=user.singlePackageInfo"
                     }
                   ]
                 },
@@ -100,13 +116,24 @@
                       "defaultValueResponse": "",
                       "prompt": "${ChoiceInput_Prompt_5ySRzu()}",
                       "choiceOptions": {
-                        "includeNumbers": true
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or "
                       },
                       "property": "user.extraFullPackage ",
                       "choices": [
                         "Plus Package",
                         "Premium Plus Package:"
-                      ]
+                      ],
+                      "style": "heroCard"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "HSsRqQ"
+                      },
+                      "property": "user.extendPackage",
+                      "value": "=user.extraFullPackage"
                     }
                   ]
                 }

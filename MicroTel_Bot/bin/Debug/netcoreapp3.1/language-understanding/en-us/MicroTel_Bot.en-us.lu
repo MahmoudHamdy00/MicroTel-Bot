@@ -224,7 +224,7 @@
 @ intent UpdateTier usesFeature updateTierInfo
 
 @ ml updateTierInfo
-    - @ ml originalTier usesFeature tier
-    - @ ml newTier usesFeature tier
-    - @ ml phoneNumber usesFeature phoneNumber
-    - @ ml nationalID usesFeature nationalID
+    - @ tier originalTier
+    - @ tier newTier
+    - @ phoneNumber phoneNumber
+    - @ nationalID nationalID

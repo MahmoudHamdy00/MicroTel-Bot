@@ -56,7 +56,7 @@ namespace DatabaseCustomActions
         }
         public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  [nationalID] FROM [user] WHERE [phoneNumber]='{phoneNumber}'", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT [nationalID] FROM [user] WHERE [phoneNumber]='{phoneNumber}'", conn);
             var reader = cmd.ExecuteScalar();
             bool result = false;
             if (reader != null)
@@ -77,7 +77,7 @@ namespace DatabaseCustomActions
         /// </returns>
         public static bool nationalId_checker(string natID, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [user] WHERE [nationalID]='{natID}'", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM [user] WHERE [nationalID]='{natID}'", conn);
             var reader = cmd.ExecuteReader();
             bool result = false;
             if (reader.Read()) result = true;

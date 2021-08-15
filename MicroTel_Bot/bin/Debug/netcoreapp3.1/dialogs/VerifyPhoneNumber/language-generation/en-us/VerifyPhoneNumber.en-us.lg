@@ -31,11 +31,3 @@ result is ${dialog.phoneNumberExists}```
 
 # SendActivity_jfVUYa_text()
 - Invalid phone number. Please try again!
-# SendActivity_8oUwjd_text()
-- ```Debug: 
-national id is ${dialog.authNationalID}
-result is ${dialog.phoneNumberExists}```
-# SendActivity_8oUwjd()
-[Activity
-    Text = ${SendActivity_8oUwjd_text()}
-]

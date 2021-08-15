@@ -66,7 +66,8 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "ueJ3xE"
+                    "id": "ueJ3xE",
+                    "comment": "010600676"
                   },
                   "activity": "${SendActivity_ueJ3xE()}"
                 },
@@ -91,13 +92,6 @@
               },
               "natid": "=dialog.nationalID",
               "resultProperty": "dialog.nationalIDExists"
-            },
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "3YFPjw"
-              },
-              "activity": "${SendActivity_3YFPjw()}"
             },
             {
               "$kind": "Microsoft.IfCondition",

@@ -44,14 +44,15 @@ public class UpdateTier : Dialog
             conn.Open();
             // Get id of the given tier
             tier_details tierDetails = get_tier_details(newTierName, conn);
+            Console.WriteLine("Got tier details " + tierDetails);
             // Update tier for the given phone number
-            SqlCommand cmd = new SqlCommand($"UPDATE [line] SET tierID = '{tierDetails.id} WHERE phoneNumber = '{phoneNumber}';", conn);
+            SqlCommand cmd = new SqlCommand($"UPDATE [line] SET [tierID]='{tierDetails.id}' WHERE [phoneNumber]='{phoneNumber}'", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             Console.WriteLine("insert_user_result " + affected_rows);
 
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), tierDetails.name);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), affected_rows);
             }
         }
         catch (Exception ex)

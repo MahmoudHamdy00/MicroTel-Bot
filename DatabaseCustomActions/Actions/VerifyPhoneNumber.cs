@@ -30,7 +30,6 @@ public class VerifyPhoneNumber : Dialog
     [JsonProperty("natid")]
     public ValueExpression nationalID { get; set; }
 
-
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
 

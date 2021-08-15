@@ -57,10 +57,17 @@
           },
           "activityProcessed": true,
           "dialog": "VerifyPhoneNumber",
-          "resultProperty": "user.line.number",
           "options": {
             "phoneNumber": "=user.line.number"
-          }
+          },
+          "resultProperty": "user.line.number"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "MOUm9f"
+          },
+          "activity": "${SendActivity_MOUm9f()}"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -73,7 +80,7 @@
           "resultProperty": "user.nationalID",
           "options": {
             "nationalID": "=user.nationalID",
-            "authNationalID": "=dialog.authNationalID"
+            "authNationalID": "=user.authNationalID"
           }
         },
         {

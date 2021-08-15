@@ -8,9 +8,18 @@
 # SendActivity_OMELe9_text()
 - Alright, choose a different tier!
 
-# SendActivity_vzfAcn_text()
-- Tier updated successfully, your line is now subscribed to ${dialog.tier}.
-# SendActivity_vzfAcn()
+
+# SendActivity_qrQj5P_text()
+- Tier updated successfully, your line is now subscribed to ${user.line.tier}.
+# SendActivity_qrQj5P()
 [Activity
-    Text = ${SendActivity_vzfAcn_text()}
+    Text = ${SendActivity_qrQj5P_text()}
 ]
+
+# SendActivity_j5oWZh()
+[Activity
+    Text = ${SendActivity_j5oWZh_text()}
+]
+
+# SendActivity_j5oWZh_text()
+- Unsuccessful operation. Please try again!

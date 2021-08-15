@@ -55,36 +55,30 @@
             "id": "dMod2H"
           },
           "phoneNumber": "=dialog.phoneNumber",
-          "natid": "dialog.authNationalID",
+          "natid": "user.authNationalID",
           "resultProperty": "dialog.phoneNumberExists"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "8oUwjd"
-          },
-          "activity": "${SendActivity_8oUwjd()}"
         },
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "vL08Yu"
           },
-          "condition": "=and(bool(dialog.phoneNumberExists), exists(dialog.authNationalID))",
+          "condition": "=and(bool(dialog.phoneNumberExists), exists(user.authNationalID))",
           "actions": [
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
                 "id": "mrzXtY"
               },
-              "activity": "${SendActivity_mrzXtY()}"
+              "activity": "${SendActivity_mrzXtY()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.EndDialog",
               "$designer": {
                 "id": "WnmGAe"
               },
-              "value": "dialog.phoneNumber"
+              "value": "=dialog.phoneNumber"
             }
           ],
           "elseActions": [

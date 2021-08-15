@@ -49,29 +49,36 @@
                   "resultProperty": "dialog.tier"
                 },
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "vzfAcn"
-                  },
-                  "activity": "${SendActivity_vzfAcn()}"
-                },
-                {
                   "$kind": "Microsoft.IfCondition",
                   "$designer": {
                     "id": "PYxr9B"
                   },
-                  "condition": "=exists(dialog.tier)",
-                  "actions": [],
+                  "condition": "=dialog.tier == 1",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "qrQj5P"
+                      },
+                      "activity": "${SendActivity_qrQj5P()}"
+                    }
+                  ],
                   "elseActions": [
                     {
                       "$kind": "Microsoft.SendActivity",
                       "$designer": {
                         "id": "j5oWZh"
                       },
-                      "disabled": true
+                      "activity": "${SendActivity_j5oWZh()}"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "cStnTZ"
+                      },
+                      "activityProcessed": true
                     }
-                  ],
-                  "disabled": true
+                  ]
                 }
               ]
             },

@@ -1,1 +1,10 @@
 [import](common.lg)
+
+# SendActivity_MOUm9f()
+[Activity
+    Text = ${SendActivity_MOUm9f_text()}
+]
+
+# SendActivity_MOUm9f_text()
+- ```\-\- ${user.line.number}
+\-\- ${user.authNationalID}```

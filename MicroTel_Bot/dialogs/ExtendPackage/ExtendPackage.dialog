@@ -29,7 +29,8 @@
             "id": "YslHhB"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPhoneNumber"
+          "dialog": "ExtractPhoneNumber",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -37,7 +38,8 @@
             "id": "TJmE47"
           },
           "activityProcessed": true,
-          "dialog": "ExtractNationalID"
+          "dialog": "ExtractNationalID",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -64,7 +66,8 @@
           "resultProperty": "user.phoneNumber",
           "options": {
             "phoneNumber": "=user.phoneNumber"
-          }
+          },
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -76,7 +79,8 @@
           "resultProperty": "user.nationalID",
           "options": {
             "nationalID": "=user.nationalID"
-          }
+          },
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -84,7 +88,11 @@
             "id": "JjGfC4"
           },
           "activityProcessed": true,
-          "dialog": "VerifyPackages"
+          "dialog": "VerifyPackages",
+          "options": {
+            "extraFullPackage": "@extraFullPackage ",
+            "singlePackageInfo": "@@singlePackageInfo"
+          }
         },
         {
           "$kind": "Microsoft.SendActivity",
@@ -96,15 +104,10 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "PVISoZ"
+            "id": "F6PMrw"
           },
           "activityProcessed": true,
-          "dialog": "Confirm",
-          "options": {
-            "message": "Confirm extend package with ${user.extendPackage} ?",
-            "data": "Phone Number: ${user.phoneNumber},  National ID: ${user.nationalID}."
-          },
-          "resultProperty": "user.confirm"
+          "dialog": "ExtendPackageConfirmation"
         }
       ]
     }

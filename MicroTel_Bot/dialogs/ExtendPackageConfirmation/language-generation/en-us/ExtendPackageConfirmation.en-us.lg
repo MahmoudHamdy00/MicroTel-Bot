@@ -1,0 +1,30 @@
+[import](common.lg)
+
+# SendActivity_2CW2FG_text()
+- Ok! lets change your birthdate.
+# SendActivity_2CW2FG()
+[Activity
+    Text = ${SendActivity_2CW2FG_text()}
+]
+
+# SendActivity_hjvrbs_text()
+- Ok! lets change your address.
+# SendActivity_hjvrbs()
+[Activity
+    Text = ${SendActivity_hjvrbs_text()}
+]
+
+# SendActivity_Ny9Ua9_text()
+- Ok! lets change your national id.
+# SendActivity_Ny9Ua9()
+[Activity
+    Text = ${SendActivity_Ny9Ua9_text()}
+]
+
+# SendActivity_htUHsD()
+[Activity
+    Text = ${SendActivity_htUHsD_text()}
+]
+
+# SendActivity_htUHsD_text()
+- connect to db

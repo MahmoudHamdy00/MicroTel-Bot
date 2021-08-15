@@ -22,6 +22,22 @@ namespace DatabaseCustomActions
             public string SMS { get; set; }
             public string megabytes { get; set; }
         }
+        public struct package_details
+        {
+            public package_details(string packageName = "", string minutes = "", string messages = "", string megabytes = "", string price = "")
+            {
+                this.packageName = packageName;
+                this.minutes = minutes;
+                this.messages = messages;
+                this.megabytes = megabytes;
+                this.price = price;
+            }
+            public string packageName { get; set; }
+            public string minutes { get; set; }
+            public string messages { get; set; }
+            public string megabytes { get; set; }
+            public string price { get; set; }
+        }
         public struct user_details
         {
             public user_details(string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "")
@@ -103,6 +119,22 @@ namespace DatabaseCustomActions
             reader.Dispose();
 
             return _Details;
+        }
+        public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
+        {
+
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails] WHERE name ='{package_Details.packageName}';", conn);
+
+            var reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                package_Details = new package_details(reader["name"].ToString(), reader["minutes"].ToString(), reader["messages"].ToString(), reader["megabytes"].ToString(), reader["price"].ToString());
+                reader.Dispose();
+                return true;
+            }
+            return false;
         }
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {

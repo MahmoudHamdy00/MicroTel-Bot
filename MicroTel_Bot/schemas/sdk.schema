@@ -347,6 +347,9 @@
       "$ref": "#/definitions/VerifyNationalID"
     },
     {
+      "$ref": "#/definitions/VerifyPackage"
+    },
+    {
       "$ref": "#/definitions/VerifyPhoneNumber"
     }
   ],
@@ -4169,6 +4172,9 @@
         },
         {
           "$ref": "#/definitions/VerifyNationalID"
+        },
+        {
+          "$ref": "#/definitions/VerifyPackage"
         },
         {
           "$ref": "#/definitions/VerifyPhoneNumber"
@@ -9668,6 +9674,66 @@
           "type": "string",
           "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
           "const": "VerifyNationalID"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
+    },
+    "VerifyPackage": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return the result of arg1*arg2",
+      "title": "Verify Package",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "packageName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Package Name",
+          "description": "The package name"
+        },
+        "minutes": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Minutes",
+          "description": "The amount of minutes included in the package"
+        },
+        "messages": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Messages",
+          "description": "The amount of messages included in the package"
+        },
+        "megabytes": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Megabytes",
+          "description": "The amount of megabytes included in the package"
+        },
+        "price": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Price",
+          "description": "The price of the package"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/stringExpression",
+          "title": "Result",
+          "description": "The result"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "VerifyPackage"
         },
         "$designer": {
           "title": "Designer information",

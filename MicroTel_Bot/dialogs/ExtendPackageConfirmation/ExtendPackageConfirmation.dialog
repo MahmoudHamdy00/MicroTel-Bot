@@ -1,0 +1,93 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "QMPEtK",
+    "name": "ExtendPackageConfirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "QlDBcm"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "1ZUh1Z"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {
+            "message": "Confirm signing up for a ${user.line.tier} tier?",
+            "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
+          },
+          "resultProperty": "user.confirm"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "ZgtloE"
+          },
+          "condition": "user.confirm",
+          "default": [],
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "htUHsD"
+                  },
+                  "activity": "${SendActivity_htUHsD()}"
+                }
+              ]
+            },
+            {
+              "value": "Modify My Data",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "zEU0rZ"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "UpdateExtendPackageData"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "Dc6346"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "rnVOa9"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ExtendPackageConfirmation.lg",
+  "recognizer": "ExtendPackageConfirmation.lu.qna",
+  "id": "ExtendPackageConfirmation"
+}

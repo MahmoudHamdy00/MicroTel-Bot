@@ -21,3 +21,21 @@
 
 # ChoiceInput_Prompt_5ySRzu_text()
 - Please choose a package
+# SendActivity_7FEviI()
+[Activity
+    Text = ${SendActivity_7FEviI_text()}
+]
+
+# SendActivity_7FEviI_text()
+- ```minutes is  ${user.extendPackageDetails.minutes}
+messages is  ${user.extendPackageDetails.messages}
+megabytes is  ${user.extendPackageDetails.megabytes}
+price is  ${user.extendPackageDetails.price}
+result is  ${user.extendPackageDetails.result}```
+# SendActivity_f5dykM()
+[Activity
+    Text = ${SendActivity_f5dykM_text()}
+]
+
+# SendActivity_f5dykM_text()
+- package is ${user.extendPackage}

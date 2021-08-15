@@ -10798,19 +10798,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\v-mhamdy\\.nuget\\packages\\": {}
+    "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+      "projectUniqueName": "D:\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
       "projectName": "DatabaseCustomActions",
-      "projectPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
-      "packagesPath": "C:\\Users\\v-mhamdy\\.nuget\\packages\\",
-      "outputPath": "C:\\MicroTel\\final\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
+      "projectPath": "D:\\MicroTel-Bot\\DatabaseCustomActions\\DatabaseCustomActions.csproj",
+      "packagesPath": "C:\\Users\\Ahmed Meshref\\.nuget\\packages\\",
+      "outputPath": "D:\\MicroTel-Bot\\DatabaseCustomActions\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\v-mhamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ahmed Meshref\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10818,7 +10818,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\v-mhamdy\\Downloads": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10857,7 +10856,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

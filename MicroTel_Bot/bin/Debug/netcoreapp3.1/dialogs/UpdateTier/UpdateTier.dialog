@@ -72,7 +72,8 @@
           "dialog": "verifyNationalId",
           "resultProperty": "user.nationalID",
           "options": {
-            "nationalID": "=user.nationalID"
+            "nationalID": "=user.nationalID",
+            "authNationalID": "=dialog.authNationalID"
           }
         },
         {

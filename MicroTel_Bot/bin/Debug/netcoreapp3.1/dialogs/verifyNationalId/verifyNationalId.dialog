@@ -52,61 +52,82 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "LKdpTz"
+            "id": "mP8r3g"
           },
-          "condition": "=equals(dialog.state,'SignUp')",
+          "condition": "=exists(dialog.authNationalID)",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "4FoBzV"
+              },
+              "condition": "=dialog.authNationalID == user.nationalID",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ueJ3xE"
+                  },
+                  "activity": "${SendActivity_ueJ3xE()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "Arvj6V"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "authNationalID": "=dialog.authNationalID"
+                  }
+                }
+              ]
+            }
+          ],
           "elseActions": [
             {
-              "$kind": "Microsoft.EndDialog",
+              "$kind": "VerifyNationalID",
               "$designer": {
-                "id": "5Y8EDE"
+                "id": "XKDQJe"
               },
-              "value": "=dialog.nationalID"
-            }
-          ]
-        },
-        {
-          "$kind": "VerifyNationalID",
-          "$designer": {
-            "id": "ZZhrOz"
-          },
-          "natid": "=dialog.nationalID",
-          "resultProperty": "dialog.isNationalIdExists"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "Q6tkmK"
-          },
-          "activity": "${SendActivity_Q6tkmK()}",
-          "disabled": true
-        },
-        {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "S9276i"
-          },
-          "actions": [
+              "natid": "=dialog.nationalID",
+              "resultProperty": "dialog.isNationalIdExists"
+            },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
-                "id": "bApDHx"
+                "id": "3YFPjw"
               },
-              "activity": "${SendActivity_bApDHx()}"
+              "activity": "${SendActivity_3YFPjw()}",
+              "disabled": true
             },
             {
-              "$kind": "Microsoft.RepeatDialog",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "Gp7HVd"
+                "id": "Akqjfu"
               },
-              "activityProcessed": true,
-              "options": {
-                "state": "${dialog.state}"
-              }
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Rv6Heb"
+                  },
+                  "activity": "${SendActivity_Rv6Heb()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "byuOmL"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "state": "${dialog.state}"
+                  }
+                }
+              ],
+              "elseActions": [],
+              "condition": "=bool(dialog.isNationalIdExists)"
             }
-          ],
-          "elseActions": [],
-          "condition": "=bool(dialog.isNationalIdExists)"
+          ]
         },
         {
           "$kind": "Microsoft.EndDialog",

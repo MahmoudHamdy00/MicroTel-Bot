@@ -46,14 +46,14 @@
                   },
                   "newTier": "=user.line.tier",
                   "lineNumber": "=user.line.number",
-                  "resultProperty": "dialog.tier"
+                  "resultProperty": "dialog.result"
                 },
                 {
                   "$kind": "Microsoft.IfCondition",
                   "$designer": {
                     "id": "PYxr9B"
                   },
-                  "condition": "=dialog.tier == 1",
+                  "condition": "=dialog.result == 1",
                   "actions": [
                     {
                       "$kind": "Microsoft.SendActivity",

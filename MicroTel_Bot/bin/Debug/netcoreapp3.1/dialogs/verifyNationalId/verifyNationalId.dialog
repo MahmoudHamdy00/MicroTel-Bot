@@ -67,7 +67,7 @@
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
                     "id": "ueJ3xE",
-                    "comment": "010600676"
+                    "comment": ""
                   },
                   "activity": "${SendActivity_ueJ3xE()}"
                 },

@@ -57,16 +57,14 @@ namespace DatabaseCustomActions
         public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT [nationalID] FROM [user] WHERE [phoneNumber]='{phoneNumber}'", conn);
-            var reader = cmd.ExecuteScalar();
-            bool result = false;
-            if (reader != null)
+            var result = cmd.ExecuteScalar();
+            bool phoneNumberExists = false;
+            if (result != null)
             {
-                result = true;
-                nationalID = reader.ToString();
+                phoneNumberExists = true;
+                nationalID = result.ToString();
             }
-            //  reader.Close();
-            //reader.Dispose();
-            return result;
+            return phoneNumberExists;
         }
         /// <summary>
         /// check if there is a user with the same national id or not
@@ -105,6 +103,17 @@ namespace DatabaseCustomActions
             reader.Dispose();
 
             return _Details;
+        }
+        public static bool update_tier(string tier_id, string phoneNumber, SqlConnection conn)
+        {
+
+            SqlCommand cmd = new SqlCommand($"UPDATE [line] SET [tierID]='{tier_id}' WHERE [phoneNumber]='{phoneNumber}'", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            if (affected_rows == 1)
+                return true;
+            else
+                return false;
+            
         }
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {

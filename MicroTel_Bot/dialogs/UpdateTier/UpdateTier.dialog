@@ -53,7 +53,7 @@
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "GGPbQ0",
-            "comment": ""
+            "comment": "010600676\n"
           },
           "activityProcessed": true,
           "dialog": "VerifyPhoneNumber",

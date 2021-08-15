@@ -42,17 +42,15 @@ public class UpdateTier : Dialog
         try
         {
             conn.Open();
-            // Get id of the given tier
+            // Get details of the given tier
             tier_details tierDetails = get_tier_details(newTierName, conn);
             Console.WriteLine("Got tier details " + tierDetails);
             // Update tier for the given phone number
-            SqlCommand cmd = new SqlCommand($"UPDATE [line] SET [tierID]='{tierDetails.id}' WHERE [phoneNumber]='{phoneNumber}'", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            Console.WriteLine("insert_user_result " + affected_rows);
+            bool result = update_tier(tierDetails.id, phoneNumber, conn);
 
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), affected_rows);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), result);
             }
         }
         catch (Exception ex)

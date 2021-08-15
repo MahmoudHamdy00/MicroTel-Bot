@@ -30,7 +30,7 @@
               },
               "defaultLocale": "en-us",
               "disabled": false,
-              "maxTurnCount": 3,
+              "maxTurnCount": 5,
               "alwaysPrompt": false,
               "allowInterruptions": false,
               "prompt": "${ChoiceInput_Prompt_YEcFHo()}",
@@ -72,7 +72,7 @@
                   ]
                 }
               ],
-              "defaultValue": "Standard Package"
+              "defaultValue": "Standard"
             }
           ]
         },

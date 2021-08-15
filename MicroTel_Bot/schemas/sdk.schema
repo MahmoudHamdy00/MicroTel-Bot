@@ -344,6 +344,9 @@
       "$ref": "#/definitions/Microsoft.UrlEntityRecognizer"
     },
     {
+      "$ref": "#/definitions/UpdateTier"
+    },
+    {
       "$ref": "#/definitions/VerifyNationalID"
     },
     {
@@ -4166,6 +4169,9 @@
         },
         {
           "$ref": "#/definitions/Microsoft.UpdateActivity"
+        },
+        {
+          "$ref": "#/definitions/UpdateTier"
         },
         {
           "$ref": "#/definitions/VerifyNationalID"
@@ -9587,6 +9593,51 @@
           ]
         }
       ]
+    },
+    "UpdateTier": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "Update line's tier",
+      "title": "Update Tier",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "newTier": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "New Tier",
+          "description": "New tier name"
+        },
+        "lineNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "The returned value"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "UpdateTier"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "valueExpression": {
       "$role": "expression",

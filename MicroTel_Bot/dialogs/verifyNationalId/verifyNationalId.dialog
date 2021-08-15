@@ -61,7 +61,7 @@
               "$designer": {
                 "id": "4FoBzV"
               },
-              "condition": "=dialog.authNationalID == user.nationalID",
+              "condition": "=dialog.authNationalID == dialog.nationalID",
               "elseActions": [
                 {
                   "$kind": "Microsoft.SendActivity",
@@ -90,15 +90,14 @@
                 "id": "XKDQJe"
               },
               "natid": "=dialog.nationalID",
-              "resultProperty": "dialog.isNationalIdExists"
+              "resultProperty": "dialog.nationalIDExists"
             },
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
                 "id": "3YFPjw"
               },
-              "activity": "${SendActivity_3YFPjw()}",
-              "disabled": true
+              "activity": "${SendActivity_3YFPjw()}"
             },
             {
               "$kind": "Microsoft.IfCondition",
@@ -125,7 +124,7 @@
                 }
               ],
               "elseActions": [],
-              "condition": "=bool(dialog.isNationalIdExists)"
+              "condition": "=bool(dialog.nationalIDExists)"
             }
           ]
         },

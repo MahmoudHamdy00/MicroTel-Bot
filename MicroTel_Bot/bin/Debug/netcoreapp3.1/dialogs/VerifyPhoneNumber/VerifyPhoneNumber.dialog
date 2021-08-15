@@ -55,22 +55,54 @@
             "id": "dMod2H"
           },
           "phoneNumber": "=dialog.phoneNumber",
-          "natid": "dialog.linked.nationalId",
-          "resultProperty": "dialog.result"
+          "natid": "dialog.authNationalID",
+          "resultProperty": "dialog.phoneNumberExists"
         },
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "g7A7OJ"
+            "id": "8oUwjd"
           },
-          "activity": "${SendActivity_g7A7OJ()}"
+          "activity": "${SendActivity_8oUwjd()}"
         },
         {
-          "$kind": "Microsoft.EndDialog",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "Z2qXp8"
+            "id": "vL08Yu"
           },
-          "value": "dialog.phoneNumber"
+          "condition": "=and(bool(dialog.phoneNumberExists), exists(dialog.authNationalID))",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "mrzXtY"
+              },
+              "activity": "${SendActivity_mrzXtY()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "WnmGAe"
+              },
+              "value": "dialog.phoneNumber"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "jfVUYa"
+              },
+              "activity": "${SendActivity_jfVUYa()}"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "lyVSEH"
+              },
+              "activityProcessed": true
+            }
+          ]
         }
       ]
     }

@@ -17,7 +17,7 @@
 # TextInput_InvalidPrompt_Xb39A8_text()
 - Invalid national id. Would you please insert your correct national id?
 # SendActivity_3YFPjw_text()
-- ```custom action response is ${dialog.isNationalIdExists}
+- ```custom action response is ${dialog.nationalIDExists}
 wanted to be ${dialog.state}
 ```
 # SendActivity_3YFPjw()

@@ -1,12 +1,5 @@
 [import](common.lg)
 
-# SendActivity_MJU8o4_text()
-- SAVE UPDATES TO DB. ID -> ${user.nationalID}; Number -> ${user.line.number}; New tier -> ${user.line.tier}
-# SendActivity_MJU8o4()
-[Activity
-    Text = ${SendActivity_MJU8o4_text()}
-]
-
 # SendActivity_OMELe9()
 [Activity
     Text = ${SendActivity_OMELe9_text()}
@@ -14,3 +7,10 @@
 
 # SendActivity_OMELe9_text()
 - Alright, choose a different tier!
+
+# SendActivity_vzfAcn_text()
+- Tier updated successfully, your line is now subscribed to ${dialog.tier}.
+# SendActivity_vzfAcn()
+[Activity
+    Text = ${SendActivity_vzfAcn_text()}
+]

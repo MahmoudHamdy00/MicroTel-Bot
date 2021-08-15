@@ -15,12 +15,27 @@
     Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
 ]
 
-# SendActivity_g7A7OJ()
+# SendActivity_mrzXtY_text()
+- ```phone is ${dialog.phoneNumber}
+national id is ${dialog.authNationalID}
+result is ${dialog.phoneNumberExists}```
+# SendActivity_mrzXtY()
 [Activity
-    Text = ${SendActivity_g7A7OJ_text()}
+    Text = ${SendActivity_mrzXtY_text()}
 ]
 
-# SendActivity_g7A7OJ_text()
-- ```phone is ${dialog.phoneNumber}
-national id is ${dialog.linked.nationalId}
-result is ${dialog.result}```
+# SendActivity_jfVUYa()
+[Activity
+    Text = ${SendActivity_jfVUYa_text()}
+]
+
+# SendActivity_jfVUYa_text()
+- Invalid phone number. Please try again!
+# SendActivity_8oUwjd_text()
+- ```Debug: 
+national id is ${dialog.authNationalID}
+result is ${dialog.phoneNumberExists}```
+# SendActivity_8oUwjd()
+[Activity
+    Text = ${SendActivity_8oUwjd_text()}
+]

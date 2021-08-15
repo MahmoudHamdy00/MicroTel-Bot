@@ -40,11 +40,38 @@
               "value": "Confirm",
               "actions": [
                 {
+                  "$kind": "UpdateTier",
+                  "$designer": {
+                    "id": "Qqtvln"
+                  },
+                  "newTier": "=user.line.tier",
+                  "lineNumber": "=user.line.number",
+                  "resultProperty": "dialog.tier"
+                },
+                {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "MJU8o4"
+                    "id": "vzfAcn"
                   },
-                  "activity": "${SendActivity_MJU8o4()}"
+                  "activity": "${SendActivity_vzfAcn()}"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "PYxr9B"
+                  },
+                  "condition": "=exists(dialog.tier)",
+                  "actions": [],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "j5oWZh"
+                      },
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
                 }
               ]
             },

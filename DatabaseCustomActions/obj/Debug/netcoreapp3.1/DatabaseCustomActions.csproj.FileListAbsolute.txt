@@ -34,3 +34,4 @@ D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActi
 D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.CoreCompileInputs.cache
 D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.dll
 D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.pdb
+D:\MicroTel-Bot\DatabaseCustomActions\obj\Debug\netcoreapp3.1\DatabaseCustomActions.csproj.AssemblyReference.cache

@@ -8,16 +8,18 @@ namespace DatabaseCustomActions
     {
         public struct tier_details
         {
-            public tier_details(bool valid, string id = "", string minutes = "", string SMS = "", string megabytes = "")
+            public tier_details(bool valid, string id = "", string name = "", string minutes = "", string SMS = "", string megabytes = "")
             {
                 this.valid = valid;
                 this.id = id;
+                this.name = name;
                 this.minutes = minutes;
                 this.SMS = SMS;
                 this.megabytes = megabytes;
             }
             public bool valid { get; set; }
             public string id { get; set; }
+            public string name { get; set; }
             public string minutes { get; set; }
             public string SMS { get; set; }
             public string megabytes { get; set; }
@@ -95,7 +97,7 @@ namespace DatabaseCustomActions
             tier_details _Details;
             if (reader.Read())
             {
-                _Details = new tier_details(true, reader["id"].ToString(), reader["minutes"].ToString(), reader["messages"].ToString(), reader["megabytes"].ToString());
+                _Details = new tier_details(true, reader["id"].ToString(), reader["name"].ToString(), reader["minutes"].ToString(), reader["messages"].ToString(), reader["megabytes"].ToString());
             }
             else
                 _Details = new tier_details(false);

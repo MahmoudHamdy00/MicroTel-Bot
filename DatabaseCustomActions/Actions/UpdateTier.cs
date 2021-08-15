@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -10,11 +9,10 @@ using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.helperFunctions;
 
-
-public class VerifyPhoneNumber : Dialog
+public class UpdateTier : Dialog
 {
     [JsonConstructor]
-    public VerifyPhoneNumber([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+    public UpdateTier([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         : base()
     {
         // enable instances of this command as debug break point
@@ -22,14 +20,13 @@ public class VerifyPhoneNumber : Dialog
     }
 
     [JsonProperty("$kind")]
-    public const string Kind = "VerifyPhoneNumber";
+    public const string Kind = "UpdateTier";
 
-    [JsonProperty("phoneNumber")]
-    public ValueExpression phoneNumber { get; set; }
+    [JsonProperty("newTier")]
+    public ValueExpression newTier { get; set; }
 
-    [JsonProperty("natid")]
-    public ValueExpression nationalID { get; set; }
-
+    [JsonProperty("lineNumber")]
+    public ValueExpression lineNumber { get; set; }
 
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
@@ -37,25 +34,24 @@ public class VerifyPhoneNumber : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        user_details user_info = new user_details();
-        user_info.phoneNumber = phoneNumber.GetValue(dc.State).ToString();
+        string newTierName = newTier.GetValue(dc.State).ToString();
+        string phoneNumber = lineNumber.GetValue(dc.State).ToString();
+
 
         SqlConnection conn = new SqlConnection(connectionString);
-        bool isValidPhoneNumber = false; // Initialize with default false - phone number doesn't exist
         try
         {
             conn.Open();
-            string nationalID = "";
-            isValidPhoneNumber = phoneNumber_checker(user_info.phoneNumber, ref nationalID, conn);
-            
-            // if it's not vaild then it will contain the user's number
-            if (this.nationalID != null)
-            {
-                dc.State.SetValue(this.nationalID.GetValue(dc.State).ToString(), nationalID);
-            }
+            // Get id of the given tier
+            tier_details tierDetails = get_tier_details(newTierName, conn);
+            // Update tier for the given phone number
+            SqlCommand cmd = new SqlCommand($"UPDATE [line] SET tierID = '{tierDetails.id} WHERE phoneNumber = '{phoneNumber}';", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            Console.WriteLine("insert_user_result " + affected_rows);
+
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), isValidPhoneNumber);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), tierDetails.name);
             }
         }
         catch (Exception ex)
@@ -69,6 +65,6 @@ public class VerifyPhoneNumber : Dialog
         {
             conn.Close();
         }
-        return dc.EndDialogAsync(result: isValidPhoneNumber, cancellationToken: cancellationToken);
+        return dc.EndDialogAsync(cancellationToken: cancellationToken);
     }
 }

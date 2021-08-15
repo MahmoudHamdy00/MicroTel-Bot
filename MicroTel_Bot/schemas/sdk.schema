@@ -8,6 +8,9 @@
       "$ref": "#/definitions/AddUser"
     },
     {
+      "$ref": "#/definitions/ExtendPackage"
+    },
+    {
       "$ref": "#/definitions/Microsoft.ActivityTemplate"
     },
     {
@@ -539,6 +542,56 @@
       "examples": [
         "user.age > 13"
       ]
+    },
+    "ExtendPackage": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return true if phone number exists in db, false otherwise",
+      "title": "Extend Package",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "phoneNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "packageName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Package Name",
+          "description": "The package name"
+        },
+        "times": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Times",
+          "description": "how many packages you want to subscribe"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "Returns bool value"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "ExtendPackage"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "integerExpression": {
       "$role": "expression",
@@ -4025,6 +4078,9 @@
       "oneOf": [
         {
           "$ref": "#/definitions/AddUser"
+        },
+        {
+          "$ref": "#/definitions/ExtendPackage"
         },
         {
           "$ref": "#/definitions/Microsoft.AdaptiveDialog"

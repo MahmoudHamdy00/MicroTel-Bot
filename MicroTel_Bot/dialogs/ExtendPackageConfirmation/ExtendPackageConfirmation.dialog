@@ -24,8 +24,8 @@
           "activityProcessed": true,
           "dialog": "Confirm",
           "options": {
-            "message": "Confirm signing up for a ${user.line.tier} tier?",
-            "data": "Name: ${user.fname} ${user.lname}; Birthdate: ${user.birthdate}; Address: ${user.address.streetNumber} ${user.address.streetName} ${user.address.city} ${user.address.country}; National ID: ${user.nationalID}"
+            "message": "Confirm signing up for a ${user.extendPackage}?",
+            "data": "You will increase by  ${user.extendPackageDetails.minutes} minutes, ${user.extendPackageDetails.messages} messages ,${user.extendPackageDetails.megabytes} megabytes  ,price is  ${user.extendPackageDetails.price} result is  ${user.extendPackageDetails.result}"
           },
           "resultProperty": "user.confirm"
         },
@@ -46,6 +46,23 @@
                     "id": "htUHsD"
                   },
                   "activity": "${SendActivity_htUHsD()}"
+                },
+                {
+                  "$kind": "ExtendPackage",
+                  "$designer": {
+                    "id": "zT4inY"
+                  },
+                  "phoneNumber": "=user.line.number",
+                  "packageName": "=user.extendPackage",
+                  "times": "='1'",
+                  "resultProperty": "user.extendResult"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "KN9WL2"
+                  },
+                  "activity": "${SendActivity_KN9WL2()}"
                 }
               ]
             },

@@ -158,6 +158,24 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
+        public static int insert_extendPackage(string phoneNumber, string packageName, int times, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
+            string packageId = cmd.ExecuteScalar().ToString();
+            DateTime _date = DateTime.Now.AddMonths(1);
+            string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
+            string values = singleRow;
+            while (times-- > 1)
+            {
+                values += "," + singleRow;
+            }
+            string query = $"insert into [ExtraPackage] (phoneNumber,extraPackageID,date) values {values};";
+            Console.WriteLine(values);
+            Console.WriteLine(query);
+            cmd = new SqlCommand(query, conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows;
+        }
     }
 
 }

@@ -21,7 +21,7 @@
           "$designer": {
             "id": "mTSDFv"
           },
-          "condition": "=or( exists(dialog.extraFullPackage ),exists(dialog.singlePackageInfo))",
+          "condition": "=or(and( exists(dialog.extraFullPackage ),dialog.extraFullPackage !=\"\")  ,and( exists(dialog.singlePackageInfo),dialog.singlePackageInfo!=\"\") )",
           "elseActions": [
             {
               "$kind": "Microsoft.ChoiceInput",
@@ -202,6 +202,13 @@
                   "value": "=user.singlePackageInfo"
                 }
               ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "EpqqBN"
+              },
+              "activity": "${SendActivity_EpqqBN()}"
             }
           ]
         },
@@ -218,7 +225,7 @@
             "id": "5GTtfn"
           },
           "packageName": "=user.extendPackage",
-          "minutes": "user.user.extendPackageDetails.minutes",
+          "minutes": "user.extendPackageDetails.minutes",
           "messages": "user.extendPackageDetails.messages",
           "megabytes": "user.extendPackageDetails.megabytes",
           "resultProperty": "user.extendPackageDetails.result",

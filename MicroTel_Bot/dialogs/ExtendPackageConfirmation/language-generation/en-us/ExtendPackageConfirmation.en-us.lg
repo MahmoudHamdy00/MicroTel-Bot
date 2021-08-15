@@ -28,3 +28,10 @@
 
 # SendActivity_htUHsD_text()
 - connect to db
+# SendActivity_KN9WL2()
+[Activity
+    Text = ${SendActivity_KN9WL2_text()}
+]
+
+# SendActivity_KN9WL2_text()
+- res is ${user.extendResult}

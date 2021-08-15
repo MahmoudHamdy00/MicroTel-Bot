@@ -29,8 +29,7 @@
             "id": "YslHhB"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPhoneNumber",
-          "disabled": true
+          "dialog": "ExtractPhoneNumber"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -38,8 +37,7 @@
             "id": "TJmE47"
           },
           "activityProcessed": true,
-          "dialog": "ExtractNationalID",
-          "disabled": true
+          "dialog": "ExtractNationalID"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -63,11 +61,10 @@
           },
           "activityProcessed": true,
           "dialog": "VerifyPhoneNumber",
-          "resultProperty": "user.phoneNumber",
+          "resultProperty": "user.line.number",
           "options": {
-            "phoneNumber": "=user.phoneNumber"
-          },
-          "disabled": true
+            "phoneNumber": "=user.line.number"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -79,8 +76,7 @@
           "resultProperty": "user.nationalID",
           "options": {
             "nationalID": "=user.nationalID"
-          },
-          "disabled": true
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -90,8 +86,8 @@
           "activityProcessed": true,
           "dialog": "VerifyPackages",
           "options": {
-            "extraFullPackage": "@extraFullPackage ",
-            "singlePackageInfo": "@@singlePackageInfo"
+            "extraFullPackage": "=user.extraFullPackage ",
+            "singlePackageInfo": "=user.singlePackageInfo"
           }
         },
         {

@@ -13,13 +13,13 @@
 ]
 
 # SendActivity_lBQiz6_text()
-- ```phoneNumber is ${user.phoneNumber}
+- ```phoneNumber is ${user.line.number}
 nationalID is ${user.nationalID}
 singlePackageInfo is ${user.singlePackageInfo}
 extraFullPackage is  ${user.extraFullPackage }
 ```
 # SendActivity_VTJJ7u_text()
-- ```phoneNumber is ${user.phoneNumber}
+- ```phoneNumber is ${user.line.number}
 nationalID is ${user.nationalID}
 singlePackageInfo is ${user.singlePackageInfo}
 extraFullPackage is  ${user.extraFullPackage }

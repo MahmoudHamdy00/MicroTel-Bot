@@ -39,3 +39,10 @@ result is  ${user.extendPackageDetails.result}```
 
 # SendActivity_f5dykM_text()
 - package is ${user.extendPackage}
+# SendActivity_EpqqBN()
+[Activity
+    Text = ${SendActivity_EpqqBN_text()}
+]
+
+# SendActivity_EpqqBN_text()
+- trueeeeeeeeeeeee

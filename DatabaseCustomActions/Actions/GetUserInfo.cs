@@ -20,15 +20,10 @@ public class GetUserInfo : Dialog
     }
 
     [JsonProperty("$kind")]
-    public const string Kind = "VerifyNationalID";
+    public const string Kind = "GetUserInfo";
 
     [JsonProperty("natid")]
     public ValueExpression nationalID { get; set; }
-
-
-   // [JsonProperty("number")]
-    //public StringExpression number { get; set; }
-
 
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
@@ -36,24 +31,17 @@ public class GetUserInfo : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        user_details user_Details = new user_details();
-        user_Details.nationalID = nationalID.GetValue(dc.State).ToString();
+        string national_id = nationalID.GetValue(dc.State).ToString();
 
         SqlConnection conn = new SqlConnection(connectionString);
-        bool result = false;//initialize with failed and then change it if it success
         try
         {
             conn.Open();
-            bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
-            //if it's not vaild then it will contain the user's number
-            if (nationalId_exist)
-                result = true;
-            else
-                result = false;
+            object user_info_obj = get_user_info(national_id, conn);
 
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), result);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), user_info_obj);
             }
         }
         catch (Exception ex)
@@ -67,6 +55,6 @@ public class GetUserInfo : Dialog
         {
             conn.Close();
         }
-        return dc.EndDialogAsync(result: result, cancellationToken: cancellationToken);
+        return dc.EndDialogAsync(cancellationToken: cancellationToken);
     }
 }

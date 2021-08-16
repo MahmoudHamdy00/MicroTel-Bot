@@ -67,7 +67,8 @@
           "$designer": {
             "id": "MOUm9f"
           },
-          "activity": "${SendActivity_MOUm9f()}"
+          "activity": "${SendActivity_MOUm9f()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -84,6 +85,14 @@
           }
         },
         {
+          "$kind": "GetUserInfo",
+          "$designer": {
+            "id": "5DtZHV"
+          },
+          "natid": "=user.nationalID",
+          "resultProperty": "dialog.userInfoObject"
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "3BiC7c"
@@ -92,7 +101,8 @@
           "dialog": "verifyTier",
           "resultProperty": "user.line.tier",
           "options": {
-            "tier": "=user.line.tier"
+            "tier": "=user.line.tier",
+            "oldTier": "=dialog.userInfoObject.tierName"
           }
         },
         {

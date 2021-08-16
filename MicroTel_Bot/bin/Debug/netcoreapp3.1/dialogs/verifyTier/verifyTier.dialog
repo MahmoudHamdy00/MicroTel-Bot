@@ -77,9 +77,45 @@
           ]
         },
         {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "BIEmnK"
+          },
+          "condition": "=exists(dialog.oldTier)",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "1POn1b"
+              },
+              "condition": "=dialog.oldTier == dialog.tier",
+              "elseActions": [],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "UjH7dA"
+                  },
+                  "activity": "${SendActivity_UjH7dA()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "rmTyVz"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "oldTier": "dialog.oldTier"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
-            "id": "2QV6QI"
+            "id": "Y0Mp3x"
           },
           "value": "=dialog.tier"
         }

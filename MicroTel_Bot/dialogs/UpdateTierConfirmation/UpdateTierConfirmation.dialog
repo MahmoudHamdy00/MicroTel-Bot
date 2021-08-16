@@ -53,7 +53,7 @@
                   "$designer": {
                     "id": "PYxr9B"
                   },
-                  "condition": "=dialog.result == 1",
+                  "condition": "=bool(dialog.result)",
                   "actions": [
                     {
                       "$kind": "Microsoft.SendActivity",

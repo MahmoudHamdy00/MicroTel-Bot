@@ -52,44 +52,10 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "GGPbQ0",
-            "comment": "010600676\n"
+            "id": "5FW7nZ"
           },
           "activityProcessed": true,
-          "dialog": "VerifyPhoneNumber",
-          "options": {
-            "phoneNumber": "=user.line.number"
-          },
-          "resultProperty": "user.line.number"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "MOUm9f"
-          },
-          "activity": "${SendActivity_MOUm9f()}"
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "CvGSDM",
-            "comment": ""
-          },
-          "activityProcessed": true,
-          "dialog": "verifyNationalId",
-          "resultProperty": "user.nationalID",
-          "options": {
-            "nationalID": "=user.nationalID",
-            "authNationalID": "=user.authNationalID"
-          }
-        },
-        {
-          "$kind": "GetUserInfo",
-          "$designer": {
-            "id": "5DtZHV"
-          },
-          "natid": "=user.nationalID",
-          "resultProperty": "dialog.userInfoObject"
+          "dialog": "AuthenticateUser"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -100,8 +66,7 @@
           "dialog": "verifyTier",
           "resultProperty": "user.line.tier",
           "options": {
-            "tier": "=user.line.tier",
-            "oldTier": "=dialog.userInfoObject.tierName"
+            "tier": "=user.line.tier"
           }
         },
         {

@@ -1,0 +1,83 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "PeZARf",
+    "name": "AuthenticateUser",
+    "comment": "Verify and authenticate phone number and national id"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "eS8bOQ"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "mpIU2z",
+            "comment": "Verify phone number is giving and if not extract it from the user. Return extracted phone number.\n"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyPhoneNumber",
+          "options": {
+            "phoneNumber": "=user.line.number"
+          },
+          "resultProperty": "user.line.number"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "XbQWS5",
+            "comment": "Verify phone number exists and returns its assosiated national id  "
+          },
+          "activityProcessed": true,
+          "dialog": "AuthenticatePhoneNumber",
+          "options": {
+            "phoneNumber": "=user.line.number"
+          },
+          "resultProperty": "user.authNationalID"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "tq8jV3"
+          },
+          "activity": "${SendActivity_tq8jV3()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "PQKoUC",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "verifyNationalId",
+          "resultProperty": "user.nationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "VZr5Px"
+          },
+          "activityProcessed": true,
+          "dialog": "AuthenticateNationalID",
+          "options": {
+            "authNationalID": "=user.authNationalID",
+            "nationalID": "=user.nationalID"
+          }
+        }
+      ]
+    }
+  ],
+  "generator": "AuthenticateUser.lg",
+  "recognizer": "AuthenticateUser.lu.qna",
+  "id": "AuthenticateUser"
+}

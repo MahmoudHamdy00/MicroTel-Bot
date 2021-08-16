@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_AuthenticateNationalID",
+  "applicationId": "=settings.luis.AuthenticateNationalID_en_us_lu.appId",
+  "version": "=settings.luis.AuthenticateNationalID_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}

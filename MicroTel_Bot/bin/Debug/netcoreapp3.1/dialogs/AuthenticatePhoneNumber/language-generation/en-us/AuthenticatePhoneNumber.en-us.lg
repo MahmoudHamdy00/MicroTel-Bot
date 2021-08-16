@@ -1,0 +1,17 @@
+[import](common.lg)
+
+# SendActivity_wLSXTH_text()
+- ```phone is ${dialog.phoneNumber}
+national id is ${dialog.authNationalID}
+result is ${dialog.phoneNumberExists}```
+# SendActivity_wLSXTH()
+[Activity
+    Text = ${SendActivity_wLSXTH_text()}
+]
+
+# SendActivity_pfNO2h_text()
+- Sorry, your phone number doesn't seem to be registered. Please try again!
+# SendActivity_pfNO2h()
+[Activity
+    Text = ${SendActivity_pfNO2h_text()}
+]

@@ -14,20 +14,3 @@
 [Activity
     Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
 ]
-
-# SendActivity_mrzXtY_text()
-- ```phone is ${dialog.phoneNumber}
-national id is ${dialog.authNationalID}
-result is ${dialog.phoneNumberExists}```
-# SendActivity_mrzXtY()
-[Activity
-    Text = ${SendActivity_mrzXtY_text()}
-]
-
-# SendActivity_jfVUYa()
-[Activity
-    Text = ${SendActivity_jfVUYa_text()}
-]
-
-# SendActivity_jfVUYa_text()
-- Invalid phone number. Please try again!

@@ -77,18 +77,26 @@
           ]
         },
         {
+          "$kind": "GetUserInfo",
+          "$designer": {
+            "id": "MCT420"
+          },
+          "natid": "=user.nationalID",
+          "resultProperty": "dialog.userInfoObject"
+        },
+        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "BIEmnK"
           },
-          "condition": "=exists(dialog.oldTier)",
+          "condition": "=exists(dialog.userInfoObject.tierName)",
           "actions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "1POn1b"
               },
-              "condition": "=dialog.oldTier == dialog.tier",
+              "condition": "=dialog.userInfoObject.tierName == dialog.tier",
               "elseActions": [],
               "actions": [
                 {
@@ -104,9 +112,7 @@
                     "id": "rmTyVz"
                   },
                   "activityProcessed": true,
-                  "options": {
-                    "oldTier": "dialog.oldTier"
-                  }
+                  "options": {}
                 }
               ]
             }

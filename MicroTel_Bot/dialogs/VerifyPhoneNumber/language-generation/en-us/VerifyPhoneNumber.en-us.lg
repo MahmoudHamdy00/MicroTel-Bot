@@ -14,18 +14,3 @@
 [Activity
     Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
 ]
-
-# SendActivity_5BtZ7u()
-[Activity
-    Text = ${SendActivity_5BtZ7u_text()}
-]
-
-# SendActivity_5BtZ7u_text()
-- ```dialog.linked.nationalId ${dialog.linked.nationalId}
-dialog.result ${dialog.result}```
-# SendActivity_tyTox1_text()
-- This phone number is not registered
-# SendActivity_tyTox1()
-[Activity
-    Text = ${SendActivity_tyTox1_text()}
-]

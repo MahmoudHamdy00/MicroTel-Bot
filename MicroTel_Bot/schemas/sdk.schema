@@ -8,7 +8,13 @@
       "$ref": "#/definitions/AddUser"
     },
     {
-      "$ref": "#/definitions/ExtendPackage"
+      "$ref": "#/definitions/AuthenticateNationalID"
+    },
+    {
+      "$ref": "#/definitions/AuthenticatePhoneNumber"
+    },
+    {
+      "$ref": "#/definitions/GetUserInfo"
     },
     {
       "$ref": "#/definitions/Microsoft.ActivityTemplate"
@@ -347,13 +353,7 @@
       "$ref": "#/definitions/Microsoft.UrlEntityRecognizer"
     },
     {
-      "$ref": "#/definitions/VerifyNationalID"
-    },
-    {
-      "$ref": "#/definitions/VerifyPackage"
-    },
-    {
-      "$ref": "#/definitions/VerifyPhoneNumber"
+      "$ref": "#/definitions/UpdateTier"
     }
   ],
   "definitions": {
@@ -457,6 +457,91 @@
         }
       ]
     },
+    "AuthenticateNationalID": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return the result of arg1*arg2",
+      "title": "Authenticate National ID",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "natid": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "National ID",
+          "description": "The National ID for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "The returned  "
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "AuthenticateNationalID"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
+    },
+    "AuthenticatePhoneNumber": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return true if phone number exists in db, false otherwise",
+      "title": "Authenticate Phone Number",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "phoneNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "natid": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "National ID",
+          "description": "The National ID for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "Returns bool value"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "AuthenticatePhoneNumber"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
+    },
     "booleanExpression": {
       "$role": "expression",
       "title": "Boolean or expression",
@@ -543,10 +628,10 @@
         "user.age > 13"
       ]
     },
-    "ExtendPackage": {
+    "GetUserInfo": {
       "$role": "implements(Microsoft.IDialog)",
-      "description": "This will return true if phone number exists in db, false otherwise",
-      "title": "Extend Package",
+      "description": "This will return all user info for a giving national id.",
+      "title": "Get User Info",
       "type": "object",
       "required": [
         "$kind"
@@ -559,32 +644,22 @@
         }
       },
       "properties": {
-        "phoneNumber": {
+        "natid": {
           "$ref": "#/definitions/valueExpression",
-          "title": "Phone Number",
-          "description": "Phone Number for the user"
-        },
-        "packageName": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Package Name",
-          "description": "The package name"
-        },
-        "times": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Times",
-          "description": "how many packages you want to subscribe"
+          "title": "National ID",
+          "description": "The National ID of the user."
         },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",
           "title": "Result",
-          "description": "Returns bool value"
+          "description": "Returned object with user info."
         },
         "$kind": {
           "title": "Kind of dialog object",
           "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
           "type": "string",
           "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
-          "const": "ExtendPackage"
+          "const": "GetUserInfo"
         },
         "$designer": {
           "title": "Designer information",
@@ -4080,7 +4155,13 @@
           "$ref": "#/definitions/AddUser"
         },
         {
-          "$ref": "#/definitions/ExtendPackage"
+          "$ref": "#/definitions/AuthenticateNationalID"
+        },
+        {
+          "$ref": "#/definitions/AuthenticatePhoneNumber"
+        },
+        {
+          "$ref": "#/definitions/GetUserInfo"
         },
         {
           "$ref": "#/definitions/Microsoft.AdaptiveDialog"
@@ -4227,13 +4308,7 @@
           "$ref": "#/definitions/Microsoft.UpdateActivity"
         },
         {
-          "$ref": "#/definitions/VerifyNationalID"
-        },
-        {
-          "$ref": "#/definitions/VerifyPackage"
-        },
-        {
-          "$ref": "#/definitions/VerifyPhoneNumber"
+          "$ref": "#/definitions/UpdateTier"
         },
         {
           "type": "string",
@@ -9650,6 +9725,51 @@
         }
       ]
     },
+    "UpdateTier": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "Update line's tier",
+      "title": "Update Tier",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "newTier": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "New Tier",
+          "description": "New tier name"
+        },
+        "lineNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "The returned value"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "UpdateTier"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
+    },
     "valueExpression": {
       "$role": "expression",
       "title": "Any or expression",
@@ -9697,156 +9817,6 @@
           ]
         }
       ]
-    },
-    "VerifyNationalID": {
-      "$role": "implements(Microsoft.IDialog)",
-      "description": "This will return the result of arg1*arg2",
-      "title": "Verify National ID",
-      "type": "object",
-      "required": [
-        "$kind"
-      ],
-      "additionalProperties": false,
-      "patternProperties": {
-        "^\\$": {
-          "title": "Tooling property",
-          "description": "Open ended property for tooling."
-        }
-      },
-      "properties": {
-        "natid": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "National ID",
-          "description": "The National ID for the user"
-        },
-        "resultProperty": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Result",
-          "description": "The returned  "
-        },
-        "$kind": {
-          "title": "Kind of dialog object",
-          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
-          "type": "string",
-          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
-          "const": "VerifyNationalID"
-        },
-        "$designer": {
-          "title": "Designer information",
-          "type": "object",
-          "description": "Extra information for the Bot Framework Composer."
-        }
-      }
-    },
-    "VerifyPackage": {
-      "$role": "implements(Microsoft.IDialog)",
-      "description": "This will return the result of arg1*arg2",
-      "title": "Verify Package",
-      "type": "object",
-      "required": [
-        "$kind"
-      ],
-      "additionalProperties": false,
-      "patternProperties": {
-        "^\\$": {
-          "title": "Tooling property",
-          "description": "Open ended property for tooling."
-        }
-      },
-      "properties": {
-        "packageName": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Package Name",
-          "description": "The package name"
-        },
-        "minutes": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Minutes",
-          "description": "The amount of minutes included in the package"
-        },
-        "messages": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Messages",
-          "description": "The amount of messages included in the package"
-        },
-        "megabytes": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Megabytes",
-          "description": "The amount of megabytes included in the package"
-        },
-        "price": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Price",
-          "description": "The price of the package"
-        },
-        "packages": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "packages",
-          "description": "the packages to subscribe"
-        },
-        "resultProperty": {
-          "$ref": "#/definitions/stringExpression",
-          "title": "Result",
-          "description": "The result"
-        },
-        "$kind": {
-          "title": "Kind of dialog object",
-          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
-          "type": "string",
-          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
-          "const": "VerifyPackage"
-        },
-        "$designer": {
-          "title": "Designer information",
-          "type": "object",
-          "description": "Extra information for the Bot Framework Composer."
-        }
-      }
-    },
-    "VerifyPhoneNumber": {
-      "$role": "implements(Microsoft.IDialog)",
-      "description": "This will return true if phone number exists in db, false otherwise",
-      "title": "Verify Phone Number",
-      "type": "object",
-      "required": [
-        "$kind"
-      ],
-      "additionalProperties": false,
-      "patternProperties": {
-        "^\\$": {
-          "title": "Tooling property",
-          "description": "Open ended property for tooling."
-        }
-      },
-      "properties": {
-        "phoneNumber": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Phone Number",
-          "description": "Phone Number for the user"
-        },
-        "natid": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "National ID",
-          "description": "The National ID for the user"
-        },
-        "resultProperty": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Result",
-          "description": "Returns bool value"
-        },
-        "$kind": {
-          "title": "Kind of dialog object",
-          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
-          "type": "string",
-          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
-          "const": "VerifyPhoneNumber"
-        },
-        "$designer": {
-          "title": "Designer information",
-          "type": "object",
-          "description": "Extra information for the Bot Framework Composer."
-        }
-      }
     },
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",

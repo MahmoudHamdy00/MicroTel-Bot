@@ -224,10 +224,10 @@
 @ intent UpdateTier usesFeature updateTierInfo
 
 @ ml updateTierInfo
-    - @ ml originalTier usesFeature tier
-    - @ ml newTier usesFeature tier
-    - @ ml phoneNumber usesFeature phoneNumber
-    - @ ml nationalID usesFeature nationalID
+ 	- @ tier originalTier
+    - @ tier newTier
+    - @ phoneNumber phoneNumber
+    - @ nationalID nationalID
 
 # ExtendPackage
 - can i get {@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}?
@@ -245,74 +245,4 @@
 
 
 @ intent ExtendPackage usesFeatures extraFullPackage,singlePackageInfo
-
-> # Entity definitions
-
-@ ml singlePackageInfo
-    - @ ml amount usesFeature number
-    - @ ml unit usesFeature units
-
-
-@ ml userInfo
-    - @ action action
-    - @ datetimeV2 birthDate
-    - @ ml address
-        - @ number streetNumber
-        - @ ml streetName
-        - @ geographyV2 city
-        - @ geographyV2 country
-    - @ nationalID nationalID
-    - @ ml name usesFeature personName
-        - @ ml lName
-        - @ ml fName
-
-
-
-> # PREBUILT Entity definitions
-
-@ prebuilt datetimeV2
-
-@ prebuilt geographyV2
-
-
-@ prebuilt number
-
-@ prebuilt personName
-
-> # List entities
-
-@ list extraFullPackage = 
-	- Plus Package :
-		- Plus pack
-		- Plus-Package
-		- plus
-	- Premium Plus Package :
-		- Premium Plus pack
-		- Premium Package
-		- Premium-Package
-
-
-@ list units = 
-	- gigabyte :
-		- giga byte
-		- giga-byte
-		- giga
-		- GB
-	- megabyte :
-		- mega byte
-		- mega
-		- MB
-		- mega-byte
-	- minutes :
-		- min
-		- mins
-	- messages :
-		- sms
-		- text messages
-
-
-> # RegEx entities
-
-@ regex nationalID = /[0-4]{1}[0-9]{4}/
-@ regex phoneNumber = /010[0-9]{6}/
 

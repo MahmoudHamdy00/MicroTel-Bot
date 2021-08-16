@@ -95,7 +95,7 @@ public class AddUser : Dialog
             tier_details tierDetails = get_tier_details(_tier, conn);
             if (!tierDetails.valid)
             {
-                result = $"error in get_tier_details,tier is {_tier}";
+                result = $"error in get_tier_details, tier is {_tier}";
                 Console.WriteLine(result);
                 throw new Exception(result);
             }

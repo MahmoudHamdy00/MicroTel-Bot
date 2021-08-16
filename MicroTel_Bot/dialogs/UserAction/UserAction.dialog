@@ -129,6 +129,17 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
+            "id": "kA3VqZ"
+          },
+          "activityProcessed": true,
+          "dialog": "AuthenticateNationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
             "id": "J7GfMF"
           },
           "activityProcessed": true,

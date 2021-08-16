@@ -50,67 +50,9 @@
           ]
         },
         {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "RuyUlg"
-          },
-          "condition": "=equals(dialog.state,'SignUp')",
-          "elseActions": [],
-          "actions": [
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "GM6ESn"
-              },
-              "value": "=dialog.phoneNumber"
-            }
-          ]
-        },
-        {
-          "$kind": "VerifyPhoneNumber",
-          "$designer": {
-            "id": "dMod2H"
-          },
-          "phoneNumber": "=dialog.phoneNumber",
-          "natid": "user.linked.nationalId",
-          "resultProperty": "dialog.result"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "5BtZ7u"
-          },
-          "activity": "${SendActivity_5BtZ7u()}",
-          "disabled": true
-        },
-        {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "UWBKZ1"
-          },
-          "condition": "=dialog.result",
-          "actions": [],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "tyTox1"
-              },
-              "activity": "${SendActivity_tyTox1()}"
-            },
-            {
-              "$kind": "Microsoft.RepeatDialog",
-              "$designer": {
-                "id": "wlPB6I"
-              },
-              "activityProcessed": true
-            }
-          ]
-        },
-        {
           "$kind": "Microsoft.EndDialog",
           "$designer": {
-            "id": "Z2qXp8"
+            "id": "DgTJgM"
           },
           "value": "=dialog.phoneNumber"
         }

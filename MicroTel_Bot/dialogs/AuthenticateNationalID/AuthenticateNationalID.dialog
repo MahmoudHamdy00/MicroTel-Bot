@@ -1,0 +1,128 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "aszZqA",
+    "name": "AuthenticateNationalID",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "tln2YX"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "WuHHsS"
+          },
+          "condition": "=exists(dialog.authNationalID)",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "VK9j1l"
+              },
+              "condition": "=dialog.authNationalID == dialog.nationalID",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "SsWrdt",
+                    "comment": ""
+                  },
+                  "activity": "${SendActivity_SsWrdt()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "XcDgz7",
+                    "comment": ""
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyNationalId",
+                  "resultProperty": "user.nationalID",
+                  "options": {}
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "ynCXmX"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "authNationalID": "=dialog.authNationalID",
+                    "nationalID": "=user.nationalID"
+                  }
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "AuthenticateNationalID",
+              "$designer": {
+                "id": "BX6Fm9"
+              },
+              "natid": "=dialog.nationalID",
+              "resultProperty": "dialog.nationalIDExists"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "bUgKIH"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "CgUqqH",
+                    "comment": "Add ability for the user to move to forget number"
+                  },
+                  "activity": "${SendActivity_CgUqqH()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "4kAdC3",
+                    "comment": ""
+                  },
+                  "activityProcessed": true,
+                  "dialog": "verifyNationalId",
+                  "resultProperty": "user.nationalID",
+                  "options": {}
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "vGPLDr"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "nationalID": "=user.nationalID"
+                  }
+                }
+              ],
+              "elseActions": [],
+              "condition": "=bool(dialog.nationalIDExists)"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "dUW9rV"
+          }
+        }
+      ]
+    }
+  ],
+  "generator": "AuthenticateNationalID.lg",
+  "recognizer": "AuthenticateNationalID.lu.qna",
+  "id": "AuthenticateNationalID"
+}

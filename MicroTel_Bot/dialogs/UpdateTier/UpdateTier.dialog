@@ -52,28 +52,10 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "GGPbQ0",
-            "comment": ""
+            "id": "5FW7nZ"
           },
           "activityProcessed": true,
-          "dialog": "VerifyPhoneNumber",
-          "resultProperty": "user.line.number",
-          "options": {
-            "phoneNumber": "=user.line.number"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "CvGSDM",
-            "comment": ""
-          },
-          "activityProcessed": true,
-          "dialog": "verifyNationalId",
-          "resultProperty": "user.nationalID",
-          "options": {
-            "nationalID": "=user.nationalID"
-          }
+          "dialog": "AuthenticateUser"
         },
         {
           "$kind": "Microsoft.BeginDialog",

@@ -50,13 +50,13 @@
           ]
         },
         {
-          "$kind": "VerifyPhoneNumber",
+          "$kind": "AuthenticatePhoneNumber",
           "$designer": {
-            "id": "dMod2H"
+            "id": "nOTzUv"
           },
-          "phoneNumber": "=dialog.phoneNumber",
+          "resultProperty": "dialog.phoneNumberExists",
           "natid": "user.authNationalID",
-          "resultProperty": "dialog.phoneNumberExists"
+          "phoneNumber": "=dialog.phoneNumber"
         },
         {
           "$kind": "Microsoft.IfCondition",

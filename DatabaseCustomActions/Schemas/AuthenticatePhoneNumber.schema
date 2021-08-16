@@ -20,6 +20,6 @@
       "description": "Returns bool value"
     }
   },
-  "title": "Verify Phone Number",
+  "title": "Authenticate Phone Number",
   "type": "object"
 }

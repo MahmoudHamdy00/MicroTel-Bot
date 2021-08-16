@@ -86,9 +86,9 @@
           ],
           "elseActions": [
             {
-              "$kind": "VerifyNationalID",
+              "$kind": "AuthenticateNationalID",
               "$designer": {
-                "id": "XKDQJe"
+                "id": "kpGIqy"
               },
               "natid": "=dialog.nationalID",
               "resultProperty": "dialog.nationalIDExists"
@@ -102,7 +102,8 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
-                    "id": "Rv6Heb"
+                    "id": "Rv6Heb",
+                    "comment": "Add ability for the user to move to forget number"
                   },
                   "activity": "${SendActivity_Rv6Heb()}"
                 },

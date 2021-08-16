@@ -11,10 +11,10 @@ using Newtonsoft.Json;
 using static DatabaseCustomActions.helperFunctions;
 
 
-public class VerifyPhoneNumber : Dialog
+public class AuthenticatePhoneNumber : Dialog
 {
     [JsonConstructor]
-    public VerifyPhoneNumber([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+    public AuthenticatePhoneNumber([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         : base()
     {
         // enable instances of this command as debug break point
@@ -22,7 +22,7 @@ public class VerifyPhoneNumber : Dialog
     }
 
     [JsonProperty("$kind")]
-    public const string Kind = "VerifyPhoneNumber";
+    public const string Kind = "AuthenticatePhoneNumber";
 
     [JsonProperty("phoneNumber")]
     public ValueExpression phoneNumber { get; set; }

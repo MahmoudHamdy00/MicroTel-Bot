@@ -3129,6 +3129,7 @@ C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.pdb
 C:\MicroTel\final\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.genruntimeconfig.cache
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\Nuget.config
+D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\luis.settings.composer.westus.json
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\function-template-with-preexisting-rg.json
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\new-rg-parameters.json
 D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\scripts\DeploymentTemplates\preexisting-rg-parameters.json
@@ -3546,4 +3547,3 @@ D:\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.csproj.CopyCom
 D:\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.dll
 D:\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.pdb
 D:\MicroTel-Bot\MicroTel_Bot\obj\Debug\netcoreapp3.1\MicroTel_Bot.genruntimeconfig.cache
-D:\MicroTel-Bot\MicroTel_Bot\bin\Debug\netcoreapp3.1\generated\luis.settings.composer.westus.json

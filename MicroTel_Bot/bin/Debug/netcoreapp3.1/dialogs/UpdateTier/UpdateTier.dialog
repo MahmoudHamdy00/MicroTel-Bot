@@ -67,8 +67,7 @@
           "$designer": {
             "id": "MOUm9f"
           },
-          "activity": "${SendActivity_MOUm9f()}",
-          "disabled": true
+          "activity": "${SendActivity_MOUm9f()}"
         },
         {
           "$kind": "Microsoft.BeginDialog",

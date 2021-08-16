@@ -9,10 +9,10 @@ using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.helperFunctions;
 
-public class VerifyNationalID : Dialog
+public class AuthenticateNationalID : Dialog
 {
     [JsonConstructor]
-    public VerifyNationalID([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+    public AuthenticateNationalID([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         : base()
     {
         // enable instances of this command as debug break point
@@ -20,7 +20,7 @@ public class VerifyNationalID : Dialog
     }
 
     [JsonProperty("$kind")]
-    public const string Kind = "VerifyNationalID";
+    public const string Kind = "AuthenticateNationalID";
 
     [JsonProperty("natid")]
     public ValueExpression nationalID { get; set; }

@@ -98,9 +98,9 @@
                     "id": "eMOhpg"
                   },
                   "activityProcessed": true,
-                  "dialog": "verifyTier",
                   "resultProperty": "user.line.tier",
-                  "options": {}
+                  "options": {},
+                  "dialog": "verifyTier"
                 },
                 {
                   "$kind": "Microsoft.RepeatDialog",

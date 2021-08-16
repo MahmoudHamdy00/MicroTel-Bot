@@ -13,3 +13,11 @@
 [Activity
     Text = ${TextInput_InvalidPrompt_ZZ5SBZ_text()}
 ]
+
+# SendActivity_rQPo03()
+[Activity
+    Text = ${SendActivity_rQPo03_text()}
+]
+
+# SendActivity_rQPo03_text()
+- HIT THIS POINT 

@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -279,6 +279,11 @@ namespace DatabaseCustomActions
             }
             reader.Dispose();
             return _UserInfo;
+        }
+        public static string toTitle(string word)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            return textInfo.ToTitleCase(word.ToLower());
         }
     }
 

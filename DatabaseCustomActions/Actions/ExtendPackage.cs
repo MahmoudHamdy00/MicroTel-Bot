@@ -38,7 +38,7 @@ public class ExtendPackage : Dialog
     {
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string _phoneNumber = phoneNumber.GetValue(dc.State).ToString();
-        string _packageName = packageName.GetValue(dc.State).ToString();
+        var data = packageName.GetValue(dc.State);
         int _times = Convert.ToInt32(times.GetValue(dc.State));
 
         SqlConnection conn = new SqlConnection(connectionString);
@@ -46,10 +46,28 @@ public class ExtendPackage : Dialog
         try
         {
             conn.Open();
-            int affected_rows = insert_extendPackage(_phoneNumber, _packageName, _times, conn);
-            if (affected_rows != _times) throw new Exception("Someting went wrong");
+            int all_affected_rows = 0;
+            Newtonsoft.Json.Linq.JArray packageNames;
+            if (data.GetType().ToString() == "Newtonsoft.Json.Linq.JArray")
+            {
+                packageNames = (Newtonsoft.Json.Linq.JArray)data;
+                foreach (var curPackage in packageNames)
+                {
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), _times, conn);
+                    all_affected_rows += affected_rows;
+                }
+            }
+            else
+            {
+                int affected_rows = insert_extendPackage(_phoneNumber, data.ToString(), _times, conn);
+            }
+            //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
 
             result = "Successfull";
+            if (this.ResultProperty != null)
+            {
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State), result);
+            }
         }
         catch (Exception ex)
         {
@@ -61,10 +79,6 @@ public class ExtendPackage : Dialog
         finally
         {
             conn.Close();
-        }
-        if (this.ResultProperty != null)
-        {
-            dc.State.SetValue(this.ResultProperty.GetValue(dc.State), result);
         }
         return dc.EndDialogAsync(result: result, cancellationToken: cancellationToken);
     }

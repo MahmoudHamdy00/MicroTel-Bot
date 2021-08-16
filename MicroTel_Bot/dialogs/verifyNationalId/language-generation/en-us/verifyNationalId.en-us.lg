@@ -32,3 +32,18 @@ wanted to be ${dialog.state}
 
 # SendActivity_bApDHx_text()
 - This national id already registerd
+# SendActivity_heeHwf()
+[Activity
+    Text = ${SendActivity_heeHwf_text()}
+]
+
+# SendActivity_heeHwf_text()
+- This national id isn't the registerd one.
+# SendActivity_yuLrdQ()
+[Activity
+    Text = ${SendActivity_yuLrdQ_text()}
+]
+
+# SendActivity_yuLrdQ_text()
+- ```user.linked.nationalId, ${user.linked.nationalId}
+dialog.nationalID ${dialog.nationalID}```

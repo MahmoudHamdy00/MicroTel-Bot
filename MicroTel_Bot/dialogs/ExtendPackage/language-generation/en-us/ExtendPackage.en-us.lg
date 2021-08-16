@@ -1,12 +1,5 @@
 [import](common.lg)
 
-# SendActivity_cxTehr()
-[Activity
-    Text = ${SendActivity_cxTehr_text()}
-]
-
-# SendActivity_cxTehr_text()
-- i am in extend
 # SendActivity_lBQiz6()
 [Activity
     Text = ${SendActivity_lBQiz6_text()}

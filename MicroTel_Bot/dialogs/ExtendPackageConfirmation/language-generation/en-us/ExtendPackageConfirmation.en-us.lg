@@ -21,17 +21,48 @@
     Text = ${SendActivity_Ny9Ua9_text()}
 ]
 
-# SendActivity_htUHsD()
-[Activity
-    Text = ${SendActivity_htUHsD_text()}
-]
-
-# SendActivity_htUHsD_text()
-- connect to db
 # SendActivity_KN9WL2()
 [Activity
     Text = ${SendActivity_KN9WL2_text()}
 ]
 
 # SendActivity_KN9WL2_text()
-- res is ${user.extendResult}
+- result is ${user.extendResult}
+# SendActivity_tvVtcz()
+[Activity
+    Text = ${SendActivity_tvVtcz_text()}
+]
+
+# SendActivity_tvVtcz_text()
+- Confirm sign up for this packages
+# SendActivity_ab1uxz()
+[Activity
+    Text = ${SendActivity_ab1uxz_text()}
+]
+
+# SendActivity_ab1uxz_text()
+- ${add(1 ,dialog.foreach.index)} : ${dialog.foreach.value}
+# SendActivity_n2p6kj()
+[Activity
+    Text = ${SendActivity_n2p6kj_text()}
+]
+
+# SendActivity_n2p6kj_text()
+- ```Total is:\-
+minutes is  ${user.extendPackageDetails.minutes}
+messages is  ${user.extendPackageDetails.messages}
+megabytes is  ${user.extendPackageDetails.megabytes}
+price is  ${user.extendPackageDetails.price}```
+# SendActivity_oNnPzL_text()
+- No problem, we will change the package.
+# SendActivity_oNnPzL()
+[Activity
+    Text = ${SendActivity_oNnPzL_text()}
+]
+
+# SendActivity_f59REl_text()
+- Successfull change
+# SendActivity_f59REl()
+[Activity
+    Text = ${SendActivity_f59REl_text()}
+]

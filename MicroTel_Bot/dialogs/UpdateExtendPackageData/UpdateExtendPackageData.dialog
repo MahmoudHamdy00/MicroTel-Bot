@@ -65,6 +65,20 @@
               "value": "Package",
               "actions": [
                 {
+                  "$kind": "Microsoft.DeleteProperties",
+                  "$designer": {
+                    "id": "AOPfJP",
+                    "comment": ""
+                  },
+                  "properties": [
+                    "user.extendPackageDetails",
+                    "user.extendPackage",
+                    "user.extraFullPackage ",
+                    "user.singlePackageInfo",
+                    "user.extendPackageInfo"
+                  ]
+                },
+                {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
                     "id": "QR90OQ"

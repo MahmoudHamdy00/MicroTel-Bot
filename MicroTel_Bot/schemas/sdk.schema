@@ -9779,6 +9779,11 @@
           "title": "Price",
           "description": "The price of the package"
         },
+        "packages": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "packages",
+          "description": "the packages to subscribe"
+        },
         "resultProperty": {
           "$ref": "#/definitions/stringExpression",
           "title": "Result",

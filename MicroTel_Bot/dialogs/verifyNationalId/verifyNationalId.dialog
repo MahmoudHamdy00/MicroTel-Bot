@@ -57,6 +57,37 @@
           "condition": "=equals(dialog.state,'SignUp')",
           "elseActions": [
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "yuLrdQ"
+              },
+              "activity": "${SendActivity_yuLrdQ()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "EATla7"
+              },
+              "condition": "=equals(user.linked.nationalId,dialog.nationalID)",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "heeHwf"
+                  },
+                  "activity": "${SendActivity_heeHwf()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "S0wtCh"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
               "$kind": "Microsoft.EndDialog",
               "$designer": {
                 "id": "5Y8EDE"

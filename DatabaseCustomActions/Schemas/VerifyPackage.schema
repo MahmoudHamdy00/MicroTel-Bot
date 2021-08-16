@@ -9,25 +9,30 @@
       "title": "Package Name",
       "description": "The package name"
     },
-     "minutes": {
+    "minutes": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Minutes",
       "description": "The amount of minutes included in the package"
     },
-     "messages": {
+    "messages": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Messages",
       "description": "The amount of messages included in the package"
     },
-     "megabytes": {
+    "megabytes": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Megabytes",
       "description": "The amount of megabytes included in the package"
     },
-     "price": {
+    "price": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Price",
       "description": "The price of the package"
+    },
+    "packages": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "packages",
+      "description": "the packages to subscribe"
     },
     "resultProperty": {
       "$ref": "schema:#/definitions/stringExpression",

@@ -17,16 +17,45 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "tvVtcz"
+          },
+          "activity": "${SendActivity_tvVtcz()}"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "dIpzoZ"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.extendPackageDetails.packages",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "ab1uxz"
+              },
+              "activity": "${SendActivity_ab1uxz()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "n2p6kj"
+          },
+          "activity": "${SendActivity_n2p6kj()}"
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "1ZUh1Z"
           },
           "activityProcessed": true,
           "dialog": "Confirm",
-          "options": {
-            "message": "Confirm signing up for a ${user.extendPackage}?",
-            "data": "You will increase by  ${user.extendPackageDetails.minutes} minutes, ${user.extendPackageDetails.messages} messages ,${user.extendPackageDetails.megabytes} megabytes  ,price is  ${user.extendPackageDetails.price} result is  ${user.extendPackageDetails.result}"
-          },
+          "options": {},
           "resultProperty": "user.confirm"
         },
         {
@@ -41,19 +70,12 @@
               "value": "Confirm",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
-                  "$designer": {
-                    "id": "htUHsD"
-                  },
-                  "activity": "${SendActivity_htUHsD()}"
-                },
-                {
                   "$kind": "ExtendPackage",
                   "$designer": {
                     "id": "zT4inY"
                   },
                   "phoneNumber": "=user.line.number",
-                  "packageName": "=user.extendPackage",
+                  "packageName": "=user.extendPackageDetails.packages",
                   "times": "='1'",
                   "resultProperty": "user.extendResult"
                 },

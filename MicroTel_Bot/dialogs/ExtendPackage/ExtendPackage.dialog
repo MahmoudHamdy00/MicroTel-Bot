@@ -58,7 +58,8 @@
           "resultProperty": "user.line.number",
           "options": {
             "phoneNumber": "=user.line.number"
-          }
+          },
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -70,7 +71,16 @@
           "resultProperty": "user.nationalID",
           "options": {
             "nationalID": "=user.nationalID"
-          }
+          },
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "NqNyX6"
+          },
+          "activityProcessed": true,
+          "dialog": "AuthenticateUser"
         },
         {
           "$kind": "Microsoft.BeginDialog",

@@ -1,0 +1,60 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_saabhT()
+[Activity
+    Text = ${ChoiceInput_Prompt_saabhT_text()}
+]
+
+# ChoiceInput_Prompt_saabhT_text()
+- You want to extend...?
+# ChoiceInput_Prompt_x5RNqi()
+[Activity
+    Text = ${ChoiceInput_Prompt_x5RNqi_text()}
+]
+
+# ChoiceInput_Prompt_x5RNqi_text()
+- Please choose a package
+# ChoiceInput_Prompt_5ySRzu()
+[Activity
+    Text = ${ChoiceInput_Prompt_5ySRzu_text()}
+]
+
+# ChoiceInput_Prompt_5ySRzu_text()
+- Please choose a package
+# SendActivity_7FEviI()
+[Activity
+    Text = ${SendActivity_7FEviI_text()}
+]
+
+# SendActivity_7FEviI_text()
+- ```minutes is  ${user.extendPackageDetails.minutes}
+messages is  ${user.extendPackageDetails.messages}
+megabytes is  ${user.extendPackageDetails.megabytes}
+price is  ${user.extendPackageDetails.price}
+result is  ${user.extendPackageDetails.result}
+packages  is  ${user.extendPackageDetails.packages}```
+# SendActivity_f5dykM()
+[Activity
+    Text = ${SendActivity_f5dykM_text()}
+]
+
+# SendActivity_f5dykM_text()
+- package is ${user.extendPackage}
+# SendActivity_OyYXKd()
+[Activity
+    Text = ${SendActivity_OyYXKd_text()}
+]
+
+# SendActivity_OyYXKd_text()
+- ```cout << ${dialog.foreach.index} ;
+am is ${dialog.foreach.value["amount"][0]} val is ${dialog.foreach.value["unit"][0]}```
+# SendActivity_BZFIBo()
+[Activity
+    Text = ${SendActivity_BZFIBo_text()}
+]
+
+# SendActivity_BZFIBo_text()
+- ```final is 
+min ${user.extendPackageDetails.minutes}
+sms ${user.extendPackageDetails.messages}
+mega ${user.extendPackageDetails.megabytes}```

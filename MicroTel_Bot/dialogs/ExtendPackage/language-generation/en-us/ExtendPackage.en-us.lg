@@ -1,0 +1,24 @@
+[import](common.lg)
+
+# SendActivity_lBQiz6()
+[Activity
+    Text = ${SendActivity_lBQiz6_text()}
+]
+
+# SendActivity_lBQiz6_text()
+- ```phoneNumber is ${user.line.number}
+nationalID is ${user.nationalID}
+singlePackageInfo is ${user.singlePackageInfo}
+extraFullPackage is  ${user.extraFullPackage }
+```
+# SendActivity_VTJJ7u_text()
+- ```phoneNumber is ${user.line.number}
+nationalID is ${user.nationalID}
+singlePackageInfo is ${user.singlePackageInfo}
+extraFullPackage is  ${user.extraFullPackage }
+```
+# SendActivity_VTJJ7u()
+[Activity
+    Text = ${SendActivity_VTJJ7u_text()}
+]
+

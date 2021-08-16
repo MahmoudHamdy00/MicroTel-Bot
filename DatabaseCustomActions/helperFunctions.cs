@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace DatabaseCustomActions
@@ -23,6 +24,22 @@ namespace DatabaseCustomActions
             public string minutes { get; set; }
             public string SMS { get; set; }
             public string megabytes { get; set; }
+        }
+        public struct package_details
+        {
+            public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, int price = 0)
+            {
+                this.packageName = packageName;
+                this.minutes = minutes;
+                this.messages = messages;
+                this.megabytes = megabytes;
+                this.price = price;
+            }
+            public string packageName { get; set; }
+            public int minutes { get; set; }
+            public int messages { get; set; }
+            public int megabytes { get; set; }
+            public int price { get; set; }
         }
         public struct user_details
         {
@@ -107,6 +124,96 @@ namespace DatabaseCustomActions
             reader.Dispose();
             return _Details;
         }
+        public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
+        {
+
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails] WHERE name ='{package_Details.packageName}';", conn);
+
+            var reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                package_Details = new package_details(reader["name"].ToString(), Convert.ToInt32(reader["minutes"]), Convert.ToInt32(reader["messages"]), Convert.ToInt32(reader["megabytes"]), Convert.ToInt32(reader["price"]));
+                reader.Dispose();
+                return true;
+            }
+            return false;
+        }
+        public static List<package_details> getAvailablePackages(SqlConnection conn)
+        {
+            List<package_details> availablePackages = new List<package_details>();
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails];", conn);
+
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                package_details package_Details = new package_details(reader["name"].ToString(), Convert.ToInt32(reader["minutes"]), Convert.ToInt32(reader["messages"]), Convert.ToInt32(reader["megabytes"]), Convert.ToInt32(reader["price"]));
+                availablePackages.Add(package_Details);
+            }
+            reader.Dispose();
+            return availablePackages;
+        }
+        public static List<package_details> mainGetBestPackages(int minutes, int messages, int megabytes, SqlConnection conn)
+        {
+            List<package_details> selectedPackages = new List<package_details>();
+            List<package_details> temp = new List<package_details>();
+            List<package_details> availablePackages = getAvailablePackages(conn);
+            int bestPrice = 10000;
+            getBestPackages(minutes, messages, megabytes, 0, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
+            return selectedPackages;
+        }
+        public static void getBestPackages(int minutes, int messages, int megabytes, int price, ref int bestPrice, ref List<package_details> selectedPackages, ref List<package_details> temp, ref List<package_details> availablePackages)
+        {
+            //Console.WriteLine(minutes.ToString() + " " + messages.ToString() + " " + megabytes.ToString() + " " + price.ToString());
+            if (minutes <= 0 && messages <= 0 && megabytes <= 0)
+            {
+                if (price < bestPrice)
+                {
+                    bestPrice = price;
+                    selectedPackages = new List<package_details>(temp);
+                    Console.WriteLine("option " + price);
+                    foreach (var h in selectedPackages) Console.WriteLine(h.packageName);
+                    Console.WriteLine();
+                }
+                return;
+            }
+            //   if (price > 50) return;
+            foreach (var cur in availablePackages)
+            {
+
+                if (cur.packageName == "Minutes" && minutes <= 0) continue;
+                if (cur.packageName == "Text Messages" && messages <= 0) continue;
+                if (cur.packageName == "Megabytes" && megabytes <= 0) continue;
+                temp.Add(cur);
+                getBestPackages(minutes - cur.minutes, messages - cur.messages, megabytes - cur.megabytes, price + cur.price, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
+                temp.Remove(cur);
+            }
+
+        }
+        public static List<package_details> getPackages(int minutes, int messages, int megabytes, SqlConnection conn)
+        {
+            List<package_details> selectedPackages = new List<package_details>();
+            List<package_details> avalaiblePackages = getAvailablePackages(conn);
+            package_details megabytesPackage, minutesPackage, messagesPackage;
+            megabytesPackage = minutesPackage = messagesPackage = new package_details();
+            foreach (var cur in avalaiblePackages)
+            {
+                if (cur.megabytes == megabytes && cur.minutes == minutes && cur.messages == messages)
+                {
+                    selectedPackages.Add(cur);
+                    return selectedPackages;
+                }
+                if (cur.packageName == "Text Messages") messagesPackage = cur;
+                else if (cur.packageName == "Megabytes") megabytesPackage = cur;
+                else if (cur.packageName == "Minutes") minutesPackage = cur;
+            }
+            while (messages > 0) { selectedPackages.Add(messagesPackage); messages -= messagesPackage.messages; }
+            while (megabytes > 0) { selectedPackages.Add(megabytesPackage); megabytes -= megabytesPackage.megabytes; }
+            while (minutes > 0) { selectedPackages.Add(minutesPackage); minutes -= minutesPackage.minutes; }
+            return selectedPackages;
+        }
         public static bool update_tier(string tier_id, string phoneNumber, SqlConnection conn)
         {
 
@@ -136,6 +243,24 @@ namespace DatabaseCustomActions
         public static int insert_user(user_details user_Details, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"insert into [user] values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows;
+        }
+        public static int insert_extendPackage(string phoneNumber, string packageName, int times, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
+            string packageId = cmd.ExecuteScalar().ToString();
+            DateTime _date = DateTime.Now.AddMonths(1);
+            string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
+            string values = singleRow;
+            while (times-- > 1)
+            {
+                values += "," + singleRow;
+            }
+            string query = $"insert into [ExtraPackage] (phoneNumber,extraPackageID,date) values {values};";
+            Console.WriteLine(values);
+            Console.WriteLine(query);
+            cmd = new SqlCommand(query, conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }

@@ -1,0 +1,132 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "QMPEtK",
+    "name": "ExtendPackageConfirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "QlDBcm"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "tvVtcz"
+          },
+          "activity": "${SendActivity_tvVtcz()}"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "dIpzoZ"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.extendPackageDetails.packages",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "ab1uxz"
+              },
+              "activity": "${SendActivity_ab1uxz()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "n2p6kj"
+          },
+          "activity": "${SendActivity_n2p6kj()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "1ZUh1Z"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {},
+          "resultProperty": "user.confirm"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "ZgtloE"
+          },
+          "condition": "user.confirm",
+          "default": [],
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "ExtendPackage",
+                  "$designer": {
+                    "id": "zT4inY"
+                  },
+                  "phoneNumber": "=user.line.number",
+                  "packageName": "=user.extendPackageDetails.packages",
+                  "times": "='1'",
+                  "resultProperty": "user.extendResult"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "KN9WL2"
+                  },
+                  "activity": "${SendActivity_KN9WL2()}"
+                }
+              ]
+            },
+            {
+              "value": "Modify My Data",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "zEU0rZ"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "UpdateExtendPackageData"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "Dc6346"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "rnVOa9"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ExtendPackageConfirmation.lg",
+  "recognizer": "ExtendPackageConfirmation.lu.qna",
+  "id": "ExtendPackageConfirmation"
+}

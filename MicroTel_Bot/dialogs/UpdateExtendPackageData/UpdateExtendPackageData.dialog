@@ -1,0 +1,128 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "Y1HMP1",
+    "name": "UpdateExtendPackageData",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "KTPKBN"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "GIOmOm"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "prompt": "${ChoiceInput_Prompt_GIOmOm()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": [
+            {
+              "value": "Package",
+              "synonyms": [
+                "name"
+              ]
+            },
+            {
+              "value": "Cancel"
+            }
+          ],
+          "property": "dialog.toChange",
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "defaultValue": "Cancel",
+          "style": "heroCard"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "FKF4oj"
+          },
+          "condition": "dialog.toChange",
+          "cases": [
+            {
+              "value": "Package",
+              "actions": [
+                {
+                  "$kind": "Microsoft.DeleteProperties",
+                  "$designer": {
+                    "id": "AOPfJP",
+                    "comment": ""
+                  },
+                  "properties": [
+                    "user.extendPackageDetails",
+                    "user.extendPackage",
+                    "user.extraFullPackage ",
+                    "user.singlePackageInfo",
+                    "user.extendPackageInfo"
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "QR90OQ"
+                  },
+                  "activity": "${SendActivity_QR90OQ()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "hiErVq"
+                  },
+                  "activityProcessed": true,
+                  "options": {},
+                  "dialog": "VerifyPackages"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "1IOQFS"
+                  },
+                  "activity": "${SendActivity_1IOQFS()}"
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "H3q8XF"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
+            }
+          ],
+          "default": []
+        }
+      ]
+    }
+  ],
+  "generator": "UpdateExtendPackageData.lg",
+  "recognizer": "UpdateExtendPackageData.lu.qna",
+  "id": "UpdateExtendPackageData"
+}

@@ -1,0 +1,22 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_GIOmOm_text()
+- Which piece of data would you like to alter?
+# ChoiceInput_Prompt_GIOmOm()
+[Activity
+    Text = ${ChoiceInput_Prompt_GIOmOm_text()}
+]
+
+# SendActivity_QR90OQ_text()
+- No problem, we will change the package.
+# SendActivity_QR90OQ()
+[Activity
+    Text = ${SendActivity_QR90OQ_text()}
+]
+
+# SendActivity_1IOQFS_text()
+- Successfull change
+# SendActivity_1IOQFS()
+[Activity
+    Text = ${SendActivity_1IOQFS_text()}
+]

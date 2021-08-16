@@ -1,0 +1,59 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "4u1uLm",
+    "name": "ExtractPackeges",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "YGuKYo"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Vydk3N"
+          },
+          "condition": "=exists(@singlePackageInfo)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "xxSsoA"
+              },
+              "property": "user.singlePackageInfo",
+              "value": "=@@singlePackageInfo"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "rcRsYS"
+          },
+          "condition": "=exists(@extraFullPackage )",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "K26jLu"
+              },
+              "property": "user.extraFullPackage ",
+              "value": "=@extraFullPackage "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractPackeges.lg",
+  "recognizer": "ExtractPackeges.lu.qna",
+  "id": "ExtractPackeges"
+}

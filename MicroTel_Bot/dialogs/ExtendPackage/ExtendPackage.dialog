@@ -1,0 +1,109 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "TGrafn",
+    "name": "ExtendPackage",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "2WJF2o"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "YslHhB"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractPhoneNumber"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "TJmE47"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractNationalID"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "OXqQLC"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractPackeges"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "lBQiz6"
+          },
+          "activity": "${SendActivity_lBQiz6()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ilsoPw"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyPhoneNumber",
+          "resultProperty": "user.line.number",
+          "options": {
+            "phoneNumber": "=user.line.number"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "VJtbPv"
+          },
+          "activityProcessed": true,
+          "dialog": "verifyNationalId",
+          "resultProperty": "user.nationalID",
+          "options": {
+            "nationalID": "=user.nationalID"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "JjGfC4"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyPackages",
+          "options": {
+            "extraFullPackage": "=user.extraFullPackage ",
+            "singlePackageInfo": "=user.singlePackageInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "VTJJ7u"
+          },
+          "activity": "${SendActivity_VTJJ7u()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "F6PMrw"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtendPackageConfirmation"
+        }
+      ]
+    }
+  ],
+  "generator": "ExtendPackage.lg",
+  "recognizer": "ExtendPackage.lu.qna",
+  "id": "ExtendPackage"
+}

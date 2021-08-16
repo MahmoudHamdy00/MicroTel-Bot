@@ -168,6 +168,24 @@
           "dialog": "UpdateTier"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "Nrz5Da",
+        "name": "ExtendPackage"
+      },
+      "intent": "ExtendPackage",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "VZif8l"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtendPackage"
+        }
+      ]
     }
   ],
   "generator": "MicroTel_Bot.lg",

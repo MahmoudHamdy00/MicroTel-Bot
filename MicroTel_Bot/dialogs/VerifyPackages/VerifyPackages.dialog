@@ -1,0 +1,460 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "L0wvxq",
+    "name": "VerifyPackages",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "x7BuI2"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "mTSDFv"
+          },
+          "condition": "=or(and( exists(dialog.extraFullPackage ),dialog.extraFullPackage !=\"\")  ,and( exists(dialog.singlePackageInfo),dialog.singlePackageInfo!=\"\") )",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "saabhT"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_saabhT()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "choices": [
+                "All packages (Minutes ,SMS ans Megabytes)",
+                "Single package"
+              ],
+              "property": "user.extendPackageInfo",
+              "style": "heroCard"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "Obcrfv"
+              },
+              "condition": "user.extendPackageInfo",
+              "cases": [
+                {
+                  "value": "Single package",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.ChoiceInput",
+                      "$designer": {
+                        "id": "x5RNqi"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "choices": [
+                        "Megabytes",
+                        "Minutes",
+                        "Text Messages"
+                      ],
+                      "property": "user.singlePackageInfo",
+                      "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "recognizerOptions": {
+                        "recognizeOrdinals": true
+                      },
+                      "style": "heroCard"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "t05SLs"
+                      },
+                      "property": "user.extendPackage",
+                      "value": "=user.singlePackageInfo"
+                    }
+                  ]
+                },
+                {
+                  "value": "All packages (Minutes ,SMS ans Megabytes)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.ChoiceInput",
+                      "$designer": {
+                        "id": "5ySRzu"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${ChoiceInput_Prompt_5ySRzu()}",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "property": "user.extraFullPackage ",
+                      "choices": [
+                        "Plus Package",
+                        "Premium Plus Package"
+                      ],
+                      "style": "heroCard"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "HSsRqQ"
+                      },
+                      "property": "user.extendPackage",
+                      "value": "=user.extraFullPackage"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "N2T54T"
+              },
+              "condition": "=exists(dialog.extraFullPackage)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "ZgXMFw"
+                  },
+                  "property": "user.extendPackage",
+                  "value": "=user.extraFullPackage"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "XgQ8t0"
+                  },
+                  "property": "user.extendPackage",
+                  "value": "=user.singlePackageInfo"
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "IwmGqo"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.extendPackageDetails.megabytes",
+                      "value": "=''"
+                    },
+                    {
+                      "property": "user.extendPackageDetails.messages",
+                      "value": "=''"
+                    },
+                    {
+                      "property": "user.extendPackageDetails.minutes",
+                      "value": "=''"
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Foreach",
+                  "$designer": {
+                    "id": "ftImDW"
+                  },
+                  "index": "dialog.foreach.index",
+                  "value": "dialog.foreach.value",
+                  "itemsProperty": "user.singlePackageInfo",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "OyYXKd"
+                      },
+                      "activity": "${SendActivity_OyYXKd()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SwitchCondition",
+                      "$designer": {
+                        "id": "uQDYsO"
+                      },
+                      "cases": [
+                        {
+                          "value": "gigabyte",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "MSSDFP"
+                              },
+                              "property": "user.extendPackageDetails.megabytes",
+                              "value": "=add(user.extendPackageDetails.megabytes,mul(int( dialog.foreach.value[\"amount\"][0]),1000))",
+                              "disabled": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": "megabyte",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "Gd13ko"
+                              },
+                              "property": "user.extendPackageDetails.megabytes",
+                              "value": "=add(user.extendPackageDetails.megabytes, dialog.foreach.value[\"amount\"][0])",
+                              "disabled": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": "messages",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "3CvL3b"
+                              },
+                              "property": "user.extendPackageDetails.messages",
+                              "value": "=add(user.extendPackageDetails.messages, dialog.foreach.value[\"amount\"][0])",
+                              "disabled": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": "minutes",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "q1ZlZW"
+                              },
+                              "property": "user.extendPackageDetails.minutes",
+                              "value": "=add(user.extendPackageDetails.minutes, dialog.foreach.value[\"amount\"][0])",
+                              "disabled": true
+                            }
+                          ]
+                        }
+                      ],
+                      "condition": "dialog.foreach.value[\"unit\"][0]",
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "BZFIBo"
+                  },
+                  "activity": "${SendActivity_BZFIBo()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "2GbFpC"
+                  },
+                  "condition": "=and(equals(user.extendPackageDetails.megabytes,\"2000\"),equals(user.extendPackageDetails.messages,\"200\"),equals(user.extendPackageDetails.minutes,\"2000\"))",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "ybcKEA"
+                      },
+                      "property": "user.extendPackage",
+                      "value": "'Plus Package'",
+                      "disabled": true
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "HFEOPc"
+                      },
+                      "condition": "=and(equals(user.extendPackageDetails.megabytes,\"5000\"),equals(user.extendPackageDetails.messages,\"300\"),equals(user.extendPackageDetails.minutes,\"3000\"))",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "mu4sAn"
+                          },
+                          "property": "user.extendPackage",
+                          "value": "='Premium Plus Package'",
+                          "disabled": true
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "y7cMRj"
+                          },
+                          "condition": "=user.extendPackageDetails.megabytes!=\"\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "3fjrrL"
+                              },
+                              "property": "user.extendPackage",
+                              "value": "='Megabytes'",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.EditArray",
+                              "$designer": {
+                                "id": "qfRrS4"
+                              },
+                              "changeType": "push",
+                              "itemsProperty": "user.extendPackage",
+                              "resultProperty": "user.extendPackages.result",
+                              "value": "='Megabytes'",
+                              "disabled": true
+                            }
+                          ],
+                          "elseActions": [],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "eQ6JSx"
+                          },
+                          "condition": "=user.extendPackageDetails.messages!=\"\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "Dj5ZcJ"
+                              },
+                              "property": "user.extendPackage",
+                              "value": "='Text Messages'",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.EditArray",
+                              "$designer": {
+                                "id": "H3vk8v"
+                              },
+                              "changeType": "push",
+                              "itemsProperty": "user.extendPackage",
+                              "resultProperty": "user.extendPackages.result",
+                              "value": "='Text Messages'",
+                              "disabled": true
+                            }
+                          ],
+                          "elseActions": [],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "oxe0iT"
+                          },
+                          "condition": "=user.extendPackageDetails.minutes!=\"\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "7dUYXU"
+                              },
+                              "property": "user.extendPackage",
+                              "value": "='Minutes'",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.EditArray",
+                              "$designer": {
+                                "id": "jQZzZb"
+                              },
+                              "changeType": "push",
+                              "itemsProperty": "user.extendPackage",
+                              "resultProperty": "user.extendPackages.result",
+                              "value": "='Minutes'",
+                              "disabled": true
+                            }
+                          ],
+                          "elseActions": [],
+                          "disabled": true
+                        }
+                      ],
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "f5dykM"
+          },
+          "activity": "${SendActivity_f5dykM()}",
+          "disabled": true
+        },
+        {
+          "$kind": "VerifyPackage",
+          "$designer": {
+            "id": "5GTtfn"
+          },
+          "packageName": "=user.extendPackage",
+          "minutes": "user.extendPackageDetails.minutes",
+          "messages": "user.extendPackageDetails.messages",
+          "megabytes": "user.extendPackageDetails.megabytes",
+          "resultProperty": "user.extendPackageDetails.result",
+          "price": "user.extendPackageDetails.price",
+          "packages": "user.extendPackageDetails.packages"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "7FEviI"
+          },
+          "activity": "${SendActivity_7FEviI()}"
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyPackages.lg",
+  "recognizer": "VerifyPackages.lu.qna",
+  "id": "VerifyPackages"
+}

@@ -224,7 +224,25 @@
 @ intent UpdateTier usesFeature updateTierInfo
 
 @ ml updateTierInfo
-    - @ tier originalTier
+ 	- @ tier originalTier
     - @ tier newTier
     - @ phoneNumber phoneNumber
     - @ nationalID nationalID
+
+# ExtendPackage
+- can i get {@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}?
+- can i increase my quota?
+- i need {@singlePackageInfo={@amount=2000} {@unit=minutes}}
+- i want {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=2000} {@unit=minutes}}
+- i want {@singlePackageInfo={@amount=500} {@unit=sms}}
+- i want to extend my package
+- i want to increase {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=500} {@unit=messages}} to my quota, my id is 12312 and my number is 010124121
+- i would like to extend my package with the plus package, my phone number is 010123456 and my national id is 21212
+- my national id is 16242, can i extend my package with the premium plus package.
+- my phone number is 010189542 and i want to get extra {@singlePackageInfo={@unit=minutes}}
+- my phone number is 010242411 and my id is 12342, i want to increase my quota with the premium plus package.
+- o my id is 12411, i want to extend my package with {@singlePackageInfo={@amount=2000} {@unit=minutes}}, {@singlePackageInfo={@amount=2} {@unit=gb}}, and {@singlePackageInfo={@amount=200} {@unit=text messages}}
+
+
+@ intent ExtendPackage usesFeatures extraFullPackage,singlePackageInfo
+

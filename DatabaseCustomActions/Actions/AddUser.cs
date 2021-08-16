@@ -63,16 +63,16 @@ public class AddUser : Dialog
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         user_details user_Details = new user_details();
         user_Details.nationalID = nationalID.GetValue(dc.State).ToString();
-        user_Details.firstName = firstName.GetValue(dc.State).ToString();
-        user_Details.lastName = lastName.GetValue(dc.State).ToString();
+        user_Details.firstName = toTitle(firstName.GetValue(dc.State).ToString());
+        user_Details.lastName = toTitle(lastName.GetValue(dc.State).ToString());
         user_Details.birthdate = birthdate.GetValue(dc.State).ToString();
         user_Details.streetNo = streetNo.GetValue(dc.State).ToString();
-        user_Details.streetName = streetName.GetValue(dc.State).ToString();
-        user_Details.city = city.GetValue(dc.State).ToString();
-        user_Details.country = country.GetValue(dc.State).ToString();
+        user_Details.streetName = toTitle(streetName.GetValue(dc.State).ToString());
+        user_Details.city = toTitle(city.GetValue(dc.State).ToString());
+        user_Details.country = toTitle(country.GetValue(dc.State).ToString());
         user_Details.phoneNumber = "010" + getPhoneNumber().ToString();
 
-        string _tier = tier.GetValue(dc.State).ToString();
+        string _tier = toTitle(tier.GetValue(dc.State).ToString());
         //SqlConnection conn = new SqlConnection("Data Source=MININT-5B89IPO\\SQLEXPRESs;Initial Catalog=microDBB;Integrated Security=True");
 
         SqlConnection conn = new SqlConnection(connectionString);

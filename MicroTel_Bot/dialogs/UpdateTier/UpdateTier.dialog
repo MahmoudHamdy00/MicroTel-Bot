@@ -75,7 +75,10 @@
             "id": "Zvf4pU"
           },
           "activityProcessed": true,
-          "dialog": "UpdateTierConfirmation"
+          "dialog": "UpdateTierConfirmation",
+          "options": {
+            "NewDialog": "VerifyTier"
+          }
         }
       ]
     }

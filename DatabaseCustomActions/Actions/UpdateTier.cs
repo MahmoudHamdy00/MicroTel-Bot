@@ -34,7 +34,7 @@ public class UpdateTier : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        string newTierName = newTier.GetValue(dc.State).ToString();
+        string newTierName = toTitle(newTier.GetValue(dc.State).ToString());
         string phoneNumber = lineNumber.GetValue(dc.State).ToString();
 
 

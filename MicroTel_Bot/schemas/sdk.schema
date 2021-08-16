@@ -14,6 +14,9 @@
       "$ref": "#/definitions/AuthenticatePhoneNumber"
     },
     {
+      "$ref": "#/definitions/ExtendPackage"
+    },
+    {
       "$ref": "#/definitions/GetUserInfo"
     },
     {
@@ -354,6 +357,9 @@
     },
     {
       "$ref": "#/definitions/UpdateTier"
+    },
+    {
+      "$ref": "#/definitions/VerifyPackage"
     }
   ],
   "definitions": {
@@ -627,6 +633,56 @@
       "examples": [
         "user.age > 13"
       ]
+    },
+    "ExtendPackage": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return true if phone number exists in db, false otherwise",
+      "title": "Extend Package",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "phoneNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "packageName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Package Name",
+          "description": "The package name"
+        },
+        "times": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Times",
+          "description": "how many packages you want to subscribe"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "Returns bool value"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "ExtendPackage"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "GetUserInfo": {
       "$role": "implements(Microsoft.IDialog)",
@@ -4161,6 +4217,9 @@
           "$ref": "#/definitions/AuthenticatePhoneNumber"
         },
         {
+          "$ref": "#/definitions/ExtendPackage"
+        },
+        {
           "$ref": "#/definitions/GetUserInfo"
         },
         {
@@ -4309,6 +4368,9 @@
         },
         {
           "$ref": "#/definitions/UpdateTier"
+        },
+        {
+          "$ref": "#/definitions/VerifyPackage"
         },
         {
           "type": "string",
@@ -9817,6 +9879,71 @@
           ]
         }
       ]
+    },
+    "VerifyPackage": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return the result of arg1*arg2",
+      "title": "Verify Package",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "packageName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Package Name",
+          "description": "The package name"
+        },
+        "minutes": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Minutes",
+          "description": "The amount of minutes included in the package"
+        },
+        "messages": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Messages",
+          "description": "The amount of messages included in the package"
+        },
+        "megabytes": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Megabytes",
+          "description": "The amount of megabytes included in the package"
+        },
+        "price": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Price",
+          "description": "The price of the package"
+        },
+        "packages": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "packages",
+          "description": "the packages to subscribe"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/stringExpression",
+          "title": "Result",
+          "description": "The result"
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "VerifyPackage"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",

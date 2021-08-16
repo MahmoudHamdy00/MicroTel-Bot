@@ -11,10 +11,10 @@ using Newtonsoft.Json;
 using static DatabaseCustomActions.helperFunctions;
 
 
-public class VerifyPhoneNumber : Dialog
+public class AuthenticatePhoneNumber : Dialog
 {
     [JsonConstructor]
-    public VerifyPhoneNumber([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+    public AuthenticatePhoneNumber([CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         : base()
     {
         // enable instances of this command as debug break point
@@ -22,14 +22,13 @@ public class VerifyPhoneNumber : Dialog
     }
 
     [JsonProperty("$kind")]
-    public const string Kind = "VerifyPhoneNumber";
+    public const string Kind = "AuthenticatePhoneNumber";
 
     [JsonProperty("phoneNumber")]
     public ValueExpression phoneNumber { get; set; }
 
     [JsonProperty("natid")]
     public ValueExpression nationalID { get; set; }
-
 
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
@@ -47,8 +46,8 @@ public class VerifyPhoneNumber : Dialog
             conn.Open();
             string nationalID = "";
             isValidPhoneNumber = phoneNumber_checker(user_info.phoneNumber, ref nationalID, conn);
-            //if it's not vaild then it will contain the user's number
-
+            
+            // if it's not vaild then it will contain the user's number
             if (this.nationalID != null)
             {
                 dc.State.SetValue(this.nationalID.GetValue(dc.State).ToString(), nationalID);

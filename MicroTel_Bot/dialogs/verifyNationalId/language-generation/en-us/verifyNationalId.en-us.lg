@@ -16,19 +16,19 @@
 
 # TextInput_InvalidPrompt_Xb39A8_text()
 - Invalid national id. Would you please insert your correct national id?
-# SendActivity_Q6tkmK()
-[Activity
-    Text = ${SendActivity_Q6tkmK_text()}
-]
-
-# SendActivity_Q6tkmK_text()
+# SendActivity_MN4dZb_text()
 - ```custom action response is ${dialog.isNationalIdExists}
 wanted to be ${dialog.state}
 ```
-# SendActivity_bApDHx()
+# SendActivity_MN4dZb()
 [Activity
-    Text = ${SendActivity_bApDHx_text()}
+    Text = ${SendActivity_MN4dZb_text()}
 ]
 
-# SendActivity_bApDHx_text()
+# SendActivity_4V1zPw_text()
 - This national id already registerd
+# SendActivity_4V1zPw()
+[Activity
+    Text = ${SendActivity_4V1zPw_text()}
+]
+

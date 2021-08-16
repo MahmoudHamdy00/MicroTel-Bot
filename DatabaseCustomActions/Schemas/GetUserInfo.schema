@@ -2,19 +2,19 @@
   "$role": "implements(Microsoft.IDialog)",
   "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
   "additionalProperties": false,
-  "description": "This will return the result of arg1*arg2",
+  "description": "This will return all user info for a giving national id.",
   "properties": {
     "natid": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "National ID",
-      "description": "The National ID for the user"
+      "description": "The National ID of the user."
     },
     "resultProperty": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Result",
-      "description": "The returned  "
+      "description": "Returned object with user info."
     }
   },
-  "title": "Verify National ID",
+  "title": "Get User Info",
   "type": "object"
 }

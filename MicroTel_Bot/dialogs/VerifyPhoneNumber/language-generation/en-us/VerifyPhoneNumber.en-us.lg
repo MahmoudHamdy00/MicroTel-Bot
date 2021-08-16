@@ -14,21 +14,3 @@
 [Activity
     Text = ${TextInput_InvalidPrompt_wJwDpv_text()}
 ]
-
-# SendActivity_J78uzC()
-[Activity
-    Text = ${SendActivity_J78uzC_text()}
-]
-
-# SendActivity_J78uzC_text()
-- PHONE NUMBER ${dialog.phoneNumber} EXISITS IN DB  
-
-# SendActivity_g7A7OJ()
-[Activity
-    Text = ${SendActivity_g7A7OJ_text()}
-]
-
-# SendActivity_g7A7OJ_text()
-- ```phone is ${dialog.phoneNumber}
-national id is ${dialog.linked.nationalId}
-result is ${dialog.result}```

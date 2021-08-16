@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# SendActivity_tq8jV3_text()
+- ```\-\- ${user.line.number}
+\-\- ${user.authNationalID}```
+# SendActivity_tq8jV3()
+[Activity
+    Text = ${SendActivity_tq8jV3_text()}
+]

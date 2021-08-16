@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_verifyBirthdate",
-  "recognizers": {
-    "en-us": "verifyBirthdate.en-us.lu",
-    "": "verifyBirthdate.en-us.lu"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "$kind": "Microsoft.CrossTrainedRecognizerSet",
-  "recognizers": [
-    "MicroTel_Bot.lu"
-  ]
-}

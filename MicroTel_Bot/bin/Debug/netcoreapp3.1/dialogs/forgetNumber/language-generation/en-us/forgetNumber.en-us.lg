@@ -1,9 +1,0 @@
-[import](common.lg)
-
-# SendActivity_sFRzNZ()
-[Activity
-    Text = ${SendActivity_sFRzNZ_text()}
-]
-
-# SendActivity_sFRzNZ_text()
-- start DB connection and and return the user's number if it's exists

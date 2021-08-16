@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "LUIS_MicroTel_Bot",
-  "recognizers": {
-    "en-us": "MicroTel_Bot.en-us.lu",
-    "": "MicroTel_Bot.en-us.lu"
-  }
-}

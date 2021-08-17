@@ -21,13 +21,6 @@
     Text = ${SendActivity_Ny9Ua9_text()}
 ]
 
-# SendActivity_KN9WL2()
-[Activity
-    Text = ${SendActivity_KN9WL2_text()}
-]
-
-# SendActivity_KN9WL2_text()
-- result is ${user.extendResult}
 # SendActivity_tvVtcz()
 [Activity
     Text = ${SendActivity_tvVtcz_text()}
@@ -41,18 +34,11 @@
 ]
 
 # SendActivity_ab1uxz_text()
-- ${add(1 ,dialog.foreach.index)} : ${dialog.foreach.value}
-# SendActivity_n2p6kj()
-[Activity
-    Text = ${SendActivity_n2p6kj_text()}
-]
-
-# SendActivity_n2p6kj_text()
-- ```Total is:\-
-minutes is  ${user.extendPackageDetails.minutes}
-messages is  ${user.extendPackageDetails.messages}
-megabytes is  ${user.extendPackageDetails.megabytes}
-price is  ${user.extendPackageDetails.price}```
+- ```Package ${add(1 ,dialog.foreach.index)} :\-
+Package name: ${dialog.foreach.value["packageName"]}
+It will gives you : ${dialog.foreach.value["minutes"]} Minutes, ${dialog.foreach.value["megabytes"]} Megabytes, ${dialog.foreach.value["messages"]} Messages.
+Single Package Price is : ${dialog.foreach.value["price"]}
+This package will be subscribed ${dialog.foreach.value["times"]} times with total price ${mul(int(dialog.foreach.value["price"]), int(dialog.foreach.value["times"]))}```
 # SendActivity_oNnPzL_text()
 - No problem, we will change the package.
 # SendActivity_oNnPzL()
@@ -66,3 +52,33 @@ price is  ${user.extendPackageDetails.price}```
 [Activity
     Text = ${SendActivity_f59REl_text()}
 ]
+
+# SendActivity_Hj3cdB_text()
+- Sorry there isn't any packages with your needs. But there is the nearest packages suites your request
+# SendActivity_Hj3cdB()
+[Activity
+    Text = ${SendActivity_Hj3cdB_text()}
+]
+
+# SendActivity_fMRhDd()
+[Activity
+    Text = ${SendActivity_fMRhDd_text()}
+]
+
+# SendActivity_fMRhDd_text()
+- org is ${dialog.foreach.organisedValue}
+# SendActivity_KqzFqg_text()
+- Successfully subscribed
+# SendActivity_KqzFqg()
+[Activity
+    Text = ${SendActivity_KqzFqg_text()}
+]
+
+# SendActivity_O9gL2y()
+[Activity
+    Text = ${SendActivity_O9gL2y_text()}
+]
+
+# SendActivity_O9gL2y_text()
+- ```Something went wrong :(
+${user.extend.error}```

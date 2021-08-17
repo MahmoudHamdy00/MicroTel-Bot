@@ -17,11 +17,29 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "2Vh0bL"
+          },
+          "condition": "user.extendPackageDetails.exactPackage",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Hj3cdB"
+              },
+              "activity": "${SendActivity_Hj3cdB()}"
+            }
+          ]
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "tvVtcz"
           },
-          "activity": "${SendActivity_tvVtcz()}"
+          "activity": "${SendActivity_tvVtcz()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.Foreach",
@@ -35,27 +53,33 @@
             {
               "$kind": "Microsoft.SendActivity",
               "$designer": {
+                "id": "fMRhDd"
+              },
+              "activity": "${SendActivity_fMRhDd()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
                 "id": "ab1uxz"
               },
-              "activity": "${SendActivity_ab1uxz()}"
+              "activity": "${SendActivity_ab1uxz()}",
+              "disabled": true
             }
-          ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "n2p6kj"
-          },
-          "activity": "${SendActivity_n2p6kj()}"
+          ],
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "1ZUh1Z"
+            "id": "MPeQch"
           },
           "activityProcessed": true,
           "dialog": "Confirm",
-          "options": {},
+          "options": {
+            "message": "Confirm extending with this/these packages?",
+            "data": "${user.extendPackageDetails.confirmationMessage}"
+          },
           "resultProperty": "user.confirm"
         },
         {
@@ -77,14 +101,33 @@
                   "phoneNumber": "=user.line.number",
                   "packageName": "=user.extendPackageDetails.packages",
                   "times": "='1'",
-                  "resultProperty": "user.extendResult"
+                  "resultProperty": "user.extend.Result",
+                  "error": "user.extend.error"
                 },
                 {
-                  "$kind": "Microsoft.SendActivity",
+                  "$kind": "Microsoft.IfCondition",
                   "$designer": {
-                    "id": "KN9WL2"
+                    "id": "xFnkF6"
                   },
-                  "activity": "${SendActivity_KN9WL2()}"
+                  "condition": "user.extend.Result",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "KqzFqg"
+                      },
+                      "activity": "${SendActivity_KqzFqg()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "O9gL2y"
+                      },
+                      "activity": "${SendActivity_O9gL2y()}"
+                    }
+                  ]
                 }
               ]
             },

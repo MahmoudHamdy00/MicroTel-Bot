@@ -59,6 +59,7 @@ public class ExtendPackage : Dialog
             else
             {
                 package_details package_Details = new package_details();
+                package_Details.packageName = data.ToString();
                 bool is_ok = get_package_details(ref package_Details, conn);
                 if (!is_ok) throw new Exception("There isn't any package with this name");
                 int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);

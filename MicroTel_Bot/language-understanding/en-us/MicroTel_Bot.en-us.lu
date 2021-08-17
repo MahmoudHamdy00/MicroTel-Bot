@@ -230,18 +230,31 @@
     - @ nationalID nationalID
 
 # ExtendPackage
+- 010242411 12342 {@singlePackageInfo={@amount=2} {@unit=gb}}, {@singlePackageInfo={@amount=3000} {@unit=min}}
+- can i extend my package?
 - can i get {@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}?
 - can i increase my quota?
+- extend
 - i need {@singlePackageInfo={@amount=2000} {@unit=minutes}}
+- i need {@singlePackageInfo={@amount=4000} extra {@unit=megabytes}}
+- i need an extra premium plus package
 - i want {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=2000} {@unit=minutes}}
+- i want {@singlePackageInfo={@amount=33} {@unit=gb}}, {@singlePackageInfo={@amount=4000} {@unit=mins}} and {@singlePackageInfo={@amount=4000} {@unit=messages}}
 - i want {@singlePackageInfo={@amount=500} {@unit=sms}}
 - i want to extend my package
+- i want to extend with {@singlePackageInfo={@amount=500} extra {@unit=sms}}
+- i want to extend with plus
+- i want to get {@singlePackageInfo={@amount=2} {@unit=gb}} extra package
 - i want to increase {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=500} {@unit=messages}} to my quota, my id is 12312 and my number is 010124121
+- i want to subscribe to {@singlePackageInfo={@amount=50} {@unit=gigabytes}} and {@singlePackageInfo={@amount=50000} {@unit=minutes}} and {@singlePackageInfo={@amount=4523} {@unit=messages}}
 - i would like to extend my package with the plus package, my phone number is 010123456 and my national id is 21212
+- i’d like to extend my package
+- increase package
 - my id is 12411, i want to extend my package with {@singlePackageInfo={@amount=2000} {@unit=minutes}}, {@singlePackageInfo={@amount=2} {@unit=gb}}, and {@singlePackageInfo={@amount=200} {@unit=text messages}}
 - my national id is 16242, can i extend my package with the premium plus package.
 - my phone number is 010189542 and i want to get extra {@singlePackageInfo={@unit=minutes}}
 - my phone number is 010242411 and my id is 12342, i want to increase my quota with the premium plus package.
+- my quota ran out i want to extend it
 
 @ intent ExtendPackage usesFeatures extraFullPackage,singlePackageInfo
 
@@ -251,7 +264,6 @@
 @ ml singlePackageInfo
     - @ ml amount usesFeature number
     - @ units unit
-
 
 @ ml userInfo
     - @ action action
@@ -269,8 +281,6 @@
 
 
 > # PREBUILT Entity definitions
-
-@ prebuilt money
 
 @ prebuilt number
 
@@ -298,18 +308,21 @@
 		- giga-byte
 		- giga
 		- GB
+		- gigabytes
 	- megabyte :
 		- mega byte
 		- mega
 		- MB
 		- mega-byte
+		- megabytes
 	- minutes :
 		- min
 		- mins
+		- minute
 	- messages :
 		- sms
 		- text messages
-
+		- message
 
 > # RegEx entities
 

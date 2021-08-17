@@ -81,17 +81,17 @@ public class AddUser : Dialog
         {
             conn.Open();
             bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
-            //if it's not vaild then it will contain the user's number
+            // if it's not vaild then it will contain the user's number
             if (nationalId_exist)
             {
-               //set result to 
+               // set result to 
                 result = "User exists";
                 Console.WriteLine(result + " " + nationalId_exist);
                 throw new Exception(result);
             }
             Console.WriteLine(nationalId_exist);
             
-            //get tier detailes;
+            // get tier detailes;
             tier_details tierDetails = get_tier_details(_tier, conn);
             if (!tierDetails.valid)
             {
@@ -101,12 +101,18 @@ public class AddUser : Dialog
             }
             Console.WriteLine("after get_tier_details" );
 
+            // Create a qouta for the new user
             string quotaID = insert_quota(tierDetails, conn);
             Console.WriteLine(quotaID);
 
+            // Insert line details for the new user
             var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.id, quotaID, conn);
             Console.WriteLine("insert_line_result " + insert_line_result);
 
+            // Create new bill for the user
+            var insert_line_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
+
+            // Insert the new user's details 
             var insert_user_result = insert_user(user_Details, conn);
             Console.WriteLine("insert_user_result " + insert_user_result);
 

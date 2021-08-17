@@ -62,6 +62,9 @@
 
 > # Entity definitions
 
+@ ml productReview
+    - @ ml description usesFeature description
+    - @ ml product usesFeature products
 
 @ ml userInfo
     - @ action action
@@ -231,17 +234,7 @@
 
 
 
-> # PREBUILT Entity definitions
-
-@ prebuilt number
-
-@ prebuilt personName
-
-
-
 > # List entities
-
-
 @ list extraFullPackage =
 	- Plus Package :
 		- Plus pack
@@ -274,8 +267,3 @@
 		- sms
 		- text messages
 		- message
-
-> # RegEx entities
-
-@ regex nationalID = /[0-4]{1}[0-9]{4}/
-@ regex phoneNumber = /010[0-9]{6}/

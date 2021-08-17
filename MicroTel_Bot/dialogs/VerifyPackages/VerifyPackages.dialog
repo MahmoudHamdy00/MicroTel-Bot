@@ -74,13 +74,6 @@
                       "maxTurnCount": 3,
                       "alwaysPrompt": false,
                       "allowInterruptions": false,
-                      "unrecognizedPrompt": "",
-                      "invalidPrompt": "${ChoiceInput_InvalidPrompt_x5RNqi()}",
-                      "choices": [
-                        "Megabytes",
-                        "Minutes",
-                        "Text Messages"
-                      ],
                       "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
                       "choiceOptions": {
                         "includeNumbers": true,
@@ -93,8 +86,27 @@
                         "recognizeNumbers": true
                       },
                       "style": "heroCard",
-                      "validations": [
-                        "exists(@singlePackageInfo)"
+                      "validations": [],
+                      "property": "user.extendPackage",
+                      "choices": [
+                        {
+                          "value": "Megabytes",
+                          "synonyms": [
+                            "mega byte,mega,MB,mega-byte,megabytes,giga byte,giga-byte,giga,GB,gigabytes"
+                          ]
+                        },
+                        {
+                          "value": "Minutes",
+                          "synonyms": [
+                            "min,mins,minute"
+                          ]
+                        },
+                        {
+                          "value": "Text Messages",
+                          "synonyms": [
+                            "sms,text messages,message"
+                          ]
+                        }
                       ]
                     },
                     {
@@ -106,12 +118,30 @@
                       "disabled": true
                     },
                     {
-                      "$kind": "Microsoft.SetProperty",
+                      "$kind": "Microsoft.IfCondition",
                       "$designer": {
-                        "id": "t05SLs"
+                        "id": "HS6F5u"
                       },
-                      "property": "user.extendPackage",
-                      "value": "=@@singlePackageInfo"
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "jFuD0E"
+                          },
+                          "property": "user.extendPackage",
+                          "value": "=@@singlePackageInfo"
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "1pPJWC"
+                          },
+                          "activity": "${SendActivity_1pPJWC()}",
+                          "disabled": true
+                        }
+                      ],
+                      "elseActions": [],
+                      "condition": "=exists(@@singlePackageInfo)"
                     },
                     {
                       "$kind": "Microsoft.SendActivity",

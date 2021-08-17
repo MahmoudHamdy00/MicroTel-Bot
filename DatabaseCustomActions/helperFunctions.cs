@@ -188,7 +188,7 @@ namespace DatabaseCustomActions
             }
 
         }
-        public static List<package_details> getPackages(int neededMinutes, int neededMessages, int neededMegabytes,ref bool exactPackages, SqlConnection conn)
+        public static List<package_details> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool exactPackages, SqlConnection conn)
         {
             List<package_details> selectedPackages = new List<package_details>();
             List<package_details> avalaiblePackages = getAvailablePackages(conn);
@@ -207,12 +207,12 @@ namespace DatabaseCustomActions
             }
             exactPackages = neededMessages % messagesPackage.messages == 0 && neededMegabytes % megabytesPackage.megabytes == 0 && neededMinutes % minutesPackage.minutes == 0;
             minutesPackage.times = (neededMinutes + minutesPackage.minutes / 2) / minutesPackage.minutes;
-            messagesPackage.times =  (neededMessages + messagesPackage.messages / 2) / messagesPackage.messages;// add  messagesPackage.messages / 2 to the numerator to round the answer
+            messagesPackage.times = (neededMessages + messagesPackage.messages / 2) / messagesPackage.messages;// add  messagesPackage.messages / 2 to the numerator to round the answer
             megabytesPackage.times = (neededMegabytes + megabytesPackage.megabytes / 2) / megabytesPackage.megabytes;
 
-            if (neededMinutes > 0) minutesPackage.times=Math.Max(1, minutesPackage.times);
-            if (neededMessages > 0) messagesPackage.times= Math.Max(1, messagesPackage.times);
-            if (neededMegabytes > 0) megabytesPackage.times=Math.Max(1, megabytesPackage.times);
+            if (neededMinutes > 0) minutesPackage.times = Math.Max(1, minutesPackage.times);
+            if (neededMessages > 0) messagesPackage.times = Math.Max(1, messagesPackage.times);
+            if (neededMegabytes > 0) megabytesPackage.times = Math.Max(1, megabytesPackage.times);
 
             if (messagesPackage.times > 0) selectedPackages.Add(messagesPackage);
             if (megabytesPackage.times > 0) selectedPackages.Add(megabytesPackage);
@@ -251,14 +251,26 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static int insert_extendPackage(string phoneNumber, string packageName, int times,int price, SqlConnection conn)
+        public static int insert_extendPackage(string phoneNumber, string packageName, int times, int price, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
             DateTime _date = DateTime.Now;
-           
-            string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date,times,totalPrice) values ('{phoneNumber}','{packageId}','{_date}','{times}','{times*price}');";
+
+            string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date,times,totalPrice) values ('{phoneNumber}','{packageId}','{_date}','{times}','{times * price}');";
             cmd = new SqlCommand(query, conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows;
+        }
+        // to update the bill's price to anew one(when extend package is occured)
+        public static int Update_Bill(string phoneNumber, int price, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT TOP 1 [amount] FROM [bill] WHERE [phoneNumber]='{phoneNumber}' ORDER BY [dueDate] DESC;", conn);
+            var res = cmd.ExecuteScalar();
+            if (res == null) throw new Exception("There is no bill recored for this user");
+            int currentPrice = Convert.ToInt32(res);
+
+            cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }

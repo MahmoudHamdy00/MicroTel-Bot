@@ -42,6 +42,7 @@ public class ExtendPackage : Dialog
 
         SqlConnection conn = new SqlConnection(connectionString);
         bool result = false;//initialize with failed and then change it if it success
+        int _totalPrice = 0;
         try
         {
             conn.Open();
@@ -54,6 +55,7 @@ public class ExtendPackage : Dialog
                 {
                     int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), Convert.ToInt32(curPackage["price"]), conn);
                     all_affected_rows += affected_rows;
+                    _totalPrice += Convert.ToInt32(curPackage["price"])* Convert.ToInt32(curPackage["times"]);
                 }
             }
             else
@@ -63,9 +65,10 @@ public class ExtendPackage : Dialog
                 bool is_ok = get_package_details(ref package_Details, conn);
                 if (!is_ok) throw new Exception("There isn't any package with this name");
                 int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);
+                _totalPrice = package_Details.price;
             }
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
-
+            if (Update_Bill(_phoneNumber, _totalPrice, conn) != 1) throw new Exception("Error with Update_Bill method");
             result = true;
 
         }

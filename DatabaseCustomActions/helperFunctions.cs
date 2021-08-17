@@ -230,15 +230,20 @@ namespace DatabaseCustomActions
         }
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {
-
-            DateTime _date = DateTime.Now.AddMonths(1);
+            DateTime _date = DateTime.Now;
             SqlCommand cmd = new SqlCommand($"insert into quota (remainingMinutes,remainingMessages,remainingMegabytes,date) OUTPUT INSERTED.id values('{tierDetails.minutes}','{tierDetails.SMS}','{tierDetails.megabytes}','{_date}');", conn);
             string quotaID = cmd.ExecuteScalar().ToString();
             return quotaID;
         }
+        public static int insert_bill(string tierID, double price, string phoneNumber, SqlConnection conn)
+        {
+            DateTime _dueDate = DateTime.Now.AddDays(30);
+            SqlCommand cmd = new SqlCommand($"insert into bill (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
+            var affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows;
+        }
         public static int insert_line(string _phoneNumber, string tierId, string quotaID, SqlConnection conn)
         {
-
             SqlCommand cmd = new SqlCommand($"insert into line values('{_phoneNumber}','{tierId}','{quotaID}');", conn);
             var affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
@@ -253,7 +258,7 @@ namespace DatabaseCustomActions
         {
             SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
-            DateTime _date = DateTime.Now.AddMonths(1);
+            DateTime _date = DateTime.Now;
             string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
             string values = singleRow;
             while (times-- > 1)

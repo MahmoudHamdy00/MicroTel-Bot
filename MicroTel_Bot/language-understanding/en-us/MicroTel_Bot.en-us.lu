@@ -62,15 +62,6 @@
 
 > # Entity definitions
 
-@ ml productReview
-    - @ ml description usesFeature description
-    - @ ml product usesFeature products
-
-
-@ ml singlePackageInfo
-    - @ ml amount usesFeature number
-    - @ ml unit usesFeature units
-
 
 @ ml userInfo
     - @ action action
@@ -101,9 +92,6 @@
 
 > # Phrase list definitions
 
-@ phraselist products(interchangeable) disabledForAllModels = 
-	- network,internet,quotas
-
 
 > # List entities
 
@@ -123,25 +111,6 @@
 		- restore
 
 
-@ list description = 
-	- bad :
-		- bad service
-		- poor
-		- not reflecting
-		- not working
-
-
-
-@ list extraFullPackage = 
-	- Plus Package :
-		- Plus pack
-		- Plus-Package
-		- plus
-	- Premium Plus Package :
-		- Premium Plus pack
-		- Premium Package
-		- Premium-Package
-
 
 @ list tier = 
 	- Standard :
@@ -156,24 +125,6 @@
 		- vip-tier
 
 
-@ list units = 
-	- gigabyte :
-		- giga byte
-		- giga-byte
-		- giga
-		- GB
-	- megabyte :
-		- mega byte
-		- mega
-		- MB
-		- mega-byte
-	- minutes :
-		- min
-		- mins
-	- messages :
-		- sms
-		- text messages
-
 
 > # RegEx entities
 
@@ -181,9 +132,8 @@
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
 @ regex phoneNumber = /010[0-9]{6}/
 
-> # Pattern.Any entities
 
-@ patternany songName
+
 
 
 # UpdateTier

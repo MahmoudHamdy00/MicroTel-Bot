@@ -52,13 +52,16 @@ public class ExtendPackage : Dialog
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var curPackage in packageNames)
                 {
-                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), conn);
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), Convert.ToInt32(curPackage["price"]), conn);
                     all_affected_rows += affected_rows;
                 }
             }
             else
             {
-                int affected_rows = insert_extendPackage(_phoneNumber, data.ToString(), 1, conn);
+                package_details package_Details = new package_details();
+                bool is_ok = get_package_details(ref package_Details, conn);
+                if (!is_ok) throw new Exception("There isn't any package with this name");
+                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);
             }
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
 

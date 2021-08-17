@@ -50,13 +50,6 @@ ${user.extendPackageDetails.error}```
 
 # ChoiceInput_InvalidPrompt_5ySRzu_text()
 - You didn't choose package correctly,Please try again.
-# ChoiceInput_InvalidPrompt_x5RNqi()
-[Activity
-    Text = ${ChoiceInput_InvalidPrompt_x5RNqi_text()}
-]
-
-# ChoiceInput_InvalidPrompt_x5RNqi_text()
-- You didn't choose package correctly,Please try again.
 # SendActivity_uYh551()
 [Activity
     Text = ${SendActivity_uYh551_text()}
@@ -71,4 +64,11 @@ two is ${@@singlePackageInfo}```
 ]
 
 # SendActivity_dPJZRr_text()
+- haha is ${user.extendPackage}
+# SendActivity_1pPJWC()
+[Activity
+    Text = ${SendActivity_1pPJWC_text()}
+]
+
+# SendActivity_1pPJWC_text()
 - haha is ${user.extendPackage}

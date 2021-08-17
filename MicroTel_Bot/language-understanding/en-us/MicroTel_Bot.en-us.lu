@@ -265,6 +265,7 @@
     - @ ml amount usesFeature number
     - @ units unit
 
+
 @ ml userInfo
     - @ action action
     - @ datetimeV2 birthDate
@@ -291,7 +292,7 @@
 > # List entities
 
 
-@ list extraFullPackage = 
+@ list extraFullPackage =
 	- Plus Package :
 		- Plus pack
 		- Plus-Package
@@ -302,7 +303,7 @@
 		- Premium-Package
 
 
-@ list units = 
+@ list units =
 	- gigabyte :
 		- giga byte
 		- giga-byte
@@ -328,5 +329,3 @@
 
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
 @ regex phoneNumber = /010[0-9]{6}/
-
-

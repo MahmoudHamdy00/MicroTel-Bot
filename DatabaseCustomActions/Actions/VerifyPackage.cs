@@ -75,21 +75,12 @@ public class VerifyPackage : Dialog
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var cur in packageNames)
                 {
-                    Console.WriteLine(cur["amount"][0].ToString() + " : " + cur["unit"][0].ToString());
-                    var haha = cur["unit"][0];
-                    if (cur["unit"][0].GetType().ToString() == "Newtonsoft.Json.Linq.JArray")
-                    {
-                        if (cur["unit"][0][0].ToString() == "minutes") package_Details.minutes += Convert.ToInt32(cur["amount"][0]);
-                        else if (cur["unit"][0][0].ToString() == "gigabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]) * 1000;
-                        else if (cur["unit"][0][0].ToString() == "megabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]);
-                        else if (cur["unit"][0][0].ToString() == "messages") package_Details.messages += Convert.ToInt32(cur["amount"][0]);
-                        continue;
-                    }
-                    if (cur["unit"][0].ToString() == "minutes") package_Details.minutes += Convert.ToInt32(cur["amount"][0]);
-                    else if (cur["unit"][0].ToString() == "gigabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]) * 1000;
-                    else if (cur["unit"][0].ToString() == "megabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]);
-                    else if (cur["unit"][0].ToString() == "messages") package_Details.messages += Convert.ToInt32(cur["amount"][0]);
+                    Console.WriteLine(cur["amount"][0].ToString() + " : " + cur["unit"][0][0].ToString());
 
+                    if (cur["unit"][0][0].ToString() == "minutes") package_Details.minutes += Convert.ToInt32(cur["amount"][0]);
+                    else if (cur["unit"][0][0].ToString() == "gigabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]) * 1000;
+                    else if (cur["unit"][0][0].ToString() == "megabyte") package_Details.megabytes += Convert.ToInt32(cur["amount"][0]);
+                    else if (cur["unit"][0][0].ToString() == "messages") package_Details.messages += Convert.ToInt32(cur["amount"][0]);
                 }
                 //     List<package_details> selectedPackages = mainGetBestPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, conn);
 

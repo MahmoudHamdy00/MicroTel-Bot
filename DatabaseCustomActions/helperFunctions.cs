@@ -263,16 +263,38 @@ namespace DatabaseCustomActions
             return affected_rows;
         }
         // to update the bill's price to anew one(when extend package is occured)
-        public static int Update_Bill(string phoneNumber, int price, SqlConnection conn)
+        public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT TOP 1 [amount] FROM [bill] WHERE [phoneNumber]='{phoneNumber}' ORDER BY [dueDate] DESC;", conn);
             var res = cmd.ExecuteScalar();
-            if (res == null) throw new Exception("There is no bill recored for this user");
+            if (res == null) throw new Exception("There is no bill record for this user");
             int currentPrice = Convert.ToInt32(res);
 
             cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
             int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
+            return affected_rows == 1;
+        }
+        public static bool Update_Quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);
+            var res = cmd.ExecuteScalar();
+            if (res == null) throw new Exception("There is no quota recored for this user");
+            string quotaId = res.ToString();
+
+            cmd = new SqlCommand($"SELECT [remainingMinutes],[remainingMessages],[remainingMegabytes] FROM [quota] WHERE [id]='{quotaId}';", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int currentMinutes = 0, currentMessages = 0, currentMegabytes = 0;
+            if (reader.Read())
+            {
+                currentMinutes += Convert.ToInt32(reader["remainingMinutes"]);
+                currentMessages += Convert.ToInt32(reader["remainingMessages"]);
+                currentMegabytes += Convert.ToInt32(reader["remainingMegabytes"]);
+                reader.Dispose();
+            }
+            else throw new Exception("There is no quota record for this user");
+            cmd = new SqlCommand($"UPDATE [quota] set [remainingMinutes] = {currentMinutes + minutes} ,[remainingMessages]={currentMessages + messages} ,[remainingMegabytes] ={currentMegabytes + megabytes} WHERE id='{quotaId}';", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
         }
         public static object get_user_info(string nationalID, SqlConnection conn)
         {

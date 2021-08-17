@@ -47,6 +47,9 @@ public class ExtendPackage : Dialog
         {
             conn.Open();
             int all_affected_rows = 0;
+            int megabytes_to_increae = 0;
+            int messages_to_increae = 0;
+            int minutes_to_increae = 0;
             Newtonsoft.Json.Linq.JArray packageNames;
             if (data.GetType().ToString() == "Newtonsoft.Json.Linq.JArray")
             {
@@ -55,7 +58,10 @@ public class ExtendPackage : Dialog
                 {
                     int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), Convert.ToInt32(curPackage["price"]), conn);
                     all_affected_rows += affected_rows;
-                    _totalPrice += Convert.ToInt32(curPackage["price"])* Convert.ToInt32(curPackage["times"]);
+                    _totalPrice += Convert.ToInt32(curPackage["price"]) * Convert.ToInt32(curPackage["times"]);
+                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]) * Convert.ToInt32(curPackage["times"]);
+                    messages_to_increae += Convert.ToInt32(curPackage["messages"]) * Convert.ToInt32(curPackage["times"]);
+                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]) * Convert.ToInt32(curPackage["times"]);
                 }
             }
             else
@@ -66,9 +72,13 @@ public class ExtendPackage : Dialog
                 if (!is_ok) throw new Exception("There isn't any package with this name");
                 int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);
                 _totalPrice = package_Details.price;
+                megabytes_to_increae = package_Details.megabytes;
+                messages_to_increae = package_Details.megabytes;
+                minutes_to_increae = package_Details.megabytes;
             }
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
-            if (Update_Bill(_phoneNumber, _totalPrice, conn) != 1) throw new Exception("Error with Update_Bill method");
+            if (!Update_Bill(_phoneNumber, _totalPrice, conn)) throw new Exception("Error with Update_Bill method");
+            if (!Update_Quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
             result = true;
 
         }

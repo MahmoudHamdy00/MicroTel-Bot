@@ -69,7 +69,7 @@
 
 @ ml singlePackageInfo
     - @ ml amount usesFeature number
-    - @ ml unit usesFeature units
+    - @ units unit 
 
 
 @ ml userInfo

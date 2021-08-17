@@ -9,7 +9,7 @@ namespace DatabaseCustomActions
     {
         public struct tier_details
         {
-            public tier_details(bool valid, string id = "", string name = "", string minutes = "", string SMS = "", string megabytes = "")
+            public tier_details(bool valid, string id = "", string name = "", int minutes = 0, int SMS = 0, int megabytes = 0, double price = 0)
             {
                 this.valid = valid;
                 this.id = id;
@@ -17,13 +17,16 @@ namespace DatabaseCustomActions
                 this.minutes = minutes;
                 this.SMS = SMS;
                 this.megabytes = megabytes;
+                this.price = price;
             }
             public bool valid { get; set; }
             public string id { get; set; }
             public string name { get; set; }
-            public string minutes { get; set; }
-            public string SMS { get; set; }
-            public string megabytes { get; set; }
+            public int minutes { get; set; }
+            public int SMS { get; set; }
+            public int megabytes { get; set; }
+            public double price { get; set; }
+
         }
         public struct package_details
         {
@@ -116,7 +119,7 @@ namespace DatabaseCustomActions
             tier_details _Details;
             if (reader.Read())
             {
-                _Details = new tier_details(true, reader["id"].ToString(), reader["name"].ToString(), reader["minutes"].ToString(), reader["messages"].ToString(), reader["megabytes"].ToString());
+                _Details = new tier_details(true, reader["id"].ToString(), reader["name"].ToString(), Convert.ToInt32(reader["minutes"]), Convert.ToInt32(reader["messages"]), Convert.ToInt32(reader["megabytes"]), Convert.ToDouble(reader["price"]));
             }
             else
                 _Details = new tier_details(false);

@@ -84,22 +84,21 @@ public class AddUser : Dialog
             //if it's not vaild then it will contain the user's number
             if (nationalId_exist)
             {
-               //set result to 
+                //set result to 
                 result = "User exists";
-                Console.WriteLine(result + " " + nationalId_exist);
+                // Console.WriteLine(result + " " + nationalId_exist);
                 throw new Exception(result);
             }
-            Console.WriteLine(nationalId_exist);
-            
+            //  Console.WriteLine(nationalId_exist);
+
             //get tier detailes;
             tier_details tierDetails = get_tier_details(_tier, conn);
             if (!tierDetails.valid)
             {
                 result = $"error in get_tier_details, tier is {_tier}";
-                Console.WriteLine(result);
+                //    Console.WriteLine(result);
                 throw new Exception(result);
             }
-            Console.WriteLine("after get_tier_details" );
 
             string quotaID = insert_quota(tierDetails, conn);
             Console.WriteLine(quotaID);

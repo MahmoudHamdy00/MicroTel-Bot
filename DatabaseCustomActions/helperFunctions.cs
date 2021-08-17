@@ -233,7 +233,7 @@ namespace DatabaseCustomActions
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {
 
-            DateTime _date = DateTime.Now.AddMonths(1);
+            DateTime _date = DateTime.Now;
             SqlCommand cmd = new SqlCommand($"insert into quota (remainingMinutes,remainingMessages,remainingMegabytes,date) OUTPUT INSERTED.id values('{tierDetails.minutes}','{tierDetails.SMS}','{tierDetails.megabytes}','{_date}');", conn);
             string quotaID = cmd.ExecuteScalar().ToString();
             return quotaID;
@@ -255,7 +255,7 @@ namespace DatabaseCustomActions
         {
             SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
-            DateTime _date = DateTime.Now.AddMonths(1);
+            DateTime _date = DateTime.Now;
             string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
             string values = singleRow;
             while (times-- > 1)

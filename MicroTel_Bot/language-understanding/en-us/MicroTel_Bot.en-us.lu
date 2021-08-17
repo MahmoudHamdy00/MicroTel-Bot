@@ -94,6 +94,8 @@
 
 
 > # Phrase list definitions
+@ phraselist products(interchangeable) disabledForAllModels = 
+	- network,internet,quotas
 
 
 > # List entities
@@ -127,7 +129,12 @@
 		- vip tier
 		- vip-tier
 
-
+@ list description = 
+	- bad :
+		- bad service
+		- poor
+		- not reflecting
+		- not working
 
 > # RegEx entities
 

@@ -14,15 +14,15 @@
       "title": "Package Name",
       "description": "The package name"
     },
-    "times": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Times",
-      "description": "how many packages you want to subscribe"
-    },
     "resultProperty": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Result",
-      "description": "Returns bool value"
+      "description": "Return true if there is no errors otherwitse return false"
+    },
+    "error": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Error occurred",
+      "description": "Return the describtion of the error if exists"
     }
   },
   "title": "Extend Package",

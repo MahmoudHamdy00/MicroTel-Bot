@@ -12,32 +12,47 @@
     "minutes": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Minutes",
-      "description": "The amount of minutes included in the package"
+      "description": "Return the amount of minutes included in the package"
     },
     "messages": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Messages",
-      "description": "The amount of messages included in the package"
+      "description": "Return the amount of messages included in the package"
     },
     "megabytes": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Megabytes",
-      "description": "The amount of megabytes included in the package"
+      "description": "Return the amount of megabytes included in the package"
     },
     "price": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Price",
-      "description": "The price of the package"
+      "description": "Return the price of the package"
     },
     "packages": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "packages",
-      "description": "the packages to subscribe"
+      "description": "Return the packages to subscribe"
+    },
+    "exactPackage": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Exact package",
+      "description": "Return true if there is exact packages with the same needed minutes/megabytes/sms"
+    },
+    "packagesDetails": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Packages Details",
+      "description": "details of the packages to confirm"
     },
     "resultProperty": {
-      "$ref": "schema:#/definitions/stringExpression",
+      "$ref": "schema:#/definitions/valueExpression",
       "title": "Result",
-      "description": "The result"
+      "description": "Return true if there is no errors otherwitse return false"
+    },
+    "error": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Error occurred",
+      "description": "Return the describtion of the error if exists"
     }
   },
   "title": "Verify Package",

@@ -36,7 +36,6 @@
               "prompt": "${ChoiceInput_Prompt_saabhT()}",
               "unrecognizedPrompt": "",
               "invalidPrompt": "",
-              "defaultValueResponse": "",
               "choiceOptions": {
                 "includeNumbers": true,
                 "inlineOrMore": ", or ",
@@ -48,7 +47,12 @@
                 "Single package"
               ],
               "property": "user.extendPackageInfo",
-              "style": "heroCard"
+              "style": "heroCard",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              },
+              "validations": []
             },
             {
               "$kind": "Microsoft.SwitchCondition",
@@ -71,13 +75,12 @@
                       "alwaysPrompt": false,
                       "allowInterruptions": false,
                       "unrecognizedPrompt": "",
-                      "invalidPrompt": "",
+                      "invalidPrompt": "${ChoiceInput_InvalidPrompt_x5RNqi()}",
                       "choices": [
                         "Megabytes",
                         "Minutes",
                         "Text Messages"
                       ],
-                      "property": "user.singlePackageInfo",
                       "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
                       "choiceOptions": {
                         "includeNumbers": true,
@@ -86,9 +89,21 @@
                         "inlineSeparator": ", "
                       },
                       "recognizerOptions": {
-                        "recognizeOrdinals": true
+                        "recognizeOrdinals": true,
+                        "recognizeNumbers": true
                       },
-                      "style": "heroCard"
+                      "style": "heroCard",
+                      "validations": [
+                        "exists(@singlePackageInfo)"
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "uYh551"
+                      },
+                      "activity": "${SendActivity_uYh551()}",
+                      "disabled": true
                     },
                     {
                       "$kind": "Microsoft.SetProperty",
@@ -96,7 +111,15 @@
                         "id": "t05SLs"
                       },
                       "property": "user.extendPackage",
-                      "value": "=user.singlePackageInfo"
+                      "value": "=@@singlePackageInfo"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "dPJZRr"
+                      },
+                      "activity": "${SendActivity_dPJZRr()}",
+                      "disabled": true
                     }
                   ]
                 },
@@ -114,7 +137,6 @@
                       "alwaysPrompt": false,
                       "allowInterruptions": false,
                       "unrecognizedPrompt": "",
-                      "invalidPrompt": "",
                       "defaultValueResponse": "",
                       "prompt": "${ChoiceInput_Prompt_5ySRzu()}",
                       "choiceOptions": {
@@ -128,7 +150,14 @@
                         "Plus Package",
                         "Premium Plus Package"
                       ],
-                      "style": "heroCard"
+                      "style": "heroCard",
+                      "recognizerOptions": {
+                        "recognizeOrdinals": true
+                      },
+                      "invalidPrompt": "${ChoiceInput_InvalidPrompt_5ySRzu()}",
+                      "validations": [
+                        "exists(@extraFullPackage)"
+                      ]
                     },
                     {
                       "$kind": "Microsoft.SetProperty",
@@ -136,7 +165,7 @@
                         "id": "HSsRqQ"
                       },
                       "property": "user.extendPackage",
-                      "value": "=user.extraFullPackage"
+                      "value": "=@extraFullPackage"
                     }
                   ]
                 }
@@ -182,16 +211,58 @@
           "minutes": "user.extendPackageDetails.minutes",
           "messages": "user.extendPackageDetails.messages",
           "megabytes": "user.extendPackageDetails.megabytes",
-          "resultProperty": "user.extendPackageDetails.result",
           "price": "user.extendPackageDetails.price",
-          "packages": "user.extendPackageDetails.packages"
+          "packages": "user.extendPackageDetails.packages",
+          "error": "user.extendPackageDetails.error",
+          "packagesDetails": "user.extendPackageDetails.confirmationMessage",
+          "resultProperty": "user.extendPackageDetails.result",
+          "exactPackage": "user.extendPackageDetails.exactPackage"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "phUnwq"
+          },
+          "condition": "user.extendPackageDetails.result",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "ZlRNY3"
+              },
+              "activity": "${SendActivity_ZlRNY3()}"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperties",
+              "$designer": {
+                "id": "jxMgTs",
+                "comment": ""
+              },
+              "properties": [
+                "user.extendPackageDetails",
+                "user.extendPackage",
+                "user.extraFullPackage ",
+                "user.singlePackageInfo",
+                "user.extendPackageInfo"
+              ]
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "lQbDqb"
+              },
+              "activityProcessed": true
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "7FEviI"
           },
-          "activity": "${SendActivity_7FEviI()}"
+          "activity": "${SendActivity_7FEviI()}",
+          "disabled": true
         }
       ]
     }

@@ -1,5 +1,8 @@
 {
   "$kind": "Microsoft.MultiLanguageRecognizer",
   "id": "LUIS_VerifyPackages",
-  "recognizers": {}
+  "recognizers": {
+    "en-us": "VerifyPackages.en-us.lu",
+    "": "VerifyPackages.en-us.lu"
+  }
 }

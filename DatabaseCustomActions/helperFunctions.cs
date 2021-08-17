@@ -127,7 +127,7 @@ namespace DatabaseCustomActions
         public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
         {
 
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails] WHERE name ='{package_Details.packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details] WHERE name ='{package_Details.packageName}';", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -143,7 +143,7 @@ namespace DatabaseCustomActions
         public static List<package_details> getAvailablePackages(SqlConnection conn)
         {
             List<package_details> availablePackages = new List<package_details>();
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails];", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details];", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -253,7 +253,7 @@ namespace DatabaseCustomActions
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, int times, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
             DateTime _date = DateTime.Now;
             string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
@@ -262,7 +262,7 @@ namespace DatabaseCustomActions
             {
                 values += "," + singleRow;
             }
-            string query = $"insert into [ExtraPackage] (phoneNumber,extraPackageID,date) values {values};";
+            string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date) values {values};";
             cmd = new SqlCommand(query, conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;

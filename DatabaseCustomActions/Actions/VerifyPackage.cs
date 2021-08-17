@@ -124,7 +124,6 @@ public class VerifyPackage : Dialog
                     confirmationMessage += $"With total: {package_Details.minutes} Minutes, {package_Details.megabytes} Megabytes,  {package_Details.messages} Messages {Environment.NewLine}";
                     confirmationMessage += $"Total price: {package_Details.price}$.{Environment.NewLine}";
                 }
-                confirmationMessage += Environment.NewLine;
                 if (this.Packages != null)
                 {
                     dc.State.SetValue(this.Packages.GetValue(dc.State).ToString(), selectedPackages);

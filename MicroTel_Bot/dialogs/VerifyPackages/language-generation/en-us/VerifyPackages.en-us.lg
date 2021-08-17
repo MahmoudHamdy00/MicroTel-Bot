@@ -27,34 +27,48 @@
 ]
 
 # SendActivity_7FEviI_text()
-- ```minutes is  ${user.extendPackageDetails.minutes}
+- ```exact ${user.extendPackageDetails.exactPackage}
+minutes is  ${user.extendPackageDetails.minutes}
 messages is  ${user.extendPackageDetails.messages}
 megabytes is  ${user.extendPackageDetails.megabytes}
 price is  ${user.extendPackageDetails.price}
 result is  ${user.extendPackageDetails.result}
-packages  is  ${user.extendPackageDetails.packages}```
-# SendActivity_f5dykM()
+packages  is  ${user.extendPackageDetails.packages}
+error is ${user.extendPackageDetails.error}```
+# SendActivity_ZlRNY3_text()
+- ```Something went wrong 
+${user.extendPackageDetails.error}```
+# SendActivity_ZlRNY3()
 [Activity
-    Text = ${SendActivity_f5dykM_text()}
+    Text = ${SendActivity_ZlRNY3_text()}
 ]
 
-# SendActivity_f5dykM_text()
-- package is ${user.extendPackage}
-# SendActivity_OyYXKd()
+# ChoiceInput_InvalidPrompt_5ySRzu()
 [Activity
-    Text = ${SendActivity_OyYXKd_text()}
+    Text = ${ChoiceInput_InvalidPrompt_5ySRzu_text()}
 ]
 
-# SendActivity_OyYXKd_text()
-- ```cout << ${dialog.foreach.index} ;
-am is ${dialog.foreach.value["amount"][0]} val is ${dialog.foreach.value["unit"][0]}```
-# SendActivity_BZFIBo()
+# ChoiceInput_InvalidPrompt_5ySRzu_text()
+- You didn't choose package correctly,Please try again.
+# SendActivity_uYh551()
 [Activity
-    Text = ${SendActivity_BZFIBo_text()}
+    Text = ${SendActivity_uYh551_text()}
 ]
 
-# SendActivity_BZFIBo_text()
-- ```final is 
-min ${user.extendPackageDetails.minutes}
-sms ${user.extendPackageDetails.messages}
-mega ${user.extendPackageDetails.megabytes}```
+# SendActivity_uYh551_text()
+- ```one is ${@singlePackageInfo}
+two is ${@@singlePackageInfo}```
+# SendActivity_dPJZRr()
+[Activity
+    Text = ${SendActivity_dPJZRr_text()}
+]
+
+# SendActivity_dPJZRr_text()
+- haha is ${user.extendPackage}
+# SendActivity_1pPJWC()
+[Activity
+    Text = ${SendActivity_1pPJWC_text()}
+]
+
+# SendActivity_1pPJWC_text()
+- haha is ${user.extendPackage}

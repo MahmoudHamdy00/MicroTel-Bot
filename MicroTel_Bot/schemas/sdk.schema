@@ -660,15 +660,15 @@
           "title": "Package Name",
           "description": "The package name"
         },
-        "times": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Times",
-          "description": "how many packages you want to subscribe"
-        },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",
           "title": "Result",
-          "description": "Returns bool value"
+          "description": "Return true if there is no errors otherwitse return false"
+        },
+        "error": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Error occurred",
+          "description": "Return the describtion of the error if exists"
         },
         "$kind": {
           "title": "Kind of dialog object",
@@ -9904,32 +9904,47 @@
         "minutes": {
           "$ref": "#/definitions/valueExpression",
           "title": "Minutes",
-          "description": "The amount of minutes included in the package"
+          "description": "Return the amount of minutes included in the package"
         },
         "messages": {
           "$ref": "#/definitions/valueExpression",
           "title": "Messages",
-          "description": "The amount of messages included in the package"
+          "description": "Return the amount of messages included in the package"
         },
         "megabytes": {
           "$ref": "#/definitions/valueExpression",
           "title": "Megabytes",
-          "description": "The amount of megabytes included in the package"
+          "description": "Return the amount of megabytes included in the package"
         },
         "price": {
           "$ref": "#/definitions/valueExpression",
           "title": "Price",
-          "description": "The price of the package"
+          "description": "Return the price of the package"
         },
         "packages": {
           "$ref": "#/definitions/valueExpression",
           "title": "packages",
-          "description": "the packages to subscribe"
+          "description": "Return the packages to subscribe"
+        },
+        "exactPackage": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Exact package",
+          "description": "Return true if there is exact packages with the same needed minutes/megabytes/sms"
+        },
+        "packagesDetails": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Packages Details",
+          "description": "details of the packages to confirm"
         },
         "resultProperty": {
-          "$ref": "#/definitions/stringExpression",
+          "$ref": "#/definitions/valueExpression",
           "title": "Result",
-          "description": "The result"
+          "description": "Return true if there is no errors otherwitse return false"
+        },
+        "error": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Error occurred",
+          "description": "Return the describtion of the error if exists"
         },
         "$kind": {
           "title": "Kind of dialog object",

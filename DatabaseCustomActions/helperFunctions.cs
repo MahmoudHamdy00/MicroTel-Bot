@@ -30,19 +30,21 @@ namespace DatabaseCustomActions
         }
         public struct package_details
         {
-            public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, int price = 0)
+            public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, int price = 0, int times = 1)
             {
                 this.packageName = packageName;
                 this.minutes = minutes;
                 this.messages = messages;
                 this.megabytes = megabytes;
                 this.price = price;
+                this.times = times;
             }
             public string packageName { get; set; }
             public int minutes { get; set; }
             public int messages { get; set; }
             public int megabytes { get; set; }
             public int price { get; set; }
+            public int times { get; set; }// to store how many package to subscrib in when extend package
         }
         public struct user_details
         {
@@ -111,11 +113,9 @@ namespace DatabaseCustomActions
         {
 
             SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[tier_details] WHERE name ='{tier}';", conn);
-            Console.WriteLine("b res");
 
             var reader = cmd.ExecuteReader();
 
-            Console.WriteLine("afte");
             tier_details _Details;
             if (reader.Read())
             {
@@ -123,14 +123,14 @@ namespace DatabaseCustomActions
             }
             else
                 _Details = new tier_details(false);
-            
+
             reader.Dispose();
             return _Details;
         }
         public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
         {
 
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails] WHERE name ='{package_Details.packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details] WHERE name ='{package_Details.packageName}';", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -146,7 +146,7 @@ namespace DatabaseCustomActions
         public static List<package_details> getAvailablePackages(SqlConnection conn)
         {
             List<package_details> availablePackages = new List<package_details>();
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[ExtraPackageDetails];", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details];", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -169,16 +169,12 @@ namespace DatabaseCustomActions
         }
         public static void getBestPackages(int minutes, int messages, int megabytes, int price, ref int bestPrice, ref List<package_details> selectedPackages, ref List<package_details> temp, ref List<package_details> availablePackages)
         {
-            //Console.WriteLine(minutes.ToString() + " " + messages.ToString() + " " + megabytes.ToString() + " " + price.ToString());
             if (minutes <= 0 && messages <= 0 && megabytes <= 0)
             {
                 if (price < bestPrice)
                 {
                     bestPrice = price;
                     selectedPackages = new List<package_details>(temp);
-                    Console.WriteLine("option " + price);
-                    foreach (var h in selectedPackages) Console.WriteLine(h.packageName);
-                    Console.WriteLine();
                 }
                 return;
             }
@@ -195,7 +191,7 @@ namespace DatabaseCustomActions
             }
 
         }
-        public static List<package_details> getPackages(int minutes, int messages, int megabytes, SqlConnection conn)
+        public static List<package_details> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool exactPackages, SqlConnection conn)
         {
             List<package_details> selectedPackages = new List<package_details>();
             List<package_details> avalaiblePackages = getAvailablePackages(conn);
@@ -203,7 +199,7 @@ namespace DatabaseCustomActions
             megabytesPackage = minutesPackage = messagesPackage = new package_details();
             foreach (var cur in avalaiblePackages)
             {
-                if (cur.megabytes == megabytes && cur.minutes == minutes && cur.messages == messages)
+                if (cur.megabytes == neededMegabytes && cur.minutes == neededMinutes && cur.messages == neededMessages)
                 {
                     selectedPackages.Add(cur);
                     return selectedPackages;
@@ -212,9 +208,18 @@ namespace DatabaseCustomActions
                 else if (cur.packageName == "Megabytes") megabytesPackage = cur;
                 else if (cur.packageName == "Minutes") minutesPackage = cur;
             }
-            while (messages > 0) { selectedPackages.Add(messagesPackage); messages -= messagesPackage.messages; }
-            while (megabytes > 0) { selectedPackages.Add(megabytesPackage); megabytes -= megabytesPackage.megabytes; }
-            while (minutes > 0) { selectedPackages.Add(minutesPackage); minutes -= minutesPackage.minutes; }
+            exactPackages = neededMessages % messagesPackage.messages == 0 && neededMegabytes % megabytesPackage.megabytes == 0 && neededMinutes % minutesPackage.minutes == 0;
+            minutesPackage.times = (neededMinutes + minutesPackage.minutes / 2) / minutesPackage.minutes;
+            messagesPackage.times = (neededMessages + messagesPackage.messages / 2) / messagesPackage.messages;// add  messagesPackage.messages / 2 to the numerator to round the answer
+            megabytesPackage.times = (neededMegabytes + megabytesPackage.megabytes / 2) / megabytesPackage.megabytes;
+
+            if (neededMinutes > 0) minutesPackage.times = Math.Max(1, minutesPackage.times);
+            if (neededMessages > 0) messagesPackage.times = Math.Max(1, messagesPackage.times);
+            if (neededMegabytes > 0) megabytesPackage.times = Math.Max(1, megabytesPackage.times);
+
+            if (messagesPackage.times > 0) selectedPackages.Add(messagesPackage);
+            if (megabytesPackage.times > 0) selectedPackages.Add(megabytesPackage);
+            if (minutesPackage.times > 0) selectedPackages.Add(minutesPackage);
             return selectedPackages;
         }
         public static bool update_tier(string tier_id, string phoneNumber, SqlConnection conn)
@@ -226,7 +231,7 @@ namespace DatabaseCustomActions
                 return true;
             else
                 return false;
-            
+
         }
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {
@@ -254,23 +259,49 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static int insert_extendPackage(string phoneNumber, string packageName, int times, SqlConnection conn)
+        public static int insert_extendPackage(string phoneNumber, string packageName, int times, int price, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[ExtraPackageDetails] WHERE name ='{packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
             DateTime _date = DateTime.Now;
-            string singleRow = $"('{phoneNumber}','{packageId}','{_date}')";
-            string values = singleRow;
-            while (times-- > 1)
-            {
-                values += "," + singleRow;
-            }
-            string query = $"insert into [ExtraPackage] (phoneNumber,extraPackageID,date) values {values};";
-            Console.WriteLine(values);
-            Console.WriteLine(query);
+            string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date,times,totalPrice) values ('{phoneNumber}','{packageId}','{_date}','{times}','{times * price}');";
             cmd = new SqlCommand(query, conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
+        }
+        // to update the bill's price to anew one(when extend package is occured)
+        public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT TOP 1 [amount] FROM [bill] WHERE [phoneNumber]='{phoneNumber}' ORDER BY [dueDate] DESC;", conn);
+            var res = cmd.ExecuteScalar();
+            if (res == null) throw new Exception("There is no bill record for this user");
+            int currentPrice = Convert.ToInt32(res);
+
+            cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
+        }
+        public static bool Update_Quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);
+            var res = cmd.ExecuteScalar();
+            if (res == null) throw new Exception("There is no quota recored for this user");
+            string quotaId = res.ToString();
+
+            cmd = new SqlCommand($"SELECT [remainingMinutes],[remainingMessages],[remainingMegabytes] FROM [quota] WHERE [id]='{quotaId}';", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int currentMinutes = 0, currentMessages = 0, currentMegabytes = 0;
+            if (reader.Read())
+            {
+                currentMinutes += Convert.ToInt32(reader["remainingMinutes"]);
+                currentMessages += Convert.ToInt32(reader["remainingMessages"]);
+                currentMegabytes += Convert.ToInt32(reader["remainingMegabytes"]);
+                reader.Dispose();
+            }
+            else throw new Exception("There is no quota record for this user");
+            cmd = new SqlCommand($"UPDATE [quota] set [remainingMinutes] = {currentMinutes + minutes} ,[remainingMessages]={currentMessages + messages} ,[remainingMegabytes] ={currentMegabytes + megabytes} WHERE id='{quotaId}';", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
         }
         public static object get_user_info(string nationalID, SqlConnection conn)
         {
@@ -281,7 +312,7 @@ namespace DatabaseCustomActions
             {
                 _UserInfo = new user_details(true, reader["nationalID"].ToString(), reader["fname"].ToString(), reader["lname"].ToString(), reader["birthdate"].ToString(), reader["streetNo"].ToString(), reader["streetName"].ToString(), reader["city"].ToString(), reader["country"].ToString(), reader["phoneNumber"].ToString(), reader["name"].ToString());
             }
-            else 
+            else
             {
                 _UserInfo = new user_details(false);
             }

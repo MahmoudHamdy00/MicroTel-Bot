@@ -28,57 +28,75 @@ public class ExtendPackage : Dialog
     [JsonProperty("packageName")]
     public ValueExpression packageName { get; set; }
 
-    [JsonProperty("times")]
-    public ValueExpression times { get; set; }
-
     [JsonProperty("resultProperty")]
-    public StringExpression ResultProperty { get; set; }
+    public ValueExpression ResultProperty { get; set; }
+
+    [JsonProperty("error")]
+    public ValueExpression error { get; set; }
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
         string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string _phoneNumber = phoneNumber.GetValue(dc.State).ToString();
         var data = packageName.GetValue(dc.State);
-        int _times = Convert.ToInt32(times.GetValue(dc.State));
 
         SqlConnection conn = new SqlConnection(connectionString);
-        string result = "Failed";//initialize with failed and then change it if it success
+        bool result = false;//initialize with failed and then change it if it success
+        int _totalPrice = 0;
         try
         {
             conn.Open();
             int all_affected_rows = 0;
+            int megabytes_to_increae = 0;
+            int messages_to_increae = 0;
+            int minutes_to_increae = 0;
             Newtonsoft.Json.Linq.JArray packageNames;
             if (data.GetType().ToString() == "Newtonsoft.Json.Linq.JArray")
             {
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var curPackage in packageNames)
                 {
-                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), _times, conn);
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), Convert.ToInt32(curPackage["price"]), conn);
                     all_affected_rows += affected_rows;
+                    _totalPrice += Convert.ToInt32(curPackage["price"]) * Convert.ToInt32(curPackage["times"]);
+                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]) * Convert.ToInt32(curPackage["times"]);
+                    messages_to_increae += Convert.ToInt32(curPackage["messages"]) * Convert.ToInt32(curPackage["times"]);
+                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]) * Convert.ToInt32(curPackage["times"]);
                 }
             }
             else
             {
-                int affected_rows = insert_extendPackage(_phoneNumber, data.ToString(), _times, conn);
+                package_details package_Details = new package_details();
+                package_Details.packageName = data.ToString();
+                bool is_ok = get_package_details(ref package_Details, conn);
+                if (!is_ok) throw new Exception("There isn't any package with this name");
+                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);
+                _totalPrice = package_Details.price;
+                megabytes_to_increae = package_Details.megabytes;
+                messages_to_increae = package_Details.megabytes;
+                minutes_to_increae = package_Details.megabytes;
             }
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
+            if (!Update_Bill(_phoneNumber, _totalPrice, conn)) throw new Exception("Error with Update_Bill method");
+            if (!Update_Quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
+            result = true;
 
-            result = "Successfull";
-            if (this.ResultProperty != null)
-            {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State), result);
-            }
         }
         catch (Exception ex)
         {
-            if (this.ResultProperty != null)
+            if (this.error != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State), ex.Message);
+                dc.State.SetValue(this.error.GetValue(dc.State).ToString(), ex.Message);
             }
+            result = false;
         }
         finally
         {
             conn.Close();
+        }
+        if (this.ResultProperty != null)
+        {
+            dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), result);
         }
         return dc.EndDialogAsync(result: result, cancellationToken: cancellationToken);
     }

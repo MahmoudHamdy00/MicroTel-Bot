@@ -20,5 +20,4 @@ natId is ${user.nationalID}```
 ]
 
 # SendActivity_q4UMDW_text()
-- ```number is ${user.phoneNumber}
-result is ${user.result}```
+- Welcome ${user.fname} to Microtel. You line number is ${user.phoneNumber}. result is ${user.result}

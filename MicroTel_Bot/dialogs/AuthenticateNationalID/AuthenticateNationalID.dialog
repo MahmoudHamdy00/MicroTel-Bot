@@ -79,33 +79,42 @@
               },
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
+                  "$kind": "Microsoft.IfCondition",
                   "$designer": {
-                    "id": "CgUqqH",
-                    "comment": "Add ability for the user to move to forget number"
+                    "id": "lcNHDg"
                   },
-                  "activity": "${SendActivity_CgUqqH()}"
-                },
-                {
-                  "$kind": "Microsoft.BeginDialog",
-                  "$designer": {
-                    "id": "4kAdC3",
-                    "comment": ""
-                  },
-                  "activityProcessed": true,
-                  "dialog": "verifyNationalId",
-                  "resultProperty": "user.nationalID",
-                  "options": {}
-                },
-                {
-                  "$kind": "Microsoft.RepeatDialog",
-                  "$designer": {
-                    "id": "vGPLDr"
-                  },
-                  "activityProcessed": true,
-                  "options": {
-                    "nationalID": "=user.nationalID"
-                  }
+                  "condition": "=equals(user.action,\"signup\")",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "MAuHK9",
+                        "comment": "Add ability for the user to move to forget number"
+                      },
+                      "activity": "${SendActivity_MAuHK9()}"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "MTG9p9",
+                        "comment": ""
+                      },
+                      "activityProcessed": true,
+                      "dialog": "verifyNationalId",
+                      "resultProperty": "user.nationalID",
+                      "options": {}
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "S0RMfP"
+                      },
+                      "activityProcessed": true,
+                      "options": {
+                        "nationalID": "=user.nationalID"
+                      }
+                    }
+                  ]
                 }
               ],
               "elseActions": [],

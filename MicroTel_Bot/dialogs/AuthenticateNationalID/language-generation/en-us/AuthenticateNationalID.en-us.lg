@@ -8,9 +8,10 @@
 ]
 
 
-# SendActivity_CgUqqH_text()
+
+# SendActivity_MAuHK9_text()
 - Your national id already registered to an existing line. Would you please choose a different national id?
-# SendActivity_CgUqqH()
+# SendActivity_MAuHK9()
 [Activity
-    Text = ${SendActivity_CgUqqH_text()}
+    Text = ${SendActivity_MAuHK9_text()}
 ]

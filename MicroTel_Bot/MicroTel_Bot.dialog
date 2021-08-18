@@ -186,6 +186,23 @@
           "dialog": "ExtendPackage"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "hBnlMq",
+        "name": "PayBill"
+      },
+      "intent": "PayBill",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "DBU8js"
+          },
+          "activity": "${SendActivity_DBU8js()}"
+        }
+      ]
     }
   ],
   "generator": "MicroTel_Bot.lg",

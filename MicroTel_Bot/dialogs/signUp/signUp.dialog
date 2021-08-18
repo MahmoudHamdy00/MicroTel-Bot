@@ -21,7 +21,8 @@
           "$designer": {
             "id": "c87Pow"
           },
-          "activity": "${SendActivity_c87Pow()}"
+          "activity": "${SendActivity_c87Pow()}",
+          "disabled": true
         },
         {
           "$kind": "AddUser",

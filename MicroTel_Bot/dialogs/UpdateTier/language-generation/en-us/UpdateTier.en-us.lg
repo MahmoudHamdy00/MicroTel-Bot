@@ -1,1 +1,14 @@
 [import](common.lg)
+
+# SendActivity_2hoNXP_text()
+- ```User data
+first name is ${user.fname}
+last name is ${user.lname}
+birth is ${user.birthdate}
+birth is ${user.address}
+tier is ${user.line.tier}
+natId is ${user.nationalID}```
+# SendActivity_2hoNXP()
+[Activity
+    Text = ${SendActivity_2hoNXP_text()}
+]

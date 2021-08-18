@@ -19,7 +19,8 @@
       ],
       "ExtendPackage": [
         "ExtendPackage.en-us"
-      ]
+      ],
+      "PayBill": ""
     }
   },
   "AddressDialog.en-us": {

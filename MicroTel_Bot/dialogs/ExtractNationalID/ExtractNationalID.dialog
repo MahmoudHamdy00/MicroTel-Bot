@@ -19,36 +19,43 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "XRezmy"
+            "id": "qETycx"
           },
-          "condition": "=exists(user.nationalID)",
+          "condition": "=exists(@nationalID)",
           "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "zQblnv"
+              },
+              "activity": "${SendActivity_zQblnv()}"
+            },
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "d2MeaR"
+                "id": "zLiAgi"
               },
-              "condition": "=exists(@nationalID)",
-              "elseActions": [
-                {
-                  "$kind": "Microsoft.SetProperty",
-                  "$designer": {
-                    "id": "6csY5v"
-                  },
-                  "property": "user.nationalID",
-                  "value": "=dialog.data.nationalID[0]"
-                }
-              ],
+              "condition": "=exists(dialog.data.nationalID[0])",
               "actions": [
                 {
                   "$kind": "Microsoft.SetProperty",
                   "$designer": {
-                    "id": "h2mu31"
+                    "id": "pMd2Jk"
                   },
                   "property": "user.nationalID",
-                  "value": "=@nationalID"
+                  "value": "=dialog.data.nationalID[0]"
                 }
               ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "7N9vJF"
+              },
+              "property": "user.nationalID",
+              "value": "=@nationalID"
             }
           ]
         }

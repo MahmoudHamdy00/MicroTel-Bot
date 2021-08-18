@@ -255,7 +255,7 @@ namespace DatabaseCustomActions
         }
         public static int insert_user(user_details user_Details, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"insert into [user] values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
+            SqlCommand cmd = new SqlCommand($"insert into [user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber)  values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }

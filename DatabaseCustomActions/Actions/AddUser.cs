@@ -110,7 +110,7 @@ public class AddUser : Dialog
             Console.WriteLine("insert_line_result " + insert_line_result);
 
             // Create new bill for the user
-            var insert_line_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
+            var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
 
             // Insert the new user's details 
             var insert_user_result = insert_user(user_Details, conn);

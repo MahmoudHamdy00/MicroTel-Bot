@@ -14,10 +14,17 @@ birth is ${user.address}
 tier is ${user.line.tier}
 natId is ${user.nationalID}```
 
-# SendActivity_q4UMDW()
+# SendActivity_bP80xF_text()
+- Welcome ${user.fname} to Microtel. You line number is ${user.line.number}.
+# SendActivity_bP80xF()
 [Activity
-    Text = ${SendActivity_q4UMDW_text()}
+    Text = ${SendActivity_bP80xF_text()}
 ]
 
-# SendActivity_q4UMDW_text()
-- Welcome ${user.fname} to Microtel. You line number is ${user.phoneNumber}. result is ${user.result}
+# SendActivity_IpRF6P()
+[Activity
+    Text = ${SendActivity_IpRF6P_text()}
+]
+
+# SendActivity_IpRF6P_text()
+- Unsuccessful operation. Please try again!

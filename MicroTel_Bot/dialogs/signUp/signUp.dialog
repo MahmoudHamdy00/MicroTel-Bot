@@ -33,7 +33,7 @@
           "natid": "=user.nationalID",
           "lname": "=user.lname",
           "birthdate": "=user.birthdate",
-          "resultProperty": "user.result",
+          "resultProperty": "dialog.userAdded",
           "address": "=user.fname",
           "tier": "=user.line.tier",
           "streetNo": "=user.address.streetNumber",
@@ -41,14 +41,40 @@
           "country": "=user.address.country",
           "phoneNumber": "=user.action",
           "streetName": "=user.address.streetName ",
-          "number": "user.phoneNumber"
+          "number": "user.line.number"
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "q4UMDW"
+            "id": "sd0phj"
           },
-          "activity": "${SendActivity_q4UMDW()}"
+          "condition": "=bool(dialog.userAdded)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "bP80xF"
+              },
+              "activity": "${SendActivity_bP80xF()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "IpRF6P"
+              },
+              "activity": "${SendActivity_IpRF6P()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "N8r2Gw"
+              },
+              "activityProcessed": true,
+              "dialog": "SignUpConfirmation"
+            }
+          ]
         }
       ]
     }

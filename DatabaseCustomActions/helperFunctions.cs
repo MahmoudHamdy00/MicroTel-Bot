@@ -310,7 +310,7 @@ namespace DatabaseCustomActions
             user_details _UserInfo;
             if (reader.Read())
             {
-                _UserInfo = new user_details(true, reader["nationalID"].ToString(), reader["fname"].ToString(), reader["lname"].ToString(), reader["birthdate"].ToString(), reader["streetNo"].ToString(), reader["streetName"].ToString(), reader["city"].ToString(), reader["country"].ToString(), reader["phoneNumber"].ToString(), reader["name"].ToString());
+                _UserInfo = new user_details(true, reader["nationalID"].ToString(), reader["fname"].ToString(), reader["lname"].ToString(),  Convert.ToDateTime(reader["birthdate"]).ToString("yyyy-MM-dd"), reader["streetNo"].ToString(), reader["streetName"].ToString(), reader["city"].ToString(), reader["country"].ToString(), reader["phoneNumber"].ToString(), reader["name"].ToString());
             }
             else
             {

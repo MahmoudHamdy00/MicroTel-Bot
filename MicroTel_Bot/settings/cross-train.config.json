@@ -20,7 +20,9 @@
       "ExtendPackage": [
         "ExtendPackage.en-us"
       ],
-      "PayBill": ""
+      "PayBill": [
+        "PayBill.en-us"
+      ]
     }
   },
   "AddressDialog.en-us": {

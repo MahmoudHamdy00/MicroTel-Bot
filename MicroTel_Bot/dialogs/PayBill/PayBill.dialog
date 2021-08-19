@@ -1,8 +1,8 @@
 {
   "$kind": "Microsoft.AdaptiveDialog",
   "$designer": {
-    "id": "BJGFfj",
-    "name": "UpdateTier",
+    "id": "jikuvb",
+    "name": "PayBill",
     "comment": ""
   },
   "autoEndDialog": true,
@@ -13,13 +13,13 @@
       "$designer": {
         "name": "BeginDialog",
         "description": "",
-        "id": "60d9Z2"
+        "id": "4VElY1"
       },
       "actions": [
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "RMAcLO"
+            "id": "5wGZ3U"
           },
           "activityProcessed": true,
           "dialog": "ExtractPhoneNumber",
@@ -30,18 +30,7 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "RbipyK"
-          },
-          "activityProcessed": true,
-          "dialog": "ExtractTier",
-          "options": {
-            "data": "=@updateTierInfo"
-          }
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "csMwwD"
+            "id": "0AdcVl"
           },
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
@@ -52,38 +41,44 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "5FW7nZ"
+            "id": "visuzz"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractCreditCardNumber"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ZG4n1j"
           },
           "activityProcessed": true,
           "dialog": "AuthenticateUser"
         },
         {
-          "$kind": "Microsoft.BeginDialog",
+          "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "3BiC7c"
+            "id": "ENOmyX"
           },
-          "activityProcessed": true,
-          "dialog": "verifyTier",
-          "resultProperty": "user.line.tier",
-          "options": {
-            "tier": "=user.line.tier"
-          }
+          "activity": "${SendActivity_ENOmyX()}"
         },
         {
-          "$kind": "Microsoft.BeginDialog",
+          "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "Zvf4pU"
+            "id": "rkv5qi"
           },
-          "activityProcessed": true,
-          "dialog": "UpdateTierConfirmation",
-          "options": {
-            "NewDialog": "VerifyTier"
-          }
+          "activity": "${SendActivity_rkv5qi()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "5Swx1S"
+          },
+          "activity": "${SendActivity_5Swx1S()}"
         }
       ]
     }
   ],
-  "generator": "UpdateTier.lg",
-  "recognizer": "UpdateTier.lu.qna",
-  "id": "UpdateTier"
+  "generator": "PayBill.lg",
+  "recognizer": "PayBill.lu.qna",
+  "id": "PayBill"
 }

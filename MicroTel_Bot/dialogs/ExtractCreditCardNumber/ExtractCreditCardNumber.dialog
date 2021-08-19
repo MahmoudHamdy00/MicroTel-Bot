@@ -1,0 +1,33 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "B2939O",
+    "name": "ExtractCreditCardNumber",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "mzg9TK"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "94KvP8"
+          },
+          "property": "user.creditCard",
+          "value": "=@creditCardNumber"
+        }
+      ]
+    }
+  ],
+  "generator": "ExtractCreditCardNumber.lg",
+  "recognizer": "ExtractCreditCardNumber.lu.qna",
+  "id": "ExtractCreditCardNumber"
+}

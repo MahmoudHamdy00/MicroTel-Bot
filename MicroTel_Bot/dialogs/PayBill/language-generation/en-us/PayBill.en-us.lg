@@ -1,0 +1,23 @@
+[import](common.lg)
+
+# SendActivity_ENOmyX_text()
+- Verify CreditCardNumber => ${user.creditCard}
+# SendActivity_ENOmyX()
+[Activity
+    Text = ${SendActivity_ENOmyX_text()}
+]
+
+# SendActivity_rkv5qi()
+[Activity
+    Text = ${SendActivity_rkv5qi_text()}
+]
+
+# SendActivity_rkv5qi_text()
+- Get Bill infor from database and ask for confirmation
+# SendActivity_5Swx1S()
+[Activity
+    Text = ${SendActivity_5Swx1S_text()}
+]
+
+# SendActivity_5Swx1S_text()
+- Save payment in db

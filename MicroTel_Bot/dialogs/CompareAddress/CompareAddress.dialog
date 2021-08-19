@@ -1,0 +1,82 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "vQkVFj",
+    "name": "CompareAddress",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "oAxcOt"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "UXzaiC",
+            "comment": "Check: Street Number"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyStreetNumber",
+            "first": "=user.address.streetNumber",
+            "second": "=user.info.streetNo"
+          },
+          "dialog": "CompareAndVerifyInteger"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "xkolUA",
+            "comment": "Check: Street Name"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyStreetName",
+            "first": "=user.address.streetName",
+            "second": "=user.info.streetName"
+          },
+          "dialog": "CompareAndVerifyStrings"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ADAsvx",
+            "comment": "Check: City"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyCity",
+            "first": "=user.address.city",
+            "second": "=user.info.city"
+          },
+          "dialog": "CompareAndVerifyStrings"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "q7XFMB",
+            "comment": "Check: Country"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyCountry",
+            "first": "=user.address.country",
+            "second": "=user.info.country",
+            "message": "Country"
+          },
+          "dialog": "CompareAndVerifyStrings"
+        }
+      ]
+    }
+  ],
+  "generator": "CompareAddress.lg",
+  "recognizer": "CompareAddress.lu.qna",
+  "id": "CompareAddress"
+}

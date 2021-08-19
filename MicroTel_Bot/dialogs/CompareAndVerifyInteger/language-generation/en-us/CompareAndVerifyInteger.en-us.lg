@@ -1,0 +1,19 @@
+[import](common.lg)
+
+# SendActivity_nTC24P_text()
+- ```${dialog.name} is good
+1. ${dialog.first}
+2. ${dialog.second}```
+# SendActivity_nTC24P()
+[Activity
+    Text = ${SendActivity_nTC24P_text()}
+]
+
+# SendActivity_RCjNQU_text()
+- ```${dialog.name}  is wrong
+1. ${dialog.first}
+2. ${dialog.second}```
+# SendActivity_RCjNQU()
+[Activity
+    Text = ${SendActivity_RCjNQU_text()}
+]

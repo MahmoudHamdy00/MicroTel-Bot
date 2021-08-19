@@ -1,0 +1,81 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "IbcaVE",
+    "name": "CompareAndVerifyDate",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "DgGt3k"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "ZtmyAN"
+          },
+          "condition": "=date(dialog.first) ==date(dialog.second)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "PgRTiL"
+              },
+              "activity": "${SendActivity_PgRTiL()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "vzsrJn"
+              },
+              "value": true
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "s9QvbU"
+              },
+              "activity": "${SendActivity_s9QvbU()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "HHIgwi"
+              },
+              "activityProcessed": true,
+              "options": {},
+              "resultProperty": "dialog.first",
+              "dialog": "=dialog.name",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "OOx77H"
+              },
+              "activityProcessed": true,
+              "options": {
+                "name": "=dialog.name",
+                "first": "=dialog.first",
+                "second": "=dialog.second"
+              },
+              "disabled": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "CompareAndVerifyDate.lg",
+  "recognizer": "CompareAndVerifyDate.lu.qna",
+  "id": "CompareAndVerifyDate"
+}

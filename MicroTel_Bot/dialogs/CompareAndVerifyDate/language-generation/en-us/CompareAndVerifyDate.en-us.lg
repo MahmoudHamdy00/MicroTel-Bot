@@ -1,0 +1,21 @@
+[import](common.lg)
+
+# SendActivity_PgRTiL_text()
+- ```${dialog.name}  is good
+1. ${dialog.first}
+2. ${dialog.second}```
+# SendActivity_PgRTiL()
+[Activity
+    Text = ${SendActivity_PgRTiL_text()}
+]
+
+# SendActivity_s9QvbU_text()
+- ```${dialog.name}  is wrong
+1. ${dialog.first}
+2. ${dialog.second}
+
+```
+# SendActivity_s9QvbU()
+[Activity
+    Text = ${SendActivity_s9QvbU_text()}
+]

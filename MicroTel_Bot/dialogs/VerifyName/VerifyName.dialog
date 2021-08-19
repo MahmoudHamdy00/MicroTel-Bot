@@ -112,6 +112,13 @@
               }
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "XELfyc"
+          },
+          "value": "=user.fname"
         }
       ]
     }

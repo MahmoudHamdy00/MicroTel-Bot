@@ -74,6 +74,13 @@
             }
           ],
           "condition": "=and(exists(dialog.lname), dialog.lname != \"\")"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "ghBwBb"
+          },
+          "value": "=user.lname"
         }
       ]
     }

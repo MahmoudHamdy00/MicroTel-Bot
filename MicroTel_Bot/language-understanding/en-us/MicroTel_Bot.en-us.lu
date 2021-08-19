@@ -133,7 +133,6 @@
 
 > # RegEx entities
 
-@ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
 @ regex phoneNumber = /010[0-9]{6}/
 
@@ -309,3 +308,5 @@
 - use my credit card 1243445678907890 to reimburse my invoice.
 - would you help me give payment to my bill?
 - settle my debt
+
+@ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/

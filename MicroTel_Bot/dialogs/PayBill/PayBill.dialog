@@ -41,7 +41,8 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "visuzz"
+            "id": "visuzz",
+            "comment": ""
           },
           "activityProcessed": true,
           "dialog": "ExtractCreditCardNumber"
@@ -55,11 +56,15 @@
           "dialog": "AuthenticateUser"
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "ENOmyX"
+            "id": "1XGxMx"
           },
-          "activity": "${SendActivity_ENOmyX()}"
+          "activityProcessed": true,
+          "dialog": "VerifyCreditCardNumber",
+          "options": {
+            "creditCard": "=user.creditCard"
+          }
         },
         {
           "$kind": "Microsoft.SendActivity",

@@ -1,0 +1,66 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "gFgD31",
+    "name": "VerifyCreditCardNumber",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "1bOJUS"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "3v20B3",
+            "comment": ""
+          },
+          "condition": "=exists(dialog.creditCard)",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "ALtfTo"
+              },
+              "disabled": false,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_ALtfTo()}",
+              "invalidPrompt": "${TextInput_InvalidPrompt_ALtfTo()}",
+              "validations": [
+                "=exists(@creditCardNumber)"
+              ],
+              "maxTurnCount": 50
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "J8oy4o"
+              },
+              "property": "dialog.creditCard",
+              "value": "=@creditCardNumber"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "OXxDF1"
+          },
+          "value": "=dialog.creditCard"
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyCreditCardNumber.lg",
+  "recognizer": "VerifyCreditCardNumber.lu.qna",
+  "id": "VerifyCreditCardNumber"
+}

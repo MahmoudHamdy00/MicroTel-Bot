@@ -1,12 +1,5 @@
 [import](common.lg)
 
-# SendActivity_ENOmyX_text()
-- Verify CreditCardNumber => ${user.creditCard}
-# SendActivity_ENOmyX()
-[Activity
-    Text = ${SendActivity_ENOmyX_text()}
-]
-
 # SendActivity_rkv5qi()
 [Activity
     Text = ${SendActivity_rkv5qi_text()}

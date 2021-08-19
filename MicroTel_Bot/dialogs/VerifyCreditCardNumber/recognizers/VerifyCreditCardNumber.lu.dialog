@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_VerifyCreditCardNumber",
+  "recognizers": {
+    "en-us": "VerifyCreditCardNumber.en-us.lu",
+    "": "VerifyCreditCardNumber.en-us.lu"
+  }
+}

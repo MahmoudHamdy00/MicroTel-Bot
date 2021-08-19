@@ -17,12 +17,21 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "94KvP8"
+            "id": "Wb4Sm6"
           },
-          "property": "user.creditCard",
-          "value": "=@creditCardNumber"
+          "condition": "=exists(@creditCardNumber)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "sMCUVv"
+              },
+              "property": "user.creditCard",
+              "value": "=@creditCardNumber"
+            }
+          ]
         }
       ]
     }

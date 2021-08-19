@@ -1,0 +1,11 @@
+
+# TextInput_Response_ALtfTo
+- 1243-4456-7890-7890
+- my credit card number is 1243445678907890
+- 1243-4456-7890-7890 is my credit card number
+- it is 1243445678907890
+- i think it is 1243445678907890
+- the number is 1243-4456-7890-7890
+- here is my credit card number1243445678907890. do it asap.
+
+@ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/

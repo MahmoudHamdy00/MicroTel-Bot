@@ -26,7 +26,8 @@
           "options": {
             "name": "VerifyStreetNumber",
             "first": "=user.address.streetNumber",
-            "second": "=user.info.streetNo"
+            "second": "=user.info.streetNo",
+            "message": "Street Number"
           },
           "dialog": "CompareAndVerifyInteger"
         },
@@ -40,7 +41,8 @@
           "options": {
             "name": "VerifyStreetName",
             "first": "=user.address.streetName",
-            "second": "=user.info.streetName"
+            "second": "=user.info.streetName",
+            "message": "Street Name"
           },
           "dialog": "CompareAndVerifyStrings"
         },
@@ -54,7 +56,8 @@
           "options": {
             "name": "VerifyCity",
             "first": "=user.address.city",
-            "second": "=user.info.city"
+            "second": "=user.info.city",
+            "message": "City"
           },
           "dialog": "CompareAndVerifyStrings"
         },

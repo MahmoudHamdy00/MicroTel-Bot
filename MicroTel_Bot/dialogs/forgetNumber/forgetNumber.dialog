@@ -84,7 +84,8 @@
           "options": {
             "name": "VerifyName",
             "first": "=user.fname",
-            "second": "=user.info.firstName"
+            "second": "=user.info.firstName",
+            "message": "First Name"
           },
           "dialog": "CompareAndVerifyStrings"
         },
@@ -98,7 +99,8 @@
           "options": {
             "name": "VerifyLastName",
             "first": "=user.lname",
-            "second": "=user.info.lastName"
+            "second": "=user.info.lastName",
+            "message": "Last Name"
           },
           "dialog": "CompareAndVerifyStrings"
         },
@@ -127,7 +129,8 @@
           "options": {
             "name": "VerifyBirthdate",
             "first": "=user.birthdate",
-            "second": "=user.info.birthdate"
+            "second": "=user.info.birthdate",
+            "message": "Birthdate"
           },
           "dialog": "CompareAndVerifyStrings"
         },

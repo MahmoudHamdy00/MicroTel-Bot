@@ -12,8 +12,10 @@
 # SendActivity_RCjNQU_text()
 - ```${dialog.name}  is wrong
 1. ${dialog.first}
-2. ${dialog.second}```
+2. ${dialog.second}
+Sorry, ${dialog.message} didn't match with your stored data```
 # SendActivity_RCjNQU()
 [Activity
     Text = ${SendActivity_RCjNQU_text()}
 ]
+

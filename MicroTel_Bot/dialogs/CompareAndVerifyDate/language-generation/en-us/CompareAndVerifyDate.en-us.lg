@@ -13,9 +13,10 @@
 - ```${dialog.name}  is wrong
 1. ${dialog.first}
 2. ${dialog.second}
-
+Sorry, ${dialog.message} didn't match with your stored data
 ```
 # SendActivity_s9QvbU()
 [Activity
     Text = ${SendActivity_s9QvbU_text()}
 ]
+

@@ -13,8 +13,9 @@
 - ```${dialog.name}  is wrong
 1. ${dialog.first}
 2. ${dialog.second}
-Sorry, ${dialog.name} didn't match with your stored data```
+Sorry, ${dialog.message} didn't match with your stored data```
 # SendActivity_KerJIJ()
 [Activity
     Text = ${SendActivity_KerJIJ_text()}
 ]
+

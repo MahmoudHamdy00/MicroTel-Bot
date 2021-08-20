@@ -17,59 +17,6 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "2Vh0bL"
-          },
-          "condition": "user.extendPackageDetails.exactPackage",
-          "actions": [],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "Hj3cdB"
-              },
-              "activity": "${SendActivity_Hj3cdB()}"
-            }
-          ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "tvVtcz"
-          },
-          "activity": "${SendActivity_tvVtcz()}",
-          "disabled": true
-        },
-        {
-          "$kind": "Microsoft.Foreach",
-          "$designer": {
-            "id": "dIpzoZ"
-          },
-          "index": "dialog.foreach.index",
-          "value": "dialog.foreach.value",
-          "itemsProperty": "user.extendPackageDetails.packages",
-          "actions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "fMRhDd"
-              },
-              "activity": "${SendActivity_fMRhDd()}",
-              "disabled": true
-            },
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "ab1uxz"
-              },
-              "activity": "${SendActivity_ab1uxz()}",
-              "disabled": true
-            }
-          ],
-          "disabled": true
-        },
-        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "MPeQch"
@@ -77,7 +24,7 @@
           "activityProcessed": true,
           "dialog": "Confirm",
           "options": {
-            "message": "Confirm extending with this/these packages?",
+            "message": "Confirm extending with this packages?",
             "data": "${user.extendPackageDetails.confirmationMessage}"
           },
           "resultProperty": "user.confirm"
@@ -99,7 +46,7 @@
                     "id": "zT4inY"
                   },
                   "phoneNumber": "=user.line.number",
-                  "packageName": "=user.extendPackageDetails.packages",
+                  "packageName": "=user.extendPackages",
                   "times": "='1'",
                   "resultProperty": "user.extend.Result",
                   "error": "user.extend.error"

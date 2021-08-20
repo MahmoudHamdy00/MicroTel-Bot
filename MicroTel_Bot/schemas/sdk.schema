@@ -9901,39 +9901,19 @@
           "title": "Package Name",
           "description": "The package name"
         },
-        "minutes": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Minutes",
-          "description": "Return the amount of minutes included in the package"
-        },
-        "messages": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Messages",
-          "description": "Return the amount of messages included in the package"
-        },
-        "megabytes": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Megabytes",
-          "description": "Return the amount of megabytes included in the package"
-        },
-        "price": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Price",
-          "description": "Return the price of the package"
-        },
         "packages": {
           "$ref": "#/definitions/valueExpression",
           "title": "packages",
           "description": "Return the packages to subscribe"
         },
-        "exactPackage": {
-          "$ref": "#/definitions/valueExpression",
-          "title": "Exact package",
-          "description": "Return true if there is exact packages with the same needed minutes/megabytes/sms"
-        },
         "packagesDetails": {
           "$ref": "#/definitions/valueExpression",
           "title": "Packages Details",
+          "description": "details of the packages to confirm"
+        },
+        "message": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Details Message",
           "description": "details of the packages to confirm"
         },
         "resultProperty": {

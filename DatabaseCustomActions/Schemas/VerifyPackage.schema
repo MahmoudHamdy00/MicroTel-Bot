@@ -9,39 +9,19 @@
       "title": "Package Name",
       "description": "The package name"
     },
-    "minutes": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Minutes",
-      "description": "Return the amount of minutes included in the package"
-    },
-    "messages": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Messages",
-      "description": "Return the amount of messages included in the package"
-    },
-    "megabytes": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Megabytes",
-      "description": "Return the amount of megabytes included in the package"
-    },
-    "price": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Price",
-      "description": "Return the price of the package"
-    },
     "packages": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "packages",
       "description": "Return the packages to subscribe"
     },
-    "exactPackage": {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Exact package",
-      "description": "Return true if there is exact packages with the same needed minutes/megabytes/sms"
-    },
     "packagesDetails": {
       "$ref": "schema:#/definitions/valueExpression",
       "title": "Packages Details",
+      "description": "details of the packages to confirm"
+    },
+    "message": {
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Details Message",
       "description": "details of the packages to confirm"
     },
     "resultProperty": {

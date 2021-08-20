@@ -56,12 +56,12 @@ public class ExtendPackage : Dialog
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var curPackage in packageNames)
                 {
-                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["times"]), Convert.ToInt32(curPackage["price"]), conn);
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["price"]), conn);
                     all_affected_rows += affected_rows;
                     _totalPrice += Convert.ToInt32(curPackage["price"]) * Convert.ToInt32(curPackage["times"]);
-                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]) * Convert.ToInt32(curPackage["times"]);
-                    messages_to_increae += Convert.ToInt32(curPackage["messages"]) * Convert.ToInt32(curPackage["times"]);
-                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]) * Convert.ToInt32(curPackage["times"]);
+                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]);
+                    messages_to_increae += Convert.ToInt32(curPackage["messages"]);
+                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]);
                 }
             }
             else
@@ -70,7 +70,7 @@ public class ExtendPackage : Dialog
                 package_Details.packageName = data.ToString();
                 bool is_ok = get_package_details(ref package_Details, conn);
                 if (!is_ok) throw new Exception("There isn't any package with this name");
-                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, 1, package_Details.price, conn);
+                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, package_Details.price, conn);
                 _totalPrice = package_Details.price;
                 megabytes_to_increae = package_Details.megabytes;
                 messages_to_increae = package_Details.megabytes;

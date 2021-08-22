@@ -23,7 +23,8 @@ ${user.extendPackageDetails.error}```
 ]
 
 # SendActivity_jXfGKU_text()
-- ${user.extendPackageDetails.error}
+- ```${user.extendPackageDetails.error}
+${user.extendPackages}```
 # SendActivity_jXfGKU()
 [Activity
     Text = ${SendActivity_jXfGKU_text()}

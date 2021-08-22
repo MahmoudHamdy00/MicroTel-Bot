@@ -74,6 +74,26 @@ namespace DatabaseCustomActions
             public string phoneNumber { get; set; }
             public string tierName { get; set; }
         }
+
+        public struct bill_details
+        {
+            public bill_details(bool exists = false, string billID = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
+            {
+                this.exists = exists;
+                this.billID = billID;
+                this.dueDate = dueDate;
+                this.amount = amount;
+                this.phoneNumber = phoneNumber;
+                this.isPaid = isPaid;
+            }
+            public bool exists { get; set; }
+            public string billID { get; set; }
+            public DateTime dueDate { get; set; }
+            public double amount { get; set; }
+            public string phoneNumber { get; set; }
+            public bool isPaid { get; set; }
+
+        }
         public static int getPhoneNumber()
         {
             Random rnd = new Random();
@@ -142,6 +162,24 @@ namespace DatabaseCustomActions
                 return true;
             }
             return false;
+        }
+        public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
+        {
+
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC LIMIT 1;", conn);
+
+            var reader = cmd.ExecuteReader();
+
+            bill_details _Details;
+            if (reader.Read())
+            {
+                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToBoolean(reader["isPaid"]));
+            }
+            else
+                _Details = new bill_details(false);
+
+            reader.Dispose();
+            return _Details;
         }
         public static List<package_details> getAvailablePackages(SqlConnection conn)
         {

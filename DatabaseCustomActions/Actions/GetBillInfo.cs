@@ -37,7 +37,7 @@ public class GetBillInfo : Dialog
         try
         {
             conn.Open();
-            object bill_info = get_bill_info(phone_number, conn);
+            object bill_info = get_latest_bill_details(phone_number, conn);
 
             if (this.ResultProperty != null)
             {

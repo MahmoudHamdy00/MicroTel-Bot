@@ -27,9 +27,11 @@
             "name": "VerifyStreetNumber",
             "first": "=user.address.streetNumber",
             "second": "=user.info.streetNo",
-            "message": "Street Number"
+            "message": "Street Number",
+            "data": "int"
           },
-          "dialog": "CompareAndVerifyInteger"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.address.streetNumber"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -42,9 +44,11 @@
             "name": "VerifyStreetName",
             "first": "=user.address.streetName",
             "second": "=user.info.streetName",
-            "message": "Street Name"
+            "message": "Street Name",
+            "data": "string"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.address.streetName"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -57,9 +61,11 @@
             "name": "VerifyCity",
             "first": "=user.address.city",
             "second": "=user.info.city",
-            "message": "City"
+            "message": "City",
+            "data": "string"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.address.city"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -72,9 +78,11 @@
             "name": "VerifyCountry",
             "first": "=user.address.country",
             "second": "=user.info.country",
-            "message": "Country"
+            "message": "Country",
+            "data": "string"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.address.country"
         }
       ]
     }

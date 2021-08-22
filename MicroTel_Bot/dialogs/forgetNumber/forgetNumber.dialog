@@ -85,9 +85,11 @@
             "name": "VerifyName",
             "first": "=user.fname",
             "second": "=user.info.firstName",
-            "message": "First Name"
+            "message": "First Name",
+            "data": "string"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.fname"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -100,9 +102,11 @@
             "name": "VerifyLastName",
             "first": "=user.lname",
             "second": "=user.info.lastName",
-            "message": "Last Name"
+            "message": "Last Name",
+            "data": "string"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.lname"
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -132,7 +136,8 @@
             "second": "=user.info.birthdate",
             "message": "Birthdate"
           },
-          "dialog": "CompareAndVerifyStrings"
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.birthdate"
         },
         {
           "$kind": "Microsoft.BeginDialog",

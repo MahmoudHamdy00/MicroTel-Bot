@@ -28,14 +28,15 @@
               "$designer": {
                 "id": "PgRTiL"
               },
-              "activity": "${SendActivity_PgRTiL()}"
+              "activity": "${SendActivity_PgRTiL()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.EndDialog",
               "$designer": {
                 "id": "vzsrJn"
               },
-              "value": true
+              "value": "=dialog.first"
             }
           ],
           "elseActions": [
@@ -54,8 +55,7 @@
               "activityProcessed": true,
               "options": {},
               "resultProperty": "dialog.first",
-              "dialog": "=dialog.name",
-              "disabled": true
+              "dialog": "=dialog.name"
             },
             {
               "$kind": "Microsoft.RepeatDialog",
@@ -67,8 +67,7 @@
                 "name": "=dialog.name",
                 "first": "=dialog.first",
                 "second": "=dialog.second"
-              },
-              "disabled": true
+              }
             }
           ]
         }

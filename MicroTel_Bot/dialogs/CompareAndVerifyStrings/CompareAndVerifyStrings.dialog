@@ -17,58 +17,11 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "x2LAG3"
+            "id": "KBjcbR"
           },
-          "condition": "=trim(toLower(dialog.first, \"en-US\"))==trim(toLower(dialog.second, \"en-US\"))",
-          "actions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "MQYmRA"
-              },
-              "activity": "${SendActivity_MQYmRA()}"
-            },
-            {
-              "$kind": "Microsoft.EndDialog",
-              "$designer": {
-                "id": "kZeM8B"
-              },
-              "value": true
-            }
-          ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "KerJIJ"
-              },
-              "activity": "${SendActivity_KerJIJ()}"
-            },
-            {
-              "$kind": "Microsoft.BeginDialog",
-              "$designer": {
-                "id": "9wX4wu"
-              },
-              "activityProcessed": true,
-              "dialog": "=dialog.name",
-              "options": {},
-              "resultProperty": "dialog.first"
-            },
-            {
-              "$kind": "Microsoft.RepeatDialog",
-              "$designer": {
-                "id": "bCAju4"
-              },
-              "activityProcessed": true,
-              "options": {
-                "name": "=dialog.name",
-                "first": "=dialog.first",
-                "second": "=dialog.second"
-              }
-            }
-          ]
+          "activity": "${SendActivity_KBjcbR()}"
         }
       ]
     }

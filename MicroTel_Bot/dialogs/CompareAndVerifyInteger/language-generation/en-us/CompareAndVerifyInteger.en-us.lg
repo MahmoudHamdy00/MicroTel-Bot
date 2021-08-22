@@ -1,21 +1,10 @@
 [import](common.lg)
 
-# SendActivity_nTC24P_text()
-- ```${dialog.name} is good
-1. ${dialog.first}
-2. ${dialog.second}```
-# SendActivity_nTC24P()
+
+# SendActivity_QfKi3p()
 [Activity
-    Text = ${SendActivity_nTC24P_text()}
+    Text = ${SendActivity_QfKi3p_text()}
 ]
 
-# SendActivity_RCjNQU_text()
-- ```${dialog.name}  is wrong
-1. ${dialog.first}
-2. ${dialog.second}
-Sorry, ${dialog.message} didn't match with your stored data```
-# SendActivity_RCjNQU()
-[Activity
-    Text = ${SendActivity_RCjNQU_text()}
-]
-
+# SendActivity_QfKi3p_text()
+- deleted dialoooooooog

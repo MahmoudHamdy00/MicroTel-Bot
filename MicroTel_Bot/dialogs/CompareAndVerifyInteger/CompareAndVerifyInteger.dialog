@@ -17,6 +17,13 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "QfKi3p"
+          },
+          "activity": "${SendActivity_QfKi3p()}"
+        },
+        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "L7VrUk"
@@ -28,14 +35,15 @@
               "$designer": {
                 "id": "nTC24P"
               },
-              "activity": "${SendActivity_nTC24P()}"
+              "activity": "${SendActivity_nTC24P()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.EndDialog",
               "$designer": {
                 "id": "whgkfj"
               },
-              "value": true
+              "value": "=dialog.first"
             }
           ],
           "elseActions": [

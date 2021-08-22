@@ -1,21 +1,10 @@
 [import](common.lg)
 
-# SendActivity_MQYmRA_text()
-- ```${dialog.name} is good
-1. ${dialog.first}
-2. ${dialog.second}```
-# SendActivity_MQYmRA()
+
+# SendActivity_KBjcbR()
 [Activity
-    Text = ${SendActivity_MQYmRA_text()}
+    Text = ${SendActivity_KBjcbR_text()}
 ]
 
-# SendActivity_KerJIJ_text()
-- ```${dialog.name}  is wrong
-1. ${dialog.first}
-2. ${dialog.second}
-Sorry, ${dialog.message} didn't match with your stored data```
-# SendActivity_KerJIJ()
-[Activity
-    Text = ${SendActivity_KerJIJ_text()}
-]
-
+# SendActivity_KBjcbR_text()
+- deleted dialoooooooog

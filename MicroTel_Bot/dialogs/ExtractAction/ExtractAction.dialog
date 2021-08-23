@@ -34,12 +34,21 @@
           ],
           "elseActions": [
             {
-              "$kind": "Microsoft.SetProperty",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "4YIDN3"
+                "id": "4Ot70L"
               },
-              "property": "user.action",
-              "value": "=dialog.data.action[0][0]"
+              "condition": "=exists(dialog.data.action[0][0])",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "U0FUZ1"
+                  },
+                  "property": "user.action",
+                  "value": "=dialog.data.action[0][0]"
+                }
+              ]
             }
           ]
         }

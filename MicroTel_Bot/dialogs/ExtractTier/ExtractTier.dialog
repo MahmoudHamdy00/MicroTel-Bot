@@ -34,12 +34,21 @@
           ],
           "elseActions": [
             {
-              "$kind": "Microsoft.SetProperty",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "xFHDoL"
+                "id": "hxWoqS"
               },
-              "property": "user.line.tier",
-              "value": "=@tier"
+              "condition": "=exists(@tier)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "MiKNzQ"
+                  },
+                  "property": "user.line.tier",
+                  "value": "=@tier"
+                }
+              ]
             }
           ]
         }

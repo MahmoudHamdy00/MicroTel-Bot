@@ -72,7 +72,8 @@
           "$designer": {
             "id": "15bBuP"
           },
-          "activity": "${SendActivity_15bBuP()}"
+          "activity": "${SendActivity_15bBuP()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -146,6 +147,14 @@
           },
           "activityProcessed": true,
           "dialog": "CompareAddress"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "c0rbOK"
+          },
+          "property": "user.line.number",
+          "value": "=user.info.phoneNumber"
         },
         {
           "$kind": "Microsoft.SendActivity",

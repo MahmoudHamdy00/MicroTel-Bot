@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_ALtfTo_text()
-- May I get your credit card number?
+- May I get a credit card number with a sufficient balance to complete your payment?
 # TextInput_Prompt_ALtfTo()
 [Activity
     Text = ${TextInput_Prompt_ALtfTo_text()}

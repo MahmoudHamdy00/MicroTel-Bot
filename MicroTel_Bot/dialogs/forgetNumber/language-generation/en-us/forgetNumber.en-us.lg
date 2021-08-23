@@ -13,7 +13,7 @@
 ]
 
 # SendActivity_n8rY9c_text()
-- Seems good, here is your number ${user.info.phoneNumber}
+- Seems good, here is your line number ${user.line.number}.
 # SendActivity_t2W51R()
 [Activity
     Text = ${SendActivity_t2W51R_text()}

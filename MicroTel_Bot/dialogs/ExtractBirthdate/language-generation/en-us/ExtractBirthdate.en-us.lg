@@ -1,1 +1,8 @@
 [import](common.lg)
+
+# SendActivity_R780Ab_text()
+- - SAVED BIRTHDATE  ${user.birthdate}
+# SendActivity_R780Ab()
+[Activity
+    Text = ${SendActivity_R780Ab_text()}
+]

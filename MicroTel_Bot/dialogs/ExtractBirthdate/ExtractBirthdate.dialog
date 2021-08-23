@@ -52,6 +52,13 @@
               ]
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "R780Ab"
+          },
+          "activity": "${SendActivity_R780Ab()}"
         }
       ]
     }

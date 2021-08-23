@@ -12,8 +12,9 @@ How can I help?```
 # SendActivity_fzMCJy_text()
 - Hi there 😎 My name is Micro 🤗
 - Hello i'm Micro 🤖,
-- Hi my name is Micro 😃,
+- Hi my name is Micro 😃
 # SendActivity_fzMCJy()
 [Activity
     Text = ${SendActivity_fzMCJy_text()}
 ]
+

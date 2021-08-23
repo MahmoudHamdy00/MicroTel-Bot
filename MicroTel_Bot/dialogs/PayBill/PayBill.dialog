@@ -68,7 +68,7 @@
           "$designer": {
             "id": "TC7sVn"
           },
-          "condition": "=bool(dialog.billInfo.exists)",
+          "condition": "=and(isBoolean(dialog.billInfo.exists), bool(dialog.billInfo.exists))",
           "elseActions": [
             {
               "$kind": "Microsoft.SendActivity",
@@ -84,7 +84,7 @@
               "$designer": {
                 "id": "D39Pfh"
               },
-              "condition": "=bool(dialog.billInfo.isPaid)",
+              "condition": "=and(isBoolean(dialog.billInfo.isPaid), bool(dialog.billInfo.isPaid))",
               "actions": [
                 {
                   "$kind": "Microsoft.SendActivity",

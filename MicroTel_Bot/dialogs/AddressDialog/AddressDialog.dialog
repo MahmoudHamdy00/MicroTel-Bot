@@ -31,7 +31,7 @@
               "activityProcessed": true,
               "dialog": "StreetNumberDialog",
               "options": {
-                "streetNumber": "=dialog.address.streetNumber[0]"
+                "streetNumber": "=dialog.address.streetNumber"
               },
               "resultProperty": "dialog.address.streetNumber"
             },
@@ -43,7 +43,7 @@
               "activityProcessed": true,
               "dialog": "StreetNameDialog",
               "options": {
-                "streetName": "=dialog.address.streetName[0]"
+                "streetName": "=dialog.address.streetName"
               },
               "resultProperty": "dialog.address.streetName"
             },
@@ -55,7 +55,7 @@
               "activityProcessed": true,
               "dialog": "CityDialog",
               "options": {
-                "city": "=dialog.address.city[0].location"
+                "city": "=dialog.address.city"
               },
               "resultProperty": "dialog.address.city"
             },
@@ -67,7 +67,7 @@
               "activityProcessed": true,
               "dialog": "CountryDialog",
               "options": {
-                "country": "=dialog.address.country[0].location"
+                "country": "=dialog.address.country"
               },
               "resultProperty": "dialog.address.country"
             }

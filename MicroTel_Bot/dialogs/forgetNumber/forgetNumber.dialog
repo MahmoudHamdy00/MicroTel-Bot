@@ -72,7 +72,8 @@
           "$designer": {
             "id": "15bBuP"
           },
-          "activity": "${SendActivity_15bBuP()}"
+          "activity": "${SendActivity_15bBuP()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",

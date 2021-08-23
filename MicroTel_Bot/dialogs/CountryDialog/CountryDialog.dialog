@@ -19,6 +19,23 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
+            "id": "WURWQy"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "gYlVQ2"
+              },
+              "value": "=first(dialog.country).location",
+              "property": "dialog.country"
+            }
+          ],
+          "condition": "=isArray(dialog.country)"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
             "id": "ReFb68"
           },
           "condition": "=exists(dialog.country) ",

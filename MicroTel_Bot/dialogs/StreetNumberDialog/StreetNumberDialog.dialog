@@ -19,6 +19,23 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
+            "id": "4qREna"
+          },
+          "condition": "=isArray(dialog.streetNumber)",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "KRakJB"
+              },
+              "value": "=first(dialog.streetNumber)",
+              "property": "dialog.streetNumber"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
             "id": "qXG8Mo"
           },
           "condition": "=exists(dialog.streetNumber) ",

@@ -17,12 +17,21 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SetProperty",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "4PLUix"
+            "id": "Aes6XH"
           },
-          "property": "user.address",
-          "value": "=dialog.data.address[0]"
+          "condition": "=exists(dialog.data.address[0])",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "ogzOAH"
+              },
+              "property": "user.address",
+              "value": "=dialog.data.address[0]"
+            }
+          ]
         }
       ]
     }

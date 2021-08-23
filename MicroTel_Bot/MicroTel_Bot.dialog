@@ -196,11 +196,12 @@
       "intent": "PayBill",
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "DBU8js"
+            "id": "ZoHENY"
           },
-          "activity": "${SendActivity_DBU8js()}"
+          "activityProcessed": true,
+          "dialog": "PayBill"
         }
       ]
     }

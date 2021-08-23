@@ -19,24 +19,33 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "pam26K"
+            "id": "DjaWVO"
           },
           "condition": "=exists(@phoneNumber)",
           "elseActions": [
             {
-              "$kind": "Microsoft.SetProperty",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "XAucP2"
+                "id": "7XeaQA"
               },
-              "property": "user.line.number",
-              "value": "=dialog.data.phoneNumber[0]"
+              "condition": "=exists(dialog.data.phoneNumber[0])",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "4oKsU6"
+                  },
+                  "property": "user.line.number",
+                  "value": "=dialog.data.phoneNumber[0]"
+                }
+              ]
             }
           ],
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "U9pN09"
+                "id": "jekmpu"
               },
               "property": "user.line.number",
               "value": "=@phoneNumber"

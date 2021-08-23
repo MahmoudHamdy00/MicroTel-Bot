@@ -76,18 +76,17 @@ public class AddUser : Dialog
         //SqlConnection conn = new SqlConnection("Data Source=MININT-5B89IPO\\SQLEXPRESs;Initial Catalog=microDBB;Integrated Security=True");
 
         SqlConnection conn = new SqlConnection(connectionString);
-        string result = "Failed";//initialize with failed and then change it if it success
+        bool userAdded = false; //initialize with failed and then change it if it success
         try
         {
             conn.Open();
             bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
-            // if it's not vaild then it will contain the user's number
+            // if national id already register, don't add register a new user
             if (nationalId_exist)
             {
-               // set result to 
-                result = "User exists";
-                Console.WriteLine(result + " " + nationalId_exist);
-                throw new Exception(result);
+                userAdded = false;
+                Console.WriteLine(nationalId_exist + " is already registered.");
+                throw new Exception("User with the same national id is already registered");
             }
             Console.WriteLine(nationalId_exist);
             
@@ -95,11 +94,10 @@ public class AddUser : Dialog
             tier_details tierDetails = get_tier_details(_tier, conn);
             if (!tierDetails.valid)
             {
-                result = $"error in get_tier_details, tier is {_tier}";
-                Console.WriteLine(result);
-                throw new Exception(result);
+                userAdded = false;
+                Console.WriteLine("Invalid tier");
+                throw new Exception("Invalid tier");
             }
-            Console.WriteLine("after get_tier_details" );
 
             // Create a qouta for the new user
             string quotaID = insert_quota(tierDetails, conn);
@@ -113,17 +111,15 @@ public class AddUser : Dialog
             var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
 
             // Insert the new user's details 
-            var insert_user_result = insert_user(user_Details, conn);
-            Console.WriteLine("insert_user_result " + insert_user_result);
+            userAdded = insert_user(user_Details, conn);
 
             if (this.number != null)
             {
                 dc.State.SetValue(this.number.GetValue(dc.State), user_Details.phoneNumber);
             }
-            result = "User Added Successfully";
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State), result);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State), userAdded);
             }
         }
         catch (Exception ex)
@@ -137,6 +133,6 @@ public class AddUser : Dialog
         {
             conn.Close();
         }
-        return dc.EndDialogAsync(result: result, cancellationToken: cancellationToken);
+        return dc.EndDialogAsync(result: userAdded, cancellationToken: cancellationToken);
     }
 }

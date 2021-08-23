@@ -1,0 +1,22 @@
+[import](common.lg)
+
+# SendActivity_lO296J_text()
+- Your bill was paid  successfully, 
+# SendActivity_lO296J()
+[Activity
+    Text = ${SendActivity_lO296J_text()}
+]
+
+# SendActivity_qzGDg6_text()
+- Unsuccessful payment. Please try again!
+# SendActivity_qzGDg6()
+[Activity
+    Text = ${SendActivity_qzGDg6_text()}
+]
+
+# SendActivity_rmxJA0_text()
+- Alright, lets update your credit card number.
+# SendActivity_rmxJA0()
+[Activity
+    Text = ${SendActivity_rmxJA0_text()}
+]

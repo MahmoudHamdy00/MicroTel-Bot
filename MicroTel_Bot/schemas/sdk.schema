@@ -17,6 +17,9 @@
       "$ref": "#/definitions/ExtendPackage"
     },
     {
+      "$ref": "#/definitions/GetBillInfo"
+    },
+    {
       "$ref": "#/definitions/GetUserInfo"
     },
     {
@@ -356,6 +359,9 @@
       "$ref": "#/definitions/Microsoft.UrlEntityRecognizer"
     },
     {
+      "$ref": "#/definitions/PayBill"
+    },
+    {
       "$ref": "#/definitions/UpdateTier"
     },
     {
@@ -676,6 +682,46 @@
           "type": "string",
           "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
           "const": "ExtendPackage"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
+    },
+    "GetBillInfo": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will return all bill info for a giving phone number.",
+      "title": "Get Bill Info",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "lineNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "Returned object with bill info."
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "GetBillInfo"
         },
         "$designer": {
           "title": "Designer information",
@@ -4220,6 +4266,9 @@
           "$ref": "#/definitions/ExtendPackage"
         },
         {
+          "$ref": "#/definitions/GetBillInfo"
+        },
+        {
           "$ref": "#/definitions/GetUserInfo"
         },
         {
@@ -4365,6 +4414,9 @@
         },
         {
           "$ref": "#/definitions/Microsoft.UpdateActivity"
+        },
+        {
+          "$ref": "#/definitions/PayBill"
         },
         {
           "$ref": "#/definitions/UpdateTier"
@@ -9758,6 +9810,51 @@
           "$ref": "#/definitions/equalsExpression"
         }
       ]
+    },
+    "PayBill": {
+      "$role": "implements(Microsoft.IDialog)",
+      "description": "This will pay the user bill and return bool to indicate the state of the payment.",
+      "title": "Make Payment",
+      "type": "object",
+      "required": [
+        "$kind"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$": {
+          "title": "Tooling property",
+          "description": "Open ended property for tooling."
+        }
+      },
+      "properties": {
+        "lineNumber": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Phone Number",
+          "description": "Phone Number for the user"
+        },
+        "creditCard": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Credit Card",
+          "description": "Credit Card used for payment"
+        },
+        "resultProperty": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Result",
+          "description": "Returned object with bill info."
+        },
+        "$kind": {
+          "title": "Kind of dialog object",
+          "description": "Defines the valid properties for the component you are configuring (from a dialog .schema file)",
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.]*$",
+          "const": "PayBill"
+        },
+        "$designer": {
+          "title": "Designer information",
+          "type": "object",
+          "description": "Extra information for the Bot Framework Composer."
+        }
+      }
     },
     "role": {
       "title": "$role",

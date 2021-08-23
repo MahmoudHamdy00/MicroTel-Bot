@@ -1,0 +1,131 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "jikuvb",
+    "name": "PayBill",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "4VElY1"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "5wGZ3U"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractPhoneNumber",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "0AdcVl"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractNationalID",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "visuzz",
+            "comment": ""
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractCreditCardNumber"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ZG4n1j"
+          },
+          "activityProcessed": true,
+          "dialog": "AuthenticateUser"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "1XGxMx"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyCreditCardNumber",
+          "options": {
+            "creditCard": "=user.creditCard"
+          },
+          "resultProperty": "user.creditCard"
+        },
+        {
+          "$kind": "GetBillInfo",
+          "$designer": {
+            "id": "yVyoNX"
+          },
+          "lineNumber": "=user.line.number",
+          "resultProperty": "dialog.billInfo"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "TC7sVn"
+          },
+          "condition": "=bool(dialog.billInfo.exists)",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "xhK5h7"
+              },
+              "activity": "${SendActivity_xhK5h7()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "D39Pfh"
+              },
+              "condition": "=bool(dialog.billInfo.isPaid)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "uRYwqj"
+                  },
+                  "activity": "${SendActivity_uRYwqj()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "FWQyW6"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "PayBillConfirmation",
+                  "options": {
+                    "billInfo": "=dialog.billInfo"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "PayBill.lg",
+  "recognizer": "PayBill.lu.qna",
+  "id": "PayBill"
+}

@@ -1,0 +1,142 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "iEY2uS",
+    "name": "PayBillConfirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "yv2E5f"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "wZTk72"
+          },
+          "activityProcessed": true,
+          "dialog": "Confirm",
+          "options": {
+            "message": "Confirm paying ${dialog.billInfo.amount} USD for your line number ${user.line.number} with your credit card number ${user.creditCard}?"
+          },
+          "resultProperty": "user.confirm"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "tgbbpI"
+          },
+          "condition": "user.confirm",
+          "default": [],
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "PayBill",
+                  "$designer": {
+                    "id": "W10Rq7"
+                  },
+                  "lineNumber": "=user.line.number",
+                  "creditCard": "=user.creditCard",
+                  "resultProperty": "dialog.result"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "vphjPu"
+                  },
+                  "condition": "=bool(dialog.result)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "lO296J"
+                      },
+                      "activity": "${SendActivity_lO296J()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "qzGDg6",
+                        "comment": "For the future, things like verifying credit card has enough money can be mebeded."
+                      },
+                      "activity": "${SendActivity_qzGDg6()}"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "DZ9biJ"
+                      },
+                      "activityProcessed": true,
+                      "options": {
+                        "billInfo": "=dialog.billInfo"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "Modify My Data",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "rmxJA0"
+                  },
+                  "activity": "${SendActivity_rmxJA0()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "5gXQtF"
+                  },
+                  "activityProcessed": true,
+                  "resultProperty": "user.creditCard",
+                  "options": {},
+                  "dialog": "VerifyCreditCardNumber"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "QSGg11"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "billInfo": "=dialog.billInfo"
+                  }
+                }
+              ]
+            },
+            {
+              "value": "Cancel",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "VIQFrZ"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "PayBillConfirmation.lg",
+  "recognizer": "PayBillConfirmation.lu.qna",
+  "id": "PayBillConfirmation"
+}

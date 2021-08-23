@@ -1,1 +1,9 @@
 [import](common.lg)
+
+# SendActivity_zQblnv()
+[Activity
+    Text = ${SendActivity_zQblnv_text()}
+]
+
+# SendActivity_zQblnv_text()
+- -- ${exists(dialog.data.nationalID[0])}

@@ -1,0 +1,15 @@
+[import](common.lg)
+
+# TextInput_Prompt_ALtfTo_text()
+- May I get your credit card number?
+# TextInput_Prompt_ALtfTo()
+[Activity
+    Text = ${TextInput_Prompt_ALtfTo_text()}
+]
+
+# TextInput_InvalidPrompt_ALtfTo_text()
+- Invalid card number. Would you please insert a valid credit card number?
+# TextInput_InvalidPrompt_ALtfTo()
+[Activity
+    Text = ${TextInput_InvalidPrompt_ALtfTo_text()}
+]

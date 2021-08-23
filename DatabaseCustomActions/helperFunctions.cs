@@ -47,7 +47,7 @@ namespace DatabaseCustomActions
             public int times { get; set; }// to store how many package to subscrib in when extend package
         }
         public struct user_details
-        {
+          {
             public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
             {
                 this.exists = exists;
@@ -73,6 +73,26 @@ namespace DatabaseCustomActions
             public string country { get; set; }
             public string phoneNumber { get; set; }
             public string tierName { get; set; }
+        }
+
+        public struct bill_details
+        {
+            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
+            {
+                this.exists = exists;
+                this.id = id;
+                this.dueDate = dueDate;
+                this.amount = amount;
+                this.phoneNumber = phoneNumber;
+                this.isPaid = isPaid;
+            }
+            public bool exists { get; set; }
+            public string id { get; set; }
+            public DateTime dueDate { get; set; }
+            public double amount { get; set; }
+            public string phoneNumber { get; set; }
+            public bool isPaid { get; set; }
+
         }
         public static int getPhoneNumber()
         {
@@ -143,6 +163,25 @@ namespace DatabaseCustomActions
             }
             return false;
         }
+        public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
+        {
+
+            SqlCommand cmd = new SqlCommand($"SELECT  TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
+
+            var reader = cmd.ExecuteReader();
+
+            bill_details _Details;
+            if (reader.Read())
+            {
+                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToBoolean(reader["isPaid"]));
+            }
+            else
+                _Details = new bill_details(false);
+
+            reader.Dispose();
+            return _Details;
+        }
+
         public static List<package_details> getAvailablePackages(SqlConnection conn)
         {
             List<package_details> availablePackages = new List<package_details>();
@@ -271,24 +310,24 @@ namespace DatabaseCustomActions
             string quotaID = cmd.ExecuteScalar().ToString();
             return quotaID;
         }
-        public static int insert_bill(string tierID, double price, string phoneNumber, SqlConnection conn)
-        {
-            DateTime _dueDate = DateTime.Now.AddDays(30);
-            SqlCommand cmd = new SqlCommand($"insert into bill (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
-            var affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
-        }
         public static int insert_line(string _phoneNumber, string tierId, string quotaID, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"insert into line values('{_phoneNumber}','{tierId}','{quotaID}');", conn);
             var affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static int insert_user(user_details user_Details, SqlConnection conn)
+        public static int insert_bill(string tierID, double price, string phoneNumber, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"insert into [user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber)  values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
+            DateTime _dueDate = DateTime.Now.AddDays(30);
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[bill] (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
+            var affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
+        }
+        public static bool insert_user(user_details user_Details, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber) values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, int price, SqlConnection conn)
         {
@@ -300,6 +339,14 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
+        public static string insert_payment(double amount, string credit_card, SqlConnection conn)
+        {
+            DateTime _date = DateTime.Now;
+            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ('{_date}', '{amount}', '{credit_card}');", conn);
+            string payment_id = cmd.ExecuteScalar().ToString();
+            Console.WriteLine(payment_id);
+            return payment_id;
+        }
         // to update the bill's price to anew one(when extend package is occured)
         public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
         {
@@ -309,6 +356,12 @@ namespace DatabaseCustomActions
             int currentPrice = Convert.ToInt32(res);
 
             cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
+        }
+        public static bool update_bill_to_paid(string bill_id, string payment_id, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID='{payment_id}' WHERE [bill].id='{bill_id}';", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }

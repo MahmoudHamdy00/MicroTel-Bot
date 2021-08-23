@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# SendActivity_xhK5h7()
+[Activity
+    Text = ${SendActivity_xhK5h7_text()}
+]
+
+# SendActivity_xhK5h7_text()
+- Hmmm, I am not able to get your bill now. please try again!
+# SendActivity_uRYwqj()
+[Activity
+    Text = ${SendActivity_uRYwqj_text()}
+]
+
+# SendActivity_uRYwqj_text()
+- Your bill is already paid for the current month. 

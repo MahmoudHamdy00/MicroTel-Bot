@@ -19,22 +19,45 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "ULDKdU"
-          },
-          "activityProcessed": true,
-          "dialog": "ExtractTier",
-          "options": {}
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "xrtP8d"
+            "id": "X151fp"
           },
           "activityProcessed": true,
           "dialog": "ExtractAction",
           "options": {
             "data": "=@userInfo"
           }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "WYA2sl"
+          },
+          "condition": "=user.action == \"signup\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.DeleteProperties",
+              "$designer": {
+                "id": "VW6IEB",
+                "comment": "Used for signing up to multiple lines in the same session.\nNote:\n- Your name will still be used for all of your lines.\n- Your credit card won't be deleted."
+              },
+              "properties": [
+                "user.address",
+                "user.birthdate",
+                "user.nationalID",
+                "user.line.tier",
+                "user.line.number"
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ULDKdU"
+          },
+          "activityProcessed": true,
+          "dialog": "ExtractTier",
+          "options": {}
         },
         {
           "$kind": "Microsoft.BeginDialog",

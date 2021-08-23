@@ -20,4 +20,4 @@
 ]
 
 # SendActivity_0gnA2B_text()
-- Alright, your bill for the current month costs ${dialog.billInfo.amount} USD. I will need a credit card with a sufficient balance to complete your payment.  
+- Alright, your bill for the current month costs ${dialog.billInfo.amount} USD.

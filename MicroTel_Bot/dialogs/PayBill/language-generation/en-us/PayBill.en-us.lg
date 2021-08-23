@@ -14,3 +14,10 @@
 
 # SendActivity_uRYwqj_text()
 - Your bill is already paid for the current month. 
+# SendActivity_0gnA2B()
+[Activity
+    Text = ${SendActivity_0gnA2B_text()}
+]
+
+# SendActivity_0gnA2B_text()
+- Alright, your bill for the current month costs ${dialog.billInfo.amount} USD. I will need a credit card with a sufficient balance to complete your payment.  

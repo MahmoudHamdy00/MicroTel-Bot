@@ -56,18 +56,6 @@
           "dialog": "AuthenticateUser"
         },
         {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "1XGxMx"
-          },
-          "activityProcessed": true,
-          "dialog": "VerifyCreditCardNumber",
-          "options": {
-            "creditCard": "=user.creditCard"
-          },
-          "resultProperty": "user.creditCard"
-        },
-        {
           "$kind": "GetBillInfo",
           "$designer": {
             "id": "yVyoNX"
@@ -107,6 +95,25 @@
                 }
               ],
               "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "0gnA2B"
+                  },
+                  "activity": "${SendActivity_0gnA2B()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ELgJEk"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "VerifyCreditCardNumber",
+                  "options": {
+                    "creditCard": "=user.creditCard"
+                  },
+                  "resultProperty": "user.creditCard"
+                },
                 {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {

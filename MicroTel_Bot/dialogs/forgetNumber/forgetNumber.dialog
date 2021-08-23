@@ -148,6 +148,14 @@
           "dialog": "CompareAddress"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "c0rbOK"
+          },
+          "property": "user.line.number",
+          "value": "=user.info.phoneNumber"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "n8rY9c"

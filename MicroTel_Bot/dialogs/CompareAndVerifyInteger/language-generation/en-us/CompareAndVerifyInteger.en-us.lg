@@ -1,0 +1,10 @@
+[import](common.lg)
+
+
+# SendActivity_QfKi3p()
+[Activity
+    Text = ${SendActivity_QfKi3p_text()}
+]
+
+# SendActivity_QfKi3p_text()
+- deleted dialoooooooog

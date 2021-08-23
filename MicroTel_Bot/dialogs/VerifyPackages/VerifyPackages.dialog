@@ -24,182 +24,116 @@
           "condition": "=or(and( exists(dialog.extraFullPackage ),dialog.extraFullPackage !=\"\")  ,and( exists(dialog.singlePackageInfo),dialog.singlePackageInfo!=\"\") )",
           "elseActions": [
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "kL3IlI"
+              },
+              "activity": "${SendActivity_kL3IlI()}"
+            },
+            {
               "$kind": "Microsoft.ChoiceInput",
               "$designer": {
-                "id": "saabhT"
+                "id": "Es7SXx"
               },
               "defaultLocale": "en-us",
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
               "allowInterruptions": false,
-              "prompt": "${ChoiceInput_Prompt_saabhT()}",
-              "unrecognizedPrompt": "",
-              "invalidPrompt": "",
+              "prompt": "${ChoiceInput_Prompt_Es7SXx()}",
               "choiceOptions": {
                 "includeNumbers": true,
                 "inlineOrMore": ", or ",
                 "inlineOr": " or ",
                 "inlineSeparator": ", "
               },
-              "choices": [
-                "All packages (Minutes ,SMS ans Megabytes)",
-                "Single package"
-              ],
-              "property": "user.extendPackageInfo",
-              "style": "heroCard",
               "recognizerOptions": {
                 "recognizeOrdinals": true,
                 "recognizeNumbers": true
               },
-              "validations": []
-            },
-            {
-              "$kind": "Microsoft.SwitchCondition",
-              "$designer": {
-                "id": "Obcrfv"
-              },
-              "condition": "user.extendPackageInfo",
-              "cases": [
+              "style": "heroCard",
+              "validations": [],
+              "property": "user.extendPackage",
+              "choices": [
                 {
-                  "value": "Single package",
-                  "actions": [
-                    {
-                      "$kind": "Microsoft.ChoiceInput",
-                      "$designer": {
-                        "id": "x5RNqi"
-                      },
-                      "defaultLocale": "en-us",
-                      "disabled": false,
-                      "maxTurnCount": 3,
-                      "alwaysPrompt": false,
-                      "allowInterruptions": false,
-                      "prompt": "${ChoiceInput_Prompt_x5RNqi()}",
-                      "choiceOptions": {
-                        "includeNumbers": true,
-                        "inlineOrMore": ", or ",
-                        "inlineOr": " or ",
-                        "inlineSeparator": ", "
-                      },
-                      "recognizerOptions": {
-                        "recognizeOrdinals": true,
-                        "recognizeNumbers": true
-                      },
-                      "style": "heroCard",
-                      "validations": [],
-                      "property": "user.extendPackage",
-                      "choices": [
-                        {
-                          "value": "Megabytes",
-                          "synonyms": [
-                            "mega byte,mega,MB,mega-byte,megabytes,giga byte,giga-byte,giga,GB,gigabytes"
-                          ]
-                        },
-                        {
-                          "value": "Minutes",
-                          "synonyms": [
-                            "min,mins,minute"
-                          ]
-                        },
-                        {
-                          "value": "Text Messages",
-                          "synonyms": [
-                            "sms,text messages,message"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "$kind": "Microsoft.SendActivity",
-                      "$designer": {
-                        "id": "uYh551"
-                      },
-                      "activity": "${SendActivity_uYh551()}",
-                      "disabled": true
-                    },
-                    {
-                      "$kind": "Microsoft.IfCondition",
-                      "$designer": {
-                        "id": "HS6F5u"
-                      },
-                      "actions": [
-                        {
-                          "$kind": "Microsoft.SetProperty",
-                          "$designer": {
-                            "id": "jFuD0E"
-                          },
-                          "property": "user.extendPackage",
-                          "value": "=@@singlePackageInfo"
-                        },
-                        {
-                          "$kind": "Microsoft.SendActivity",
-                          "$designer": {
-                            "id": "1pPJWC"
-                          },
-                          "activity": "${SendActivity_1pPJWC()}",
-                          "disabled": true
-                        }
-                      ],
-                      "elseActions": [],
-                      "condition": "=exists(@@singlePackageInfo)"
-                    },
-                    {
-                      "$kind": "Microsoft.SendActivity",
-                      "$designer": {
-                        "id": "dPJZRr"
-                      },
-                      "activity": "${SendActivity_dPJZRr()}",
-                      "disabled": true
-                    }
+                  "value": "Plus Package"
+                },
+                {
+                  "value": "Premium Plus Package"
+                },
+                {
+                  "value": "Megabytes 1",
+                  "synonyms": [
+                    "mega byte,mega,MB,mega-byte,megabytes,giga byte,giga-byte,giga,GB,gigabytes"
                   ]
                 },
                 {
-                  "value": "All packages (Minutes ,SMS ans Megabytes)",
-                  "actions": [
-                    {
-                      "$kind": "Microsoft.ChoiceInput",
-                      "$designer": {
-                        "id": "5ySRzu"
-                      },
-                      "defaultLocale": "en-us",
-                      "disabled": false,
-                      "maxTurnCount": 3,
-                      "alwaysPrompt": false,
-                      "allowInterruptions": false,
-                      "unrecognizedPrompt": "",
-                      "defaultValueResponse": "",
-                      "prompt": "${ChoiceInput_Prompt_5ySRzu()}",
-                      "choiceOptions": {
-                        "includeNumbers": true,
-                        "inlineOrMore": ", or ",
-                        "inlineOr": " or ",
-                        "inlineSeparator": ", "
-                      },
-                      "property": "user.extraFullPackage ",
-                      "choices": [
-                        "Plus Package",
-                        "Premium Plus Package"
-                      ],
-                      "style": "heroCard",
-                      "recognizerOptions": {
-                        "recognizeOrdinals": true
-                      },
-                      "invalidPrompt": "${ChoiceInput_InvalidPrompt_5ySRzu()}",
-                      "validations": [
-                        "exists(@extraFullPackage)"
-                      ]
-                    },
-                    {
-                      "$kind": "Microsoft.SetProperty",
-                      "$designer": {
-                        "id": "HSsRqQ"
-                      },
-                      "property": "user.extendPackage",
-                      "value": "=@extraFullPackage"
-                    }
+                  "value": "Megabytes 5"
+                },
+                {
+                  "value": "Megabytes 10"
+                },
+                {
+                  "value": "Minutes 5",
+                  "synonyms": [
+                    "min,mins,minute"
                   ]
+                },
+                {
+                  "value": "Minutes 15"
+                },
+                {
+                  "value": "Minutes 25"
+                },
+                {
+                  "value": "Text Messages 1",
+                  "synonyms": [
+                    "sms,text messages,message"
+                  ]
+                },
+                {
+                  "value": "Text Messages 5"
+                },
+                {
+                  "value": "Text Messages 10"
                 }
               ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "zWhLWt"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "M2KPbK"
+                  },
+                  "property": "user.extendPackage",
+                  "value": "=@@singlePackageInfo"
+                }
+              ],
+              "elseActions": [],
+              "condition": "=exists(@@singlePackageInfo)"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "xxQWq4"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "EhkXkL"
+                  },
+                  "property": "user.extendPackage",
+                  "value": "=@extraFullPackage "
+                }
+              ],
+              "elseActions": [],
+              "condition": "=exists(@extraFullPackage )"
             }
           ],
           "actions": [
@@ -242,11 +176,20 @@
           "messages": "user.extendPackageDetails.messages",
           "megabytes": "user.extendPackageDetails.megabytes",
           "price": "user.extendPackageDetails.price",
-          "packages": "user.extendPackageDetails.packages",
+          "packages": "user.extendPackages",
           "error": "user.extendPackageDetails.error",
-          "packagesDetails": "user.extendPackageDetails.confirmationMessage",
           "resultProperty": "user.extendPackageDetails.result",
-          "exactPackage": "user.extendPackageDetails.exactPackage"
+          "exactPackage": "user.extendPackageDetails.exactPackage",
+          "packagesDetails": "user.extendPackageDetails",
+          "message": "user.extendPackageDetails.confirmationMessage"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "R5oF1K"
+          },
+          "activity": "${SendActivity_R5oF1K()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.IfCondition",
@@ -257,11 +200,29 @@
           "actions": [],
           "elseActions": [
             {
-              "$kind": "Microsoft.SendActivity",
+              "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "ZlRNY3"
+                "id": "Vb1CLg"
               },
-              "activity": "${SendActivity_ZlRNY3()}"
+              "condition": "=user.extendPackageDetails.error==\"Sorry there is no packeges as you required\"",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "t3xOJk"
+                  },
+                  "activity": "${SendActivity_t3xOJk()}"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "jXfGKU"
+                  },
+                  "activity": "${SendActivity_jXfGKU()}"
+                }
+              ]
             },
             {
               "$kind": "Microsoft.DeleteProperties",
@@ -274,7 +235,8 @@
                 "user.extendPackage",
                 "user.extraFullPackage ",
                 "user.singlePackageInfo",
-                "user.extendPackageInfo"
+                "user.extendPackageInfo",
+                "user.extendPackages"
               ]
             },
             {

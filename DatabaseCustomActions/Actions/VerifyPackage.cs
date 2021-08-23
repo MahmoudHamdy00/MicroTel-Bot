@@ -26,28 +26,16 @@ public class VerifyPackage : Dialog
     [JsonProperty("packageName")]
     public ValueExpression PackageName { get; set; }
 
-    [JsonProperty("minutes")]
-    public ValueExpression Minutes { get; set; }
-
-    [JsonProperty("messages")]
-    public ValueExpression Messages { get; set; }
-
-    [JsonProperty("megabytes")]
-    public ValueExpression Megabytes { get; set; }
-
-
-    [JsonProperty("price")]
-    public ValueExpression Price { get; set; }
 
     [JsonProperty("packages")]
     public ValueExpression Packages { get; set; }
 
 
-    [JsonProperty("exactPackage")]
-    public ValueExpression ExactPackage { get; set; }
-
     [JsonProperty("packagesDetails")]
     public ValueExpression PackagesDeatails { get; set; }
+
+    [JsonProperty("message")]
+    public ValueExpression Message { get; set; }
 
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
@@ -68,7 +56,6 @@ public class VerifyPackage : Dialog
             conn.Open();
             Newtonsoft.Json.Linq.JArray packageNames;
             package_details package_Details = new package_details();
-            bool _exactPackage = false;
             string confirmationMessage = "";
             if (data.GetType().ToString() == "Newtonsoft.Json.Linq.JArray")
             {
@@ -83,17 +70,56 @@ public class VerifyPackage : Dialog
                     else if (cur["unit"][0][0].ToString() == "messages") package_Details.messages += Convert.ToInt32(cur["amount"][0]);
                 }
                 //     List<package_details> selectedPackages = mainGetBestPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, conn);
+                bool found = false;
+                Dictionary<string, List<int>> map = new Dictionary<string, List<int>>();
+                List<package_details> selectedPackages = getPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, ref found, ref map, conn);
+                if (!found)
+                {
+                    string packages = "There is only these packages" + Environment.NewLine;
+                    if (package_Details.minutes > 0)
+                    {
+                        packages += "packages that gives you ";
+                        foreach (int cur in map["Minutes"])
+                        {
+                            packages += cur.ToString() + ",";
+                        }
+                        packages += "Minutes" + Environment.NewLine;
 
-                List<package_details> selectedPackages = getPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, ref _exactPackage, conn);
+                    }
+                    if (package_Details.megabytes > 0)
+                    {
+                        packages += "packages that gives you ";
+                        foreach (int cur in map["Megabytes"])
+                        {
+                            packages += cur.ToString() + ",";
+                        }
+                        packages += "Megabytes" + Environment.NewLine;
 
+                    }
+                    if (package_Details.messages > 0)
+                    {
+                        packages += "packages that gives you ";
+                        foreach (int cur in map["Text Messages"])
+                        {
+                            packages += cur.ToString() + ",";
+                        }
+                        packages += "Messages" + Environment.NewLine;
+
+                    }
+                    if (this.Packages != null)
+                    {
+                        dc.State.SetValue(this.Packages.GetValue(dc.State).ToString(), packages);
+                    }
+                    throw new Exception("Sorry there is no packeges as you required");
+                }
                 package_Details.minutes = package_Details.megabytes = package_Details.messages = 0;
                 int i = 0;
                 foreach (var package in selectedPackages)
                 {
-                    package_Details.minutes += package.minutes * package.times;
-                    package_Details.megabytes += package.megabytes * package.times;
-                    package_Details.messages += package.messages * package.times;
-                    package_Details.price += package.price * package.times;
+                    package_Details.minutes += package.minutes;
+                    package_Details.megabytes += package.megabytes;
+                    package_Details.messages += package.messages;
+                    package_Details.price += package.price;
 
                     //build confirmation message
                     if (selectedPackages.Count > 1) confirmationMessage += $"Package {++i} name : ";
@@ -104,8 +130,6 @@ public class VerifyPackage : Dialog
                     if (package.messages > 0) confirmationMessage += $"     {package.messages} Messages{Environment.NewLine}";
                     if (selectedPackages.Count > 1) confirmationMessage += "Single ";
                     confirmationMessage += $"Package Price is : {package.price}{Environment.NewLine}";
-                    if (package.times > 1)
-                        confirmationMessage += $"This package will be subscribed {package.times} times with total price {package.price * package.times}" + Environment.NewLine;
                     confirmationMessage += Environment.NewLine;
 
                 }
@@ -125,7 +149,6 @@ public class VerifyPackage : Dialog
                 package_Details.packageName = PackageName.GetValue(dc.State).ToString();
                 bool validPackage = get_package_details(ref package_Details, conn);
                 if (!validPackage) throw new Exception("Someting went wrong");
-                _exactPackage = true;
                 if (this.Packages != null)
                 {
                     dc.State.SetValue(this.Packages.GetValue(dc.State).ToString(), package_Details.packageName);
@@ -138,30 +161,16 @@ public class VerifyPackage : Dialog
                 confirmationMessage += $"Package Price is : {package_Details.price}{Environment.NewLine}";
 
             }
-            if (this.Minutes != null)
-            {
-                dc.State.SetValue(this.Minutes.GetValue(dc.State).ToString(), package_Details.minutes);
-            }
-            if (this.Messages != null)
-            {
-                dc.State.SetValue(this.Messages.GetValue(dc.State).ToString(), package_Details.messages);
-            }
-            if (this.Megabytes != null)
-            {
-                dc.State.SetValue(this.Megabytes.GetValue(dc.State).ToString(), package_Details.megabytes);
-            }
-            if (this.Price != null)
-            {
-                dc.State.SetValue(this.Price.GetValue(dc.State).ToString(), package_Details.price);
-            }
+
             if (this.PackagesDeatails != null)
             {
-                dc.State.SetValue(this.PackagesDeatails.GetValue(dc.State).ToString(), confirmationMessage);
+                dc.State.SetValue(this.PackagesDeatails.GetValue(dc.State).ToString(), package_Details);
             }
-            if (this.ExactPackage != null)
+            if (this.Message != null)
             {
-                dc.State.SetValue(this.ExactPackage.GetValue(dc.State).ToString(), _exactPackage);
+                dc.State.SetValue(this.Message.GetValue(dc.State).ToString(), confirmationMessage);
             }
+
             if (confirmationMessage.Length == 0) throw new Exception("There is no chosen packages");
             result = true;
         }

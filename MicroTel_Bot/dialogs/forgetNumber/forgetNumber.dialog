@@ -18,11 +18,141 @@
       },
       "actions": [
         {
+          "$kind": "AuthenticateNationalID",
+          "$designer": {
+            "id": "iVFQfB"
+          },
+          "natid": "=user.nationalID",
+          "resultProperty": "user.nationalIDExists"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "nJBTug"
+          },
+          "condition": "=user.nationalIDExists",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "t2W51R"
+              },
+              "activity": "${SendActivity_t2W51R()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "7zRQ3e",
+                "comment": ""
+              },
+              "activityProcessed": true,
+              "dialog": "verifyNationalId",
+              "resultProperty": "user.nationalID",
+              "options": {}
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "B6CyYl"
+              },
+              "activityProcessed": true
+            }
+          ]
+        },
+        {
+          "$kind": "GetUserInfo",
+          "$designer": {
+            "id": "bahRvi"
+          },
+          "natid": "=user.nationalID",
+          "resultProperty": "user.info"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "sFRzNZ"
+            "id": "15bBuP"
           },
-          "activity": "${SendActivity_sFRzNZ()}"
+          "activity": "${SendActivity_15bBuP()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "n4uj7o",
+            "comment": "Check: First Name"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyName",
+            "first": "=user.fname",
+            "second": "=user.info.firstName",
+            "message": "First Name",
+            "data": "string"
+          },
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.fname"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ZDL5IW",
+            "comment": "Check: Last Name"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyLastName",
+            "first": "=user.lname",
+            "second": "=user.info.lastName",
+            "message": "Last Name",
+            "data": "string"
+          },
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.lname"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "aFZEjN",
+            "comment": "Check: Birthdate"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyBirthdate",
+            "first": "=user.birthdate",
+            "second": "=user.info.birthdate"
+          },
+          "dialog": "CompareAndVerifyDate",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "R67si2",
+            "comment": "Check: Birthdate"
+          },
+          "activityProcessed": true,
+          "options": {
+            "name": "VerifyBirthdate",
+            "first": "=user.birthdate",
+            "second": "=user.info.birthdate",
+            "message": "Birthdate"
+          },
+          "dialog": "CompareAndVerify",
+          "resultProperty": "user.birthdate"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "yPPNsz"
+          },
+          "activityProcessed": true,
+          "dialog": "CompareAddress"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "n8rY9c"
+          },
+          "activity": "${SendActivity_n8rY9c()}"
         }
       ]
     }

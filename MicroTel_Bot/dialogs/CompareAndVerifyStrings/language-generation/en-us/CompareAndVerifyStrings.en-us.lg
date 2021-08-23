@@ -1,0 +1,10 @@
+[import](common.lg)
+
+
+# SendActivity_KBjcbR()
+[Activity
+    Text = ${SendActivity_KBjcbR_text()}
+]
+
+# SendActivity_KBjcbR_text()
+- deleted dialoooooooog

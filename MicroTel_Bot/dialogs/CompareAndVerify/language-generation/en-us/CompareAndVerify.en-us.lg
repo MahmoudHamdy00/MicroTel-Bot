@@ -1,0 +1,41 @@
+[import](common.lg)
+
+# SendActivity_a462gs_text()
+- ```${dialog.name} is good
+1. ${dialog.first}
+2. ${dialog.second}```
+# SendActivity_a462gs()
+[Activity
+    Text = ${SendActivity_a462gs_text()}
+]
+
+# SendActivity_zLGqEF_text()
+- ```${dialog.name}  is wrong
+1. ${dialog.first}
+2. ${dialog.second}
+Sorry, ${dialog.message} didn't match with your stored data```
+# SendActivity_zLGqEF()
+[Activity
+    Text = ${SendActivity_zLGqEF_text()}
+]
+
+
+# SendActivity_yMVKY9_text()
+- ```${dialog.name} is good
+1. ${dialog.first}
+2. ${dialog.second}```
+# SendActivity_yMVKY9()
+[Activity
+    Text = ${SendActivity_yMVKY9_text()}
+]
+
+# SendActivity_TIwd05_text()
+- ```${dialog.name}  is wrong
+1. ${dialog.first}
+2. ${dialog.second}
+Sorry, ${dialog.message} didn't match with your stored data```
+# SendActivity_TIwd05()
+[Activity
+    Text = ${SendActivity_TIwd05_text()}
+]
+

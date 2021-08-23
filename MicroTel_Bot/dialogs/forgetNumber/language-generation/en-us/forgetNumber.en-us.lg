@@ -1,9 +1,23 @@
 [import](common.lg)
 
-# SendActivity_sFRzNZ()
+# SendActivity_15bBuP()
 [Activity
-    Text = ${SendActivity_sFRzNZ_text()}
+    Text = ${SendActivity_15bBuP_text()}
 ]
 
-# SendActivity_sFRzNZ_text()
-- start DB connection and and return the user's number if it's exists
+# SendActivity_15bBuP_text()
+- all is ${user.info}
+# SendActivity_n8rY9c()
+[Activity
+    Text = ${SendActivity_n8rY9c_text()}
+]
+
+# SendActivity_n8rY9c_text()
+- Seems good, here is your number ${user.info.phoneNumber}
+# SendActivity_t2W51R()
+[Activity
+    Text = ${SendActivity_t2W51R_text()}
+]
+
+# SendActivity_t2W51R_text()
+- Your national id isn't registerd

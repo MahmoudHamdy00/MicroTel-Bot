@@ -1,0 +1,153 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "nTjO9J",
+    "name": "CompareAndVerify",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "xqERkp"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "qna4C6"
+          },
+          "condition": "=dialog.data==\"string\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "wwzuJf"
+              },
+              "condition": "=trim(toLower(dialog.first, \"en-US\"))==trim(toLower(dialog.second, \"en-US\"))",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "a462gs"
+                  },
+                  "activity": "${SendActivity_a462gs()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "g0ow8m"
+                  },
+                  "value": "=dialog.first"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "zLGqEF"
+                  },
+                  "activity": "${SendActivity_zLGqEF()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ThZtxB"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "=dialog.name",
+                  "options": {},
+                  "resultProperty": "dialog.first"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "n4m07Z"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "name": "=dialog.name",
+                    "first": "=dialog.first",
+                    "second": "=dialog.second"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "p6SnDT"
+          },
+          "condition": "=dialog.data==\"int\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "IKQp82"
+              },
+              "condition": "=int(dialog.first)==int(dialog.second)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "yMVKY9"
+                  },
+                  "activity": "${SendActivity_yMVKY9()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "XnDqej"
+                  },
+                  "value": "=dialog.first"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "TIwd05"
+                  },
+                  "activity": "${SendActivity_TIwd05()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "FzhSDN"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "=dialog.name",
+                  "options": {},
+                  "resultProperty": "dialog.first"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "rZ4iba"
+                  },
+                  "activityProcessed": true,
+                  "options": {
+                    "name": "=dialog.name",
+                    "first": "=dialog.first",
+                    "second": "=dialog.second"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "CompareAndVerify.lg",
+  "recognizer": "CompareAndVerify.lu.qna",
+  "id": "CompareAndVerify"
+}

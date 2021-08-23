@@ -14,17 +14,3 @@
 
 # SendActivity_uRYwqj_text()
 - Your bill is already paid for the current month. 
-# SendActivity_QIagsY_text()
-- - ${dialog.billInfo}
-# SendActivity_QIagsY()
-[Activity
-    Text = ${SendActivity_QIagsY_text()}
-]
-
-# SendActivity_HhG1rS()
-[Activity
-    Text = ${SendActivity_HhG1rS_text()}
-]
-
-# SendActivity_HhG1rS_text()
-- -- EVAL ${bool(dialog.billInfo.isPaid)}

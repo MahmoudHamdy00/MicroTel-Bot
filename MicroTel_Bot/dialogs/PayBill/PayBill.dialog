@@ -76,13 +76,6 @@
           "resultProperty": "dialog.billInfo"
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "QIagsY"
-          },
-          "activity": "${SendActivity_QIagsY()}"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "TC7sVn"
@@ -98,13 +91,6 @@
             }
           ],
           "actions": [
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "HhG1rS"
-              },
-              "activity": "${SendActivity_HhG1rS()}"
-            },
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {

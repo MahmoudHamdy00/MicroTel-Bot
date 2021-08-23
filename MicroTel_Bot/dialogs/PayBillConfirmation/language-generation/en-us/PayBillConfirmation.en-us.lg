@@ -15,7 +15,7 @@
 ]
 
 # SendActivity_rmxJA0_text()
-- Alright, waiting for your new credit card number.
+- Alright, lets update your credit card number.
 # SendActivity_rmxJA0()
 [Activity
     Text = ${SendActivity_rmxJA0_text()}

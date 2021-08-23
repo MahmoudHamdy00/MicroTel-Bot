@@ -310,8 +310,9 @@ namespace DatabaseCustomActions
         public static string insert_payment(double amount, string credit_card, SqlConnection conn)
         {
             DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"INSERT into [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ({_date}, {amount}, {credit_card});", conn);
+            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ('{_date}', '{amount}', '{credit_card}');", conn);
             string payment_id = cmd.ExecuteScalar().ToString();
+            Console.WriteLine(payment_id);
             return payment_id;
         }
         
@@ -329,7 +330,7 @@ namespace DatabaseCustomActions
         }
         public static bool update_bill_to_paid(string bill_id, string payment_id, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID={payment_id} WHERE [bill].id={bill_id};", conn);
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID='{payment_id}' WHERE [bill].id='{bill_id}';", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }

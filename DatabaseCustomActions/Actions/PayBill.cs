@@ -39,16 +39,17 @@ public class PayBill : Dialog
 
         SqlConnection conn = new SqlConnection(connectionString);
         bool isPaid = false;
+        string payment_id = "10";
         try
         {
             conn.Open();
             // Get bill detials assosiated to the given phone number 
             bill_details bill_info = get_latest_bill_details(phone_number, conn);
-
             // If bill was found successfully 
-            if (bill_info.exists) {
+            if (bill_info.exists == true)
+            {
                 // Intiate a new payment for bill 
-                string payment_id = insert_payment(bill_info.amount, credit_card, conn);
+                payment_id = insert_payment(bill_info.amount, credit_card, conn);
                 isPaid = update_bill_to_paid(bill_info.id, payment_id, conn);
             }
 

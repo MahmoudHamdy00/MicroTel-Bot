@@ -64,21 +64,77 @@
           "dialog": "VerifyCreditCardNumber",
           "options": {
             "creditCard": "=user.creditCard"
-          }
+          },
+          "resultProperty": "user.creditCard"
+        },
+        {
+          "$kind": "GetBillInfo",
+          "$designer": {
+            "id": "yVyoNX"
+          },
+          "lineNumber": "=user.line.number",
+          "resultProperty": "dialog.billInfo"
         },
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "rkv5qi"
+            "id": "QIagsY"
           },
-          "activity": "${SendActivity_rkv5qi()}"
+          "activity": "${SendActivity_QIagsY()}"
         },
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "5Swx1S"
+            "id": "TC7sVn"
           },
-          "activity": "${SendActivity_5Swx1S()}"
+          "condition": "=bool(dialog.billInfo.exists)",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "xhK5h7"
+              },
+              "activity": "${SendActivity_xhK5h7()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "HhG1rS"
+              },
+              "activity": "${SendActivity_HhG1rS()}"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "D39Pfh"
+              },
+              "condition": "=bool(dialog.billInfo.isPaid)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "uRYwqj"
+                  },
+                  "activity": "${SendActivity_uRYwqj()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "FWQyW6"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "PayBillConfirmation",
+                  "options": {
+                    "billInfo": "=dialog.billInfo"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }

@@ -77,17 +77,17 @@ namespace DatabaseCustomActions
 
         public struct bill_details
         {
-            public bill_details(bool exists = false, string billID = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
+            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
             {
                 this.exists = exists;
-                this.billID = billID;
+                this.id = id;
                 this.dueDate = dueDate;
                 this.amount = amount;
                 this.phoneNumber = phoneNumber;
                 this.isPaid = isPaid;
             }
             public bool exists { get; set; }
-            public string billID { get; set; }
+            public string id { get; set; }
             public DateTime dueDate { get; set; }
             public double amount { get; set; }
             public string phoneNumber { get; set; }
@@ -166,7 +166,7 @@ namespace DatabaseCustomActions
         public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
         {
 
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC LIMIT 1;", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -274,32 +274,32 @@ namespace DatabaseCustomActions
         public static string insert_quota(tier_details tierDetails, SqlConnection conn)
         {
             DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"insert into quota (remainingMinutes,remainingMessages,remainingMegabytes,date) OUTPUT INSERTED.id values('{tierDetails.minutes}','{tierDetails.SMS}','{tierDetails.megabytes}','{_date}');", conn);
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[quota] (remainingMinutes,remainingMessages,remainingMegabytes,date) OUTPUT INSERTED.id values('{tierDetails.minutes}','{tierDetails.SMS}','{tierDetails.megabytes}','{_date}');", conn);
             string quotaID = cmd.ExecuteScalar().ToString();
             return quotaID;
         }
         public static int insert_bill(string tierID, double price, string phoneNumber, SqlConnection conn)
         {
             DateTime _dueDate = DateTime.Now.AddDays(30);
-            SqlCommand cmd = new SqlCommand($"insert into bill (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[bill] (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
             var affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
         public static int insert_line(string _phoneNumber, string tierId, string quotaID, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"insert into line values('{_phoneNumber}','{tierId}','{quotaID}');", conn);
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[line] values('{_phoneNumber}','{tierId}','{quotaID}');", conn);
             var affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static int insert_user(user_details user_Details, SqlConnection conn)
+        public static bool insert_user(user_details user_Details, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"insert into [user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber)  values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
+            SqlCommand cmd = new SqlCommand($"insert into [dbo].[user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber) values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
             int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
+            return affected_rows == 1;
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, int times, int price, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
             string packageId = cmd.ExecuteScalar().ToString();
             DateTime _date = DateTime.Now;
             string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date,times,totalPrice) values ('{phoneNumber}','{packageId}','{_date}','{times}','{times * price}');";
@@ -307,6 +307,14 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
+        public static string insert_payment(double amount, string credit_card, SqlConnection conn)
+        {
+            DateTime _date = DateTime.Now;
+            SqlCommand cmd = new SqlCommand($"INSERT into [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ({_date}, {amount}, {credit_card});", conn);
+            string payment_id = cmd.ExecuteScalar().ToString();
+            return payment_id;
+        }
+        
         // to update the bill's price to anew one(when extend package is occured)
         public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
         {
@@ -315,7 +323,13 @@ namespace DatabaseCustomActions
             if (res == null) throw new Exception("There is no bill record for this user");
             int currentPrice = Convert.ToInt32(res);
 
-            cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            cmd = new SqlCommand($"UPDATE [bill] SET [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
+        }
+        public static bool update_bill_to_paid(string bill_id, string payment_id, SqlConnection conn)
+        {
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID={payment_id} WHERE [bill].id={bill_id};", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }

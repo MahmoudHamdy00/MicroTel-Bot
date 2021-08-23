@@ -28,7 +28,8 @@
               "$designer": {
                 "id": "zQblnv"
               },
-              "activity": "${SendActivity_zQblnv()}"
+              "activity": "${SendActivity_zQblnv()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.IfCondition",

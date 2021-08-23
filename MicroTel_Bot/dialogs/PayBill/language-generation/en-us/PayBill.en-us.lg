@@ -1,16 +1,30 @@
 [import](common.lg)
 
-# SendActivity_rkv5qi()
+# SendActivity_xhK5h7()
 [Activity
-    Text = ${SendActivity_rkv5qi_text()}
+    Text = ${SendActivity_xhK5h7_text()}
 ]
 
-# SendActivity_rkv5qi_text()
-- Get Bill infor from database and ask for confirmation
-# SendActivity_5Swx1S()
+# SendActivity_xhK5h7_text()
+- Hmmm, I am not able to get your bill now. please try again!
+# SendActivity_uRYwqj()
 [Activity
-    Text = ${SendActivity_5Swx1S_text()}
+    Text = ${SendActivity_uRYwqj_text()}
 ]
 
-# SendActivity_5Swx1S_text()
-- Save payment in db
+# SendActivity_uRYwqj_text()
+- Your bill is already paid for the current month. 
+# SendActivity_QIagsY_text()
+- - ${dialog.billInfo}
+# SendActivity_QIagsY()
+[Activity
+    Text = ${SendActivity_QIagsY_text()}
+]
+
+# SendActivity_HhG1rS()
+[Activity
+    Text = ${SendActivity_HhG1rS_text()}
+]
+
+# SendActivity_HhG1rS_text()
+- -- EVAL ${bool(dialog.billInfo.isPaid)}

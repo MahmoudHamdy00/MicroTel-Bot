@@ -111,14 +111,12 @@ public class AddUser : Dialog
             var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
 
             // Insert the new user's details 
-            var insert_user_result = insert_user(user_Details, conn);
-            Console.WriteLine("insert_user_result " + insert_user_result);
+            userAdded = insert_user(user_Details, conn);
 
             if (this.number != null)
             {
                 dc.State.SetValue(this.number.GetValue(dc.State), user_Details.phoneNumber);
             }
-            userAdded = true;
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State), userAdded);

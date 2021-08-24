@@ -92,7 +92,6 @@ namespace DatabaseCustomActions
             public double amount { get; set; }
             public string phoneNumber { get; set; }
             public bool isPaid { get; set; }
-
         }
         public static int getPhoneNumber()
         {

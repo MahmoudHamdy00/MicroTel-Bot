@@ -77,8 +77,8 @@ public class ExtendPackage : Dialog
                 minutes_to_increae = package_Details.megabytes;
             }
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
-            if (!Update_Bill(_phoneNumber, _totalPrice, conn)) throw new Exception("Error with Update_Bill method");
-            if (!Update_Quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
+            if (!update_bill_amount(_phoneNumber, _totalPrice, conn)) throw new Exception("Error with Update_Bill method");
+            if (!update_quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
             result = true;
 
         }

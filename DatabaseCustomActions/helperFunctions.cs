@@ -77,7 +77,7 @@ namespace DatabaseCustomActions
 
         public struct bill_details
         {
-            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
+            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", int isPaid = 0)
             {
                 this.exists = exists;
                 this.id = id;
@@ -91,7 +91,7 @@ namespace DatabaseCustomActions
             public DateTime dueDate { get; set; }
             public double amount { get; set; }
             public string phoneNumber { get; set; }
-            public bool isPaid { get; set; }
+            public int isPaid { get; set; }
         }
         public static int getPhoneNumber()
         {
@@ -172,7 +172,7 @@ namespace DatabaseCustomActions
             bill_details _Details;
             if (reader.Read())
             {
-                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToBoolean(reader["isPaid"]));
+                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToInt32(reader["isPaid"]));
             }
             else
                 _Details = new bill_details(false);
@@ -347,14 +347,20 @@ namespace DatabaseCustomActions
             return payment_id;
         }
         // to update the bill's price to anew one(when extend package is occured)
-        public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
+        public static bool update_bill_amount(string phoneNumber, int amount, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT TOP 1 [amount] FROM [bill] WHERE [phoneNumber]='{phoneNumber}' ORDER BY [dueDate] DESC;", conn);
-            var res = cmd.ExecuteScalar();
-            if (res == null) throw new Exception("There is no bill record for this user");
-            int currentPrice = Convert.ToInt32(res);
+            // Get user bill details for the current month 
+            bill_details bill_info = get_latest_bill_details(phoneNumber, conn);
+            if (!bill_info.exists) throw new Exception("There is no bill record for this user");
 
-            cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            // Update bill amount 
+            double total_amount = bill_info.amount + amount;
+
+            int is_paid = bill_info.isPaid;
+            // Update isPaid value to partially paid if marked as fully paid
+            if (is_paid == 2) is_paid = 1;
+
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {total_amount}, [bill].isPaid = {is_paid} WHERE id = {bill_info.id};", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }
@@ -364,7 +370,7 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }
-        public static bool Update_Quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
+        public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);
             var res = cmd.ExecuteScalar();

@@ -146,5 +146,4 @@ steps:
     qnaHostName: "${{ parameters.qnaHostName }}"
     qnaKnowledgebaseId: "${{ parameters.qnaKnowledgebaseId }}"
     qnaRegion: "${{ parameters.qnaRegion }}"
-
-- task: PublishBuildArtifacts@1
+    

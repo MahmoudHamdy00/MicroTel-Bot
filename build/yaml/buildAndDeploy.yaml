@@ -91,30 +91,30 @@ parameters:
   default: $(LUISENDPOINTKEY)
 
 # QnAMaker parameters
-# - name: qnaSubscriptionKey
-#   displayName: QnA Maker subscription key
-#   type: string
-#   default: $(QNASUBSCRIPTIONKEY)
+- name: qnaSubscriptionKey
+  displayName: QnA Maker subscription key
+  type: string
+  default: $(QNASUBSCRIPTIONKEY)
 
-# - name: qnaEndpointKey
-#   displayName: QnA Maker endpoint key
-#   type: string
-#   default: $(QNAENDPOINTKEY)
+- name: qnaEndpointKey
+  displayName: QnA Maker endpoint key
+  type: string
+  default: $(QNAENDPOINTKEY)
 
-# - name: qnaHostName
-#   displayName: QnA Maker host name
-#   type: string
-#   default: $(QNAHOSTNAME)
+- name: qnaHostName
+  displayName: QnA Maker host name
+  type: string
+  default: $(QNAHOSTNAME)
 
-# - name: qnaKnowledgebaseId
-#   displayName: QnA Maker knowledgebase ID
-#   type: string
-#   default: $(QNAKNOWLEDGEBASEID)
+- name: qnaKnowledgebaseId
+  displayName: QnA Maker knowledgebase ID
+  type: string
+  default: $(QNAKNOWLEDGEBASEID)
 
-# - name: qnaRegion
-#   displayName: QnA Maker region
-#   type: string
-#   default: "westus"
+- name: qnaRegion
+  displayName: QnA Maker region
+  type: string
+  default: "westus"
 
 steps:
 # Install prerequisites
@@ -127,7 +127,7 @@ steps:
     botName: "${{ parameters.botName }}"
     luisAuthoringKey: "${{ parameters.luisAuthoringKey }}"
     luisAuthoringRegion: "${{ parameters.luisAuthoringRegion }}"
-    # qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
+    qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
 
 # Deploy and configure web app
 - template: templates/buildAndDeployDotNetWebApp.yaml
@@ -141,8 +141,8 @@ steps:
     microsoftAppPassword: "${{ parameters.microsoftAppPassword }}"
     luisEndpoint: "${{ parameters.luisEndpoint }}"
     luisEndpointKey: "${{ parameters.luisEndpointKey }}"
-    # qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
-    # qnaEndpointKey: "${{ parameters.qnaEndpointKey }}"
-    # qnaHostName: "${{ parameters.qnaHostName }}"
-    # qnaKnowledgebaseId: "${{ parameters.qnaKnowledgebaseId }}"
-    # qnaRegion: "${{ parameters.qnaRegion }}"
+    qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
+    qnaEndpointKey: "${{ parameters.qnaEndpointKey }}"
+    qnaHostName: "${{ parameters.qnaHostName }}"
+    qnaKnowledgebaseId: "${{ parameters.qnaKnowledgebaseId }}"
+    qnaRegion: "${{ parameters.qnaRegion }}"

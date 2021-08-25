@@ -127,7 +127,7 @@ steps:
     botName: "${{ parameters.botName }}"
     luisAuthoringKey: "${{ parameters.luisAuthoringKey }}"
     luisAuthoringRegion: "${{ parameters.luisAuthoringRegion }}"
-    qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
+    # qnaSubscriptionKey: "${{ parameters.qnaSubscriptionKey }}"
 
 # Deploy and configure web app
 - template: templates/buildAndDeployDotNetWebApp.yaml

@@ -77,7 +77,7 @@ namespace DatabaseCustomActions
 
         public struct bill_details
         {
-            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", int isPaid = 0)
+            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", int isPaid = 0, double remaining_amount = 0)
             {
                 this.exists = exists;
                 this.id = id;
@@ -85,6 +85,7 @@ namespace DatabaseCustomActions
                 this.amount = amount;
                 this.phoneNumber = phoneNumber;
                 this.isPaid = isPaid;
+                this.remaining_amount = remaining_amount;
             }
             public bool exists { get; set; }
             public string id { get; set; }
@@ -92,6 +93,8 @@ namespace DatabaseCustomActions
             public double amount { get; set; }
             public string phoneNumber { get; set; }
             public int isPaid { get; set; }
+            public double remaining_amount { get; set; }
+
         }
         public static int getPhoneNumber()
         {
@@ -162,6 +165,12 @@ namespace DatabaseCustomActions
             }
             return false;
         }
+        // TODO
+        public static double get_paid_amount(string bill_id, SqlConnection conn) 
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT  SUM() FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
+            return Convert.ToDouble(cmd.ExecuteScalar());
+        }
         public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
         {
 
@@ -169,10 +178,27 @@ namespace DatabaseCustomActions
 
             var reader = cmd.ExecuteReader();
 
+            double amount = Convert.ToDouble(reader["amount"]);
+            string bill_id = reader["id"].ToString();
+            int is_paid = Convert.ToInt32(reader["isPaid"]);
+            string phone_number = reader["phoneNumber"].ToString();
+            DateTime due_date = Convert.ToDateTime(reader["dueDate"]);
+            double paid_amount = 0;
+
+            // If bill was partially paid, calc the amount paid from the bill
+            if (is_paid == 1)
+            {
+                paid_amount = get_paid_amount(bill_id, conn);
+            }
+            else if (is_paid == 2) {
+                paid_amount = amount;
+            }
+            double remaining_amount = amount - paid_amount;
+
             bill_details _Details;
             if (reader.Read())
             {
-                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToInt32(reader["isPaid"]));
+                _Details = new bill_details(true, bill_id, due_date, amount, phone_number, is_paid, remaining_amount);
             }
             else
                 _Details = new bill_details(false);
@@ -338,38 +364,33 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static string insert_payment(double amount, string credit_card, SqlConnection conn)
+        public static bool insert_payment(string bill_id, double amount, string credit_card, SqlConnection conn)
         {
             DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ('{_date}', '{amount}', '{credit_card}');", conn);
-            string payment_id = cmd.ExecuteScalar().ToString();
-            Console.WriteLine(payment_id);
-            return payment_id;
+            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard, billID) VALUES ('{_date}', '{amount}', '{credit_card}', '{bill_id}');", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
         }
-        // to update the bill's price to anew one(when extend package is occured)
-        public static bool update_bill_amount(string phoneNumber, int amount, SqlConnection conn)
+        public static bool update_bill_state(string bill_id, int state, SqlConnection conn)
         {
-            // Get user bill details for the current month 
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid={state} WHERE [bill].id='{bill_id}';", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
+        }
+        public static bool update_bill_amount(string bill_id, double amount, SqlConnection conn)
+        {
+            /*// Get user bill details for the current month 
             bill_details bill_info = get_latest_bill_details(phoneNumber, conn);
             if (!bill_info.exists) throw new Exception("There is no bill record for this user");
 
-            // Update bill amount 
-            double total_amount = bill_info.amount + amount;
+            // Update bill total amount with the new amount 
+            double total_amount = bill_info.amount + amount;*/
 
-            int is_paid = bill_info.isPaid;
-            // Update isPaid value to partially paid if marked as fully paid
-            if (is_paid == 2) is_paid = 1;
-
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {total_amount}, [bill].isPaid = {is_paid} WHERE id = {bill_info.id};", conn);
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {amount} WHERE id = {bill_id};", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }
-        public static bool update_bill_to_paid(string bill_id, string payment_id, SqlConnection conn)
-        {
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID='{payment_id}' WHERE [bill].id='{bill_id}';", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
-        }
+        
         public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);

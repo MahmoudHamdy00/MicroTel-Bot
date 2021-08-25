@@ -38,24 +38,34 @@ public class PayBill : Dialog
         string credit_card = creditCard.GetValue(dc.State).ToString();
 
         SqlConnection conn = new SqlConnection(connectionString);
-        bool isPaid = false;
-        string payment_id = "10";
+        bool successful_operation = false;
         try
         {
             conn.Open();
             // Get bill detials assosiated to the given phone number 
             bill_details bill_info = get_latest_bill_details(phone_number, conn);
-            // If bill was found successfully 
-            if (bill_info.exists == true)
+            
+            // Throw error if bill was not found 
+            if (!bill_info.exists) throw new Exception("There is no bill record for this user");
+            
+            // Bill is fully paid 
+            if (bill_info.isPaid == 2)
             {
-                // Intiate a new payment for bill 
-                payment_id = insert_payment(bill_info.amount, credit_card, conn);
-                isPaid = update_bill_to_paid(bill_info.id, payment_id, conn);
+                successful_operation = true;
+            }
+            else
+            {
+                // Intiate a new payment for bill  CHANGE payment id to successful operation
+                bool successful_payment = insert_payment(bill_info.id, bill_info.remaining_amount, credit_card, conn);
+                // Update bill state to fully paid 
+                if (successful_payment) {
+                    successful_operation = update_bill_state(bill_info.id, 2, conn);
+                }
             }
 
             if (this.ResultProperty != null)
             {
-                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), isPaid);
+                dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), successful_operation);
             }
         }
         catch (Exception ex)

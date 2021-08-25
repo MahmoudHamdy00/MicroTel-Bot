@@ -58,7 +58,8 @@
           "$designer": {
             "id": "R780Ab"
           },
-          "activity": "${SendActivity_R780Ab()}"
+          "activity": "${SendActivity_R780Ab()}",
+          "disabled": true
         }
       ]
     }

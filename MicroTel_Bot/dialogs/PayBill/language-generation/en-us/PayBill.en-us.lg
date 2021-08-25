@@ -13,11 +13,11 @@
 ]
 
 # SendActivity_uRYwqj_text()
-- Your bill is already paid for the current month. 
+- Your bill is fully paid for the current month.
 # SendActivity_0gnA2B()
 [Activity
     Text = ${SendActivity_0gnA2B_text()}
 ]
 
 # SendActivity_0gnA2B_text()
-- Alright, your bill for the current month costs ${dialog.billInfo.amount} USD.
+- Alright, your total bill amount for the current month costs ${dialog.billInfo.amount} USD. Based on your previous payments, you are required to pay ${dialog.billInfo.remainingAmount} USD.

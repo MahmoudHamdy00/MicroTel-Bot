@@ -84,7 +84,7 @@
               "$designer": {
                 "id": "D39Pfh"
               },
-              "condition": "=and(isBoolean(dialog.billInfo.isPaid), bool(dialog.billInfo.isPaid))",
+              "condition": "=dialog.billInfo.isPaid == 2",
               "actions": [
                 {
                   "$kind": "Microsoft.SendActivity",

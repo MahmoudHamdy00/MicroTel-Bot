@@ -83,12 +83,12 @@ public class ExtendPackage : Dialog
             double total_amount = bill_info.amount + _totalPrice;
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
             if (!update_bill_amount(bill_info.id, total_amount, conn)) throw new Exception("Error with update bill amount method");
-            if (bill_info.isPaid == 2) {
+            if (bill_info.isPaid == 2)
+            {
                 if (!update_bill_state(bill_info.id, 1, conn)) throw new Exception("Error with update bill state method");
             }
             if (!update_quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
             result = true;
-
         }
         catch (Exception ex)
         {

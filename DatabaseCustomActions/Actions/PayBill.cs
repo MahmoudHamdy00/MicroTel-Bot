@@ -56,7 +56,7 @@ public class PayBill : Dialog
             else
             {
                 // Intiate a new payment for bill  CHANGE payment id to successful operation
-                bool successful_payment = insert_payment(bill_info.id, bill_info.remaining_amount, credit_card, conn);
+                bool successful_payment = insert_payment(bill_info.id, bill_info.remainingAmount, credit_card, conn);
                 // Update bill state to fully paid 
                 if (successful_payment) {
                     successful_operation = update_bill_state(bill_info.id, 2, conn);

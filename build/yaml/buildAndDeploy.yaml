@@ -91,30 +91,30 @@ parameters:
   default: $(LUISENDPOINTKEY)
 
 # QnAMaker parameters
-- name: qnaSubscriptionKey
-  displayName: QnA Maker subscription key
-  type: string
-  default: $(QNASUBSCRIPTIONKEY)
+# - name: qnaSubscriptionKey
+#   displayName: QnA Maker subscription key
+#   type: string
+#   default: $(QNASUBSCRIPTIONKEY)
 
-- name: qnaEndpointKey
-  displayName: QnA Maker endpoint key
-  type: string
-  default: $(QNAENDPOINTKEY)
+# - name: qnaEndpointKey
+#   displayName: QnA Maker endpoint key
+#   type: string
+#   default: $(QNAENDPOINTKEY)
 
-- name: qnaHostName
-  displayName: QnA Maker host name
-  type: string
-  default: $(QNAHOSTNAME)
+# - name: qnaHostName
+#   displayName: QnA Maker host name
+#   type: string
+#   default: $(QNAHOSTNAME)
 
-- name: qnaKnowledgebaseId
-  displayName: QnA Maker knowledgebase ID
-  type: string
-  default: $(QNAKNOWLEDGEBASEID)
+# - name: qnaKnowledgebaseId
+#   displayName: QnA Maker knowledgebase ID
+#   type: string
+#   default: $(QNAKNOWLEDGEBASEID)
 
-- name: qnaRegion
-  displayName: QnA Maker region
-  type: string
-  default: "westus"
+# - name: qnaRegion
+#   displayName: QnA Maker region
+#   type: string
+#   default: "westus"
 
 steps:
 # Install prerequisites

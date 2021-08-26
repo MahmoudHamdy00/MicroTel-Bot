@@ -48,7 +48,7 @@
           "$designer": {
             "id": "sd0phj"
           },
-          "condition": "=bool(dialog.userAdded)",
+          "condition": "=and(isBoolean(dialog.userAdded), bool(dialog.userAdded))",
           "actions": [
             {
               "$kind": "Microsoft.SendActivity",

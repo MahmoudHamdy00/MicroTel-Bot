@@ -1,0 +1,28 @@
+{
+  "profileName": "MicrotelBot",
+  "jobId": "20a61a65-d430-49c3-b0b5-4929220cacb1",
+  "projectId": "78134.22829506254",
+  "time": "2021-08-24T16:26:49.821Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Creating Resource Group ...",
+    "> Creating App Registration ...",
+    "Start to add password for App, Id : a30e6d85-5750-4389-9d41-9e12ab678b5d",
+    "> Create App Registration Success! ID: a30e6d85-5750-4389-9d41-9e12ab678b5d",
+    "Deploying Web App Resource ...",
+    "Deploying Bot Resource ...",
+    "Deploying Luis Authoring Resource ...",
+    "Deploying Luis Resource ...",
+    "Deploying Cosmos DB Resource ...",
+    "Deploying Application Insights Resource ...",
+    "> Linking Application Insights settings to Bot Service ...",
+    "> AppInsights AppId: a1399cbd-054c-4cf7-9f1a-9ff58ba877f5 ...",
+    "> AppInsights InstrumentationKey: e73bbdb4-27ff-48dc-820c-f0aa0379ea7a ...",
+    "> AppInsights ApiKey: ltk7pij51dfjh4e14dvg8e502c13jred5bfgc874 ...",
+    "> Linking Application Insights settings to Bot Service Success!",
+    "Deploying Blob Storage Resource ...",
+    "Deploying QnA Resource ...",
+    "Provisioning completed successfully!"
+  ]
+}

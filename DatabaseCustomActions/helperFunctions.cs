@@ -77,7 +77,7 @@ namespace DatabaseCustomActions
 
         public struct bill_details
         {
-            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", bool isPaid = false)
+            public bill_details(bool exists = false, string id = "", DateTime dueDate = new DateTime(), double amount = 0, string phoneNumber = "", int isPaid = 0, double remainingAmount = 0)
             {
                 this.exists = exists;
                 this.id = id;
@@ -85,13 +85,15 @@ namespace DatabaseCustomActions
                 this.amount = amount;
                 this.phoneNumber = phoneNumber;
                 this.isPaid = isPaid;
+                this.remainingAmount = remainingAmount;
             }
             public bool exists { get; set; }
             public string id { get; set; }
             public DateTime dueDate { get; set; }
             public double amount { get; set; }
             public string phoneNumber { get; set; }
-            public bool isPaid { get; set; }
+            public int isPaid { get; set; }
+            public double remainingAmount { get; set; }
 
         }
         public static int getPhoneNumber()
@@ -150,7 +152,7 @@ namespace DatabaseCustomActions
         public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
         {
 
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details] WHERE name ='{package_Details.packageName}';", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details] WHERE name = '{package_Details.packageName}';", conn);
 
             var reader = cmd.ExecuteReader();
 
@@ -163,22 +165,50 @@ namespace DatabaseCustomActions
             }
             return false;
         }
+        public static double get_paid_amount(string bill_id, SqlConnection conn) 
+        {
+            SqlCommand cmd = new SqlCommand($"SELECT SUM(amount) AS total_amount FROM [dbo].[payment] WHERE billID='{bill_id}';", conn);
+            return Convert.ToDouble(cmd.ExecuteScalar());
+        }
+        public static double calc_remaining_amount(string bill_id, double total_amount, int is_paid, SqlConnection conn)
+        {
+            double paid_amount = 0;
+            // If bill was partially paid, calc the amount paid from the bill
+            if (is_paid == 1)
+            {
+                paid_amount = get_paid_amount(bill_id, conn);
+            }
+            else if (is_paid == 2)
+            {
+                paid_amount = total_amount;
+            }
+            return total_amount - paid_amount;
+        }
         public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
         {
-
-            SqlCommand cmd = new SqlCommand($"SELECT  TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
+            SqlCommand cmd = new SqlCommand($"SELECT TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
 
             var reader = cmd.ExecuteReader();
 
             bill_details _Details;
             if (reader.Read())
             {
-                _Details = new bill_details(true, reader["id"].ToString(), Convert.ToDateTime(reader["dueDate"]), Convert.ToDouble(reader["amount"]), reader["phoneNumber"].ToString(), Convert.ToBoolean(reader["isPaid"]));
-            }
-            else
-                _Details = new bill_details(false);
+                string bill_id = reader["id"].ToString();
+                double amount = Convert.ToDouble(reader["amount"]);
+                int is_paid = Convert.ToInt32(reader["isPaid"]);
+                string phone_number = reader["phoneNumber"].ToString();
+                DateTime due_date = Convert.ToDateTime(reader["dueDate"]);
+                reader.Dispose();
 
-            reader.Dispose();
+                double remaining_amount = calc_remaining_amount(bill_id, amount, is_paid, conn);
+
+                _Details = new bill_details(true, bill_id, due_date, amount, phone_number, is_paid, remaining_amount);
+            }
+            else 
+            {
+                reader.Dispose();
+                _Details = new bill_details(false);
+            }
             return _Details;
         }
 
@@ -339,33 +369,34 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows;
         }
-        public static string insert_payment(double amount, string credit_card, SqlConnection conn)
+        public static bool insert_payment(string bill_id, double amount, string credit_card, SqlConnection conn)
         {
             DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard) OUTPUT INSERTED.id VALUES ('{_date}', '{amount}', '{credit_card}');", conn);
-            string payment_id = cmd.ExecuteScalar().ToString();
-            Console.WriteLine(payment_id);
-            return payment_id;
+            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard, billID) VALUES ('{_date}', '{amount}', '{credit_card}', '{bill_id}');", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
         }
-        // to update the bill's price to anew one(when extend package is occured)
-        public static bool Update_Bill(string phoneNumber, int price, SqlConnection conn)
+        public static bool update_bill_state(string bill_id, int state, SqlConnection conn)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT TOP 1 [amount] FROM [bill] WHERE [phoneNumber]='{phoneNumber}' ORDER BY [dueDate] DESC;", conn);
-            var res = cmd.ExecuteScalar();
-            if (res == null) throw new Exception("There is no bill record for this user");
-            int currentPrice = Convert.ToInt32(res);
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid={state} WHERE [bill].id='{bill_id}';", conn);
+            int affected_rows = cmd.ExecuteNonQuery();
+            return affected_rows == 1;
+        }
+        public static bool update_bill_amount(string bill_id, double amount, SqlConnection conn)
+        {
+            /*// Get user bill details for the current month 
+            bill_details bill_info = get_latest_bill_details(phoneNumber, conn);
+            if (!bill_info.exists) throw new Exception("There is no bill record for this user");
 
-            cmd = new SqlCommand($"UPDATE [bill] set [bill].amount = {currentPrice + price} WHERE id=(SELECT TOP 1 [id] FROM [bill] WHERE [phoneNumber]={phoneNumber} ORDER BY [dueDate] DESC);", conn);
+            // Update bill total amount with the new amount 
+            double total_amount = bill_info.amount + amount;*/
+
+            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].amount={amount} WHERE id = '{bill_id}';", conn);
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }
-        public static bool update_bill_to_paid(string bill_id, string payment_id, SqlConnection conn)
-        {
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid=1, [bill].paymentID='{payment_id}' WHERE [bill].id='{bill_id}';", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
-        }
-        public static bool Update_Quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
+        
+        public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);
             var res = cmd.ExecuteScalar();
@@ -390,7 +421,7 @@ namespace DatabaseCustomActions
         public static object get_user_info(string nationalID, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT * FROM [dbo].[user] as u JOIN [dbo].[line] as l ON u.phoneNumber = l.phoneNumber JOIN [dbo].[tier_details] as t ON t.id = l.tierID WHERE nationalID = '{nationalID}';", conn);
-            var reader = cmd.ExecuteReader();
+            SqlDataReader reader = cmd.ExecuteReader();
             user_details _UserInfo;
             if (reader.Read())
             {

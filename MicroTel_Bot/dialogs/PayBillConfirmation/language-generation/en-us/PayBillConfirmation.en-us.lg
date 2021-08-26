@@ -20,3 +20,11 @@
 [Activity
     Text = ${SendActivity_rmxJA0_text()}
 ]
+
+# SendActivity_rpwWv9()
+[Activity
+    Text = ${SendActivity_rpwWv9_text()}
+]
+
+# SendActivity_rpwWv9_text()
+- - ${dialog.result}

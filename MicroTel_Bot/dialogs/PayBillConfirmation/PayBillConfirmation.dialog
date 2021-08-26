@@ -24,7 +24,7 @@
           "activityProcessed": true,
           "dialog": "Confirm",
           "options": {
-            "message": "Confirm paying ${dialog.billInfo.amount} USD for your line number ${user.line.number} with your credit card number ${user.creditCard}?"
+            "message": "Confirm paying ${dialog.billInfo.remainingAmount} USD for your line number ${user.line.number} with your credit card number ${user.creditCard}?"
           },
           "resultProperty": "user.confirm"
         },
@@ -47,6 +47,14 @@
                   "lineNumber": "=user.line.number",
                   "creditCard": "=user.creditCard",
                   "resultProperty": "dialog.result"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "rpwWv9"
+                  },
+                  "activity": "${SendActivity_rpwWv9()}",
+                  "disabled": true
                 },
                 {
                   "$kind": "Microsoft.IfCondition",

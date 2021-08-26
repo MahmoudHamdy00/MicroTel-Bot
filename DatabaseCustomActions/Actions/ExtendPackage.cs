@@ -76,11 +76,19 @@ public class ExtendPackage : Dialog
                 messages_to_increae = package_Details.megabytes;
                 minutes_to_increae = package_Details.megabytes;
             }
+            // Get user bill details for the current month 
+            bill_details bill_info = get_latest_bill_details(_phoneNumber, conn);
+            if (!bill_info.exists) throw new Exception("There is no bill record for this user");
+            // Calculate bill's total amount 
+            double total_amount = bill_info.amount + _totalPrice;
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
-            if (!Update_Bill(_phoneNumber, _totalPrice, conn)) throw new Exception("Error with Update_Bill method");
-            if (!Update_Quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
+            if (!update_bill_amount(bill_info.id, total_amount, conn)) throw new Exception("Error with update bill amount method");
+            if (bill_info.isPaid == 2)
+            {
+                if (!update_bill_state(bill_info.id, 1, conn)) throw new Exception("Error with update bill state method");
+            }
+            if (!update_quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
             result = true;
-
         }
         catch (Exception ex)
         {

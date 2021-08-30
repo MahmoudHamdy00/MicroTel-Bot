@@ -23,9 +23,7 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractPhoneNumber",
-          "options": {
-            "data": "=@updateTierInfo"
-          }
+          "options": {}
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -34,9 +32,7 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
-          "options": {
-            "data": "=@updateTierInfo"
-          }
+          "options": {}
         },
         {
           "$kind": "Microsoft.BeginDialog",

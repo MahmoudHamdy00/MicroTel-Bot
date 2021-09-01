@@ -34,16 +34,16 @@
 - can i {@userInfo=retrieve my number? i am {@name={@fName=yasser}} from {@address={@city=sohag}} my national id is {@nationalID=12758}}
 - can you {@userInfo={@action=sign me up} to a vip line today}?
 - {@userInfo={@action=forget}} my number
-- forget number
+- {@userInfo={@action=forget} number}
 - {@userInfo={@action=get} a new vip line}
 - hi, my {@userInfo=name is {@name={@fName=asser} {@lName=yassin}} and i want to {@action=sign up} for a premium line i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093} and i live in {@address={@streetNumber=6} {@streetName=abou el feda st}. {@city=cairo}, {@country=egypt}}}
 - i am {@userInfo={@name={@fName=ahmed}}, please {@action=sign me up} for a new line. my current address is {@address={@streetNumber=70} {@streetName=watlington road} {@city=vancouver}}}
-- i am {@userInfo={@name={@fName=khaled} {@lName=mahr}} living in {@address={@streetNumber=11} {@streetName=margany street}, 5th settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=18th of september 1995} and would like to {@action=purchase} a new line.}
-- i am {@userInfo=meshref from {@address=cairo, egypt}. i would like to {@action=get} a new standard line}.
-- i am {@userInfo={@name={@fName=yaseen} {@lName=ibrahim}} living in {@address={@streetNumber=20} {@streetName=manyal street}, 3rd settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=november 2002} with national id {@nationalID=27346} and would like to {@action=get} a premium line}.
-- i can't remember my line number
-- i {@userInfo=can't remember} my phone number
-- i {@userInfo=forget} my number
+- i am {@userInfo={@name={@fName=khaled} {@lName=mahr}} living in {@address={@streetNumber=11} {@streetName=margany street}, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=18th of september 1995} and would like to {@action=purchase} a new line.}
+- i am {@userInfo={@name={@fName=meshref}} from {@address=cairo, egypt}. i would like to {@action=get} a new standard line}.
+- i am {@userInfo={@name={@fName=yaseen} {@lName=ibrahim}} living in {@address={@streetNumber=20} {@streetName=manyal street}, {@city=tanta}, {@country=egypt}}. i was born on {@birthDate=november 2002} with national id {@nationalID=27346} and would like to {@action=get} a premium line}.
+- i {@userInfo={@action=don't remember}} my line number
+- i {@userInfo={@action=can't remember}} my phone number
+- i {@userInfo={@action=have forgotten}} my number
 - i {@userInfo={@action=lost}} my phone number , could you please remind me with it
 - i want to {@userInfo={@action=register} a new standard line, my name is {@name={@fName=mahmoud} {@lName=hamdy}}, currently living in {@address={@city=sohag}, {@country=egypt}}}
 - i want to {@userInfo={@action=restore}} my number because i can't remember it
@@ -58,9 +58,9 @@
 - {@userInfo={@action=register} a new premium line {@nationalID=16764}}
 - {@userInfo={@action=register} new line}
 - {@userInfo={@action=retrieve my} phone number}
-- {@userInfo={@action=sign me up} for a premium line. i am {@name={@fName=ahmed} {@lName=meshref}} living in {@address=el feda street, dokki}}.
+- {@userInfo={@action=sign me up} for a premium line. i am {@name={@fName=ahmed} {@lName=meshref}} living in {@address={@streetName=el feda street}}.
 - {@userInfo={@action=sign up} for a new line}
-- {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, maddi, {@country=egypt}}. my national id is {@nationalID=28745}}
+- {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, {@city=cairo}, {@country=egypt}}. my national id is {@nationalID=28745}}
 - sorry, i {@userInfo=forget my number my name is {@name={@fName=ahmed} {@lName=ezzat}} , i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093}}
 
 
@@ -114,6 +114,7 @@
 		- can’t remember
 		- lost
 		- restore
+		- have forgotten
 
 
 
@@ -296,7 +297,7 @@
 - i’d like to pay my monthly bill with my credit card number 1243-4456-7890-7890.
 - i’d love to thrust my invoice for my line number 010987654.
 - may you help me pay my bill with my credit card number 1243-4456-7890-7890?
-- my national id is 19873. i would like to pay my invoice for my phone line number 010987654 with my credit card 1243-4456-7890-7890.
+- my national id is 19873. i would like to pay my invoice for my line number 010987654 with my credit card 1243-4456-7890-7890.
 - pay bill
 - pay bill for 010987654 my national id is 19999.
 - pay bill for my vip line

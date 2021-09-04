@@ -1,4 +1,4 @@
-# Welcome to your new bot
+# Welcome to Microtel
 
 This bot project was created using the Core Bot with Azure Language Understanding template, and contains support for a base set of conversational flows.
 

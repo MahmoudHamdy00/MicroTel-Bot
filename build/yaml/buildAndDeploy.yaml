@@ -118,6 +118,9 @@ parameters:
 
 
 steps:
+- bash: echo $(CONNECTIONSTRING)
+  displayName: "Show Env Vars" 
+  
 # Install prerequisites
 - template: templates/installPrerequisites.yaml
 

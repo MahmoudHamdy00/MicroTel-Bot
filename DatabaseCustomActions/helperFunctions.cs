@@ -5,7 +5,13 @@ using System.Data.SqlClient;
 
 namespace DatabaseCustomActions
 {
-    class helperFunctions
+    public class EnvironmentVariables 
+    {
+        public string connectionString = Environment.GetEnvironmentVariable("connectionString");
+    }
+
+
+    class HelperFunctions
     {
         public struct tier_details
         {

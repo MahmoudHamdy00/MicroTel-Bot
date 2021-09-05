@@ -8,7 +8,7 @@ using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
-using static DatabaseCustomActions.helperFunctions;
+using static DatabaseCustomActions.HelperFunctions;
 
 
 public class AuthenticatePhoneNumber : Dialog
@@ -35,7 +35,10 @@ public class AuthenticatePhoneNumber : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        // Extract connection string from env variables 
+        EnvironmentVariables env = new EnvironmentVariables();
+        string connectionString = env.connectionString;
+
         user_details user_info = new user_details();
         user_info.phoneNumber = phoneNumber.GetValue(dc.State).ToString();
 

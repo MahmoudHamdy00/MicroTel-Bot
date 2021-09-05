@@ -116,6 +116,10 @@ parameters:
   type: string
   default: "westus"
 
+- name: connectionString
+  displayName: Connection String 
+  type: string
+  default: $(connectionString)
 
 steps:
 # Install prerequisites

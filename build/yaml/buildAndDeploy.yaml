@@ -150,5 +150,3 @@ steps:
     qnaHostName: "${{ parameters.qnaHostName }}"
     qnaKnowledgebaseId: "${{ parameters.qnaKnowledgebaseId }}"
     qnaRegion: "${{ parameters.qnaRegion }}"
-    
-- bash: echo $(connectionString)

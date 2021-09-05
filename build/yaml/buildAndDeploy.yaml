@@ -13,9 +13,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  connectionString: $(connectionString)
-
 # These parameters map Azure DevOps pipeline variables to paramaters 
 # that are used in # the different pipeline tasks.
 parameters:
@@ -121,7 +118,7 @@ parameters:
 
 
 steps:
-- bash: echo ${connectionString}
+- bash: echo $(CONNECTIONSTRING)
   displayName: "Show Env Vars" 
 
 # Install prerequisites

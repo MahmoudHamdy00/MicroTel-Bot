@@ -7,7 +7,8 @@ using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
-using static DatabaseCustomActions.helperFunctions;
+using static DatabaseCustomActions.HelperFunctions;
+using static DatabaseCustomActions.EnvironmentVariables;
 
 public class AddUser : Dialog
 {
@@ -72,8 +73,11 @@ public class AddUser : Dialog
         user_Details.phoneNumber = "010" + getPhoneNumber().ToString();
 
         string _tier = toTitle(tier.GetValue(dc.State).ToString());
-        //SqlConnection conn = new SqlConnection("Data Source=MININT-5B89IPO\\SQLEXPRESs;Initial Catalog=microDBB;Integrated Security=True");
-        string connectionString = "Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        
+        // Extract connection string from env variables 
+        EnvironmentVariables env = new EnvironmentVariables();
+        string connectionString = env.connectionString;
+
         SqlConnection conn = new SqlConnection(connectionString);
         bool userAdded = false; //initialize with failed and then change it if it success
         try

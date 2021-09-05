@@ -15,7 +15,7 @@ pool:
 
 
 variables:
-  connectionString: $(connectionString)
+  connectionString: '$(connectionString)'
 
 # These parameters map Azure DevOps pipeline variables to paramaters 
 # that are used in # the different pipeline tasks.

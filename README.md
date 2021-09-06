@@ -1,4 +1,4 @@
-![project_img](./logo.jpg)
+![project_img](./docsImages/logo.jpg)
 
 # Microtel-Bot
 **version 1.0.0**
@@ -38,23 +38,31 @@ Customers may use Microtel-Bot to sign up for new phone lines, inquire about the
 git clone https://github.com/ahmedmeshref/MicroTel-Bot.git
 ```
 
-2. Run sql script in your Azure SQL Database.
+2. Run microtel-db sql script in your Azure SQL Database.
+   1. From your Azure SQL DB console, navigate to <b>Query Editor</b> and login with your username and password. 
+   ![Azure Login](./docsImages/azureLogin.png)
+   1. From the top menu, select <b>open query</b> and then <b>select SQL files</b>.
+   2. Navigate to your cloned project and select <b>microte_db.sql</b>. Then, click <b>OK</b> button. 
+    ![Upload Script](./docsImages/uploadScript.png)
+   3. Run the loaded script.
+   ![Run Script](./docsImages/runScript.png)
+
    
 3. Add the connection string of your Azure SQL Database to your operating system's environment variables with the key name 'connectionString'.
     - Example: [Setup environment variable in windows](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html). 
-        ![connection string img](./connectionString.png)
+        ![connection string img](./docsImages/connectionString.png)
 
 4. Launch Bot Framework Composer and use it to open Microtel-Bot solution. 
-    ![composer](./composer.png)
+    ![composer](./docsImages/composer.png)
 
 5. Add your [Luis Subscription Key to Bot Framework Composer](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
-    ![luis key](./luisKey.png)
+    ![luis key](./docsImages/luisKey.png)
 
 6. Run solution from Bot Framework composer.
-    ![run composer](./runComposer.png)
+    ![run composer](./docsImages/runComposer.png)
 
 7. Test application in Bot Emulator when the run process in done.
-    ![test bot](./testApp.png)
+    ![test bot](./docsImages/testApp.png)
     - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
 
 

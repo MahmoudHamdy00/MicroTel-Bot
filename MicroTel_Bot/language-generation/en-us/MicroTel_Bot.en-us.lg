@@ -20,3 +20,12 @@
 - I'm not sure I understand. Can you please try again?
 - Hmm, I don't understand. Can you try to ask me in a different way. 
 - I didn't get that. Would you mind rephrasing and try it again.
+
+# TextInput_Prompt_hS0R16()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_j4hTfd()
+- ${expandText(@answer)}

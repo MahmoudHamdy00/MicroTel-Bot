@@ -1,27 +1,64 @@
-# Welcome to Microtel-Bot
+![project_img](./logo.jpg)
 
-This project was created using the Core Bot with Azure Language Understanding template, and contains support for a base set of conversational flows.
+# Microtel-Bot
+**version 1.0.0**
 
-## Next steps
+### Overview
 
-### Start building your bot
+Microtel-Bot is an enterprise-grade Customer Support sample solution directed towards Telecommunications industry. The bot is built with LUIS, Bot Framework (Composer), and Azure Sql Server. 
 
-Composer can help guide you through getting started building your bot. From your bot settings page (the wrench icon on the left navigation rail), click on the rocket-ship icon on the top right for some quick navigation links.
+Customers may use Microtel-Bot to sign up for new phone lines, inquire about their current quota, or bill, manage their phone line options, learn about company policies and promotions, and cancel their subscription at any time.  
 
-Another great resource if you're just getting started is the **[guided tutorial](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-introduction)** in our documentation.
 
-### Connect with your users
+### Built With
 
-Your bot comes pre-configured to connect to our Web Chat and DirectLine channels, but there are many more places you can connect your bot to - including Microsoft Teams, Telephony, DirectLine Speech, Slack, Facebook, Outlook and more. Check out all of the places you can connect to on the bot settings page.
+- [.NET Framework](https://docs.microsoft.com/en-us/dotnet/)
+- [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction?tabs=v2x) 
+- [Luis.ai](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/)  
+- [QnA Maker](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/#overview)
+- [Azure Sql DB](https://azure.microsoft.com/en-us/products/azure-sql/database/)
 
-### Publish your bot to Azure from Composer
 
-Composer can help you provision the Azure resources necessary for your bot, and publish your bot to them. To get started, create a publishing profile from your bot settings page in Composer (the wrench icon on the left navigation rail). Make sure you only provision the optional Azure resources you need!
+### Getting Started
+ 
+#### Prerequisites
+- Install [Node.js](https://nodejs.org/en/) LTS 14.x with npm.
+- Install [.NET Core](https://dotnet.microsoft.com/download/dotnet/3.1) SDK 3.1 or later.
+- Install [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/install-composer?tabs=windows) 
+- Install [Bot Framework Emulator](https://github.com/microsoft/BotFramework-Emulator/releases) 
+- Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
+- Create an Azure Sql Database. 
 
-### Extend your bot with packages
+#### Installation 
+1. Clone Microtel-Bot repository to your local machine 
+```
+git clone https://github.com/ahmedmeshref/MicroTel-Bot.git
+```
+2. Add the connection string of your Azure Sql Database to your operating system's environment variables with the key name 'connectionString'.
+    - Example: [Setup environment variable in windows](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html). 
+        ![connection string img](./connectionString.png)
 
-From Package Manager in Composer you can find useful packages to help add additional pre-built functionality you can add to your bot - everything from simple dialogs & custom actions for working with specific scenarios to custom adapters for connecting your bot to users on clients like Facebook or Slack.
+3. Using Bot Framework Composer, open Microtel-Bot solution. 
+    ![composer](./composer.png)
 
-### Extend your bot with code
+4. Run solution from composer.
+    ![run composer](./runComposer.png)
 
-You can also extend your bot with code - simply open up the folder that was generated for you in the location you chose during the creation process with your favorite IDE (like Visual Studio). You can do things like create custom actions that can be used during dialog flows, create custom middleware to pre-process (or post-process) messages, and more. See [our documentation](https://aka.ms/bf-extend-with-code) for more information.
+5. Test application in Emulator when run process in done.
+    ![test bot](./testApp.png)
+    - Clicking on 'Test in Emulator' button will open the bot in emulator for testing.  
+
+
+### Usage
+
+> LINK to User Manual
+
+### Public to Azure  
+
+> While we use Microsoft Azure to host Microtel-Bot solution, you can use any cloud provider of choice.    
+
+#### Prerequisites
+- A subscription to [Microsoft Azure](https://azure.microsoft.com/en-us/free/).
+- Bot solution hosted on Github.
+
+

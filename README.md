@@ -38,8 +38,8 @@ Customers may use Microtel-Bot to sign up for new phone lines, inquire about the
 git clone https://github.com/ahmedmeshref/MicroTel-Bot.git
 ```
 
-2. Run microtel-db sql script in your Azure SQL Database.
-   1. From your Azure SQL DB console, navigate to <b>Query Editor</b> and login with your username and password. 
+2. Run microtel-db SQL script in your Azure SQL Database.
+   1. From your Azure SQL DB console, navigate to <b>Query Editor</b> and log in with your username and password. 
    ![Azure Login](./docsImages/azureLogin.png)
    1. From the top menu, select <b>open query</b> and then <b>select SQL files</b>.
    2. Navigate to your cloned project and select <b>microte_db.sql</b>. Then, click <b>OK</b> button. 

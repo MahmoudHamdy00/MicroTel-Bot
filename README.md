@@ -27,24 +27,33 @@ Customers may use Microtel-Bot to sign up for new phone lines, inquire about the
 - Install [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/install-composer?tabs=windows) 
 - Install [Bot Framework Emulator](https://github.com/microsoft/BotFramework-Emulator/releases) 
 - Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
-- Create an Azure SQL Database. 
+- Create an [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
+- Fetch and save your [Azure SQL Database connection string](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-content-reference-guide#get-adonet-connection-information-optional---sql-database-only). 
+- Create [Luis.ai Resource](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/sign-in-luis-portal). 
+- Fetch and save your [Luis.ai Subscription Key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-azure-subscription?tabs=portal).
 
 #### Installation 
 1. Clone Microtel-Bot repository to your local machine 
 ```
 git clone https://github.com/ahmedmeshref/MicroTel-Bot.git
 ```
-2. Add the connection string of your Azure SQL Database to your operating system's environment variables with the key name 'connectionString'.
+
+2. Run sql script in your Azure SQL Database.
+   
+3. Add the connection string of your Azure SQL Database to your operating system's environment variables with the key name 'connectionString'.
     - Example: [Setup environment variable in windows](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html). 
         ![connection string img](./connectionString.png)
 
-3. Using Bot Framework Composer, open Microtel-Bot solution. 
+4. Launch Bot Framework Composer and use it to open Microtel-Bot solution. 
     ![composer](./composer.png)
 
-4. Run solution from Bot Framework composer.
+5. Add your [Luis Subscription Key to Bot Framework Composer](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
+    ![luis key](./luisKey.png)
+
+6. Run solution from Bot Framework composer.
     ![run composer](./runComposer.png)
 
-5. Test application in Bot Emulator when the run process in done.
+7. Test application in Bot Emulator when the run process in done.
     ![test bot](./testApp.png)
     - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
 
@@ -57,10 +66,12 @@ git clone https://github.com/ahmedmeshref/MicroTel-Bot.git
 
 > While we use Microsoft Azure to host Microtel-Bot solution, you can use any cloud provider of choice.    
 
-#### Prerequisites
-- A subscription to [Microsoft Azure](https://azure.microsoft.com/en-us/free/).
-- Microtel-Bot solution hosted on your Github or Bitbucket cloud.
-- Azure pipeline subscription? 
+#### Deployment
 
-#### Deployment 
+Kindly follow [this guide](https://docs.microsoft.com/en-us/composer/how-to-publish-bot?tabs=v2x) to deploy your bot to Azure from Bot Framework Composer.
 
+#### Build CI/CD Pipeline
+
+CI/CD helps you to easily and quickly deploy new versions of your bot. Follow [this guide](https://docs.microsoft.com/en-us/composer/how-to-cicd) to build a CI/CD pipeline for Microtel-Bot.
+
+> Note: The YAML files required for building an azure CI/CD pipeline can be found in Microtel-Bot's main directory [here](https://github.com/ahmedmeshref/MicroTel-Bot/blob/main/build/yaml).   

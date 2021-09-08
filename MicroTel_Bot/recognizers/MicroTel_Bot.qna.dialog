@@ -1,8 +1,0 @@
-{
-  "$kind": "Microsoft.MultiLanguageRecognizer",
-  "id": "QnA_MicroTel_Bot",
-  "recognizers": {
-    "en-us": "MicroTel_Bot.en-us.qna",
-    "": "MicroTel_Bot.en-us.qna"
-  }
-}

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -33,20 +34,15 @@ public class PayBill : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
-
         string phone_number = lineNumber.GetValue(dc.State).ToString();
         string credit_card = creditCard.GetValue(dc.State).ToString();
 
-        SqlConnection conn = new SqlConnection(connectionString);
         bool successful_operation = false;
         try
         {
-            conn.Open();
+            microteldbContext microteldb = new microteldbContext();
             // Get bill detials assosiated to the given phone number 
-            bill_details bill_info = get_latest_bill_details(phone_number, conn);
+            bill_details bill_info = get_latest_bill_details(phone_number, microteldb);
             
             // Throw error if bill was not found 
             if (!bill_info.exists) throw new Exception("There is no bill record for this user");
@@ -59,10 +55,10 @@ public class PayBill : Dialog
             else
             {
                 // Intiate a new payment for bill  CHANGE payment id to successful operation
-                bool successful_payment = insert_payment(bill_info.id, bill_info.remainingAmount, credit_card, conn);
+                bool successful_payment = insert_payment(bill_info.id, bill_info.remainingAmount, credit_card, microteldb);
                 // Update bill state to fully paid 
                 if (successful_payment) {
-                    successful_operation = update_bill_state(bill_info.id, 2, conn);
+                    successful_operation = update_bill_state(bill_info.id, 2, microteldb);
                 }
             }
 
@@ -80,7 +76,6 @@ public class PayBill : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(cancellationToken: cancellationToken);
     }

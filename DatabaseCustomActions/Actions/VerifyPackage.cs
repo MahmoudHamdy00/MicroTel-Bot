@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -56,6 +57,8 @@ public class VerifyPackage : Dialog
         bool result = false;//initialize with failed and then change it if it success
         try
         {
+            microteldbContext microteldb = new microteldbContext();
+
             conn.Open();
             Newtonsoft.Json.Linq.JArray packageNames;
             package_details package_Details = new package_details();
@@ -150,7 +153,7 @@ public class VerifyPackage : Dialog
             else
             {
                 package_Details.packageName = PackageName.GetValue(dc.State).ToString();
-                bool validPackage = get_package_details(ref package_Details, conn);
+                bool validPackage = get_package_details(ref package_Details, microteldb);
                 if (!validPackage) throw new Exception("Someting went wrong");
                 if (this.Packages != null)
                 {

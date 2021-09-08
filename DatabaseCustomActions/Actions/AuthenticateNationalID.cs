@@ -36,7 +36,6 @@ public class AuthenticateNationalID : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
 
         user_details user_Details = new user_details();
         user_Details.nationalID = nationalID.GetValue(dc.State).ToString();

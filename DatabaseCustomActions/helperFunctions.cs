@@ -144,34 +144,32 @@ namespace DatabaseCustomActions
             }
             return _Details;
         }
-        public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
+        public static bool get_package_details(ref package_details package_Details, microteldbContext microteldb)
         {
-
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[extra_package_details] WHERE name = '{package_Details.packageName}';", conn);
-
-            var reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            string name = package_Details.packageName;
+            ExtraPackageDetail extraPackageDetail = microteldb.ExtraPackageDetails.Where(x => x.Name == name).SingleOrDefault();
+            if (extraPackageDetail != null)
             {
-                reader.Read();
-                package_Details = new package_details(reader["name"].ToString(), Convert.ToInt32(reader["minutes"]), Convert.ToInt32(reader["messages"]), Convert.ToInt32(reader["megabytes"]), Convert.ToInt32(reader["price"]));
-                reader.Dispose();
+                package_Details = new package_details(extraPackageDetail.Name, Convert.ToInt32(extraPackageDetail.Minutes), Convert.ToInt32(extraPackageDetail.Messages), Convert.ToInt32(extraPackageDetail.Megabytes), Convert.ToInt32(extraPackageDetail.Price));
                 return true;
             }
             return false;
         }
-        public static double get_paid_amount(string bill_id, SqlConnection conn)
+        public static double get_paid_amount(string bill_id, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT SUM(amount) AS total_amount FROM [dbo].[payment] WHERE billID='{bill_id}';", conn);
-            return Convert.ToDouble(cmd.ExecuteScalar());
+            //SqlCommand cmd = new SqlCommand($"SELECT SUM(amount) AS total_amount FROM [dbo].[payment] WHERE billID='{bill_id}';", conn);
+            /*return Convert.ToDouble(cmd.ExecuteScalar());*/
+#warning review;
+
+            return Convert.ToDouble(microteldb.Payments.Where(x => x.BillId.ToString() == bill_id).Sum(x => x.Amount));
         }
-        public static double calc_remaining_amount(string bill_id, double total_amount, int is_paid, SqlConnection conn)
+        public static double calc_remaining_amount(string bill_id, double total_amount, int is_paid, microteldbContext microteldb)
         {
             double paid_amount = 0;
             // If bill was partially paid, calc the amount paid from the bill
             if (is_paid == 1)
             {
-                paid_amount = get_paid_amount(bill_id, conn);
+                paid_amount = get_paid_amount(bill_id, microteldb);
             }
             else if (is_paid == 2)
             {
@@ -179,29 +177,30 @@ namespace DatabaseCustomActions
             }
             return total_amount - paid_amount;
         }
-        public static bill_details get_latest_bill_details(string phoneNUmber, SqlConnection conn)
+        public static bill_details get_latest_bill_details(string phoneNumber, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNUmber}' ORDER BY dueDate DESC;", conn);
+            DateTime date = microteldb.Bills.Max(x => x.DueDate);
+            //SqlCommand cmd = new SqlCommand($"SELECT TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNumber}' ORDER BY dueDate DESC;", conn);
 
-            var reader = cmd.ExecuteReader();
+#warning review this;
+            Bill bill = microteldb.Bills.Where(x => x.DueDate == date && x.PhoneNumber == phoneNumber).SingleOrDefault();
+
 
             bill_details _Details;
-            if (reader.Read())
+            if (bill != null)
             {
-                string bill_id = reader["id"].ToString();
-                double amount = Convert.ToDouble(reader["amount"]);
-                int is_paid = Convert.ToInt32(reader["isPaid"]);
-                string phone_number = reader["phoneNumber"].ToString();
-                DateTime due_date = Convert.ToDateTime(reader["dueDate"]);
-                reader.Dispose();
+                string bill_id = bill.Id.ToString();
+                double amount = Convert.ToDouble(bill.Amount);
+                int is_paid = Convert.ToInt32(bill.IsPaid);
+                string phone_number = bill.PhoneNumber.ToString();
+                DateTime due_date = Convert.ToDateTime(bill.DueDate);
 
-                double remaining_amount = calc_remaining_amount(bill_id, amount, is_paid, conn);
+                double remaining_amount = calc_remaining_amount(bill_id, amount, is_paid, microteldb);
 
                 _Details = new bill_details(true, bill_id, due_date, amount, phone_number, is_paid, remaining_amount);
             }
             else
             {
-                reader.Dispose();
                 _Details = new bill_details(false);
             }
             return _Details;
@@ -382,30 +381,38 @@ namespace DatabaseCustomActions
             microteldb.Users.Add(user);
             return true;
         }
-        public static int insert_extendPackage(string phoneNumber, string packageName, int price, SqlConnection conn)
+        public static int insert_extendPackage(string phoneNumber, string packageName, int price, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT  id FROM [dbo].[extra_package_details] WHERE name ='{packageName}';", conn);
-            string packageId = cmd.ExecuteScalar().ToString();
-            DateTime _date = DateTime.Now;
-            string query = $"insert into [extra_package] (phoneNumber,extraPackageID,date,totalPrice) values ('{phoneNumber}','{packageId}','{_date}','{ price}');";
-            cmd = new SqlCommand(query, conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
+            ExtraPackageDetail extraPackageDetail = microteldb.ExtraPackageDetails.Where(x => x.Name == packageName).SingleOrDefault();
+            string packageId = extraPackageDetail.Id.ToString();
+            microteldb.ExtraPackages.Add(new ExtraPackage
+            {
+                Id = Guid.NewGuid(),
+                PhoneNumber = phoneNumber,
+                ExtraPackageId = Guid.Parse(packageId),
+                Date = DateTime.Now,
+                TotalPrice = price,
+            });
+            return 1;
         }
-        public static bool insert_payment(string bill_id, double amount, string credit_card, SqlConnection conn)
+        public static bool insert_payment(string bill_id, double amount, string credit_card, microteldbContext microteldb)
         {
-            DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"INSERT INTO [payment] (date, amount, creditCard, billID) VALUES ('{_date}', '{amount}', '{credit_card}', '{bill_id}');", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
+            microteldb.Payments.Add(new Payment
+            {
+                Date = DateTime.Now,
+                Amount = Convert.ToDecimal(amount),
+                CreditCard = credit_card,
+                BillId = Guid.Parse(bill_id)
+            });
+            return true;
         }
-        public static bool update_bill_state(string bill_id, int state, SqlConnection conn)
+        public static bool update_bill_state(string bill_id, int state, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].isPaid={state} WHERE [bill].id='{bill_id}';", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
+            Bill bill = microteldb.Bills.Where(x => x.Id.ToString() == bill_id).SingleOrDefault();
+            bill.IsPaid = state;
+            return true;
         }
-        public static bool update_bill_amount(string bill_id, double amount, SqlConnection conn)
+        public static bool update_bill_amount(string bill_id, double amount, microteldbContext microteldb)
         {
             /*// Get user bill details for the current month 
             bill_details bill_info = get_latest_bill_details(phoneNumber, conn);
@@ -413,33 +420,31 @@ namespace DatabaseCustomActions
 
             // Update bill total amount with the new amount 
             double total_amount = bill_info.amount + amount;*/
-
-            SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].amount={amount} WHERE id = '{bill_id}';", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
+            Bill bill = microteldb.Bills.Where(x => x.Id.ToString() == bill_id).SingleOrDefault();
+            bill.Amount = Convert.ToDecimal(amount);
+            /* SqlCommand cmd = new SqlCommand($"UPDATE [bill] SET [bill].amount={amount} WHERE id = '{bill_id}';", conn);
+             int affected_rows = cmd.ExecuteNonQuery();*/
+            return true;
         }
 
-        public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
+        public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);
-            var res = cmd.ExecuteScalar();
-            if (res == null) throw new Exception("There is no quota recored for this user");
-            string quotaId = res.ToString();
+#warning not working;
+            Line line = microteldb.Lines.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault();
+            if (line == null) throw new Exception("There is no quota recored for this user");
+            string quotaId = line.QuotaId.ToString();
 
-            cmd = new SqlCommand($"SELECT [remainingMinutes],[remainingMessages],[remainingMegabytes] FROM [quota] WHERE [id]='{quotaId}';", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
+            Quotum quota = microteldb.Quota.Where(x => x.Id.ToString() == quotaId).SingleOrDefault();
             int currentMinutes = 0, currentMessages = 0, currentMegabytes = 0;
-            if (reader.Read())
+            if (quota != null)
             {
-                currentMinutes += Convert.ToInt32(reader["remainingMinutes"]);
-                currentMessages += Convert.ToInt32(reader["remainingMessages"]);
-                currentMegabytes += Convert.ToInt32(reader["remainingMegabytes"]);
-                reader.Dispose();
+                currentMinutes += Convert.ToInt32(quota.RemainingMinutes);
+                currentMessages += Convert.ToInt32(quota.RemainingMessages);
+                currentMegabytes += Convert.ToInt32(quota.RemainingMegabytes);
             }
             else throw new Exception("There is no quota record for this user");
-            cmd = new SqlCommand($"UPDATE [quota] set [remainingMinutes] = {currentMinutes + minutes} ,[remainingMessages]={currentMessages + messages} ,[remainingMegabytes] ={currentMegabytes + megabytes} WHERE id='{quotaId}';", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
+
+            return true;
         }
         public static object get_user_info(string nationalID, SqlConnection conn)
         {

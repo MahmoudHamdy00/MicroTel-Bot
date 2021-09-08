@@ -9,6 +9,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
 using static DatabaseCustomActions.EnvironmentVariables;
+using DatabaseCustomActions.Models;
 
 public class AddUser : Dialog
 {
@@ -73,17 +74,14 @@ public class AddUser : Dialog
         user_Details.phoneNumber = "010" + getPhoneNumber().ToString();
 
         string _tier = toTitle(tier.GetValue(dc.State).ToString());
-        
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
 
-        SqlConnection conn = new SqlConnection(connectionString);
+        // Extract connection string from env variables 
+
         bool userAdded = false; //initialize with failed and then change it if it success
         try
         {
-            conn.Open();
-            bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
+            microteldbContext microteldb = new microteldbContext();
+            bool nationalId_exist = nationalId_checker(user_Details.nationalID,microteldb);
             // if national id already register, don't add register a new user
             if (nationalId_exist)
             {
@@ -92,9 +90,9 @@ public class AddUser : Dialog
                 throw new Exception("User with the same national id is already registered");
             }
             Console.WriteLine(nationalId_exist);
-            
+
             // get tier detailes;
-            tier_details tierDetails = get_tier_details(_tier, conn);
+            tier_details tierDetails = get_tier_details(_tier,microteldb);
             if (!tierDetails.valid)
             {
                 userAdded = false;
@@ -103,18 +101,18 @@ public class AddUser : Dialog
             }
 
             // Create a qouta for the new user
-            string quotaID = insert_quota(tierDetails, conn);
+            string quotaID = insert_quota(tierDetails, microteldb);
             Console.WriteLine(quotaID);
 
             // Insert line details for the new user
-            var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.id, quotaID, conn);
+            var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.id, quotaID,microteldb);
             Console.WriteLine("insert_line_result " + insert_line_result);
 
             // Create new bill for the user
-            var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber, conn);
+            var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber,  microteldb);
 
             // Insert the new user's details 
-            userAdded = insert_user(user_Details, conn);
+            userAdded = insert_user(user_Details , microteldb);
 
             if (this.number != null)
             {
@@ -124,6 +122,7 @@ public class AddUser : Dialog
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State), userAdded);
             }
+            microteldb.SaveChanges();
         }
         catch (Exception ex)
         {
@@ -134,7 +133,6 @@ public class AddUser : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(result: userAdded, cancellationToken: cancellationToken);
     }

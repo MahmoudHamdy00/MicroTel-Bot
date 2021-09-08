@@ -2,12 +2,14 @@
 using System.Globalization;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using DatabaseCustomActions.Models;
 
 namespace DatabaseCustomActions
 {
-    public class EnvironmentVariables 
+    public class EnvironmentVariables
     {
-        public string connectionString = Environment.GetEnvironmentVariable("connectionString");
+        public string connectionString = "Data Source=microtel.database.windows.net;Initial Catalog=microtel-db;Persist Security Info=True;User ID=ahmed;Password=123456#Mahmoud";
     }
 
 
@@ -53,7 +55,7 @@ namespace DatabaseCustomActions
             public int times { get; set; }// to store how many package to subscrib in when extend package
         }
         public struct user_details
-          {
+        {
             public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
             {
                 this.exists = exists;
@@ -127,32 +129,20 @@ namespace DatabaseCustomActions
         /// if there is a user with the same national id return his number 
         /// else return 1;
         /// </returns>
-        public static bool nationalId_checker(string natID, SqlConnection conn)
+        public static bool nationalId_checker(string natID, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT * FROM [user] WHERE [nationalID]='{natID}'", conn);
-            var reader = cmd.ExecuteReader();
-            bool result = false;
-            if (reader.Read()) result = true;
-            //  reader.Close();
-            reader.Dispose();
-            return result;
+            return microteldb.Users.Find(Convert.ToInt32( natID)) != null;
         }
-        public static tier_details get_tier_details(string tier, SqlConnection conn)
+        public static tier_details get_tier_details(string tierName, microteldbContext microteldb)
         {
-
-            SqlCommand cmd = new SqlCommand($"SELECT  * FROM [dbo].[tier_details] WHERE name ='{tier}';", conn);
-
-            var reader = cmd.ExecuteReader();
-
+            TierDetail tierDetail = microteldb.TierDetails.Where(x => x.Name == tierName).SingleOrDefault();
             tier_details _Details;
-            if (reader.Read())
-            {
-                _Details = new tier_details(true, reader["id"].ToString(), reader["name"].ToString(), Convert.ToInt32(reader["minutes"]), Convert.ToInt32(reader["messages"]), Convert.ToInt32(reader["megabytes"]), Convert.ToDouble(reader["price"]));
-            }
+            if (tierDetail == null) _Details = new tier_details(false);
             else
-                _Details = new tier_details(false);
-
-            reader.Dispose();
+            {
+                TierDetail tier = (TierDetail)(tierDetail);
+                _Details = new tier_details(true, tier.Id.ToString(), tier.Name, tier.Minutes, tier.Messages, tier.Megabytes, Convert.ToDouble(tier.Price));
+            }
             return _Details;
         }
         public static bool get_package_details(ref package_details package_Details, SqlConnection conn)
@@ -171,7 +161,7 @@ namespace DatabaseCustomActions
             }
             return false;
         }
-        public static double get_paid_amount(string bill_id, SqlConnection conn) 
+        public static double get_paid_amount(string bill_id, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT SUM(amount) AS total_amount FROM [dbo].[payment] WHERE billID='{bill_id}';", conn);
             return Convert.ToDouble(cmd.ExecuteScalar());
@@ -210,7 +200,7 @@ namespace DatabaseCustomActions
 
                 _Details = new bill_details(true, bill_id, due_date, amount, phone_number, is_paid, remaining_amount);
             }
-            else 
+            else
             {
                 reader.Dispose();
                 _Details = new bill_details(false);
@@ -339,31 +329,59 @@ namespace DatabaseCustomActions
                 return false;
 
         }
-        public static string insert_quota(tier_details tierDetails, SqlConnection conn)
+        public static string insert_quota(tier_details tierDetails, microteldbContext microteldb)
         {
-            DateTime _date = DateTime.Now;
-            SqlCommand cmd = new SqlCommand($"insert into quota (remainingMinutes,remainingMessages,remainingMegabytes,date) OUTPUT INSERTED.id values('{tierDetails.minutes}','{tierDetails.SMS}','{tierDetails.megabytes}','{_date}');", conn);
-            string quotaID = cmd.ExecuteScalar().ToString();
-            return quotaID;
+            Quotum quota = new Quotum
+            {
+                Id = Guid.NewGuid(),
+                RemainingMinutes = tierDetails.minutes,
+                RemainingMessages = tierDetails.SMS,
+                RemainingMegabytes = tierDetails.megabytes,
+                Date = DateTime.Now
+            };
+            microteldb.Quota.Add(quota);
+            return quota.Id.ToString();
+
         }
-        public static int insert_line(string _phoneNumber, string tierId, string quotaID, SqlConnection conn)
+        public static int insert_line(string _phoneNumber, string tierId, string quotaID, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"insert into line values('{_phoneNumber}','{tierId}','{quotaID}');", conn);
-            var affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
+            Line line = new Line
+            {
+                PhoneNumber = _phoneNumber,
+                TierId = Guid.Parse(tierId),
+                QuotaId = Guid.Parse(quotaID)
+            };
+            microteldb.Lines.Add(line);
+            return 1;
         }
-        public static int insert_bill(string tierID, double price, string phoneNumber, SqlConnection conn)
+        public static int insert_bill(string tierID, double price, string phoneNumber, microteldbContext microteldb)
         {
-            DateTime _dueDate = DateTime.Now.AddDays(30);
-            SqlCommand cmd = new SqlCommand($"insert into [dbo].[bill] (dueDate, amount, phoneNumber, teirID) VALUES ('{_dueDate}','{price}','{phoneNumber}','{tierID}');", conn);
-            var affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows;
+            Bill bill = new Bill
+            {
+                DueDate = DateTime.Now.AddDays(30),
+                Amount = Convert.ToDecimal(price),
+                PhoneNumber = phoneNumber,
+                TeirId = Guid.Parse(tierID)
+            };
+            microteldb.Bills.Add(bill);
+            return 1;
         }
-        public static bool insert_user(user_details user_Details, SqlConnection conn)
+        public static bool insert_user(user_details user_Details, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"insert into [dbo].[user] (nationalID,fName,lName,birthDate,streetNo,streetName,city,country,phoneNumber) values('{user_Details.nationalID}','{user_Details.firstName}','{user_Details.lastName}','{user_Details.birthdate}','{user_Details.streetNo}','{user_Details.streetName}','{user_Details.city}','{user_Details.country}','{user_Details.phoneNumber}');", conn);
-            int affected_rows = cmd.ExecuteNonQuery();
-            return affected_rows == 1;
+            User user = new User
+            {
+                NationalId = Convert.ToInt32(user_Details.nationalID),
+                FName = user_Details.firstName,
+                LName = user_Details.lastName,
+                BirthDate = Convert.ToDateTime(user_Details.birthdate),
+                StreetNo = Convert.ToInt32(user_Details.streetNo),
+                StreetName = user_Details.streetName,
+                City = user_Details.city,
+                Country = user_Details.country,
+                PhoneNumber = user_Details.phoneNumber,
+            };
+            microteldb.Users.Add(user);
+            return true;
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, int price, SqlConnection conn)
         {
@@ -401,7 +419,7 @@ namespace DatabaseCustomActions
             int affected_rows = cmd.ExecuteNonQuery();
             return affected_rows == 1;
         }
-        
+
         public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, SqlConnection conn)
         {
             SqlCommand cmd = new SqlCommand($"SELECT [quotaID] FROM [line] WHERE [phoneNumber]='{phoneNumber}';", conn);

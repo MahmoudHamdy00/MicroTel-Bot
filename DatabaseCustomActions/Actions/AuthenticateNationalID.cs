@@ -37,18 +37,14 @@ public class AuthenticateNationalID : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
         // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
 
         user_details user_Details = new user_details();
         user_Details.nationalID = nationalID.GetValue(dc.State).ToString();
 
-        SqlConnection conn = new SqlConnection(connectionString);
         bool result = false;//initialize with failed and then change it if it success
         try
         {
             microteldbContext microteldb = new microteldbContext();
-            conn.Open();
             bool nationalId_exist = nationalId_checker(user_Details.nationalID, microteldb);
             //if it's not vaild then it will contain the user's number
             if (nationalId_exist)
@@ -70,7 +66,6 @@ public class AuthenticateNationalID : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(result: result, cancellationToken: cancellationToken);
     }

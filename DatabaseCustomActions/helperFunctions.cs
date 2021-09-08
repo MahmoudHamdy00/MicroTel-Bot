@@ -110,15 +110,14 @@ namespace DatabaseCustomActions
             int ret = rnd.Next(100000, 999999);
             return ret;
         }
-        public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, SqlConnection conn)
+        public static bool phoneNumber_checker(string phoneNumber, ref string nationalID, microteldbContext microteldb)
         {
-            SqlCommand cmd = new SqlCommand($"SELECT [nationalID] FROM [user] WHERE [phoneNumber]='{phoneNumber}'", conn);
-            var result = cmd.ExecuteScalar();
+            User user = microteldb.Users.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault();
             bool phoneNumberExists = false;
-            if (result != null)
+            if (user != null)
             {
                 phoneNumberExists = true;
-                nationalID = result.ToString();
+                nationalID = user.NationalId.ToString();
             }
             return phoneNumberExists;
         }
@@ -131,7 +130,7 @@ namespace DatabaseCustomActions
         /// </returns>
         public static bool nationalId_checker(string natID, microteldbContext microteldb)
         {
-            return microteldb.Users.Find(Convert.ToInt32( natID)) != null;
+            return microteldb.Users.Find(Convert.ToInt32(natID)) != null;
         }
         public static tier_details get_tier_details(string tierName, microteldbContext microteldb)
         {

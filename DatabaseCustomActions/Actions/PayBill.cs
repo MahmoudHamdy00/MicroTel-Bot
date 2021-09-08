@@ -66,6 +66,7 @@ public class PayBill : Dialog
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), successful_operation);
             }
+            microteldb.SaveChanges();
         }
         catch (Exception ex)
         {

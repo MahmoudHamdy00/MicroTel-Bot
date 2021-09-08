@@ -8,4 +8,6 @@
 - It is on 11th of June 1970
 - My birthday is 20th of Sep 1990
 
+@ intent TextInput_Response_TQQnRc usesFeatures datetimeV2
+
 @ prebuilt datetimeV2

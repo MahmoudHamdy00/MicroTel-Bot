@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -46,8 +47,9 @@ public class AuthenticateNationalID : Dialog
         bool result = false;//initialize with failed and then change it if it success
         try
         {
+            microteldbContext microteldb = new microteldbContext();
             conn.Open();
-            bool nationalId_exist = nationalId_checker(user_Details.nationalID, conn);
+            bool nationalId_exist = nationalId_checker(user_Details.nationalID, microteldb);
             //if it's not vaild then it will contain the user's number
             if (nationalId_exist)
                 result = true;

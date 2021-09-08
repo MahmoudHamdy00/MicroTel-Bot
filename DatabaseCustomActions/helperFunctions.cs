@@ -429,18 +429,16 @@ namespace DatabaseCustomActions
 
         public static bool update_quota(string phoneNumber, int minutes, int messages, int megabytes, microteldbContext microteldb)
         {
-#warning not working;
             Line line = microteldb.Lines.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault();
             if (line == null) throw new Exception("There is no quota recored for this user");
             string quotaId = line.QuotaId.ToString();
 
             Quotum quota = microteldb.Quota.Where(x => x.Id.ToString() == quotaId).SingleOrDefault();
-            int currentMinutes = 0, currentMessages = 0, currentMegabytes = 0;
             if (quota != null)
             {
-                currentMinutes += Convert.ToInt32(quota.RemainingMinutes);
-                currentMessages += Convert.ToInt32(quota.RemainingMessages);
-                currentMegabytes += Convert.ToInt32(quota.RemainingMegabytes);
+                quota.RemainingMinutes += minutes;
+                quota.RemainingMessages += messages;
+                quota.RemainingMegabytes += megabytes;
             }
             else throw new Exception("There is no quota record for this user");
 

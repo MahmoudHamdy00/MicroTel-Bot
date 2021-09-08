@@ -42,7 +42,7 @@ public class ExtendPackage : Dialog
         var data = packageName.GetValue(dc.State);
 
         bool result = false;//initialize with failed and then change it if it success
-        int _totalPrice = 0;
+        decimal _totalPrice = 0;
         try
         {
             microteldbContext microteldb = new microteldbContext();
@@ -81,7 +81,7 @@ public class ExtendPackage : Dialog
             bill_details bill_info = get_latest_bill_details(_phoneNumber, microteldb);
             if (!bill_info.exists) throw new Exception("There is no bill record for this user");
             // Calculate bill's total amount 
-            double total_amount = bill_info.amount + _totalPrice;
+            decimal total_amount = bill_info.amount + _totalPrice;
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
             if (!update_bill_amount(bill_info.id, total_amount, microteldb)) throw new Exception("Error with update bill amount method");
             if (bill_info.isPaid == 2)

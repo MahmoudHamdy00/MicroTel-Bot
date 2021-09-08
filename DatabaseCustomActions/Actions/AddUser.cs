@@ -8,7 +8,6 @@ using DatabaseCustomActions;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
-using static DatabaseCustomActions.EnvironmentVariables;
 using DatabaseCustomActions.Models;
 
 public class AddUser : Dialog

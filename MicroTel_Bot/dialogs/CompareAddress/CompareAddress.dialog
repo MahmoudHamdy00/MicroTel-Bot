@@ -26,7 +26,7 @@
           "options": {
             "name": "VerifyStreetNumber",
             "first": "=user.address.streetNumber",
-            "second": "=user.info.streetNo",
+            "second": "=user.info.StreetNo",
             "message": "Street Number",
             "data": "int"
           },
@@ -43,7 +43,7 @@
           "options": {
             "name": "VerifyStreetName",
             "first": "=user.address.streetName",
-            "second": "=user.info.streetName",
+            "second": "=user.info.StreetName",
             "message": "Street Name",
             "data": "string"
           },
@@ -60,7 +60,7 @@
           "options": {
             "name": "VerifyCity",
             "first": "=user.address.city",
-            "second": "=user.info.city",
+            "second": "=user.info.City",
             "message": "City",
             "data": "string"
           },
@@ -77,7 +77,7 @@
           "options": {
             "name": "VerifyCountry",
             "first": "=user.address.country",
-            "second": "=user.info.country",
+            "second": "=user.info.Country",
             "message": "Country",
             "data": "string"
           },

@@ -55,15 +55,22 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
 5. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 
     ![composer](./docsImages/composer.png)
 
-6. From your browser, navigate to [luis.ai](https://luis.ai/) and fetch your [Luis application Subscription Key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-azure-subscription?tabs=portal).
+6. Fetch your Luis application Subscription Key and Region.
+   1. From your browser, navigate to [luis.ai](https://luis.ai/).
+   2. Select any app from the My apps list. If you dont have any, please create an empty Luis application. 
+   3. From your app, navigate to Manage > Azure Resources.  
+   4. From Azure Resources page, select Authoring Resources. 
+   5. Copy Location (Region) and Primary Key (Subscription Key).
+   ![Luis Resouces](./docsImages/luisResources.png)
 
-7. Add your previously fetched [Luis Subscription Key to Bot Framework Composer](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
+
+7. Add your previously fetched [Luis Subscription Key to Bot Framework Composer and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
     ![luis key](./docsImages/luisKey.png)
 
 8. Run solution from Bot Framework composer.
     ![run composer](./docsImages/runComposer.png) 
     
-9. Test application in Bot Emulator when the run process in done.
+9.  Test application in Bot Emulator when the run process in done.
     ![test bot](./docsImages/testApp.png)
     - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
 

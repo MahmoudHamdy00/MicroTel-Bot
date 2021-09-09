@@ -37,14 +37,14 @@ public class AuthenticateNationalID : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
 
-        user_details user_Details = new user_details();
-        user_Details.nationalID = nationalID.GetValue(dc.State).ToString();
+        User user_Details = new User();
+        user_Details.NationalId =Convert.ToInt32( nationalID.GetValue(dc.State));
 
         bool result = false;//initialize with failed and then change it if it success
         try
         {
             microteldbContext microteldb = new microteldbContext();
-            bool nationalId_exist = nationalId_checker(user_Details.nationalID, microteldb);
+            bool nationalId_exist = nationalId_checker(user_Details.NationalId, microteldb);
             //if it's not vaild then it will contain the user's number
             if (nationalId_exist)
                 result = true;

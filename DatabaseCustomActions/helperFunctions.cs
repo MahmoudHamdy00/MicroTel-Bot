@@ -48,7 +48,7 @@ namespace DatabaseCustomActions
         //    public decimal price { get; set; }
         //    public int times { get; set; }// to store how many package to subscrib in when extend package
         //}
-        public struct user_details
+     /*   public struct user_details
         {
             public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
             {
@@ -75,7 +75,7 @@ namespace DatabaseCustomActions
             public string country { get; set; }
             public string phoneNumber { get; set; }
             public string tierName { get; set; }
-        }
+        }*/
 
         public struct bill_details
         {
@@ -122,9 +122,9 @@ namespace DatabaseCustomActions
         /// if there is a user with the same national id return his number 
         /// else return 1;
         /// </returns>
-        public static bool nationalId_checker(string natID, microteldbContext microteldb)
+        public static bool nationalId_checker(int natID, microteldbContext microteldb)
         {
-            return microteldb.Users.Find(Convert.ToInt32(natID)) != null;
+            return microteldb.Users.Find(natID) != null;
         }
         public static TierDetail get_tier_details(string tierName, microteldbContext microteldb)
         {
@@ -372,21 +372,9 @@ namespace DatabaseCustomActions
             microteldb.Bills.Add(bill);
             return 1;
         }
-        public static bool insert_user(user_details user_Details, microteldbContext microteldb)
+        public static bool insert_user(User user_Details, microteldbContext microteldb)
         {
-            User user = new User
-            {
-                NationalId = Convert.ToInt32(user_Details.nationalID),
-                FName = user_Details.firstName,
-                LName = user_Details.lastName,
-                BirthDate = Convert.ToDateTime(user_Details.birthdate),
-                StreetNo = Convert.ToInt32(user_Details.streetNo),
-                StreetName = user_Details.streetName,
-                City = user_Details.city,
-                Country = user_Details.country,
-                PhoneNumber = user_Details.phoneNumber,
-            };
-            microteldb.Users.Add(user);
+                    microteldb.Users.Add(user_Details);
             return true;
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, decimal price, microteldbContext microteldb)
@@ -452,22 +440,21 @@ namespace DatabaseCustomActions
 
             return true;
         }
-        public static object get_user_info(string nationalID, microteldbContext microteldb)
+        public static User get_user_info(string nationalID, microteldbContext microteldb)
         {
-            User user = microteldb.Users.Where(x => x.NationalId.ToString() == nationalID).SingleOrDefault();
-#warning review;
-            string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).SingleOrDefault().TierId).SingleOrDefault().Name;
+            return microteldb.Users.Where(x => x.NationalId.ToString() == nationalID).SingleOrDefault();
+           // string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).SingleOrDefault().TierId).SingleOrDefault().Name;
             //SqlCommand cmd = new SqlCommand($"SELECT * FROM [dbo].[user] as u JOIN [dbo].[line] as l ON u.phoneNumber = l.phoneNumber JOIN [dbo].[tier_details] as t ON t.id = l.tierID WHERE nationalID = '{nationalID}';", conn);
-            user_details _UserInfo;
+          /*  User _UserInfo;
             if (user != null)
             {
-                _UserInfo = new user_details(true, user.NationalId.ToString(), user.FName, user.LName, user.BirthDate.ToString("yyyy-MM-dd"), user.StreetNo.ToString(), user.StreetName, user.City, user.Country, user.PhoneNumber, tierName);
+                _UserInfo = new user(true, user.NationalId.ToString(), user.FName, user.LName, user.BirthDate.ToString("yyyy-MM-dd"), user.StreetNo.ToString(), user.StreetName, user.City, user.Country, user.PhoneNumber, tierName);
             }
             else
             {
                 _UserInfo = new user_details(false);
             }
-            return _UserInfo;
+            return _UserInfo;*/
         }
         public static string toTitle(string word)
         {

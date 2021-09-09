@@ -61,17 +61,18 @@ public class AddUser : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        user_details user_Details = new user_details();
-        user_Details.nationalID = nationalID.GetValue(dc.State).ToString();
-        user_Details.firstName = toTitle(firstName.GetValue(dc.State).ToString());
-        user_Details.lastName = toTitle(lastName.GetValue(dc.State).ToString());
-        user_Details.birthdate = birthdate.GetValue(dc.State).ToString();
-        user_Details.streetNo = streetNo.GetValue(dc.State).ToString();
-        user_Details.streetName = toTitle(streetName.GetValue(dc.State).ToString());
-        user_Details.city = toTitle(city.GetValue(dc.State).ToString());
-        user_Details.country = toTitle(country.GetValue(dc.State).ToString());
-        user_Details.phoneNumber = "010" + getPhoneNumber().ToString();
-
+        User user_Details = new User
+        {
+            NationalId = Convert.ToInt32(nationalID.GetValue(dc.State)),
+            FName = toTitle(firstName.GetValue(dc.State).ToString()),
+            LName = toTitle(lastName.GetValue(dc.State).ToString()),
+            BirthDate = Convert.ToDateTime(birthdate.GetValue(dc.State)),
+            StreetNo = Convert.ToInt32(streetNo.GetValue(dc.State)),
+            StreetName = toTitle(streetName.GetValue(dc.State).ToString()),
+            City = toTitle(city.GetValue(dc.State).ToString()),
+            Country = toTitle(country.GetValue(dc.State).ToString()),
+            PhoneNumber = "010" + getPhoneNumber().ToString(),
+        };
         string _tier = toTitle(tier.GetValue(dc.State).ToString());
 
         // Extract connection string from env variables 
@@ -80,7 +81,7 @@ public class AddUser : Dialog
         try
         {
             microteldbContext microteldb = new microteldbContext();
-            bool nationalId_exist = nationalId_checker(user_Details.nationalID,microteldb);
+            bool nationalId_exist = nationalId_checker(user_Details.NationalId, microteldb);
             // if national id already register, don't add register a new user
             if (nationalId_exist)
             {
@@ -91,8 +92,8 @@ public class AddUser : Dialog
             Console.WriteLine(nationalId_exist);
 
             // get tier detailes;
-            TierDetail tierDetails = get_tier_details(_tier,microteldb);
-            if (tierDetails==null)
+            TierDetail tierDetails = get_tier_details(_tier, microteldb);
+            if (tierDetails == null)
             {
                 userAdded = false;
                 Console.WriteLine("Invalid tier");
@@ -104,18 +105,18 @@ public class AddUser : Dialog
             Console.WriteLine(quotaID);
 
             // Insert line details for the new user
-            var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.Id, quotaID,microteldb);
+            var insert_line_result = insert_line(user_Details.PhoneNumber, tierDetails.Id, quotaID, microteldb);
             Console.WriteLine("insert_line_result " + insert_line_result);
 
             // Create new bill for the user
-            var insert_bill_result = insert_bill(tierDetails.Id, tierDetails.Price, user_Details.phoneNumber,  microteldb);
+            var insert_bill_result = insert_bill(tierDetails.Id, tierDetails.Price, user_Details.PhoneNumber, microteldb);
 
             // Insert the new user's details 
-            userAdded = insert_user(user_Details , microteldb);
+            userAdded = insert_user(user_Details, microteldb);
 
             if (this.number != null)
             {
-                dc.State.SetValue(this.number.GetValue(dc.State), user_Details.phoneNumber);
+                dc.State.SetValue(this.number.GetValue(dc.State), user_Details.PhoneNumber);
             }
             if (this.ResultProperty != null)
             {

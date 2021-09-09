@@ -9,27 +9,27 @@ namespace DatabaseCustomActions
 {
     class HelperFunctions
     {
-        public struct tier_details
-        {
-            public tier_details(bool valid, string id = "", string name = "", int minutes = 0, int SMS = 0, int megabytes = 0, decimal price = 0)
-            {
-                this.valid = valid;
-                this.id = id;
-                this.name = name;
-                this.minutes = minutes;
-                this.SMS = SMS;
-                this.megabytes = megabytes;
-                this.price = price;
-            }
-            public bool valid { get; set; }
-            public string id { get; set; }
-            public string name { get; set; }
-            public int minutes { get; set; }
-            public int SMS { get; set; }
-            public int megabytes { get; set; }
-            public decimal price { get; set; }
+        /*   public struct tier_details
+           {
+               public tier_details(bool valid, string id = "", string name = "", int minutes = 0, int SMS = 0, int megabytes = 0, decimal price = 0)
+               {
+                   this.valid = valid;
+                   this.id = id;
+                   this.name = name;
+                   this.minutes = minutes;
+                   this.SMS = SMS;
+                   this.megabytes = megabytes;
+                   this.price = price;
+               }
+               public bool valid { get; set; }
+               public string id { get; set; }
+               public string name { get; set; }
+               public int minutes { get; set; }
+               public int SMS { get; set; }
+               public int megabytes { get; set; }
+               public decimal price { get; set; }
 
-        }
+           }*/
         //public struct package_details
         //{
         //    public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, decimal price = 0, int times = 1)
@@ -126,15 +126,23 @@ namespace DatabaseCustomActions
         {
             return microteldb.Users.Find(Convert.ToInt32(natID)) != null;
         }
-        public static tier_details get_tier_details(string tierName, microteldbContext microteldb)
+        public static TierDetail get_tier_details(string tierName, microteldbContext microteldb)
         {
             TierDetail tierDetail = microteldb.TierDetails.Where(x => x.Name == tierName).SingleOrDefault();
-            tier_details _Details;
-            if (tierDetail == null) _Details = new tier_details(false);
+            TierDetail _Details;
+            if (tierDetail == null) _Details = null;
             else
             {
                 TierDetail tier = (TierDetail)(tierDetail);
-                _Details = new tier_details(true, tier.Id.ToString(), tier.Name, tier.Minutes, tier.Messages, tier.Megabytes, tier.Price);
+                _Details = new TierDetail
+                {
+                    Id = tier.Id,
+                    Name = tier.Name,
+                    Minutes = tier.Minutes,
+                    Messages = tier.Messages,
+                    Megabytes = tier.Megabytes,
+                    Price = tier.Price
+                };
             }
             return _Details;
         }
@@ -321,45 +329,45 @@ namespace DatabaseCustomActions
             map["Text Messages"].Sort();
             return selectedPackages;
         }
-        public static bool update_tier(string tier_id, string phoneNumber, microteldbContext microteldb)
+        public static bool update_tier(Guid tier_id, string phoneNumber, microteldbContext microteldb)
         {
             Line line = microteldb.Lines.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault();
-            line.TierId = Guid.Parse(tier_id);
+            line.TierId = tier_id;
             return true;
         }
-        public static string insert_quota(tier_details tierDetails, microteldbContext microteldb)
+        public static Guid insert_quota(TierDetail tierDetails, microteldbContext microteldb)
         {
             Quotum quota = new Quotum
             {
                 Id = Guid.NewGuid(),
-                RemainingMinutes = tierDetails.minutes,
-                RemainingMessages = tierDetails.SMS,
-                RemainingMegabytes = tierDetails.megabytes,
+                RemainingMinutes = tierDetails.Minutes,
+                RemainingMessages = tierDetails.Messages,
+                RemainingMegabytes = tierDetails.Megabytes,
                 Date = DateTime.Now
             };
             microteldb.Quota.Add(quota);
-            return quota.Id.ToString();
+            return quota.Id;
 
         }
-        public static int insert_line(string _phoneNumber, string tierId, string quotaID, microteldbContext microteldb)
+        public static int insert_line(string _phoneNumber, Guid tierId, Guid quotaID, microteldbContext microteldb)
         {
             Line line = new Line
             {
                 PhoneNumber = _phoneNumber,
-                TierId = Guid.Parse(tierId),
-                QuotaId = Guid.Parse(quotaID)
+                TierId = tierId,
+                QuotaId = quotaID
             };
             microteldb.Lines.Add(line);
             return 1;
         }
-        public static int insert_bill(string tierID, decimal price, string phoneNumber, microteldbContext microteldb)
+        public static int insert_bill(Guid tierID, decimal price, string phoneNumber, microteldbContext microteldb)
         {
             Bill bill = new Bill
             {
                 DueDate = DateTime.Now.AddDays(30),
                 Amount = Convert.ToDecimal(price),
                 PhoneNumber = phoneNumber,
-                TeirId = Guid.Parse(tierID)
+                TeirId = tierID
             };
             microteldb.Bills.Add(bill);
             return 1;

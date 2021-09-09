@@ -91,8 +91,8 @@ public class AddUser : Dialog
             Console.WriteLine(nationalId_exist);
 
             // get tier detailes;
-            tier_details tierDetails = get_tier_details(_tier,microteldb);
-            if (!tierDetails.valid)
+            TierDetail tierDetails = get_tier_details(_tier,microteldb);
+            if (tierDetails==null)
             {
                 userAdded = false;
                 Console.WriteLine("Invalid tier");
@@ -100,15 +100,15 @@ public class AddUser : Dialog
             }
 
             // Create a qouta for the new user
-            string quotaID = insert_quota(tierDetails, microteldb);
+            Guid quotaID = insert_quota(tierDetails, microteldb);
             Console.WriteLine(quotaID);
 
             // Insert line details for the new user
-            var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.id, quotaID,microteldb);
+            var insert_line_result = insert_line(user_Details.phoneNumber, tierDetails.Id, quotaID,microteldb);
             Console.WriteLine("insert_line_result " + insert_line_result);
 
             // Create new bill for the user
-            var insert_bill_result = insert_bill(tierDetails.id, tierDetails.price, user_Details.phoneNumber,  microteldb);
+            var insert_bill_result = insert_bill(tierDetails.Id, tierDetails.Price, user_Details.phoneNumber,  microteldb);
 
             // Insert the new user's details 
             userAdded = insert_user(user_Details , microteldb);

@@ -32,12 +32,12 @@
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
               "prompt": "${TextInput_Prompt_TQQnRc()}",
               "validations": [
                 "=and(exists(@datetime), isDate(@datetime.timex[0]), not(contains(@datetime.timex[0], \"XX\")))"
               ],
-              "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}"
+              "invalidPrompt": "${TextInput_InvalidPrompt_TQQnRc()}",
+              "allowInterruptions": "=not(exists(@datetime))"
             },
             {
               "$kind": "Microsoft.SetProperty",

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -30,17 +31,14 @@ public class GetBillInfo : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
-
+    
         string phone_number = lineNumber.GetValue(dc.State).ToString();
 
-        SqlConnection conn = new SqlConnection(connectionString);
         try
         {
-            conn.Open();
-            bill_details bill_info = get_latest_bill_details(phone_number, conn);
+            microteldbContext microteldb = new microteldbContext();
+
+            bill_details bill_info = get_latest_bill_details(phone_number, microteldb);
 
             if (this.ResultProperty != null)
             {
@@ -56,7 +54,6 @@ public class GetBillInfo : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(cancellationToken: cancellationToken);
     }

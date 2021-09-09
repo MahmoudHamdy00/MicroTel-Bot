@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -46,17 +47,15 @@ public class VerifyPackage : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
+     
 
         var data = PackageName.GetValue(dc.State);
 
-        SqlConnection conn = new SqlConnection(connectionString);
         bool result = false;//initialize with failed and then change it if it success
         try
         {
-            conn.Open();
+            microteldbContext microteldb = new microteldbContext();
+
             Newtonsoft.Json.Linq.JArray packageNames;
             package_details package_Details = new package_details();
             string confirmationMessage = "";
@@ -75,7 +74,7 @@ public class VerifyPackage : Dialog
                 //     List<package_details> selectedPackages = mainGetBestPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, conn);
                 bool found = false;
                 Dictionary<string, List<int>> map = new Dictionary<string, List<int>>();
-                List<package_details> selectedPackages = getPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, ref found, ref map, conn);
+                List<package_details> selectedPackages = getPackages(package_Details.minutes, package_Details.messages, package_Details.megabytes, ref found, ref map, microteldb);
                 if (!found)
                 {
                     string packages = "There is only these packages" + Environment.NewLine;
@@ -150,7 +149,7 @@ public class VerifyPackage : Dialog
             else
             {
                 package_Details.packageName = PackageName.GetValue(dc.State).ToString();
-                bool validPackage = get_package_details(ref package_Details, conn);
+                bool validPackage = get_package_details(ref package_Details, microteldb);
                 if (!validPackage) throw new Exception("Someting went wrong");
                 if (this.Packages != null)
                 {
@@ -187,7 +186,6 @@ public class VerifyPackage : Dialog
         }
         finally
         {
-            conn.Close();
         }
 
         if (this.ResultProperty != null)

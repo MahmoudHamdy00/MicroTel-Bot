@@ -186,11 +186,11 @@
 
 # ExtendPackage
 - 010242411 12342 {@singlePackageInfo={@amount=2} {@unit=gb}}, {@singlePackageInfo={@amount=3000} {@unit=min}}
-- can i extend my package?
 - can i get {@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}?
 - can i get {@singlePackageInfo={@amount=800} {@unit=messages}}
 - can i increase my quota?
 - extend
+- extend my package
 - i have a phone number 010123456 ,i want to extend its package
 - i need {@singlePackageInfo={@amount=2000} {@unit=minutes}}
 - i need {@singlePackageInfo={@amount=4000} extra {@unit=megabytes}}

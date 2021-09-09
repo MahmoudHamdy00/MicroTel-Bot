@@ -57,25 +57,25 @@ public class ExtendPackage : Dialog
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var curPackage in packageNames)
                 {
-                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["price"]), microteldb);
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["Name"].ToString(), Convert.ToInt32(curPackage["Price"]), microteldb);
                     all_affected_rows += affected_rows;
-                    _totalPrice += Convert.ToInt32(curPackage["price"]) * Convert.ToInt32(curPackage["times"]);
-                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]);
-                    messages_to_increae += Convert.ToInt32(curPackage["messages"]);
-                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]);
+                    _totalPrice += Convert.ToInt32(curPackage["Price"]) ;
+                    megabytes_to_increae += Convert.ToInt32(curPackage["Megabytes"]);
+                    messages_to_increae += Convert.ToInt32(curPackage["Messages"]);
+                    minutes_to_increae += Convert.ToInt32(curPackage["Minutes"]);
                 }
             }
             else
             {
-                package_details package_Details = new package_details();
-                package_Details.packageName = data.ToString();
+                ExtraPackageDetail package_Details = new ExtraPackageDetail();
+                package_Details.Name = data.ToString();
                 bool is_ok = get_package_details(ref package_Details, microteldb);
                 if (!is_ok) throw new Exception("There isn't any package with this name");
-                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, package_Details.price, microteldb);
-                _totalPrice = package_Details.price;
-                megabytes_to_increae = package_Details.megabytes;
-                messages_to_increae = package_Details.megabytes;
-                minutes_to_increae = package_Details.megabytes;
+                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.Name, Convert.ToDecimal(package_Details.Price), microteldb);
+                _totalPrice = Convert.ToDecimal( package_Details.Price);
+                megabytes_to_increae =Convert.ToInt32( package_Details.Megabytes);
+                messages_to_increae = Convert.ToInt32(package_Details.Messages);
+                minutes_to_increae = Convert.ToInt32(package_Details.Minutes);
             }
             // Get user bill details for the current month 
             bill_details bill_info = get_latest_bill_details(_phoneNumber, microteldb);

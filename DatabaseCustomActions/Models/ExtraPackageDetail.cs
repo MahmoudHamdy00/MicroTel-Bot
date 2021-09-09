@@ -10,6 +10,10 @@ namespace DatabaseCustomActions.Models
         public ExtraPackageDetail()
         {
             ExtraPackages = new HashSet<ExtraPackage>();
+            Minutes = 0;
+            Messages = 0;
+            Megabytes = 0;
+            Price = 0;
         }
 
         public Guid Id { get; set; }

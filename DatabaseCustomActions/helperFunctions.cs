@@ -30,24 +30,24 @@ namespace DatabaseCustomActions
             public decimal price { get; set; }
 
         }
-        public struct package_details
-        {
-            public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, decimal price = 0, int times = 1)
-            {
-                this.packageName = packageName;
-                this.minutes = minutes;
-                this.messages = messages;
-                this.megabytes = megabytes;
-                this.price = price;
-                this.times = times;
-            }
-            public string packageName { get; set; }
-            public int minutes { get; set; }
-            public int messages { get; set; }
-            public int megabytes { get; set; }
-            public decimal price { get; set; }
-            public int times { get; set; }// to store how many package to subscrib in when extend package
-        }
+        //public struct package_details
+        //{
+        //    public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, decimal price = 0, int times = 1)
+        //    {
+        //        this.packageName = packageName;
+        //        this.minutes = minutes;
+        //        this.messages = messages;
+        //        this.megabytes = megabytes;
+        //        this.price = price;
+        //        this.times = times;
+        //    }
+        //    public string packageName { get; set; }
+        //    public int minutes { get; set; }
+        //    public int messages { get; set; }
+        //    public int megabytes { get; set; }
+        //    public decimal price { get; set; }
+        //    public int times { get; set; }// to store how many package to subscrib in when extend package
+        //}
         public struct user_details
         {
             public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
@@ -138,13 +138,20 @@ namespace DatabaseCustomActions
             }
             return _Details;
         }
-        public static bool get_package_details(ref package_details package_Details, microteldbContext microteldb)
+        public static bool get_package_details(ref ExtraPackageDetail package_Details, microteldbContext microteldb)
         {
-            string name = package_Details.packageName;
+            string name = package_Details.Name;
             ExtraPackageDetail extraPackageDetail = microteldb.ExtraPackageDetails.Where(x => x.Name == name).SingleOrDefault();
             if (extraPackageDetail != null)
             {
-                package_Details = new package_details(extraPackageDetail.Name, Convert.ToInt32(extraPackageDetail.Minutes), Convert.ToInt32(extraPackageDetail.Messages), Convert.ToInt32(extraPackageDetail.Megabytes), Convert.ToInt32(extraPackageDetail.Price));
+                package_Details = new ExtraPackageDetail
+                {
+                    Name = extraPackageDetail.Name,
+                    Minutes = extraPackageDetail.Minutes,
+                    Messages = extraPackageDetail.Messages,
+                    Megabytes = extraPackageDetail.Megabytes,
+                    Price = extraPackageDetail.Price
+                };
                 return true;
             }
             return false;
@@ -200,35 +207,42 @@ namespace DatabaseCustomActions
             return _Details;
         }
 
-        public static List<package_details> getAvailablePackages(microteldbContext microteldb)
+        public static List<ExtraPackageDetail> getAvailablePackages(microteldbContext microteldb)
         {
-            List<package_details> availablePackage = new List<package_details>();
+            List<ExtraPackageDetail> availablePackage = new List<ExtraPackageDetail>();
             List<ExtraPackageDetail> availablePackages = microteldb.ExtraPackageDetails.ToList();
 
             foreach (ExtraPackageDetail package in availablePackages)
             {
-                package_details package_Details = new package_details(package.Name, Convert.ToInt32(package.Minutes), Convert.ToInt32(package.Messages), Convert.ToInt32(package.Megabytes), Convert.ToInt32(package.Price));
+                ExtraPackageDetail package_Details = new ExtraPackageDetail
+                {
+                    Name = package.Name,
+                    Minutes = package.Minutes,
+                    Messages = package.Messages,
+                    Megabytes = package.Megabytes,
+                    Price = package.Price
+                };
                 availablePackage.Add(package_Details);
             }
             return availablePackage;
         }
-        public static List<package_details> mainGetBestPackages(int minutes, int messages, int megabytes, microteldbContext microteldb)
+        public static List<ExtraPackageDetail> mainGetBestPackages(int minutes, int messages, int megabytes, microteldbContext microteldb)
         {
-            List<package_details> selectedPackages = new List<package_details>();
-            List<package_details> temp = new List<package_details>();
-            List<package_details> availablePackages = getAvailablePackages(microteldb);
+            List<ExtraPackageDetail> selectedPackages = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> temp = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> availablePackages = getAvailablePackages(microteldb);
             decimal bestPrice = 10000;
             getBestPackages(minutes, messages, megabytes, 0, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
             return selectedPackages;
         }
-        public static void getBestPackages(int minutes, int messages, int megabytes, decimal price, ref decimal bestPrice, ref List<package_details> selectedPackages, ref List<package_details> temp, ref List<package_details> availablePackages)
+        public static void getBestPackages(int minutes, int messages, int megabytes, decimal price, ref decimal bestPrice, ref List<ExtraPackageDetail> selectedPackages, ref List<ExtraPackageDetail> temp, ref List<ExtraPackageDetail> availablePackages)
         {
             if (minutes <= 0 && messages <= 0 && megabytes <= 0)
             {
                 if (price < bestPrice)
                 {
                     bestPrice = price;
-                    selectedPackages = new List<package_details>(temp);
+                    selectedPackages = new List<ExtraPackageDetail>(temp);
                 }
                 return;
             }
@@ -236,67 +250,67 @@ namespace DatabaseCustomActions
             foreach (var cur in availablePackages)
             {
 
-                if (cur.packageName == "Minutes" && minutes <= 0) continue;
-                if (cur.packageName == "Text Messages" && messages <= 0) continue;
-                if (cur.packageName == "Megabytes" && megabytes <= 0) continue;
+                if (cur.Name == "Minutes" && minutes <= 0) continue;
+                if (cur.Name == "Text Messages" && messages <= 0) continue;
+                if (cur.Name == "Megabytes" && megabytes <= 0) continue;
                 temp.Add(cur);
-                getBestPackages(minutes - cur.minutes, messages - cur.messages, megabytes - cur.megabytes, price + cur.price, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
+                getBestPackages(Convert.ToInt32(minutes - cur.Minutes), Convert.ToInt32(messages - cur.Messages), Convert.ToInt32(megabytes - cur.Megabytes), Convert.ToDecimal(price + cur.Price), ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
                 temp.Remove(cur);
             }
 
         }
-        public static List<package_details> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool found, ref Dictionary<string, List<int>> map, microteldbContext microteldb)
+        public static List<ExtraPackageDetail> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool found, ref Dictionary<string, List<int>> map, microteldbContext microteldb)
         {
-            List<package_details> selectedPackages = new List<package_details>();
-            List<package_details> avalaiblePackages = getAvailablePackages(microteldb);
+            List<ExtraPackageDetail> selectedPackages = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> avalaiblePackages = getAvailablePackages(microteldb);
             foreach (var cur in avalaiblePackages)
             {
-                if (cur.megabytes == neededMegabytes && cur.minutes == neededMinutes && cur.messages == neededMessages)
+                if (cur.Megabytes == neededMegabytes && cur.Minutes == neededMinutes && cur.Messages == neededMessages)
                 {
                     selectedPackages.Clear();
                     selectedPackages.Add(cur);
                     found = true;
                     return selectedPackages;
                 }
-                if (cur.packageName.Contains("Text Messages"))
+                if (cur.Name.Contains("Text Messages"))
                 {
-                    if (neededMessages == cur.messages)
+                    if (neededMessages == cur.Messages)
                     {
                         selectedPackages.Add(cur);
                         neededMessages = -1;
                     }
                     if (map.ContainsKey("Text Messages"))
-                        map["Text Messages"].Add(cur.messages);
+                        map["Text Messages"].Add(Convert.ToInt32(cur.Messages));
                     else
-                        map.Add("Text Messages", new List<int>() { cur.messages });
+                        map.Add("Text Messages", new List<int>() { Convert.ToInt32(cur.Messages) });
 
                 }
-                else if (cur.packageName.Contains("Megabytes"))
+                else if (cur.Name.Contains("Megabytes"))
                 {
-                    if (neededMegabytes == cur.megabytes)
+                    if (neededMegabytes == cur.Megabytes)
                     {
                         selectedPackages.Add(cur);
                         neededMegabytes = -1;
                     }
 
                     if (map.ContainsKey("Megabytes"))
-                        map["Megabytes"].Add(cur.megabytes);
+                        map["Megabytes"].Add(Convert.ToInt32(cur.Megabytes));
                     else
-                        map.Add("Megabytes", new List<int>() { cur.megabytes });
+                        map.Add("Megabytes", new List<int>() { Convert.ToInt32(cur.Megabytes) });
 
                 }
-                else if (cur.packageName.Contains("Minutes"))
+                else if (cur.Name.Contains("Minutes"))
                 {
-                    if (neededMinutes == cur.minutes)
+                    if (neededMinutes == Convert.ToInt32(cur.Minutes))
                     {
                         selectedPackages.Add(cur);
                         neededMinutes = -1;
                     }
 
                     if (map.ContainsKey("Minutes"))
-                        map["Minutes"].Add(cur.minutes);
+                        map["Minutes"].Add(Convert.ToInt32(cur.Minutes));
                     else
-                        map.Add("Minutes", new List<int>() { cur.minutes });
+                        map.Add("Minutes", new List<int>() { Convert.ToInt32(cur.Minutes) });
 
                 }
 

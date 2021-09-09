@@ -434,7 +434,7 @@ namespace DatabaseCustomActions
         {
             User user = microteldb.Users.Where(x => x.NationalId.ToString() == nationalID).SingleOrDefault();
 #warning review;
-            string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).ToHashSet().SingleOrDefault().TierId).SingleOrDefault().Name;
+            string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).SingleOrDefault().TierId).SingleOrDefault().Name;
             //SqlCommand cmd = new SqlCommand($"SELECT * FROM [dbo].[user] as u JOIN [dbo].[line] as l ON u.phoneNumber = l.phoneNumber JOIN [dbo].[tier_details] as t ON t.id = l.tierID WHERE nationalID = '{nationalID}';", conn);
             user_details _UserInfo;
             if (user != null)

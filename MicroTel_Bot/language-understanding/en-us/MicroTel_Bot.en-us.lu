@@ -215,6 +215,7 @@
 - my national id is 16242, can i extend my package with the premium plus package.
 - my phone number is 010189542 and i want to get extra {@singlePackageInfo={@unit=minutes}}
 - my phone number is 010242411 and my id is 12342, i want to increase my quota with the premium plus package.
+- my phone is 010744227 and my national id is 11227 ,i want to extend my package with premium plus package
 - my quota ran out i want to extend it
 - please increase my quota with {@singlePackageInfo={@amount=1000} {@unit=gb}}
 

@@ -29,9 +29,11 @@ public class GetBillInfo : Dialog
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
 
+    [JsonProperty("billDetails")]
+    public ValueExpression BillDetails { get; set; }
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-    
+
         string phone_number = lineNumber.GetValue(dc.State).ToString();
 
         try

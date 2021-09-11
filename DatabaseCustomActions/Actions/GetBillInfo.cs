@@ -41,10 +41,17 @@ public class GetBillInfo : Dialog
             microteldbContext microteldb = new microteldbContext();
 
             bill_details bill_info = get_latest_bill_details(phone_number, microteldb);
-
+            string detailsMessage = $"Your total bill amount for the current month costs {bill_info.amount} USD." + Environment.NewLine;
+            if (bill_info.amount != bill_info.remainingAmount)
+                detailsMessage += $" Based on your previous payments, you are required to pay {bill_info.remainingAmount} USD."+ Environment.NewLine;
+            detailsMessage += Get_Bill_Details(phone_number, microteldb);
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), bill_info);
+            }
+            if (this.BillDetails != null)
+            {
+                dc.State.SetValue(this.BillDetails.GetValue(dc.State).ToString(), detailsMessage);
             }
         }
         catch (Exception ex)

@@ -173,7 +173,7 @@ namespace DatabaseCustomActions
         }
         public static bill_details get_latest_bill_details(string phoneNumber, microteldbContext microteldb)
         {
-            DateTime date = microteldb.Bills.Max(x => x.DueDate);
+            DateTime date = microteldb.Bills.Where(x => x.PhoneNumber == phoneNumber).Max(x => x.DueDate);
             //SqlCommand cmd = new SqlCommand($"SELECT TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNumber}' ORDER BY dueDate DESC;", conn);
 
 #warning review this;
@@ -199,7 +199,47 @@ namespace DatabaseCustomActions
             }
             return _Details;
         }
+        public static string Get_Bill_Details(string phoneNumber, microteldbContext microteldb)
+        {
+            DateTime date = microteldb.Bills.Where(x => x.PhoneNumber == phoneNumber).Max(x => x.DueDate);
+            //SqlCommand cmd = new SqlCommand($"SELECT TOP(1) * FROM [dbo].[bill] WHERE phoneNumber ='{phoneNumber}' ORDER BY dueDate DESC;", conn);
 
+#warning review this;
+            Bill bill = microteldb.Bills.Where(x => x.DueDate == date && x.PhoneNumber == phoneNumber).SingleOrDefault();
+
+            List<ExtraPackage> extraPackages;
+            List<Payment> payments = microteldb.Payments.Where(x => x.BillId == bill.Id).ToList();
+            bool is_there_payment = payments != null && payments.Count() != 0;
+            string detailsMessage = "Bill Details:-" + Environment.NewLine;
+            if (is_there_payment)
+            {
+                DateTime last_payment_date = payments.Max(x => x.Date);
+                Console.WriteLine(date.ToString());
+
+                extraPackages = microteldb.ExtraPackages.Where(x => x.PhoneNumber == phoneNumber && x.Date > last_payment_date).ToList();
+            }
+            else
+            {
+                extraPackages = microteldb.ExtraPackages.Where(x => x.PhoneNumber == phoneNumber).ToList();
+                TierDetail tierDetail = microteldb.TierDetails.Where(x => x.Id == (microteldb.Lines.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault().TierId)).SingleOrDefault();
+                detailsMessage += "- Main Tier Name: *" + tierDetail.Name + "*, ";
+                detailsMessage += "Due date: *" + bill.DueDate.ToString("MMM dd, yyyy") + "*, ";
+                detailsMessage += "Price: *" + tierDetail.Price.ToString() + "*" + Environment.NewLine;
+                detailsMessage += Environment.NewLine;
+            }
+            Console.WriteLine(DateTime.Now.ToString());
+            if (extraPackages != null && extraPackages.Count() != 0)
+            {
+                detailsMessage += "- Unpaid Extra Packages:-" + Environment.NewLine;
+                foreach (ExtraPackage cur in extraPackages)
+                {
+                    detailsMessage += " 1. Package Name: *" + microteldb.ExtraPackageDetails.Where(x => x.Id == cur.ExtraPackageId).SingleOrDefault().Name + "*, ";
+                    detailsMessage += "Subscription date: *" + Convert.ToDateTime(cur.Date).ToString("MMM dd, yyyy") + "*, ";
+                    detailsMessage += "Price: *" + cur.TotalPrice.ToString() + "*" + Environment.NewLine;
+                }
+            }
+            return detailsMessage;
+        }
         public static List<package_details> getAvailablePackages(microteldbContext microteldb)
         {
             List<package_details> availablePackage = new List<package_details>();

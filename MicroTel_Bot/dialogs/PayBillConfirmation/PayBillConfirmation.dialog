@@ -24,7 +24,8 @@
           "activityProcessed": true,
           "dialog": "Confirm",
           "options": {
-            "message": "Confirm paying ${dialog.billInfo.remainingAmount} USD for your line number ${user.line.number} with your credit card number ${user.creditCard}?"
+            "message": "Confirm paying ${dialog.billInfo.remainingAmount} USD for your line number ${user.line.number} with your credit card number ${user.creditCard}?",
+            "data": "=dialog.billDetails"
           },
           "resultProperty": "user.confirm"
         },

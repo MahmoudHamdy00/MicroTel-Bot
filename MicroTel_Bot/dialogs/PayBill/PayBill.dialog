@@ -57,7 +57,8 @@
             "id": "yVyoNX"
           },
           "lineNumber": "=user.line.number",
-          "resultProperty": "dialog.billInfo"
+          "resultProperty": "dialog.billInfo",
+          "billDetails": "dialog.billDetails"
         },
         {
           "$kind": "Microsoft.IfCondition",
@@ -99,6 +100,13 @@
                   "activity": "${SendActivity_0gnA2B()}"
                 },
                 {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "wddqCW"
+                  },
+                  "activity": "${SendActivity_wddqCW()}"
+                },
+                {
                   "$kind": "Microsoft.BeginDialog",
                   "$designer": {
                     "id": "ELgJEk"
@@ -118,7 +126,8 @@
                   "activityProcessed": true,
                   "dialog": "PayBillConfirmation",
                   "options": {
-                    "billInfo": "=dialog.billInfo"
+                    "billInfo": "=dialog.billInfo",
+                    "billDetails": "=dialog.billDetails"
                   }
                 }
               ]

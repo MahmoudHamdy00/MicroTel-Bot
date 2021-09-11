@@ -22,7 +22,10 @@
             "id": "YslHhB"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPhoneNumber"
+          "dialog": "ExtractPhoneNumber",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -30,7 +33,10 @@
             "id": "TJmE47"
           },
           "activityProcessed": true,
-          "dialog": "ExtractNationalID"
+          "dialog": "ExtractNationalID",
+          "options": {
+            "data": "=@updateTierInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",

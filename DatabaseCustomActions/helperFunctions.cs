@@ -9,73 +9,73 @@ namespace DatabaseCustomActions
 {
     class HelperFunctions
     {
-        public struct tier_details
-        {
-            public tier_details(bool valid, string id = "", string name = "", int minutes = 0, int SMS = 0, int megabytes = 0, decimal price = 0)
-            {
-                this.valid = valid;
-                this.id = id;
-                this.name = name;
-                this.minutes = minutes;
-                this.SMS = SMS;
-                this.megabytes = megabytes;
-                this.price = price;
-            }
-            public bool valid { get; set; }
-            public string id { get; set; }
-            public string name { get; set; }
-            public int minutes { get; set; }
-            public int SMS { get; set; }
-            public int megabytes { get; set; }
-            public decimal price { get; set; }
+        /*   public struct tier_details
+           {
+               public tier_details(bool valid, string id = "", string name = "", int minutes = 0, int SMS = 0, int megabytes = 0, decimal price = 0)
+               {
+                   this.valid = valid;
+                   this.id = id;
+                   this.name = name;
+                   this.minutes = minutes;
+                   this.SMS = SMS;
+                   this.megabytes = megabytes;
+                   this.price = price;
+               }
+               public bool valid { get; set; }
+               public string id { get; set; }
+               public string name { get; set; }
+               public int minutes { get; set; }
+               public int SMS { get; set; }
+               public int megabytes { get; set; }
+               public decimal price { get; set; }
 
-        }
-        public struct package_details
-        {
-            public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, decimal price = 0, int times = 1)
-            {
-                this.packageName = packageName;
-                this.minutes = minutes;
-                this.messages = messages;
-                this.megabytes = megabytes;
-                this.price = price;
-                this.times = times;
-            }
-            public string packageName { get; set; }
-            public int minutes { get; set; }
-            public int messages { get; set; }
-            public int megabytes { get; set; }
-            public decimal price { get; set; }
-            public int times { get; set; }// to store how many package to subscrib in when extend package
-        }
-        public struct user_details
-        {
-            public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
-            {
-                this.exists = exists;
-                this.nationalID = nationalID;
-                this.firstName = firstName;
-                this.lastName = lastName;
-                this.birthdate = birthdate;
-                this.streetNo = streetNo;
-                this.streetName = streetName;
-                this.city = city;
-                this.country = country;
-                this.phoneNumber = phoneNumber;
-                this.tierName = tierName;
-            }
-            public bool exists { get; set; }
-            public string nationalID { get; set; }
-            public string firstName { get; set; }
-            public string lastName { get; set; }
-            public string birthdate { get; set; }
-            public string streetNo { get; set; }
-            public string streetName { get; set; }
-            public string city { get; set; }
-            public string country { get; set; }
-            public string phoneNumber { get; set; }
-            public string tierName { get; set; }
-        }
+           }*/
+        //public struct package_details
+        //{
+        //    public package_details(string packageName = "", int minutes = 0, int messages = 0, int megabytes = 0, decimal price = 0, int times = 1)
+        //    {
+        //        this.packageName = packageName;
+        //        this.minutes = minutes;
+        //        this.messages = messages;
+        //        this.megabytes = megabytes;
+        //        this.price = price;
+        //        this.times = times;
+        //    }
+        //    public string packageName { get; set; }
+        //    public int minutes { get; set; }
+        //    public int messages { get; set; }
+        //    public int megabytes { get; set; }
+        //    public decimal price { get; set; }
+        //    public int times { get; set; }// to store how many package to subscrib in when extend package
+        //}
+        /*   public struct user_details
+           {
+               public user_details(bool exists, string nationalID = "", string firstName = "", string lastName = "", string birthdate = "", string streetNo = "", string streetName = "", string city = "", string country = "", string phoneNumber = "", string tierName = "")
+               {
+                   this.exists = exists;
+                   this.nationalID = nationalID;
+                   this.firstName = firstName;
+                   this.lastName = lastName;
+                   this.birthdate = birthdate;
+                   this.streetNo = streetNo;
+                   this.streetName = streetName;
+                   this.city = city;
+                   this.country = country;
+                   this.phoneNumber = phoneNumber;
+                   this.tierName = tierName;
+               }
+               public bool exists { get; set; }
+               public string nationalID { get; set; }
+               public string firstName { get; set; }
+               public string lastName { get; set; }
+               public string birthdate { get; set; }
+               public string streetNo { get; set; }
+               public string streetName { get; set; }
+               public string city { get; set; }
+               public string country { get; set; }
+               public string phoneNumber { get; set; }
+               public string tierName { get; set; }
+           }*/
 
         public struct bill_details
         {
@@ -122,29 +122,44 @@ namespace DatabaseCustomActions
         /// if there is a user with the same national id return his number 
         /// else return 1;
         /// </returns>
-        public static bool nationalId_checker(string natID, microteldbContext microteldb)
+        public static bool nationalId_checker(int natID, microteldbContext microteldb)
         {
-            return microteldb.Users.Find(Convert.ToInt32(natID)) != null;
+            return microteldb.Users.Find(natID) != null;
         }
-        public static tier_details get_tier_details(string tierName, microteldbContext microteldb)
+        public static TierDetail get_tier_details(string tierName, microteldbContext microteldb)
         {
             TierDetail tierDetail = microteldb.TierDetails.Where(x => x.Name == tierName).SingleOrDefault();
-            tier_details _Details;
-            if (tierDetail == null) _Details = new tier_details(false);
+            TierDetail _Details;
+            if (tierDetail == null) _Details = null;
             else
             {
                 TierDetail tier = (TierDetail)(tierDetail);
-                _Details = new tier_details(true, tier.Id.ToString(), tier.Name, tier.Minutes, tier.Messages, tier.Megabytes, tier.Price);
+                _Details = new TierDetail
+                {
+                    Id = tier.Id,
+                    Name = tier.Name,
+                    Minutes = tier.Minutes,
+                    Messages = tier.Messages,
+                    Megabytes = tier.Megabytes,
+                    Price = tier.Price
+                };
             }
             return _Details;
         }
-        public static bool get_package_details(ref package_details package_Details, microteldbContext microteldb)
+        public static bool get_package_details(ref ExtraPackageDetail package_Details, microteldbContext microteldb)
         {
-            string name = package_Details.packageName;
+            string name = package_Details.Name;
             ExtraPackageDetail extraPackageDetail = microteldb.ExtraPackageDetails.Where(x => x.Name == name).SingleOrDefault();
             if (extraPackageDetail != null)
             {
-                package_Details = new package_details(extraPackageDetail.Name, Convert.ToInt32(extraPackageDetail.Minutes), Convert.ToInt32(extraPackageDetail.Messages), Convert.ToInt32(extraPackageDetail.Megabytes), Convert.ToInt32(extraPackageDetail.Price));
+                package_Details = new ExtraPackageDetail
+                {
+                    Name = extraPackageDetail.Name,
+                    Minutes = extraPackageDetail.Minutes,
+                    Messages = extraPackageDetail.Messages,
+                    Megabytes = extraPackageDetail.Megabytes,
+                    Price = extraPackageDetail.Price
+                };
                 return true;
             }
             return false;
@@ -240,35 +255,43 @@ namespace DatabaseCustomActions
             }
             return detailsMessage;
         }
-        public static List<package_details> getAvailablePackages(microteldbContext microteldb)
+
+        public static List<ExtraPackageDetail> getAvailablePackages(microteldbContext microteldb)
         {
-            List<package_details> availablePackage = new List<package_details>();
+            List<ExtraPackageDetail> availablePackage = new List<ExtraPackageDetail>();
             List<ExtraPackageDetail> availablePackages = microteldb.ExtraPackageDetails.ToList();
 
             foreach (ExtraPackageDetail package in availablePackages)
             {
-                package_details package_Details = new package_details(package.Name, Convert.ToInt32(package.Minutes), Convert.ToInt32(package.Messages), Convert.ToInt32(package.Megabytes), Convert.ToInt32(package.Price));
+                ExtraPackageDetail package_Details = new ExtraPackageDetail
+                {
+                    Name = package.Name,
+                    Minutes = package.Minutes,
+                    Messages = package.Messages,
+                    Megabytes = package.Megabytes,
+                    Price = package.Price
+                };
                 availablePackage.Add(package_Details);
             }
             return availablePackage;
         }
-        public static List<package_details> mainGetBestPackages(int minutes, int messages, int megabytes, microteldbContext microteldb)
+        public static List<ExtraPackageDetail> mainGetBestPackages(int minutes, int messages, int megabytes, microteldbContext microteldb)
         {
-            List<package_details> selectedPackages = new List<package_details>();
-            List<package_details> temp = new List<package_details>();
-            List<package_details> availablePackages = getAvailablePackages(microteldb);
+            List<ExtraPackageDetail> selectedPackages = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> temp = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> availablePackages = getAvailablePackages(microteldb);
             decimal bestPrice = 10000;
             getBestPackages(minutes, messages, megabytes, 0, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
             return selectedPackages;
         }
-        public static void getBestPackages(int minutes, int messages, int megabytes, decimal price, ref decimal bestPrice, ref List<package_details> selectedPackages, ref List<package_details> temp, ref List<package_details> availablePackages)
+        public static void getBestPackages(int minutes, int messages, int megabytes, decimal price, ref decimal bestPrice, ref List<ExtraPackageDetail> selectedPackages, ref List<ExtraPackageDetail> temp, ref List<ExtraPackageDetail> availablePackages)
         {
             if (minutes <= 0 && messages <= 0 && megabytes <= 0)
             {
                 if (price < bestPrice)
                 {
                     bestPrice = price;
-                    selectedPackages = new List<package_details>(temp);
+                    selectedPackages = new List<ExtraPackageDetail>(temp);
                 }
                 return;
             }
@@ -276,67 +299,67 @@ namespace DatabaseCustomActions
             foreach (var cur in availablePackages)
             {
 
-                if (cur.packageName == "Minutes" && minutes <= 0) continue;
-                if (cur.packageName == "Text Messages" && messages <= 0) continue;
-                if (cur.packageName == "Megabytes" && megabytes <= 0) continue;
+                if (cur.Name == "Minutes" && minutes <= 0) continue;
+                if (cur.Name == "Text Messages" && messages <= 0) continue;
+                if (cur.Name == "Megabytes" && megabytes <= 0) continue;
                 temp.Add(cur);
-                getBestPackages(minutes - cur.minutes, messages - cur.messages, megabytes - cur.megabytes, price + cur.price, ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
+                getBestPackages(Convert.ToInt32(minutes - cur.Minutes), Convert.ToInt32(messages - cur.Messages), Convert.ToInt32(megabytes - cur.Megabytes), Convert.ToDecimal(price + cur.Price), ref bestPrice, ref selectedPackages, ref temp, ref availablePackages);
                 temp.Remove(cur);
             }
 
         }
-        public static List<package_details> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool found, ref Dictionary<string, List<int>> map, microteldbContext microteldb)
+        public static List<ExtraPackageDetail> getPackages(int neededMinutes, int neededMessages, int neededMegabytes, ref bool found, ref Dictionary<string, List<int>> map, microteldbContext microteldb)
         {
-            List<package_details> selectedPackages = new List<package_details>();
-            List<package_details> avalaiblePackages = getAvailablePackages(microteldb);
+            List<ExtraPackageDetail> selectedPackages = new List<ExtraPackageDetail>();
+            List<ExtraPackageDetail> avalaiblePackages = getAvailablePackages(microteldb);
             foreach (var cur in avalaiblePackages)
             {
-                if (cur.megabytes == neededMegabytes && cur.minutes == neededMinutes && cur.messages == neededMessages)
+                if (cur.Megabytes == neededMegabytes && cur.Minutes == neededMinutes && cur.Messages == neededMessages)
                 {
                     selectedPackages.Clear();
                     selectedPackages.Add(cur);
                     found = true;
                     return selectedPackages;
                 }
-                if (cur.packageName.Contains("Text Messages"))
+                if (cur.Name.Contains("Text Messages"))
                 {
-                    if (neededMessages == cur.messages)
+                    if (neededMessages == cur.Messages)
                     {
                         selectedPackages.Add(cur);
                         neededMessages = -1;
                     }
                     if (map.ContainsKey("Text Messages"))
-                        map["Text Messages"].Add(cur.messages);
+                        map["Text Messages"].Add(Convert.ToInt32(cur.Messages));
                     else
-                        map.Add("Text Messages", new List<int>() { cur.messages });
+                        map.Add("Text Messages", new List<int>() { Convert.ToInt32(cur.Messages) });
 
                 }
-                else if (cur.packageName.Contains("Megabytes"))
+                else if (cur.Name.Contains("Megabytes"))
                 {
-                    if (neededMegabytes == cur.megabytes)
+                    if (neededMegabytes == cur.Megabytes)
                     {
                         selectedPackages.Add(cur);
                         neededMegabytes = -1;
                     }
 
                     if (map.ContainsKey("Megabytes"))
-                        map["Megabytes"].Add(cur.megabytes);
+                        map["Megabytes"].Add(Convert.ToInt32(cur.Megabytes));
                     else
-                        map.Add("Megabytes", new List<int>() { cur.megabytes });
+                        map.Add("Megabytes", new List<int>() { Convert.ToInt32(cur.Megabytes) });
 
                 }
-                else if (cur.packageName.Contains("Minutes"))
+                else if (cur.Name.Contains("Minutes"))
                 {
-                    if (neededMinutes == cur.minutes)
+                    if (neededMinutes == Convert.ToInt32(cur.Minutes))
                     {
                         selectedPackages.Add(cur);
                         neededMinutes = -1;
                     }
 
                     if (map.ContainsKey("Minutes"))
-                        map["Minutes"].Add(cur.minutes);
+                        map["Minutes"].Add(Convert.ToInt32(cur.Minutes));
                     else
-                        map.Add("Minutes", new List<int>() { cur.minutes });
+                        map.Add("Minutes", new List<int>() { Convert.ToInt32(cur.Minutes) });
 
                 }
 
@@ -347,64 +370,52 @@ namespace DatabaseCustomActions
             map["Text Messages"].Sort();
             return selectedPackages;
         }
-        public static bool update_tier(string tier_id, string phoneNumber, microteldbContext microteldb)
+        public static bool update_tier(Guid tier_id, string phoneNumber, microteldbContext microteldb)
         {
             Line line = microteldb.Lines.Where(x => x.PhoneNumber == phoneNumber).SingleOrDefault();
-            line.TierId = Guid.Parse(tier_id);
+            line.TierId = tier_id;
             return true;
         }
-        public static string insert_quota(tier_details tierDetails, microteldbContext microteldb)
+        public static Guid insert_quota(TierDetail tierDetails, microteldbContext microteldb)
         {
             Quotum quota = new Quotum
             {
                 Id = Guid.NewGuid(),
-                RemainingMinutes = tierDetails.minutes,
-                RemainingMessages = tierDetails.SMS,
-                RemainingMegabytes = tierDetails.megabytes,
+                RemainingMinutes = tierDetails.Minutes,
+                RemainingMessages = tierDetails.Messages,
+                RemainingMegabytes = tierDetails.Megabytes,
                 Date = DateTime.Now
             };
             microteldb.Quota.Add(quota);
-            return quota.Id.ToString();
+            return quota.Id;
 
         }
-        public static int insert_line(string _phoneNumber, string tierId, string quotaID, microteldbContext microteldb)
+        public static int insert_line(string _phoneNumber, Guid tierId, Guid quotaID, microteldbContext microteldb)
         {
             Line line = new Line
             {
                 PhoneNumber = _phoneNumber,
-                TierId = Guid.Parse(tierId),
-                QuotaId = Guid.Parse(quotaID)
+                TierId = tierId,
+                QuotaId = quotaID
             };
             microteldb.Lines.Add(line);
             return 1;
         }
-        public static int insert_bill(string tierID, decimal price, string phoneNumber, microteldbContext microteldb)
+        public static int insert_bill(Guid tierID, decimal price, string phoneNumber, microteldbContext microteldb)
         {
             Bill bill = new Bill
             {
                 DueDate = DateTime.Now.AddDays(30),
                 Amount = Convert.ToDecimal(price),
                 PhoneNumber = phoneNumber,
-                TeirId = Guid.Parse(tierID)
+                TeirId = tierID
             };
             microteldb.Bills.Add(bill);
             return 1;
         }
-        public static bool insert_user(user_details user_Details, microteldbContext microteldb)
+        public static bool insert_user(User user_Details, microteldbContext microteldb)
         {
-            User user = new User
-            {
-                NationalId = Convert.ToInt32(user_Details.nationalID),
-                FName = user_Details.firstName,
-                LName = user_Details.lastName,
-                BirthDate = Convert.ToDateTime(user_Details.birthdate),
-                StreetNo = Convert.ToInt32(user_Details.streetNo),
-                StreetName = user_Details.streetName,
-                City = user_Details.city,
-                Country = user_Details.country,
-                PhoneNumber = user_Details.phoneNumber,
-            };
-            microteldb.Users.Add(user);
+            microteldb.Users.Add(user_Details);
             return true;
         }
         public static int insert_extendPackage(string phoneNumber, string packageName, decimal price, microteldbContext microteldb)
@@ -470,22 +481,21 @@ namespace DatabaseCustomActions
 
             return true;
         }
-        public static object get_user_info(string nationalID, microteldbContext microteldb)
+        public static User get_user_info(string nationalID, microteldbContext microteldb)
         {
-            User user = microteldb.Users.Where(x => x.NationalId.ToString() == nationalID).SingleOrDefault();
-#warning review;
-            string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).SingleOrDefault().TierId).SingleOrDefault().Name;
+            return microteldb.Users.Where(x => x.NationalId.ToString() == nationalID).SingleOrDefault();
+            // string tierName = microteldb.TierDetails.Where(x => x.Id == microteldb.Lines.Where(x => x.PhoneNumber == user.PhoneNumber).SingleOrDefault().TierId).SingleOrDefault().Name;
             //SqlCommand cmd = new SqlCommand($"SELECT * FROM [dbo].[user] as u JOIN [dbo].[line] as l ON u.phoneNumber = l.phoneNumber JOIN [dbo].[tier_details] as t ON t.id = l.tierID WHERE nationalID = '{nationalID}';", conn);
-            user_details _UserInfo;
-            if (user != null)
-            {
-                _UserInfo = new user_details(true, user.NationalId.ToString(), user.FName, user.LName, user.BirthDate.ToString("yyyy-MM-dd"), user.StreetNo.ToString(), user.StreetName, user.City, user.Country, user.PhoneNumber, tierName);
-            }
-            else
-            {
-                _UserInfo = new user_details(false);
-            }
-            return _UserInfo;
+            /*  User _UserInfo;
+              if (user != null)
+              {
+                  _UserInfo = new user(true, user.NationalId.ToString(), user.FName, user.LName, user.BirthDate.ToString("yyyy-MM-dd"), user.StreetNo.ToString(), user.StreetName, user.City, user.Country, user.PhoneNumber, tierName);
+              }
+              else
+              {
+                  _UserInfo = new user_details(false);
+              }
+              return _UserInfo;*/
         }
         public static string toTitle(string word)
         {

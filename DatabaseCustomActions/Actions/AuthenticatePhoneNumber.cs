@@ -37,16 +37,16 @@ public class AuthenticatePhoneNumber : Dialog
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
 
-        user_details user_info = new user_details();
-        user_info.phoneNumber = phoneNumber.GetValue(dc.State).ToString();
+        User user_info = new User();
+        user_info.PhoneNumber = phoneNumber.GetValue(dc.State).ToString();
 
         bool isValidPhoneNumber = false; // Initialize with default false - phone number doesn't exist
         try
         {
             microteldbContext microteldb = new microteldbContext();
             string nationalID = "";
-            isValidPhoneNumber = phoneNumber_checker(user_info.phoneNumber, ref nationalID, microteldb);
-            
+            isValidPhoneNumber = phoneNumber_checker(user_info.PhoneNumber, ref nationalID, microteldb);
+
             // if it's not vaild then it will contain the user's number
             if (this.nationalID != null)
             {

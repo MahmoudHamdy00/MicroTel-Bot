@@ -45,10 +45,10 @@ public class UpdateTier : Dialog
             microteldbContext microteldb = new microteldbContext();
 
             // Get details of the given tier
-            tier_details tierDetails = get_tier_details(newTierName, microteldb);
+            TierDetail tierDetails = get_tier_details(newTierName, microteldb);
             Console.WriteLine("Got tier details " + tierDetails);
             // Update tier for the given phone number
-            bool result = update_tier(tierDetails.id, phoneNumber, microteldb);
+            bool result = update_tier(tierDetails.Id, phoneNumber, microteldb);
 
             if (this.ResultProperty != null)
             {

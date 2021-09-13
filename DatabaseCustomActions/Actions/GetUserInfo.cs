@@ -8,6 +8,7 @@ using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
 using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
 
@@ -40,19 +41,22 @@ public class GetUserInfo : Dialog
 
         try
         {
+            /*  JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+              {
+                  PreserveReferencesHandling = PreserveReferencesHandling.All,
+                  ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+              };*/
             microteldbContext microteldb = new microteldbContext();
-            User user_info_obj = microteldb.Users.Where(x => x.NationalId.ToString() == national_id).SingleOrDefault();// get_user_info(national_id, microteldb);
-            Guid tierId = (Guid)(microteldb.Lines.Where(x => x.PhoneNumber == user_info_obj.PhoneNumber).SingleOrDefault().TierId);
-            string tier = microteldb.TierDetails.Where(x => x.Id == tierId).SingleOrDefault().Name;
-            Console.WriteLine(user_info_obj.PhoneNumberNavigation.Tier.Name);
-            user_info_obj.PhoneNumberNavigation = null;
+            User user_info_obj = microteldb.Users.Include(e => e.PhoneNumberNavigation.Tier).Where(x => x.NationalId.ToString() == national_id).SingleOrDefault();// get_user_info(national_id, microteldb);
+            user_info_obj.PhoneNumberNavigation.Tier.Lines = null;
+            user_info_obj.PhoneNumberNavigation.Users = null;
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), user_info_obj);
             }
             if (this.TierName != null)
             {
-                dc.State.SetValue(this.TierName.GetValue(dc.State).ToString(), tier);
+                dc.State.SetValue(this.TierName.GetValue(dc.State).ToString(), user_info_obj.PhoneNumberNavigation.Tier.Name);
             }
         }
         catch (Exception ex)

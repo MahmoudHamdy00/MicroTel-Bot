@@ -152,60 +152,6 @@
       "entities": []
     },
     {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "TV1pnm",
-        "name": "UpdateTier"
-      },
-      "intent": "UpdateTier",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "ZMwmhJ"
-          },
-          "activityProcessed": true,
-          "dialog": "UpdateTier"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "Nrz5Da",
-        "name": "ExtendPackage"
-      },
-      "intent": "ExtendPackage",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "VZif8l"
-          },
-          "activityProcessed": true,
-          "dialog": "ExtendPackage"
-        }
-      ]
-    },
-    {
-      "$kind": "Microsoft.OnIntent",
-      "$designer": {
-        "id": "hBnlMq",
-        "name": "PayBill"
-      },
-      "intent": "PayBill",
-      "actions": [
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "ZoHENY"
-          },
-          "activityProcessed": true,
-          "dialog": "PayBill"
-        }
-      ]
-    },
-    {
       "$kind": "Microsoft.OnQnAMatch",
       "$designer": {
         "id": "yKAQ6F"

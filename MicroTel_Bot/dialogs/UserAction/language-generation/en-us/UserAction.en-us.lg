@@ -15,3 +15,23 @@ i did't catch an action```
 
 # SendActivity_qqnXDL_text()
 - Ok ${user.fname} got you!
+# SendActivity_omSa02()
+[Activity
+    Text = ${SendActivity_omSa02_text()}
+]
+
+# SendActivity_omSa02_text()
+- I am in change tier
+# SendActivity_qplG3V_text()
+- I am in extend package
+# SendActivity_qplG3V()
+[Activity
+    Text = ${SendActivity_qplG3V_text()}
+]
+
+# SendActivity_K74zBw_text()
+- I am in Pay Bill
+# SendActivity_K74zBw()
+[Activity
+    Text = ${SendActivity_K74zBw_text()}
+]

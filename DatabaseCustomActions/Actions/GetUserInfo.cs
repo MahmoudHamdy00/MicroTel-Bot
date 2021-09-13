@@ -41,14 +41,15 @@ public class GetUserInfo : Dialog
 
         try
         {
-            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-            {
-                PreserveReferencesHandling = PreserveReferencesHandling.All,
-                ReferenceLoopHandling = ReferenceLoopHandling.Serialize
-            };
+            /*  JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+              {
+                  PreserveReferencesHandling = PreserveReferencesHandling.All,
+                  ReferenceLoopHandling = ReferenceLoopHandling.Serialize
+              };*/
             microteldbContext microteldb = new microteldbContext();
             User user_info_obj = microteldb.Users.Include(e => e.PhoneNumberNavigation.Tier).Where(x => x.NationalId.ToString() == national_id).SingleOrDefault();// get_user_info(national_id, microteldb);
-
+            user_info_obj.PhoneNumberNavigation.Tier.Lines = null;
+            user_info_obj.PhoneNumberNavigation.Users = null;
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), user_info_obj);

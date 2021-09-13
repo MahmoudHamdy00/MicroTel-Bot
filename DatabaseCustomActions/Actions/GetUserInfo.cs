@@ -45,14 +45,14 @@ public class GetUserInfo : Dialog
             Guid tierId = (Guid)(microteldb.Lines.Where(x => x.PhoneNumber == user_info_obj.PhoneNumber).SingleOrDefault().TierId);
             string tier = microteldb.TierDetails.Where(x => x.Id == tierId).SingleOrDefault().Name;
             Console.WriteLine(user_info_obj.PhoneNumberNavigation.Tier.Name);
-            if (this.TierName != null)
-            {
-                dc.State.SetValue(this.TierName.GetValue(dc.State).ToString(), tier);
-            }
-
+            user_info_obj.PhoneNumberNavigation = null;
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), user_info_obj);
+            }
+            if (this.TierName != null)
+            {
+                dc.State.SetValue(this.TierName.GetValue(dc.State).ToString(), tier);
             }
         }
         catch (Exception ex)

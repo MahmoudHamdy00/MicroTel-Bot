@@ -14,3 +14,13 @@
 [Activity
     Text = ${SendActivity_UjH7dA_text()}
 ]
+
+# SendActivity_ex3yrd()
+[Activity
+    Text = ${SendActivity_ex3yrd_text()}
+]
+
+# SendActivity_ex3yrd_text()
+- ```here ${dialog.userInfoObject}
+
+here ${dialog.userInfoObject.currentTierName}```

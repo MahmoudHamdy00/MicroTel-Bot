@@ -756,6 +756,11 @@
           "title": "National ID",
           "description": "The National ID of the user."
         },
+        "tierName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Tier Name",
+          "description": "The name of the subscribed tier"
+        },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",
           "title": "Result",

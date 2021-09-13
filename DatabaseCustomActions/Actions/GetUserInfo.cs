@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,6 +27,9 @@ public class GetUserInfo : Dialog
     [JsonProperty("natid")]
     public ValueExpression nationalID { get; set; }
 
+    [JsonProperty("tierName")]
+    public ValueExpression TierName { get; set; }
+
     [JsonProperty("resultProperty")]
     public ValueExpression ResultProperty { get; set; }
 
@@ -36,12 +40,19 @@ public class GetUserInfo : Dialog
 
         try
         {
-            microteldbContext microteldb=new microteldbContext();
-            object user_info_obj = get_user_info(national_id, microteldb);
-
+            microteldbContext microteldb = new microteldbContext();
+            User user_info_obj = microteldb.Users.Where(x => x.NationalId.ToString() == national_id).SingleOrDefault();// get_user_info(national_id, microteldb);
+            Guid tierId = (Guid)(microteldb.Lines.Where(x => x.PhoneNumber == user_info_obj.PhoneNumber).SingleOrDefault().TierId);
+            string tier = microteldb.TierDetails.Where(x => x.Id == tierId).SingleOrDefault().Name;
+            Console.WriteLine(user_info_obj.PhoneNumberNavigation.Tier.Name);
+            user_info_obj.PhoneNumberNavigation = null;
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), user_info_obj);
+            }
+            if (this.TierName != null)
+            {
+                dc.State.SetValue(this.TierName.GetValue(dc.State).ToString(), tier);
             }
         }
         catch (Exception ex)

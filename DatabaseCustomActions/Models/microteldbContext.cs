@@ -84,7 +84,7 @@ namespace DatabaseCustomActions.Models
                     .HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.Date)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("date");
 
                 entity.Property(e => e.ExtraPackageId).HasColumnName("extraPackageID");
@@ -184,7 +184,7 @@ namespace DatabaseCustomActions.Models
                     .HasColumnName("creditCard");
 
                 entity.Property(e => e.Date)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("date");
 
                 entity.HasOne(d => d.Bill)

@@ -19,34 +19,110 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "RzYgdu"
+            "id": "40VATb"
           },
-          "condition": "=exists(@action)",
+          "condition": "=exists(dialog.data.action[0][0]) && dialog.data.action[0][0]!= 'add'",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
               "$designer": {
-                "id": "jadveB"
+                "id": "1QGcr9"
               },
               "property": "user.action",
-              "value": "=@action"
+              "value": "=dialog.data.action[0][0]"
             }
           ],
           "elseActions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
-                "id": "4Ot70L"
+                "id": "dsnoKH"
               },
-              "condition": "=exists(dialog.data.action[0][0])",
+              "condition": "=exists(dialog.data.item)",
               "actions": [
                 {
-                  "$kind": "Microsoft.SetProperty",
+                  "$kind": "Microsoft.IfCondition",
                   "$designer": {
-                    "id": "U0FUZ1"
+                    "id": "6bhTAL"
                   },
-                  "property": "user.action",
-                  "value": "=dialog.data.action[0][0]"
+                  "condition": "=exists(dialog.data.item[0].line)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "bcjEpS"
+                      },
+                      "property": "user.action",
+                      "value": "='signup'"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "6zeGg2"
+                      },
+                      "condition": "=exists(dialog.data.item[0].singlePackageInfo) || exists(dialog.data.item[0].namedPackage)",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "HN7KXL"
+                          },
+                          "property": "user.action",
+                          "value": "='extend_package'"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "OFM1Dh"
+                          },
+                          "condition": "=exists(dialog.data.item[0].change_tier)",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "a90rKQ"
+                              },
+                              "property": "user.action",
+                              "value": "='change_tier'"
+                            }
+                          ],
+                          "elseActions": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "6rEYTT"
+                  },
+                  "activity": "${SendActivity_6rEYTT()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "jdoyFv"
+                  },
+                  "condition": "=exists(@action)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "oHOpcI"
+                      },
+                      "property": "user.action",
+                      "value": "=@action"
+                    }
+                  ],
+                  "elseActions": []
                 }
               ]
             }

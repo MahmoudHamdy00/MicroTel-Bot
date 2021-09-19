@@ -45,13 +45,17 @@
               },
               "choices": [
                 "Signup for a new number",
-                "Restore your number"
+                "Restore your number",
+                "change_tier",
+                "extend_package",
+                "pay_bill"
               ],
               "property": "user.action",
               "recognizerOptions": {
                 "recognizeOrdinals": true,
                 "recognizeNumbers": true
-              }
+              },
+              "style": "heroCard"
             }
           ]
         }

@@ -72,7 +72,8 @@
                   "$designer": {
                     "id": "omSa02"
                   },
-                  "activity": "${SendActivity_omSa02()}"
+                  "activity": "${SendActivity_omSa02()}",
+                  "disabled": true
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
@@ -98,7 +99,8 @@
                   "$designer": {
                     "id": "qplG3V"
                   },
-                  "activity": "${SendActivity_qplG3V()}"
+                  "activity": "${SendActivity_qplG3V()}",
+                  "disabled": true
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",
@@ -124,7 +126,8 @@
                   "$designer": {
                     "id": "K74zBw"
                   },
-                  "activity": "${SendActivity_K74zBw()}"
+                  "activity": "${SendActivity_K74zBw()}",
+                  "disabled": true
                 },
                 {
                   "$kind": "Microsoft.BeginDialog",

@@ -23,7 +23,9 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractPhoneNumber",
-          "options": {}
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -32,7 +34,9 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
-          "options": {}
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -41,7 +45,10 @@
             "comment": ""
           },
           "activityProcessed": true,
-          "dialog": "ExtractCreditCardNumber"
+          "dialog": "ExtractCreditCardNumber",
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",

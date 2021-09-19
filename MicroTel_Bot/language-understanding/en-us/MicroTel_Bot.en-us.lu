@@ -28,156 +28,145 @@
 - duck
 
 
+
 # UserAction
-- {@changeTier=alter my existing package from {@originalTier=standard} to {@newTier=vip} tier. my phone number is {@phoneNumber=010987654}} .
-- can i {@changeTier=change the tier of my phone number {@phoneNumber=01098765432}? my national id is {@nationalID=19873}}
-- can i get {@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}?
-- can i get {@singlePackageInfo={@amount=800} {@unit=messages}}
-- can i {@userInfo={@action=get} a line, i am {@name={@fName=mohamed}} from {@address={@city=paris}} my national id is {@nationalID=12758}}, i need it asap
-- can i increase my quota?
-- can i {@userInfo={@action=purchase} a vip line today? i am {@name={@fName=john}} i’m from {@address={@city=alexandria}} my national id is {@nationalID=12758}}
-- can i reimburse my bill, please?
+- {@userInfo={@action=alter} my existing package {@item={@changeTier=from {@originalTier=standard} to {@newTier=vip} tier}}. my phone number is {@phoneNumber=010987654}} .
+- can i {@userInfo={@action=change} the tier of my phone number {@phoneNumber=010987432}? my national id is {@nationalID=19873}}
+- can i {@userInfo=get {@item={@singlePackageInfo={@amount=1000} extra {@unit=gigabytes}}}}?
+- can i {@userInfo={@action=get} {@item=800 messages}}
+- can i {@userInfo={@action=get} a {@item={@line=line}}, i am {@name={@fName=mohamed}} from {@address={@city=paris}} my national id is {@nationalID=12758}}, i need it asap
+- can i {@userInfo={@action=increase} my quota}?
+- can i {@userInfo={@action=purchase} a vip {@item={@line=line}} today? i am {@name={@fName=john}} i’m from {@address={@city=alexandria}} my national id is {@nationalID=12758}}
+- can i {@userInfo={@action=reimburse} {@item=my bill}}, please?
 - can i {@userInfo=retrieve my number? i am {@name={@fName=yasser}} from {@address={@city=sohag}} my national id is {@nationalID=12758}}
-- can i {@changeTier=upgrade to a new tier}?
-- can you {@changeTier=alter my line’s tier} please?
-- can you {@changeTier=downgrade my package for me}?
-- can you help me pay my monthly invoice for line number 010876543?
-- can you {@userInfo={@action=sign me up} to a vip line today}?
-- can you {@changeTier=update my tier from {@originalTier=premium} to {@newTier=vip}? my identity card number is {@nationalID=19873 linked} to line number {@phoneNumber=010987654}}.
-- {@changeTier=change the package of my phone number {@phoneNumber=010987654} to {@newTier=vip}}.
-- {@changeTier=downgrade my line to {@newTier=vip} instead of {@originalTier=premium}}
-- {@changeTier=downgrade my line}.
-- extend
-- extend {@singlePackageInfo={@amount=2} {@unit=gb}}, {@singlePackageInfo={@amount=3000} {@unit=min}} 010242411 12342
-- extend my package
-- foot the bill
+- can i {@userInfo={@action=upgrade} to a new tier}?
+- can you {@userInfo={@action=alter} my line}’s tier please?
+- can you {@userInfo={@action=downgrade} my package} for me?
+- can you help me {@userInfo={@action=pay} my monthly {@item=invoice} for line number {@phoneNumber=010876543}}?
+- can you {@userInfo={@action=sign me up} to a vip {@item={@line=line}} today}?
+- can you {@userInfo={@action=update} my tier {@item={@changeTier=from {@originalTier=premium} to {@newTier=vip}}}? my identity card number is {@nationalID=19873} linked to line number {@phoneNumber=010987654}}.
+- {@userInfo={@action=change} the package of my phone number {@phoneNumber=010987654} {@item={@changeTier=to {@newTier=vip}}}}.
+- {@userInfo={@action=downgrade} my line {@item={@changeTier=to {@newTier=vip} instead of {@originalTier=premium}}}}
+- {@userInfo={@action=downgrade} my line}.
+- {@userInfo={@action=extend}}
+- {@userInfo={@action=extend} {@item={@singlePackageInfo={@amount=2} {@unit=gb}}, {@singlePackageInfo={@amount=3000} {@unit=min}}} {@phoneNumber=010242411} {@nationalID=12342}}
+- {@userInfo={@action=extend}} my package
+- {@userInfo={@action=foot} the bill}
 - {@userInfo={@action=forget}} my number
-- forget number
-- {@userInfo={@action=get} a new vip line}
-- help me pay the bill for my line 010987654.
-- hi, my {@userInfo=name is {@name={@fName=asser} {@lName=yassin}} and i want to {@action=sign up} for a premium line i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093} and i live in {@address={@streetNumber=6} {@streetName=abou el feda st}. {@city=cairo}, {@country=egypt}}}
-- i am {@userInfo={@name={@fName=ahmed}}, please {@action=sign me up} for a new line. my current address is {@address={@streetNumber=70} {@streetName=watlington road} {@city=vancouver}}}
-- i am {@userInfo={@name={@fName=khaled} {@lName=mahr}} living in {@address={@streetNumber=11} {@streetName=margany street}, 5th settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=18th of september 1995} and would like to {@action=purchase} a new line.}
-- i am {@userInfo=meshref from {@address=cairo, egypt}. i would like to {@action=get} a new standard line}.
-- i am {@userInfo={@name={@fName=yaseen} {@lName=ibrahim}} living in {@address={@streetNumber=20} {@streetName=manyal street}, 3rd settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=november 2002} with national id {@nationalID=27346} and would like to {@action=get} a premium line}.
-- i can't remember my line number
+- {@userInfo={@action=forget} number}
+- {@userInfo={@action=get} a new vip {@item={@line=line}}}
+- help me {@userInfo={@action=pay} the {@item=bill} for my line {@phoneNumber=010987654}}.
+- hi, my {@userInfo=name is {@name={@fName=asser} {@lName=yassin}} and i want to {@action=sign up} for a premium {@item={@line=line}} i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093} and i live in {@address={@streetNumber=6} {@streetName=abou el feda st}. {@city=cairo}, {@country=egypt}}}
+- i am {@userInfo={@name={@fName=ahmed}}, please {@action=sign me up} for a new {@item={@line=line}}. my current address is {@address={@streetNumber=70} {@streetName=watlington road} {@city=vancouver}}}
+- i am {@userInfo={@name={@fName=khaled} {@lName=mahr}} living in {@address={@streetNumber=11} {@streetName=margany street}, 5th settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=18th of september 1995} and would like to {@action=purchase} a new {@item={@line=line}}}.
+- i am {@userInfo=meshref from {@address=cairo, egypt}. i would like to {@action=get} a new standard {@item={@line=line}}}.
+- i am {@userInfo={@name={@fName=yaseen} {@lName=ibrahim}} living in {@address={@streetNumber=20} {@streetName=manyal street}, 3rd settlement, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=november 2002} with national id {@nationalID=27346} and would like to {@action=get} a premium {@item={@line=line}}}.
+- i {@userInfo={@action=can't remember} my line number}
 - i {@userInfo=can't remember} my phone number
 - i {@userInfo=forget} my number
-- i have a phone number 010123456 ,i want to extend its package
+- i have a {@userInfo=phone number {@phoneNumber=010123456} ,i want to {@action=extend} its package}
 - i {@userInfo={@action=lost}} my phone number , could you please remind me with it
-- i need {@singlePackageInfo={@amount=2000} {@unit=minutes}}
-- i need {@singlePackageInfo={@amount=4000} extra {@unit=megabytes}}
-- i need an extra premium plus package
-- i need to pay the bill for my line 010987654 associated with my national id 19999.
-- i want {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=2000} {@unit=minutes}}
-- i want {@singlePackageInfo={@amount=33} {@unit=gb}}, {@singlePackageInfo={@amount=4000} {@unit=mins}} and {@singlePackageInfo={@amount=4000} {@unit=messages}}
-- i want {@singlePackageInfo={@amount=4} extra {@unit=giga}}
-- i want {@singlePackageInfo={@amount=500} {@unit=sms}}
-- i want to {@changeTier=change the tier of my line number {@phoneNumber=010987654}}.
-- i want to {@changeTier=change the tier of my phone number {@phoneNumber=010987654} from {@originalTier=vip} to {@newTier=premium} and my national id is {@nationalID=19873}}.
-- i want to {@changeTier=downgrade from {@originalTier=premium} to {@newTier=vip}}.
-- i want to {@changeTier=downgrade my tier}.
-- i want to extend my package
-- i want to extend my package my phone number 010123456
-- i want to extend with {@singlePackageInfo={@amount=500} extra {@unit=sms}}
-- i want to extend with plus
-- i want to get {@singlePackageInfo={@amount=2} {@unit=gb}} extra package
-- i want to increase {@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=500} {@unit=messages}} to my quota, my id is 12312 and my number is 010124121
-- i want to make a payment for my monthly bill
-- i want to pay for my line in advance
-- i want to pay the monthly bill for my phone number 010987654 with my credit card number 1243445678907890. my national id is 19873.
-- i want to proceed with my bill payment.
+- i {@userInfo={@action=need} {@item={@singlePackageInfo={@amount=2000} {@unit=minutes}}}}
+- i {@userInfo={@action=need} {@item={@singlePackageInfo={@amount=4000} extra {@unit=megabytes}}}}
+- {@userInfo=i {@action=need} an extra {@item={@namedPackage=premium plus package}}}
+- i need to {@userInfo={@action=pay} the bill for my line {@phoneNumber=010987654} associated with my national id {@nationalID=19999}}.
+- i {@userInfo={@action=want} {@item={@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=2000} {@unit=minutes}}}}
+- i {@userInfo={@action=want} {@item={@singlePackageInfo={@amount=33} {@unit=gb}}, {@singlePackageInfo={@unit=4000} mins} and {@singlePackageInfo={@amount=4000} {@unit=messages}}}}
+- i {@userInfo={@action=want} {@item={@singlePackageInfo={@amount=4} extra {@unit=giga}}}}
+- i {@userInfo={@action=want} {@item={@singlePackageInfo={@amount=500} {@unit=sms}}}}
+- i {@userInfo=want to {@action=change} the tier of my line number {@phoneNumber=010987654}}.
+- i {@userInfo=want to {@action=change} the tier of my phone number {@phoneNumber=010987654} {@item={@changeTier=from {@originalTier=vip} to {@newTier=premium}}} and my national id is {@nationalID=19873}}.
+- i {@userInfo=want to {@action=downgrade} {@item={@changeTier=from {@originalTier=premium} to {@newTier=vip}}}}.
+- i want to {@userInfo={@action=downgrade} my tier}.
+- i want to {@userInfo={@action=extend} my package}
+- i want to {@userInfo={@action=extend} my package my phone number {@phoneNumber=010123456}}
+- i want to {@userInfo={@action=extend} with {@item={@singlePackageInfo={@amount=500} extra {@unit=sms}}}}
+- i want to {@userInfo={@action=extend} with {@item={@namedPackage=plus}}}
+- i {@userInfo={@action=want} to get {@item={@singlePackageInfo={@amount=2} {@unit=gb}}} extra package}
+- i {@userInfo=want to {@action=increase} {@item={@singlePackageInfo={@amount=1000} {@unit=megabytes}} and {@singlePackageInfo={@amount=500} {@unit=messages}}} to my quota, my id is {@nationalID=12312} and my number is {@phoneNumber=010124121}}
+- i {@userInfo=want to {@action=make a payment} for my monthly bill}
+- i {@userInfo=want to {@action=pay} for my line} in advance
+- i {@userInfo=want to {@action=pay} the {@item=monthly bill} for my phone number {@phoneNumber=010987654} with my credit card number {@creditCardNumber=1243445678907890}. my national id is {@nationalID=19873}}.
+- i {@userInfo={@action=want} to proceed with my {@item=bill payment}}.
 - i want to {@userInfo={@action=register} a new standard line, my name is {@name={@fName=mahmoud} {@lName=hamdy}}, currently living in {@address={@city=sohag}, {@country=egypt}}}
-- i want to reimburse my bill asap.
-- i want to reimburse my invoice for my line number 010987654.
+- i {@userInfo=want to {@action=reimburse} my bill} asap.
+- i {@userInfo=want to {@action=reimburse} my {@item=invoice} for my line number {@phoneNumber=010987654}}.
 - i want to {@userInfo={@action=restore}} my number because i can't remember it
 - i want to {@userInfo={@action=sign up}}
-- i want to {@userInfo={@action=signup} a new vip line}
-- i want to subscribe to {@singlePackageInfo={@amount=50} {@unit=gigabytes}} and {@singlePackageInfo={@amount=50000} {@unit=minutes}} and {@singlePackageInfo={@amount=4523} {@unit=messages}}
-- i wish to {@changeTier=alter the tier of my phone from {@originalTier=vip} to {@newTier=standar}. here is my phone number {@phoneNumber=010987654} and my id {@nationalID=19873}}.
-- i wish to pay in advance for my line. here is my phone number 010987654 and my id 19873. my credit card number is 1243445678907890.
-- i would like to extend my package with the plus package, my phone number is 010123456 and my national id is 21212
-- i would like to {@userInfo={@action=get} a standard line asap}
-- i would like to make a payment for my new line number 010987654
-- i would like to pay my bill for the current month.
-- i would like to {@changeTier=upgrade to a new tier}.
-- i would love to {@changeTier=change the tier i am subscribed to}.
-- i would love to make a payment for my line today.
-- i'd love to pay my bill.
-- i’d like to extend my package
-- i’d like to {@userInfo={@action=get} a new line. my name’s {@name={@fName=hazem} {@lName=el-hammamy}}, born on {@birthDate=jan 1st, 1995} and i live in {@address={@streetNumber=1} {@streetName=zamalek road}, {@city=cairo}, {@country=egyp}}}
-- i’d like to pay my monthly bill with my credit card number 1243-4456-7890-7890.
-- i’d like to {@userInfo={@action=sign up} for a new standard line}.
-- i’d like to {@changeTier=upgrade to {@newTier=premium}}
-- i’d love to thrust my invoice for my line number 010987654.
-- increase {@singlePackageInfo={@amount=400} {@unit=mins}}
-- increase package
-- may you help me pay my bill with my credit card number 1243-4456-7890-7890?
-- {@changeTier=my current tier is {@originalTier=vip}, i would like to downgrade it to {@newTier=standard}}
-- my id is 12345, i want to extend my package
-- my id is 12411, i want to extend my package with {@singlePackageInfo={@amount=2000} {@unit=minutes}}, {@singlePackageInfo={@amount=2} {@unit=gb}}, and {@singlePackageInfo={@amount=200} {@unit=text messages}}
-- {@changeTier=my id is {@phoneNumber=19873}. downgrade my phone number {@phoneNumber=010987654} from {@originalTier=vip} tier to {@newTier=premium} tier}.
-- {@changeTier=my id is {@nationalID=19999}, can i upgrade my line from {@originalTier=standard} to {@newTier=premium}}?
-- my line is {@changeTier=currently {@newTier=premium}, change it to {@newTier=vip}. my national id is {@nationalID=29876}}.
+- i {@userInfo=want to {@action=signup} a new vip {@item={@line=line}}}
+- i {@userInfo={@action=want} to subscribe to {@item={@singlePackageInfo={@amount=50} {@unit=gigabytes}}} and {@item={@singlePackageInfo={@amount=50000} {@unit=minutes}}} and {@item={@singlePackageInfo={@amount=4523} {@unit=messages}}}}
+- i wish to {@userInfo={@action=alter} the tier of my phone {@item={@changeTier=from {@originalTier=vip} to {@newTier=standard}}}. here is my phone number {@phoneNumber=010987654} and my id {@nationalID=19873}}.
+- i wish to {@userInfo={@action=pay} in advance for my line. here is my phone number {@phoneNumber=010987654} and my id {@nationalID=19873}. my credit card number is {@creditCardNumber=1243445678907890}}.
+- i would like to {@userInfo={@action=extend} my package with the {@item={@namedPackage=plus package}}, my phone number is {@phoneNumber=010123456} and my national id is {@nationalID=21212}}
+- i would like to {@userInfo={@action=get} a standard {@item={@line=line}} asap}
+- i would like to {@userInfo={@action=make a payment} for my new line number {@phoneNumber=010987654}}
+- i would like to {@userInfo={@action=pay} my bill for the current month}.
+- i would like to {@userInfo={@action=upgrade} to a new tier}.
+- i would love to {@userInfo={@action=change} the tier} i am subscribed to.
+- i would love to {@userInfo={@action=make a payment} for my line today}.
+- i'd love to {@userInfo={@action=pay} my {@item=bill}}.
+- i’d like to {@userInfo={@action=extend} my package}
+- i’d like to {@userInfo={@action=get} a {@item={@line=new line}}. my name’s {@name={@fName=hazem} {@lName=el-hammamy}}, born on {@birthDate=jan 1st, 1995} and i live in {@address={@streetNumber=1} {@streetName=zamalek road}, {@city=cairo}, {@country=egyp}}}
+- i’d like to {@userInfo={@action=pay} my monthly bill with my credit card number {@creditCardNumber=1243-4456-7890-7890}}.
+- i’d like to {@userInfo={@action=sign up} for a new standard {@item={@line=line}}}.
+- i’d like to {@userInfo={@action=upgrade} to {@item={@changeTier={@newTier=premium}}}}
+- i’d love to {@userInfo={@action=thrust} my {@item=invoice} for my line number {@phoneNumber=010987654}}.
+- {@userInfo={@action=increase} {@item={@singlePackageInfo={@amount=400} {@unit=mins}}}}
+- {@userInfo={@action=increase} package}
+- may you help me {@userInfo={@action=pay} my bill with my credit card number {@creditCardNumber=1243-4456-7890-7890}}?
+- {@userInfo=my current tier is vip, i would like to {@action=downgrade} {@item={@changeTier=it to {@newTier=standard}}}}
+- {@userInfo=my id is {@nationalID=12345}, i want to {@action=extend} my package}
+- {@userInfo=my id is {@nationalID=12411}, i want to {@action=extend} my package with {@item={@singlePackageInfo=2000 minutes}, {@singlePackageInfo={@amount=2} {@unit=gb}}, and {@singlePackageInfo={@amount=200} {@unit=text messages}}}}
+- {@userInfo=my id is {@nationalID=19873}. {@action=downgrade} my phone number {@phoneNumber=010987654} {@item={@changeTier=from {@originalTier=vip} tier to {@newTier=premium}}} tier}.
+- {@userInfo=my id is {@nationalID=19999}, can i {@action=upgrade} my line {@item={@changeTier=from {@originalTier=standard} to {@newTier=premium}}}}?
+- {@userInfo=my line is currently premium, {@action=change} {@item={@changeTier=it to {@newTier=vip}}}. my national id is {@nationalID=29876}}.
 - my {@userInfo=name is {@name={@fName=hussein} {@lName=ibrahim}} ,i was born on {@birthDate=9/1/2000} and my national id is {@nationalID=12345} ,can i {@action=retrieve}} my number
 - my {@userInfo=name is {@name={@fName=mahmoud} {@lName=hamdy}} ,i {@action=forget} my phone number}
-- my {@userInfo=name is {@name={@fName=william} {@lName=heart}}. please {@action=sign me up} for a new line}.
-- my national id is 16242, can i extend my package with the premium plus package.
-- my national id is 19873. i would like to pay my invoice for my phone line number 010987654 with my credit card 1243-4456-7890-7890.
-- my {@changeTier=national id is {@nationalID=19873}. i would like to upgrade my phone line number {@phoneNumber=010987654} to {@newTier=vip}}.
-- my phone is 010744227 and my national id is 11227 ,i want to extend my package with premium plus package
-- {@changeTier=my phone number {@phoneNumber=010987654} is subscribed to {@originalTier=vip} tier. can you change that to {@newTier=premium}? my identity card number is {@nationalID=19873}}.
-- my phone number is 010189542 and i want to get extra {@singlePackageInfo={@unit=minutes}}
-- my phone number is 010242411 and my id is 12342, i want to increase my quota with the premium plus package.
-- my quota ran out i want to extend it
-- {@changeTier=my {@originalTier=standard} tier is not enough for my usage, i want to upgrade}.
-- pay bill
-- pay bill for 010987654 my national id is 19999.
-- pay bill for my vip line
-- pay my bill for 010987654 with my credit card number 1243445678907890.
-- pay my invoice.
-- pay out for my line 010914876.
-- please increase my quota with {@singlePackageInfo={@amount=1000} {@unit=gb}}
-- {@userInfo={@action=register} a new premium line {@nationalID=16764}}
-- {@userInfo={@action=register} new line}
-- reimburse my invoice
+- my {@userInfo=name is {@name={@fName=william} {@lName=heart}}. please {@action=sign me up} for a new {@item={@line=line}}}.
+- {@userInfo=my national id is {@nationalID=16242}, can i {@action=extend} my package with the {@item={@namedPackage=premium plus package}}}.
+- {@userInfo=my national id is {@nationalID=19873}. i would like to {@action=pay} my {@item=invoice} for my phone line number {@phoneNumber=010987654} with my credit card {@creditCardNumber=1243-4456-7890-7890}}.
+- {@userInfo=my national id is {@nationalID=19873}. i would like to {@action=upgrade} my phone line number {@phoneNumber=010987654} {@item={@changeTier=to {@newTier=vip}}}}.
+- {@userInfo=my phone is {@phoneNumber=010744227} and my national id is {@nationalID=11227} ,i want to {@action=extend} my package with {@item={@namedPackage=premium plus package}}}
+- {@userInfo=my phone number {@phoneNumber=010987654} is subscribed to vip tier. can you {@action=change} {@item={@changeTier=that to {@newTier=premium}}}? my identity card number is {@nationalID=19873}}.
+- {@userInfo=my phone number is {@phoneNumber=010189542} and i {@action=want} to get extra {@item=minutes}}
+- {@userInfo=my phone number is {@phoneNumber=010242411} and my id is {@nationalID=12342}, i want to increase my quota with the {@item={@namedPackage=premium plus package}}}.
+- my quota ran out {@userInfo=i want to {@action=extend} it}
+- {@userInfo=my {@item={@changeTier={@originalTier=standard}}} tier is not enough for my usage, i want to {@action=upgrade}}.
+- {@userInfo={@action=pay} {@item=bill}}
+- {@userInfo={@action=pay} {@item=bill} for {@phoneNumber=010987654} my national id is {@nationalID=19999}}.
+- {@userInfo={@action=pay} {@item=bill} for my vip line}
+- {@userInfo={@action=pay} {@item=my bill} for {@phoneNumber=010987654} with my credit card number {@creditCardNumber=1243445678907890}}.
+- {@userInfo={@action=pay} my invoice}.
+- {@userInfo={@action=pay} out for my line {@phoneNumber=010914876}}.
+- please {@userInfo=increase my quota with {@item={@singlePackageInfo={@amount=1000} {@unit=gb}}}}
+- {@userInfo={@action=register} a new premium {@item={@line=line}} {@nationalID=16764}}
+- {@userInfo={@action=register} new {@item={@line=line}}}
+- {@userInfo={@action=reimburse} {@item=my invoice}}
 - {@userInfo={@action=retrieve my} phone number}
-- {@userInfo={@action=sign me up} for a premium line. i am {@name={@fName=ahmed} {@lName=meshref}} living in {@address=el feda street, dokki}}.
+- {@userInfo={@action=sign me up} for a premium {@item={@line=line}}. i am {@name={@fName=ahmed} {@lName=meshref}} living in {@address=el feda street, dokki}}.
 - {@userInfo={@action=sign up}}
-- {@userInfo={@action=sign up} for a new line}
-- {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, maddi, {@country=egypt}}. my national id is {@nationalID=28745}}
-- sorry, i {@userInfo=forget my number my name is {@name={@fName=ahmed} {@lName=ezzat}} , i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093}}
-- thrust the invoice for my premium line 010987654 registered with my id 19999.
-- {@changeTier=update my existing tier for {@newTier=premium} instead of {@originalTier=standard}}.
-- {@changeTier=update my tier to a new one}.
-- {@changeTier=upgrade my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@phoneNumber=19998}}.
-- {@changeTier=upgrade my line to {@newTier=vip}, my id is {@nationalID=19873}}.
-- {@changeTier=upgrade my package}.
-- use my credit card 1243445678907890 to reimburse my invoice.
-- would you help me give payment to my bill?
-- would you please {@changeTier=change the tier of my line number {@phoneNumber=010987654} to {@newTier=vip}. my id is {@nationalID=19873}}.
-- would you {@changeTier=upgrade my line to {@newTier=vip}}?
+- {@userInfo={@action=sign up} for a new {@item={@line=line}}}
+- {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, {@city=maddi}, {@country=egypt}}. my national id is {@nationalID=28745}}
+- sorry, i {@userInfo={@action=forget} my number my name is {@name={@fName=ahmed} {@lName=ezzat}} , i was born on {@birthDate=january 1st 1994} my id is {@nationalID=13093}}
+- {@userInfo={@action=thrust} the invoice for my premium line {@phoneNumber=010987654} registered with my id {@nationalID=19999}}.
+- {@userInfo={@action=update} my existing tier {@item={@changeTier=for {@newTier=premium} instead of {@originalTier=standard}}}}.
+- {@userInfo={@action=update} my tier to a new one}.
+- {@userInfo={@action=upgrade} my line number {@phoneNumber=010987654} {@item={@changeTier=to {@newTier=vip}}}. my id is {@nationalID=19998}}.
+- {@userInfo={@action=upgrade} {@item=my line to {@changeTier={@newTier=vip}}}, my id is {@nationalID=19873}}.
+- {@userInfo={@action=upgrade} my package}.
+- {@userInfo=use my credit card {@creditCardNumber=1243445678907890} to {@action=reimburse} my invoice}.
+- would you help me {@userInfo={@action=give payment} to my {@item=bill}}?
+- would you please {@userInfo={@action=change} the tier of my line number {@phoneNumber=010987654} {@item={@changeTier=to {@newTier=vip}}}. my id is {@nationalID=19873}}.
+- would you {@userInfo={@action=upgrade} {@item={@changeTier=my line to {@newTier=vip}}}}?
 
 
 @ intent UserAction usesFeature action
 
 > # Entity definitions
 
-@ ml changeTier
-    - @ ml originalTier usesFeature tier
-    - @ ml newTier usesFeature tier
-    - @ ml phoneNumber usesFeature phoneNumber
-    - @ ml nationalID usesFeature nationalID
-
-
 @ ml productReview
     - @ ml description usesFeature description
     - @ ml product usesFeature products
-
-
-@ ml singlePackageInfo
-    - @ ml amount usesFeature number
-    - @ units unit
 
 
 @ ml userInfo
@@ -192,6 +181,17 @@
     - @ ml name usesFeature personName
         - @ ml lName
         - @ ml fName
+    - @ ml item
+        - @ ml changeTier
+            - @ tier originalTier
+            - @ tier newTier
+        - @ ml line
+        - @ ml singlePackageInfo
+            - @ number amount
+            - @ units unit
+        - @ namedPackage namedPackage
+    - @ phoneNumber phoneNumber
+    - @ creditCardNumber creditCardNumber
 
 
 
@@ -220,11 +220,9 @@
 	- signup :
 		- sign up
 		- register
-		- get
 		- purchase
 		- sign me up
 		- sign-up
-		- need
 	- forget :
 		- can’t remember
 		- lost
@@ -249,6 +247,12 @@
 		- bill payment
 		- thrust
 		- give payment
+		- foot
+	- add :
+		- need
+		- want
+		- get
+		- subscribe
 
 
 @ list description = 
@@ -259,7 +263,7 @@
 		- not working
 
 
-@ list extraFullPackage = 
+@ list namedPackage = 
 	- Plus Package :
 		- Plus pack
 		- Plus-Package
@@ -268,6 +272,15 @@
 		- Premium Plus pack
 		- Premium Package
 		- Premium-Package
+	- Megabytes 1 Plus :
+	- Megabytes 5 Plus :
+	- Megabytes 10 Plus :
+	- Minutes 1 Plus :
+	- Minutes 5 Plus :
+	- Minutes 10 Plus :
+	- Text Messages 1 Plus :
+	- Text Messages 5 Plus :
+	- Text Messages 10 Plus :
 
 
 @ list tier = 
@@ -311,3 +324,7 @@
 @ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/
 @ regex nationalID = /[0-4]{1}[0-9]{4}/
 @ regex phoneNumber = /010[0-9]{6}/
+
+> # Pattern.Any entities
+
+@ patternany songName

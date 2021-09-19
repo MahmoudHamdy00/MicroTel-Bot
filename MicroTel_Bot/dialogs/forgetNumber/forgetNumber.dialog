@@ -112,21 +112,6 @@
         {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "aFZEjN",
-            "comment": "Check: Birthdate"
-          },
-          "activityProcessed": true,
-          "options": {
-            "name": "VerifyBirthdate",
-            "first": "=user.birthdate",
-            "second": "=user.info.birthdate"
-          },
-          "dialog": "CompareAndVerifyDate",
-          "disabled": true
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
             "id": "R67si2",
             "comment": "Check: Birthdate"
           },

@@ -17,11 +17,19 @@
       },
       "actions": [
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "d8VJmY"
+          },
+          "activity": "${SendActivity_d8VJmY()}",
+          "disabled": true
+        },
+        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "Vydk3N"
           },
-          "condition": "=exists(@singlePackageInfo)",
+          "condition": "=exists(dialog.data.item[0].singlePackageInfo)",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
@@ -29,7 +37,7 @@
                 "id": "xxSsoA"
               },
               "property": "user.singlePackageInfo",
-              "value": "=@@singlePackageInfo"
+              "value": "=dialog.data.item[0].singlePackageInfo"
             }
           ]
         },
@@ -38,7 +46,7 @@
           "$designer": {
             "id": "rcRsYS"
           },
-          "condition": "=exists(@extraFullPackage )",
+          "condition": "=exists(dialog.data.item[0].namedPackage )",
           "actions": [
             {
               "$kind": "Microsoft.SetProperty",
@@ -46,7 +54,7 @@
                 "id": "K26jLu"
               },
               "property": "user.extraFullPackage ",
-              "value": "=@extraFullPackage "
+              "value": "=dialog.data.item[0].namedPackage[0][0]"
             }
           ]
         }

@@ -1,1 +1,9 @@
 [import](common.lg)
+
+# SendActivity_6rEYTT()
+[Activity
+    Text = ${SendActivity_6rEYTT_text()}
+]
+
+# SendActivity_6rEYTT_text()
+- scnfdd wrong

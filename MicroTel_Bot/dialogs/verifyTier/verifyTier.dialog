@@ -90,7 +90,8 @@
           "$designer": {
             "id": "ex3yrd"
           },
-          "activity": "${SendActivity_ex3yrd()}"
+          "activity": "${SendActivity_ex3yrd()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.IfCondition",

@@ -24,7 +24,7 @@
           "activityProcessed": true,
           "dialog": "ExtractPhoneNumber",
           "options": {
-            "data": "=@updateTierInfo"
+            "data": "=@userInfo"
           }
         },
         {
@@ -35,7 +35,7 @@
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
           "options": {
-            "data": "=@updateTierInfo"
+            "data": "=@userInfo"
           }
         },
         {
@@ -44,7 +44,10 @@
             "id": "OXqQLC"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPackeges"
+          "dialog": "ExtractPackeges",
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.SendActivity",

@@ -77,7 +77,7 @@ public class VerifyPackage : Dialog
                 List<ExtraPackageDetail> selectedPackages = getPackages(Convert.ToInt32(package_Details.Minutes), Convert.ToInt32(package_Details.Messages), Convert.ToInt32(package_Details.Megabytes), ref found, ref map, microteldb);
                 if (!found)
                 {
-                    string packages = "There is only these packages" + Environment.NewLine;
+                    string packages = "There are only these packages" + Environment.NewLine;
                     if (package_Details.Minutes > 0)
                     {
                         packages += "packages that gives you ";

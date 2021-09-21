@@ -33,7 +33,7 @@
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "prompt": "${ChoiceInput_Prompt_wTXORJ()}",
               "unrecognizedPrompt": "",
               "invalidPrompt": "",

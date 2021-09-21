@@ -77,7 +77,8 @@
               "$designer": {
                 "id": "T3viSC"
               },
-              "activity": "${SendActivity_T3viSC()}"
+              "activity": "${SendActivity_T3viSC()}",
+              "disabled": true
             },
             {
               "$kind": "Microsoft.IfCondition",

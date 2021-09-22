@@ -28,14 +28,6 @@
           }
         },
         {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "IGyKi0"
-          },
-          "activityProcessed": true,
-          "dialog": "verifyAction"
-        },
-        {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "WYA2sl"
@@ -200,6 +192,31 @@
           "options": {
             "data": "=@userInfo"
           }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "HiVOzZ"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "yJPsc1"
+              },
+              "activityProcessed": true,
+              "dialog": "verifyAction"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "euC3V2"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "condition": "=not(exists(user.action))",
+          "elseActions": []
         },
         {
           "$kind": "Microsoft.SendActivity",

@@ -328,3 +328,5 @@
 > # Pattern.Any entities
 
 @ patternany songName
+
+> !# @app.settings.UseAllTrainingData = true

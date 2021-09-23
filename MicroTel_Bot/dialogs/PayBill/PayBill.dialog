@@ -104,7 +104,8 @@
                   "$designer": {
                     "id": "0gnA2B"
                   },
-                  "activity": "${SendActivity_0gnA2B()}"
+                  "activity": "${SendActivity_0gnA2B()}",
+                  "disabled": true
                 },
                 {
                   "$kind": "Microsoft.SendActivity",

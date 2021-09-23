@@ -131,19 +131,8 @@ namespace DatabaseCustomActions
             TierDetail tierDetail = microteldb.TierDetails.Where(x => x.Name == tierName).SingleOrDefault();
             TierDetail _Details;
             if (tierDetail == null) _Details = null;
-            else
-            {
-                TierDetail tier = (TierDetail)(tierDetail);
-                _Details = new TierDetail
-                {
-                    Id = tier.Id,
-                    Name = tier.Name,
-                    Minutes = tier.Minutes,
-                    Messages = tier.Messages,
-                    Megabytes = tier.Megabytes,
-                    Price = tier.Price
-                };
-            }
+            else _Details = tierDetail;
+
             return _Details;
         }
         public static bool get_package_details(ref ExtraPackageDetail package_Details, microteldbContext microteldb)

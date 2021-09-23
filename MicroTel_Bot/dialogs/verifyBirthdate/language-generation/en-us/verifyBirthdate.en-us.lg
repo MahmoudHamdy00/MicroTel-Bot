@@ -1,7 +1,7 @@
 [import](common.lg)
 
 # TextInput_Prompt_TQQnRc_text()
-- What is your birthdate? (format: dd/mm/year)  
+- What is your birthdate? (format: mm/dd/year)
 # TextInput_Prompt_TQQnRc()
 [Activity
     Text = ${TextInput_Prompt_TQQnRc_text()}

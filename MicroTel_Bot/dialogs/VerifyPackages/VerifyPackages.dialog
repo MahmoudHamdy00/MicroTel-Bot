@@ -62,78 +62,42 @@
                   "value": "Premium Plus Package"
                 },
                 {
-                  "value": "Megabytes 1",
+                  "value": "Megabytes 1 Plus",
                   "synonyms": [
                     "mega byte,mega,MB,mega-byte,megabytes,giga byte,giga-byte,giga,GB,gigabytes"
                   ]
                 },
                 {
-                  "value": "Megabytes 5"
+                  "value": "Megabytes 5 Plus"
                 },
                 {
-                  "value": "Megabytes 10"
+                  "value": "Megabytes 10 Plus"
                 },
                 {
-                  "value": "Minutes 5",
+                  "value": "Minutes 5 Plus",
                   "synonyms": [
                     "min,mins,minute"
                   ]
                 },
                 {
-                  "value": "Minutes 15"
+                  "value": "Minutes 15 Plus"
                 },
                 {
-                  "value": "Minutes 25"
+                  "value": "Minutes 25 Plus"
                 },
                 {
-                  "value": "Text Messages 1",
+                  "value": "Text Messages 1 Plus",
                   "synonyms": [
                     "sms,text messages,message"
                   ]
                 },
                 {
-                  "value": "Text Messages 5"
+                  "value": "Text Messages 5 Plus"
                 },
                 {
-                  "value": "Text Messages 10"
+                  "value": "Text Messages 10 Plus"
                 }
               ]
-            },
-            {
-              "$kind": "Microsoft.IfCondition",
-              "$designer": {
-                "id": "zWhLWt"
-              },
-              "actions": [
-                {
-                  "$kind": "Microsoft.SetProperty",
-                  "$designer": {
-                    "id": "M2KPbK"
-                  },
-                  "property": "user.extendPackage",
-                  "value": "=@@singlePackageInfo"
-                }
-              ],
-              "elseActions": [],
-              "condition": "=exists(@@singlePackageInfo)"
-            },
-            {
-              "$kind": "Microsoft.IfCondition",
-              "$designer": {
-                "id": "xxQWq4"
-              },
-              "actions": [
-                {
-                  "$kind": "Microsoft.SetProperty",
-                  "$designer": {
-                    "id": "EhkXkL"
-                  },
-                  "property": "user.extendPackage",
-                  "value": "=@extraFullPackage "
-                }
-              ],
-              "elseActions": [],
-              "condition": "=exists(@extraFullPackage )"
             }
           ],
           "actions": [

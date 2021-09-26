@@ -15,7 +15,7 @@ tier is ${user.line.tier}
 natId is ${user.nationalID}```
 
 # SendActivity_bP80xF_text()
-- Welcome ${user.fname} to Microtel. You line number is ${user.line.number}.
+- Welcome ${user.fname} to Contoso-Tel. You line number is ${user.line.number}.
 # SendActivity_bP80xF()
 [Activity
     Text = ${SendActivity_bP80xF_text()}

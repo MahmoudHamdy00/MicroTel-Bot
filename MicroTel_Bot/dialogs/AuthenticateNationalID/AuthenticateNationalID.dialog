@@ -73,6 +73,15 @@
               "resultProperty": "dialog.nationalIDExists"
             },
             {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "T3viSC"
+              },
+              "activity": "${SendActivity_T3viSC()}",
+              "disabled": true
+            },
+            {
+
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "bUgKIH"

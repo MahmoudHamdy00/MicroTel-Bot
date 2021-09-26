@@ -85,7 +85,7 @@
           "options": {
             "name": "VerifyName",
             "first": "=user.fname",
-            "second": "=user.info.firstName",
+            "second": "=user.info.FName",
             "message": "First Name",
             "data": "string"
           },
@@ -102,27 +102,12 @@
           "options": {
             "name": "VerifyLastName",
             "first": "=user.lname",
-            "second": "=user.info.lastName",
+            "second": "=user.info.LName",
             "message": "Last Name",
             "data": "string"
           },
           "dialog": "CompareAndVerify",
           "resultProperty": "user.lname"
-        },
-        {
-          "$kind": "Microsoft.BeginDialog",
-          "$designer": {
-            "id": "aFZEjN",
-            "comment": "Check: Birthdate"
-          },
-          "activityProcessed": true,
-          "options": {
-            "name": "VerifyBirthdate",
-            "first": "=user.birthdate",
-            "second": "=user.info.birthdate"
-          },
-          "dialog": "CompareAndVerifyDate",
-          "disabled": true
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -134,7 +119,7 @@
           "options": {
             "name": "VerifyBirthdate",
             "first": "=user.birthdate",
-            "second": "=user.info.birthdate",
+            "second": "=user.info.BirthDate",
             "message": "Birthdate"
           },
           "dialog": "CompareAndVerify",
@@ -154,7 +139,7 @@
             "id": "c0rbOK"
           },
           "property": "user.line.number",
-          "value": "=user.info.phoneNumber"
+          "value": "=user.info.PhoneNumber"
         },
         {
           "$kind": "Microsoft.SendActivity",

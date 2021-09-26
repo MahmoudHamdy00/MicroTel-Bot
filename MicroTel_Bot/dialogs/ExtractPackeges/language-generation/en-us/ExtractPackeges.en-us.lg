@@ -1,1 +1,14 @@
 [import](common.lg)
+
+# SendActivity_d8VJmY()
+[Activity
+    Text = ${SendActivity_d8VJmY_text()}
+]
+
+# SendActivity_d8VJmY_text()
+- ```pack iis 
+${dialog.data.item}
+//
+${dialog.data.item[0].singlePackageInfo}
+//
+${dialog.data.item[0].namedPackage}```

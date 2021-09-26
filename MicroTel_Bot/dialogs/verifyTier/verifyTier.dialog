@@ -82,21 +82,30 @@
             "id": "MCT420"
           },
           "natid": "=user.nationalID",
-          "resultProperty": "dialog.userInfoObject"
+          "resultProperty": "dialog.userInfoObject",
+          "tierName": "dialog.userInfoObject.currentTierName"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "ex3yrd"
+          },
+          "activity": "${SendActivity_ex3yrd()}",
+          "disabled": true
         },
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
             "id": "BIEmnK"
           },
-          "condition": "=exists(dialog.userInfoObject.tierName)",
+          "condition": "=exists(dialog.userInfoObject.currentTierName)",
           "actions": [
             {
               "$kind": "Microsoft.IfCondition",
               "$designer": {
                 "id": "1POn1b"
               },
-              "condition": "=dialog.userInfoObject.tierName == dialog.tier",
+              "condition": "=dialog.userInfoObject.currentTierName == dialog.tier",
               "elseActions": [],
               "actions": [
                 {

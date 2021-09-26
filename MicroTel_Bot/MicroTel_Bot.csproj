@@ -17,6 +17,10 @@
     <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive.Runtime" Version="4.14.1" />
     <PackageReference Include="Microsoft.Bot.Components.HelpAndCancel" Version="1.1.2" />
     <PackageReference Include="Microsoft.Bot.Components.Welcome" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseCustomActions\DatabaseCustomActions.csproj" />

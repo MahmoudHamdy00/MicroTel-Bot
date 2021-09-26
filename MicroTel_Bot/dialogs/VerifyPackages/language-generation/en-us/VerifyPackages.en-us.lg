@@ -54,15 +54,15 @@ ${user.extendPackages}```
 ]
 
 # SendActivity_kL3IlI_text()
-- ```Here is the available packages
-1. Plus Package ( 2000 minutes,2 gigabytes , 200 messages)
-2. Premium Plus Package ( 3000 minutes,5 gigabytes , 300 messages)
-3. Minutes 5 (1000 minutes)
-4. Minutes 15 (3000 minutes)
-5. Minutes 25 (5000 minutes)
-6. Megabytes 1 (1 gigabytes)
-7. Megabytes 5 (5 gigabytes)
-8. Megabytes 10 (10 gigabytes)
-9. Text Messages 1 (100 messages)
-10. Text Messages 5 (500 messages)
-11. Text Messages 10 (1000 messages)```
+- ```Here are the available packages
+1. Plus Package ( 2000 minutes,2 gigabytes , 200 messages, 5$ per month)
+2. Premium Plus Package ( 3000 minutes,5 gigabytes , 300 messages, 15$ per month)
+3. Minutes 5 Plus (1000 minutes, 5$ per month)
+4. Minutes 15 Plus (3000 minutes, 15$ per month)
+5. Minutes 25 Plus (5000 minutes, 25$ per month)
+6. Megabytes 1 Plus (1 gigabytes, 1$ per month)
+7. Megabytes 5 Plus (5 gigabytes, 5$ per month)
+8. Megabytes 10 Plus (10 gigabytes, 10$ per month)
+9. Text Messages 1 Plus (100 messages, 1$ per month)
+10. Text Messages 5 Plus (500 messages, 5$ per month)
+11. Text Messages 10 Plus (1000 messages, 10$ per month)```

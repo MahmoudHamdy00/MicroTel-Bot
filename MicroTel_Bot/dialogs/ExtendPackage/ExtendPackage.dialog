@@ -22,7 +22,10 @@
             "id": "YslHhB"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPhoneNumber"
+          "dialog": "ExtractPhoneNumber",
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -30,7 +33,10 @@
             "id": "TJmE47"
           },
           "activityProcessed": true,
-          "dialog": "ExtractNationalID"
+          "dialog": "ExtractNationalID",
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",
@@ -38,7 +44,10 @@
             "id": "OXqQLC"
           },
           "activityProcessed": true,
-          "dialog": "ExtractPackeges"
+          "dialog": "ExtractPackeges",
+          "options": {
+            "data": "=@userInfo"
+          }
         },
         {
           "$kind": "Microsoft.SendActivity",

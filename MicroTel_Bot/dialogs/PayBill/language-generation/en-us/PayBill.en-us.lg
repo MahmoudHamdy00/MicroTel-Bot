@@ -21,3 +21,10 @@
 
 # SendActivity_0gnA2B_text()
 - Alright, your total bill amount for the current month costs ${dialog.billInfo.amount} USD. Based on your previous payments, you are required to pay ${dialog.billInfo.remainingAmount} USD.
+# SendActivity_wddqCW()
+[Activity
+    Text = ${SendActivity_wddqCW_text()}
+]
+
+# SendActivity_wddqCW_text()
+- ${dialog.billDetails}

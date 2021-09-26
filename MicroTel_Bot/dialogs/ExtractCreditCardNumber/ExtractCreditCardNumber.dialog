@@ -31,6 +31,25 @@
               "property": "user.creditCard",
               "value": "=@creditCardNumber"
             }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "AR5bdQ"
+              },
+              "condition": "=exists(dialog.data.creditCardNumber)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "gODTuk"
+                  },
+                  "property": "user.creditCard",
+                  "value": "=dialog.data.creditCardNumber[0]"
+                }
+              ]
+            }
           ]
         }
       ]

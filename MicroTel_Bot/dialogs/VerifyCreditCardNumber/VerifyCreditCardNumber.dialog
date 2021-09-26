@@ -32,7 +32,7 @@
               },
               "disabled": false,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": "=not(exists(@creditCardNumber))",
               "prompt": "${TextInput_Prompt_ALtfTo()}",
               "invalidPrompt": "${TextInput_InvalidPrompt_ALtfTo()}",
               "validations": [

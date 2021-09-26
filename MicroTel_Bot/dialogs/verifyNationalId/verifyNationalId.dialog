@@ -32,7 +32,7 @@
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": "=not(exists(@nationalID))",
               "prompt": "${TextInput_Prompt_Xb39A8()}",
               "invalidPrompt": "${TextInput_InvalidPrompt_Xb39A8()}",
               "validations": [

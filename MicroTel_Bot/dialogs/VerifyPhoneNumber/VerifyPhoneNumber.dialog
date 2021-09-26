@@ -32,7 +32,7 @@
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": "=not(exists(@phoneNumber))",
               "prompt": "${TextInput_Prompt_wJwDpv()}",
               "invalidPrompt": "${TextInput_InvalidPrompt_wJwDpv()}",
               "validations": [

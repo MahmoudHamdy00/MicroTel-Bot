@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -33,28 +34,27 @@ public class UpdateTier : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
+
 
         string newTierName = toTitle(newTier.GetValue(dc.State).ToString());
         string phoneNumber = lineNumber.GetValue(dc.State).ToString();
 
 
-        SqlConnection conn = new SqlConnection(connectionString);
         try
         {
-            conn.Open();
+            microteldbContext microteldb = new microteldbContext();
+
             // Get details of the given tier
-            tier_details tierDetails = get_tier_details(newTierName, conn);
+            TierDetail tierDetails = get_tier_details(newTierName, microteldb);
             Console.WriteLine("Got tier details " + tierDetails);
             // Update tier for the given phone number
-            bool result = update_tier(tierDetails.id, phoneNumber, conn);
+            bool result = update_tier(tierDetails.Id, phoneNumber, microteldb);
 
             if (this.ResultProperty != null)
             {
                 dc.State.SetValue(this.ResultProperty.GetValue(dc.State).ToString(), result);
             }
+            microteldb.SaveChanges();
         }
         catch (Exception ex)
         {
@@ -65,7 +65,6 @@ public class UpdateTier : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(cancellationToken: cancellationToken);
     }

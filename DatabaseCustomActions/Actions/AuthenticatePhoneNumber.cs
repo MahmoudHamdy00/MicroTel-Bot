@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -35,21 +36,17 @@ public class AuthenticatePhoneNumber : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
 
-        user_details user_info = new user_details();
-        user_info.phoneNumber = phoneNumber.GetValue(dc.State).ToString();
+        User user_info = new User();
+        user_info.PhoneNumber = phoneNumber.GetValue(dc.State).ToString();
 
-        SqlConnection conn = new SqlConnection(connectionString);
         bool isValidPhoneNumber = false; // Initialize with default false - phone number doesn't exist
         try
         {
-            conn.Open();
+            microteldbContext microteldb = new microteldbContext();
             string nationalID = "";
-            isValidPhoneNumber = phoneNumber_checker(user_info.phoneNumber, ref nationalID, conn);
-            
+            isValidPhoneNumber = phoneNumber_checker(user_info.PhoneNumber, ref nationalID, microteldb);
+
             // if it's not vaild then it will contain the user's number
             if (this.nationalID != null)
             {
@@ -69,7 +66,6 @@ public class AuthenticatePhoneNumber : Dialog
         }
         finally
         {
-            conn.Close();
         }
         return dc.EndDialogAsync(result: isValidPhoneNumber, cancellationToken: cancellationToken);
     }

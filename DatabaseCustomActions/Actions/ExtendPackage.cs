@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AdaptiveExpressions.Properties;
 using DatabaseCustomActions;
+using DatabaseCustomActions.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using static DatabaseCustomActions.HelperFunctions;
@@ -36,19 +37,16 @@ public class ExtendPackage : Dialog
 
     public override Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object options = null, CancellationToken cancellationToken = default(CancellationToken))
     {
-        // Extract connection string from env variables 
-        EnvironmentVariables env = new EnvironmentVariables();
-        string connectionString = env.connectionString;
 
         string _phoneNumber = phoneNumber.GetValue(dc.State).ToString();
         var data = packageName.GetValue(dc.State);
 
-        SqlConnection conn = new SqlConnection(connectionString);
         bool result = false;//initialize with failed and then change it if it success
-        int _totalPrice = 0;
+        decimal _totalPrice = 0;
         try
         {
-            conn.Open();
+            microteldbContext microteldb = new microteldbContext();
+
             int all_affected_rows = 0;
             int megabytes_to_increae = 0;
             int messages_to_increae = 0;
@@ -59,39 +57,40 @@ public class ExtendPackage : Dialog
                 packageNames = (Newtonsoft.Json.Linq.JArray)data;
                 foreach (var curPackage in packageNames)
                 {
-                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["packageName"].ToString(), Convert.ToInt32(curPackage["price"]), conn);
+                    int affected_rows = insert_extendPackage(_phoneNumber, curPackage["Name"].ToString(), Convert.ToInt32(curPackage["Price"]), microteldb);
                     all_affected_rows += affected_rows;
-                    _totalPrice += Convert.ToInt32(curPackage["price"]) * Convert.ToInt32(curPackage["times"]);
-                    megabytes_to_increae += Convert.ToInt32(curPackage["megabytes"]);
-                    messages_to_increae += Convert.ToInt32(curPackage["messages"]);
-                    minutes_to_increae += Convert.ToInt32(curPackage["minutes"]);
+                    _totalPrice += Convert.ToInt32(curPackage["Price"]) ;
+                    megabytes_to_increae += Convert.ToInt32(curPackage["Megabytes"]);
+                    messages_to_increae += Convert.ToInt32(curPackage["Messages"]);
+                    minutes_to_increae += Convert.ToInt32(curPackage["Minutes"]);
                 }
             }
             else
             {
-                package_details package_Details = new package_details();
-                package_Details.packageName = data.ToString();
-                bool is_ok = get_package_details(ref package_Details, conn);
+                ExtraPackageDetail package_Details = new ExtraPackageDetail();
+                package_Details.Name = data.ToString();
+                bool is_ok = get_package_details(ref package_Details, microteldb);
                 if (!is_ok) throw new Exception("There isn't any package with this name");
-                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.packageName, package_Details.price, conn);
-                _totalPrice = package_Details.price;
-                megabytes_to_increae = package_Details.megabytes;
-                messages_to_increae = package_Details.megabytes;
-                minutes_to_increae = package_Details.megabytes;
+                int affected_rows = insert_extendPackage(_phoneNumber, package_Details.Name, Convert.ToDecimal(package_Details.Price), microteldb);
+                _totalPrice = Convert.ToDecimal( package_Details.Price);
+                megabytes_to_increae =Convert.ToInt32( package_Details.Megabytes);
+                messages_to_increae = Convert.ToInt32(package_Details.Messages);
+                minutes_to_increae = Convert.ToInt32(package_Details.Minutes);
             }
             // Get user bill details for the current month 
-            bill_details bill_info = get_latest_bill_details(_phoneNumber, conn);
+            bill_details bill_info = get_latest_bill_details(_phoneNumber, microteldb);
             if (!bill_info.exists) throw new Exception("There is no bill record for this user");
             // Calculate bill's total amount 
-            double total_amount = bill_info.amount + _totalPrice;
+            decimal total_amount = bill_info.amount + _totalPrice;
             //  if (all_affected_rows != _times) throw new Exception("Someting went wrong");
-            if (!update_bill_amount(bill_info.id, total_amount, conn)) throw new Exception("Error with update bill amount method");
+            if (!update_bill_amount(bill_info.id, total_amount, microteldb)) throw new Exception("Error with update bill amount method");
             if (bill_info.isPaid == 2)
             {
-                if (!update_bill_state(bill_info.id, 1, conn)) throw new Exception("Error with update bill state method");
+                if (!update_bill_state(bill_info.id, 1, microteldb)) throw new Exception("Error with update bill state method");
             }
-            if (!update_quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, conn)) throw new Exception("Error with Update_Bill method");
+            if (!update_quota(_phoneNumber, minutes_to_increae, messages_to_increae, megabytes_to_increae, microteldb)) throw new Exception("Error with Update_Bill method");
             result = true;
+            microteldb.SaveChanges();
         }
         catch (Exception ex)
         {
@@ -103,7 +102,6 @@ public class ExtendPackage : Dialog
         }
         finally
         {
-            conn.Close();
         }
         if (this.ResultProperty != null)
         {

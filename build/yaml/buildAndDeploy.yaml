@@ -13,6 +13,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+    connectionString: 'Server=tcp:microtel.database.windows.net,1433;Initial Catalog=microtel-db;Persist Security Info=False;User ID=ahmed;Password=123456#Mahmoud;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+
 # These parameters map Azure DevOps pipeline variables to paramaters 
 # that are used in # the different pipeline tasks.
 parameters:
@@ -116,12 +119,8 @@ parameters:
   type: string
   default: "westus"
 
-- name: connectionString
-  displayName: Connection String 
-  type: string
-  default: $(connectionString)
-
 steps:
+- bash: echo '$(connectionString)'
 # Install prerequisites
 - template: templates/installPrerequisites.yaml
 
@@ -151,4 +150,3 @@ steps:
     qnaHostName: "${{ parameters.qnaHostName }}"
     qnaKnowledgebaseId: "${{ parameters.qnaKnowledgebaseId }}"
     qnaRegion: "${{ parameters.qnaRegion }}"
-    

@@ -711,6 +711,11 @@
           "title": "Phone Number",
           "description": "Phone Number for the user"
         },
+        "billDetails": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Bill Details",
+          "description": "Returned string with the details."
+        },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",
           "title": "Result",
@@ -750,6 +755,11 @@
           "$ref": "#/definitions/valueExpression",
           "title": "National ID",
           "description": "The National ID of the user."
+        },
+        "tierName": {
+          "$ref": "#/definitions/valueExpression",
+          "title": "Tier Name",
+          "description": "The name of the subscribed tier"
         },
         "resultProperty": {
           "$ref": "#/definitions/valueExpression",

@@ -51,6 +51,96 @@
           ]
         },
         {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "Y9xD2y"
+          },
+          "cases": [
+            {
+              "value": "change_tier",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "omSa02"
+                  },
+                  "activity": "${SendActivity_omSa02()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "K97GEM"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "UpdateTier"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "5X5DOH"
+                  }
+                }
+              ]
+            },
+            {
+              "value": "extend_package",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "qplG3V"
+                  },
+                  "activity": "${SendActivity_qplG3V()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "cVbFt2"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "ExtendPackage"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "Bsklij"
+                  }
+                }
+              ]
+            },
+            {
+              "value": "pay_bill",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "K74zBw"
+                  },
+                  "activity": "${SendActivity_K74zBw()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "6D84xc"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "PayBill"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "a7iAmM"
+                  }
+                }
+              ]
+            }
+          ],
+          "condition": "user.action"
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "ULDKdU"
@@ -102,6 +192,31 @@
           "options": {
             "data": "=@userInfo"
           }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "HiVOzZ"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "yJPsc1"
+              },
+              "activityProcessed": true,
+              "dialog": "verifyAction"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "euC3V2"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "condition": "=not(exists(user.action))",
+          "elseActions": []
         },
         {
           "$kind": "Microsoft.SendActivity",

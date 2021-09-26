@@ -49,7 +49,7 @@
               "disabled": false,
               "maxTurnCount": 50,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": "=not(exists(@number))",
               "unrecognizedPrompt": "",
               "validations": [
                 "=exists(@number)"

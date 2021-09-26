@@ -1,27 +1,98 @@
-# Welcome to Microtel-Bot
+![project_img](./docsImages/logo.jpg)
 
-This project was created using the Core Bot with Azure Language Understanding template, and contains support for a base set of conversational flows.
+# Contoso-Bot
+**version 1.0.0**
 
-## Next steps
+### Overview
 
-### Start building your bot
+Contoso-Bot is an enterprise-grade Customer Support sample solution directed towards the Telecommunications industry. The bot is built with LUIS, Bot Framework (Composer), and Azure SQL Server. 
 
-Composer can help guide you through getting started building your bot. From your bot settings page (the wrench icon on the left navigation rail), click on the rocket-ship icon on the top right for some quick navigation links.
+Customers may use Contoso-Bot to sign up for new phone lines, inquire about their current quota, or bill, manage their phone line options, learn about company policies and promotions, and cancel their subscription at any time.  
 
-Another great resource if you're just getting started is the **[guided tutorial](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-introduction)** in our documentation.
 
-### Connect with your users
+### Built With
 
-Your bot comes pre-configured to connect to our Web Chat and DirectLine channels, but there are many more places you can connect your bot to - including Microsoft Teams, Telephony, DirectLine Speech, Slack, Facebook, Outlook and more. Check out all of the places you can connect to on the bot settings page.
+- [.NET Framework](https://docs.microsoft.com/en-us/dotnet/)
+- [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction?tabs=v2x) 
+- [Luis.ai](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/)  
+- [QnA Maker](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/#overview)
+- [Azure SQL DB](https://azure.microsoft.com/en-us/products/azure-sql/database/)
 
-### Publish your bot to Azure from Composer
 
-Composer can help you provision the Azure resources necessary for your bot, and publish your bot to them. To get started, create a publishing profile from your bot settings page in Composer (the wrench icon on the left navigation rail). Make sure you only provision the optional Azure resources you need!
+### Getting Started
+ 
+#### Prerequisites
+1. Install [Node.js](https://nodejs.org/en/) LTS 14.x with npm.
+2. Install [.NET Core](https://dotnet.microsoft.com/download/dotnet/3.1) SDK 3.1 or later.
+3. Install [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/install-composer?tabs=windows) 
+4. Install [Bot Framework Emulator](https://github.com/microsoft/BotFramework-Emulator/releases) 
+5. Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
+6. Create an [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
+7. Create [Luis.ai Resource](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/sign-in-luis-portal). 
 
-### Extend your bot with packages
+#### Installation 
+1. Clone Contoso-Bot repository to your local machine 
+```
+git clone https://github.com/ahmedmeshref/Contoso-Bot.git
+```
+> Note: Please make sure to clone your repostory in a folder with a short path.  
 
-From Package Manager in Composer you can find useful packages to help add additional pre-built functionality you can add to your bot - everything from simple dialogs & custom actions for working with specific scenarios to custom adapters for connecting your bot to users on clients like Facebook or Slack.
+1. Run microtel-db SQL script in your Azure SQL Database.
+   1. From your Azure SQL DB console, navigate to <b>Query Editor</b> and log in with your username and password. 
+   ![Azure Login](./docsImages/azureLogin.png)
+   2. From the top menu, select <b>open query</b> and then <b>select SQL files</b>.
+   3. Navigate to your cloned project and select <b>microte_db.sql</b>. Then, click <b>OK</b> button. 
+    ![Upload Script](./docsImages/uploadScript.png)
+   4. Run the loaded script.
+    > Note: You should run the script for one time only. Otherwise, you will get an error. 
+    ![Run Script](./docsImages/runScript.png)
+    
+4. Add the connection string of your Azure SQL Database to your operating system's environment variables.
+   1. From your browser, navigate to you Azure SQL Database and fetch your [Azure SQL Database connection string](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-content-reference-guide#get-adonet-connection-information-optional---sql-database-only). 
+   2. Update your fetched connection string with your username and password. 
+   3. [Setup an environment variable](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html) with the key 'connectionString' and value of your fetched connection string. 
+     ![connection string img](./docsImages/connectionString.png)
 
-### Extend your bot with code
+5. From your Azure SQL firewall rules, [Add your device IP address to the list of authorized IP addresses](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure). 
 
-You can also extend your bot with code - simply open up the folder that was generated for you in the location you chose during the creation process with your favorite IDE (like Visual Studio). You can do things like create custom actions that can be used during dialog flows, create custom middleware to pre-process (or post-process) messages, and more. See [our documentation](https://aka.ms/bf-extend-with-code) for more information.
+6. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 
+    ![composer](./docsImages/composer.png)
+
+7. Fetch your Luis application Subscription Key and Region.
+   1. From your browser, navigate to [luis.ai](https://luis.ai/).
+   2. Select any app from the My apps list. If you dont have any, please create an empty Luis application. 
+   3. From your app, navigate to Manage > Azure Resources.  
+   4. From Azure Resources page, select Authoring Resources. 
+   5. Copy Location (Region) and Primary Key (Subscription Key).
+   ![Luis Resouces](./docsImages/luisResources.png)
+
+
+8. Add your previously fetched [Luis Subscription Key to Bot Framework Composer and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
+    ![luis key](./docsImages/luisKey.png)
+
+9.  Run solution from Bot Framework composer.
+    ![run composer](./docsImages/runComposer.png) 
+    > Note: If you get the following error ```Cannot open server ‘myserverluis’ requested by the login. Client with IP address ‘167.220.197.236’ is not allowed to access the server. To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range. It may take up to five minutes for this change to take effect.```, move the project directory to a shorter path.  
+
+10. Test application in Bot Emulator when the run process in done.
+    ![test bot](./docsImages/testApp.png)
+    - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
+
+
+### Usage
+
+> LINK to User Manual
+
+### Public to Azure  
+
+> While we use Microsoft Azure to host Contoso-Bot solution, you can use any cloud provider of choice.    
+
+#### Deployment
+
+Kindly follow [this guide](https://docs.microsoft.com/en-us/composer/how-to-publish-bot?tabs=v2x) to deploy your bot to Azure from Bot Framework Composer.
+
+#### Build CI/CD Pipeline
+
+CI/CD helps you to easily and quickly deploy new versions of your bot. Follow [this guide](https://docs.microsoft.com/en-us/composer/how-to-cicd) to build a CI/CD pipeline for Contoso-Bot.
+
+> Note: The YAML files required for building an azure CI/CD pipeline can be found in Contoso-Bot's main directory [here](https://github.com/ahmedmeshref/Contoso-Bot/blob/main/build/yaml).   

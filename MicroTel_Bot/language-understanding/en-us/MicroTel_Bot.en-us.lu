@@ -50,7 +50,7 @@
 - i want to {@userInfo={@action=sign up}}
 - i want to {@userInfo={@action=signup} a new vip line}
 - i would like to {@userInfo={@action=get} a standard line asap}
-- i’d like to {@userInfo={@action=get} a new line. my name’s {@name={@fName=hazem} {@lName=el-hammamy}}, born on {@birthDate=jan 1st, 1995} and i live in {@address={@streetNumber=1} {@streetName=zamalek road}, {@city=cairo}, {@country=egyp}}}
+- i’d like to {@userInfo={@action=get} a new line. my name’s {@name={@fName=hazem} {@lName=el-hammamy}}, born on {@birthDate=jan 1st, 1995} and i live in {@address={@streetNumber=1} {@streetName=zamalek road}, {@city=cairo}, {@country=egypt}}}
 - i’d like to {@userInfo={@action=sign up} for a new standard line}.
 - my {@userInfo=name is {@name={@fName=hussein} {@lName=ibrahim}} ,i was born on {@birthDate=9/1/2000} and my national id is {@nationalID=12345} ,can i {@action=retrieve}} my number
 - my {@userInfo=name is {@name={@fName=mahmoud} {@lName=hamdy}} ,i {@action=forget} my phone number}

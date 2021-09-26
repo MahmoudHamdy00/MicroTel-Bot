@@ -15,11 +15,3 @@
 [Activity
     Text = ${SendActivity_MAuHK9_text()}
 ]
-
-# SendActivity_T3viSC()
-[Activity
-    Text = ${SendActivity_T3viSC_text()}
-]
-
-# SendActivity_T3viSC_text()
-- - ${dialog.nationalIDExists}

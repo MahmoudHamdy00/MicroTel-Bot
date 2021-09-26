@@ -147,6 +147,13 @@
           },
           "activityProcessed": true,
           "dialog": "UserAction"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "D7PBha"
+          },
+          "activity": "${SendActivity_D7PBha()}"
         }
       ],
       "entities": []

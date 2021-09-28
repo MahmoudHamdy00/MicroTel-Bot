@@ -41,7 +41,7 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
    1. Add the connection string of your Azure SQL Database to your operating system's environment variables.
       1. From your browser, navigate to you Azure SQL Database and fetch your [Azure SQL Database connection string](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-content-reference-guide#get-adonet-connection-information-optional---sql-database-only). 
       2. Update your fetched connection string with your username and password. 
-      3. [Setup an environment variable](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html) with the variable name 'ContosoTel-connectionString' and variable value of your fetched connection string.   
+      3. [Setup an environment variable](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html) with the variable name `ContosoTel-connectionString` and variable value of your fetched connection string.   
      ![connection string img](./docsImages/connectionString.png)
 
    2. From your Azure SQL firewall rules, [Add your device IP address to the list of authorized IP addresses](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure). 
@@ -76,7 +76,7 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
 
 7. Test application in Bot Emulator when the run process in done.
     ![test bot](./docsImages/testApp.png)
-    - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
+    - Clicking on `Test in Emulator` button will open the bot in Emulator for testing.  
 
 
 ### Usage

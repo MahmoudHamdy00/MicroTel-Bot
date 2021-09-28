@@ -1,4 +1,5 @@
-![project_img](./docsImages/ContosoTel-Bot.jpg)
+<img src="./docsImages/ContosoTel-Bot.jpg" alt="project_img" width="100%">
+
 
 # Contoso-Bot
 **version 1.0.0**

@@ -1,4 +1,4 @@
-![project_img](./docsImages/logo.jpg)
+![project_img](./docsImages/ContosoTel-Bot.jpg)
 
 # Contoso-Bot
 **version 1.0.0**
@@ -37,28 +37,27 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
 ```
 > Note: Please make sure to clone your repostory in a folder with a short path.  
 
-1. Run microtel-db SQL script in your Azure SQL Database.
-   1. From your Azure SQL DB console, navigate to <b>Query Editor</b> and log in with your username and password. 
-   ![Azure Login](./docsImages/azureLogin.png)
-   2. From the top menu, select <b>open query</b> and then <b>select SQL files</b>.
-   3. Navigate to your cloned project and select <b>microte_db.sql</b>. Then, click <b>OK</b> button. 
-    ![Upload Script](./docsImages/uploadScript.png)
-   4. Run the loaded script.
-    > Note: You should run the script for one time only. Otherwise, you will get an error. 
-    ![Run Script](./docsImages/runScript.png)
-    
-4. Add the connection string of your Azure SQL Database to your operating system's environment variables.
+2. Add the connection string of your Azure SQL Database to your operating system's environment variables.
    1. From your browser, navigate to you Azure SQL Database and fetch your [Azure SQL Database connection string](https://docs.microsoft.com/en-us/azure/azure-sql/database/connect-query-content-reference-guide#get-adonet-connection-information-optional---sql-database-only). 
    2. Update your fetched connection string with your username and password. 
-   3. [Setup an environment variable](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html) with the key 'connectionString' and value of your fetched connection string. 
+   3. [Setup an environment variable](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html) with the variable name 'ContosoTel-connectionString' and variable value of your fetched connection string.   
      ![connection string img](./docsImages/connectionString.png)
 
-5. From your Azure SQL firewall rules, [Add your device IP address to the list of authorized IP addresses](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure). 
+3. From your Azure SQL firewall rules, [Add your device IP address to the list of authorized IP addresses](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure). 
 
-6. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 
+4. Update database schema
+   1. Navigate to your cloned project and open the solution `MicroTel_Bot.sln`  **Please make sure to do step 2 before opening the solution.**
+   2. open the console in Visual Studio, go to the main menu and select [*Tools > NuGet Package Manager > Package Manager Console command.*](https://nuget-tutorial.net/en/tutorial/100009/package-manager-console#:~:text=To%20open%20the%20console%20in,Manager%20%3E%20Package%20Manager%20Console%20command.)
+   3. Set `DatabaseCustomActions` as the default project.
+  ![Default Project img](./docsImages/defaultProject.png)
+   4. run this command `EntityFrameworkCore\Add-Migration initialCreate`.
+   5. then run this command `EntityFrameworkCore\Update-Database` to update the schema of your database.
+   
+
+5. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 
     ![composer](./docsImages/composer.png)
 
-7. Fetch your Luis application Subscription Key and Region.
+6. Fetch your Luis application Subscription Key and Region.
    1. From your browser, navigate to [luis.ai](https://luis.ai/).
    2. Select any app from the My apps list. If you dont have any, please create an empty Luis application. 
    3. From your app, navigate to Manage > Azure Resources.  
@@ -67,14 +66,14 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
    ![Luis Resouces](./docsImages/luisResources.png)
 
 
-8. Add your previously fetched [Luis Subscription Key to Bot Framework Composer and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
+7. Add your previously fetched [Luis Subscription Key to Bot Framework Composer and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
     ![luis key](./docsImages/luisKey.png)
 
-9.  Run solution from Bot Framework composer.
+8.  Run solution from Bot Framework composer.
     ![run composer](./docsImages/runComposer.png) 
     > Note: If you get the following error ```Cannot open server ‘myserverluis’ requested by the login. Client with IP address ‘167.220.197.236’ is not allowed to access the server. To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range. It may take up to five minutes for this change to take effect.```, move the project directory to a shorter path.  
 
-10. Test application in Bot Emulator when the run process in done.
+9. Test application in Bot Emulator when the run process in done.
     ![test bot](./docsImages/testApp.png)
     - Clicking on 'Test in Emulator' button will open the bot in Emulator for testing.  
 

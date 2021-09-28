@@ -30,6 +30,7 @@ Customers may use Contoso-Bot to sign up for new phone lines, inquire about thei
 5. Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
 6. Create an [Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
 7. Create [Luis.ai Resource](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/sign-in-luis-portal). 
+8. Create [QnA Maker resource](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v1#create-a-new-qna-maker-service). 
 
 #### Installation 
 1. Clone Contoso-Bot repository to your local machine 
@@ -58,23 +59,29 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
 3. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 
     ![composer](./docsImages/composer.png)
 
-4. Fetch your Luis application Subscription Key and Region.
+4. Fetch your [Luis application Subscription Key and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys).
    1. From your browser, navigate to [luis.ai](https://luis.ai/).
    2. Select any app from the My apps list. If you dont have any, please create an empty Luis application. 
    3. From your app, navigate to Manage > Azure Resources.  
    4. From Azure Resources page, select Authoring Resources. 
    5. Copy Location (Region) and Primary Key (Subscription Key).
    ![Luis Resouces](./docsImages/luisResources.png)
+   
+5. Fetch your QnA Maker Subscription key.
+   1. From your browser, navigate to [Microsoft Azure](https://ms.portal.azure.com).
+   2. Navigate to the QnA Maker resource that you have created. This resource will be of type: QnA maker.
+   9. Within the selected resource, go to **Resource Management -> Keys and Endpoint**.
+   10. Copy **KEY 1**.
+   ![QnA Maker Subscription key](./docsImages/QnAMakerSubscriptionkey.png)
 
+6. Add your previously fetched Luis Subscription Key ,Region and QnA Maker Resource to Bot Framework Composer.
+    ![luis key](./docsImages/KeysAndEndpoint.png)
 
-5. Add your previously fetched [Luis Subscription Key to Bot Framework Composer and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys). 
-    ![luis key](./docsImages/luisKey.png)
-
-6.  Run solution from Bot Framework composer.
+7.  Run solution from Bot Framework composer.
     ![run composer](./docsImages/runComposer.png) 
     > Note: If you get the following error ```Cannot open server ‘myserverluis’ requested by the login. Client with IP address ‘167.220.197.236’ is not allowed to access the server. To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range. It may take up to five minutes for this change to take effect.```, move the project directory to a shorter path.  
 
-7. Test application in Bot Emulator when the run process in done.
+8. Test application in Bot Emulator when the run process in done.
     ![test bot](./docsImages/testApp.png)
     - Clicking on `Test in Emulator` button will open the bot in Emulator for testing.  
 

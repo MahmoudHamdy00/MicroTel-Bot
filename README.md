@@ -1,4 +1,4 @@
-![project_img](./docsImages/logo.jpg)
+![project_img](./docsImages/ContosoTel-Bot.jpg)
 
 # Contoso-Bot
 **version 1.0.0**

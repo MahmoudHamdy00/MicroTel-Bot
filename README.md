@@ -60,11 +60,10 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
     ![composer](./docsImages/composer.png)
 
 4. Fetch your [Luis application Subscription Key and Region](https://docs.microsoft.com/en-us/composer/how-to-add-luis?tabs=v2x#update-luis-keys).
-   1. From your browser, navigate to [luis.ai](https://luis.ai/).
-   2. Select any app from the My apps list. If you dont have any, please create an empty Luis application. 
-   3. From your app, navigate to Manage > Azure Resources.  
-   4. From Azure Resources page, select Authoring Resources. 
-   5. Copy Location (Region) and Primary Key (Subscription Key).
+   1. From your browser, navigate to [Microsoft Azure](https://ms.portal.azure.com).
+   2. Navigate to the LUIS resource that you have created. This resource will be of type: Language Understanding Authoring (LUIS).
+   3. Within the selected resource, go to **Resource Management -> Keys and Endpoint**.
+   4. Copy **KEY 1**.
    ![Luis Resouces](./docsImages/luisResources.png)
    
 5. Fetch your QnA Maker Subscription key.

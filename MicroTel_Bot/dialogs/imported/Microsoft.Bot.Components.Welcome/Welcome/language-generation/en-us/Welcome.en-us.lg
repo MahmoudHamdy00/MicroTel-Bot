@@ -10,9 +10,9 @@
 How can I help?```
 - Hello ${user.fname} 😃! What do you want to do today?
 # SendActivity_fzMCJy_text()
-- Hi there 😎 My name is Micro 🤗
-- Hello i'm Micro 🤖,
-- Hi my name is Micro 😃
+- Hi there 😎 My name is Contoso 🤗
+- Hello i'm Contoso 🤖,
+- Hi my name is Contoso 😃
 # SendActivity_fzMCJy()
 [Activity
     Text = ${SendActivity_fzMCJy_text()}

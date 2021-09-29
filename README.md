@@ -54,6 +54,11 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
   ![Default Project img](./docsImages/defaultProject.png)
       4. run this command `EntityFrameworkCore\Add-Migration initialCreate`.
       5. then run this command `EntityFrameworkCore\Update-Database` to update the schema of your database.
+      6. go to your database and and run these queries to check weather the tables was created with initial data successfully or not **(it should return some records (the available tiers and extra packages))**
+      ```
+      SELECT * from extra_package_details ;
+      SELECT * FROM [tier_details];
+      ```
    
 
 3. Launch Bot Framework Composer and use it to open Contoso-Bot solution. 

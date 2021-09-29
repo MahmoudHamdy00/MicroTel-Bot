@@ -147,7 +147,9 @@
           },
           "activityProcessed": true,
           "dialog": "ExtractTier",
-          "options": {}
+          "options": {
+            "tier": "=@userInfo.item[0].line[0].tier[0][0]"
+          }
         },
         {
           "$kind": "Microsoft.BeginDialog",

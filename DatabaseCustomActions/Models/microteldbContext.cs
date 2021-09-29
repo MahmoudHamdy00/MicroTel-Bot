@@ -299,8 +299,8 @@ namespace DatabaseCustomActions.Models
                     .HasForeignKey(d => d.PhoneNumber)
                     .HasConstraintName("FK__user__phoneNumbe__6EC0713C");
             });
-
-            OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Seed();
+            //OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

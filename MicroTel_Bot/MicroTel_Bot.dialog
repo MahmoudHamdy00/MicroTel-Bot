@@ -141,12 +141,63 @@
       "intent": "UserAction",
       "actions": [
         {
-          "$kind": "Microsoft.BeginDialog",
+          "$kind": "Microsoft.DeleteProperty",
           "$designer": {
-            "id": "S84SFi"
+            "id": "6aP38z"
           },
-          "activityProcessed": true,
-          "dialog": "UserAction"
+          "property": "user.userInfoList"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "NAajqa"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "@@userInfo",
+          "actions": [
+            {
+              "$kind": "Microsoft.EditArray",
+              "$designer": {
+                "id": "Ro03uI"
+              },
+              "changeType": "push",
+              "itemsProperty": "user.userInfoList",
+              "value": "=dialog.foreach.value"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "CtLvV8"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.userInfoList",
+          "actions": [
+            {
+              "$kind": "Microsoft.DeleteProperties",
+              "$designer": {
+                "id": "dDYPS7"
+              },
+              "properties": [
+                "user.action",
+                "user.line.tier"
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "hx40ul"
+              },
+              "activityProcessed": true,
+              "dialog": "UserAction",
+              "options": {
+                "userInfo": "=dialog.foreach.value"
+              }
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SendActivity",

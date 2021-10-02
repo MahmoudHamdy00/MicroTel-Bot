@@ -24,7 +24,7 @@
           "activityProcessed": true,
           "dialog": "ExtractPhoneNumber",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -35,7 +35,7 @@
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -46,7 +46,7 @@
           "activityProcessed": true,
           "dialog": "ExtractPackeges",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {

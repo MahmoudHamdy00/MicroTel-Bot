@@ -24,7 +24,7 @@
           "activityProcessed": true,
           "dialog": "ExtractAction",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -73,7 +73,10 @@
                     "id": "K97GEM"
                   },
                   "activityProcessed": true,
-                  "dialog": "UpdateTier"
+                  "dialog": "UpdateTier",
+                  "options": {
+                    "userInfo": "=dialog.userInfo"
+                  }
                 },
                 {
                   "$kind": "Microsoft.EndDialog",
@@ -100,7 +103,10 @@
                     "id": "cVbFt2"
                   },
                   "activityProcessed": true,
-                  "dialog": "ExtendPackage"
+                  "dialog": "ExtendPackage",
+                  "options": {
+                    "userInfo": "=dialog.userInfo"
+                  }
                 },
                 {
                   "$kind": "Microsoft.EndDialog",
@@ -127,7 +133,10 @@
                     "id": "6D84xc"
                   },
                   "activityProcessed": true,
-                  "dialog": "PayBill"
+                  "dialog": "PayBill",
+                  "options": {
+                    "userInfo": "=dialog.userInfo"
+                  }
                 },
                 {
                   "$kind": "Microsoft.EndDialog",
@@ -148,7 +157,7 @@
           "activityProcessed": true,
           "dialog": "ExtractTier",
           "options": {
-            "tier": "=@userInfo.item[0].line[0].tier[0][0]"
+            "tier": "=dialog.userInfo.item[0].line[0].tier[0][0]"
           }
         },
         {
@@ -159,7 +168,7 @@
           "activityProcessed": true,
           "dialog": "ExtractName",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -169,7 +178,7 @@
           },
           "activityProcessed": true,
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           },
           "dialog": "ExtractBirthdate"
         },
@@ -181,7 +190,7 @@
           "activityProcessed": true,
           "dialog": "ExtractNationalID",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -192,7 +201,7 @@
           "activityProcessed": true,
           "dialog": "ExtractAddress",
           "options": {
-            "data": "=@userInfo"
+            "data": "=dialog.userInfo"
           }
         },
         {
@@ -214,7 +223,10 @@
               "$designer": {
                 "id": "euC3V2"
               },
-              "activityProcessed": true
+              "activityProcessed": true,
+              "options": {
+                "userInfo": "=dialog.userInfo"
+              }
             }
           ],
           "condition": "=not(exists(user.action))",

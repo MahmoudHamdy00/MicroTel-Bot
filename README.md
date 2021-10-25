@@ -92,7 +92,7 @@ git clone https://github.com/ahmedmeshref/Contoso-Bot.git
 
 ### Usage
 
-> LINK to User Manual
+> Kindly find the user manual [here](./User_Manual.pdf).
 
 ### Public to Azure  
 
